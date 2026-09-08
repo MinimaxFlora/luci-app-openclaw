@@ -312,7 +312,7 @@ msgstr "配置终端"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:53
 msgid "Active Model"
-msgstr "活跃模型"
+msgstr "当前模型"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:54
 msgid "Message Channels"
@@ -1035,7 +1035,7 @@ msgstr "网关地址："
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:49
 msgid "Active model:"
-msgstr "活跃模型："
+msgstr "当前模型："
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:53
 msgid "Checking..."
