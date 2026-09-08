@@ -1,0 +1,1367 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+
+#: htdocs/luci-static/resources/openclaw/common.js:43
+msgid "Copied"
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:46
+msgid "Copy"
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:74
+#: htdocs/luci-static/resources/openclaw/common.js:77
+msgid "Copy failed, please copy manually: "
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:157
+msgid "Unknown error, please check the logs."
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:164
+msgid "🌐 <b>Network connection failed</b> — unable to download Node.js. Make sure the router can reach the internet.<br/>&nbsp;&nbsp;💡 Fix: check DNS settings and connectivity, or point to a mirror manually: <code>NODE_MIRROR=https://npmmirror.com/mirrors/node openclaw-env setup</code>"
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:167
+msgid "💾 <b>Not enough disk space</b> — Node.js + OpenClaw need roughly 200 MB.<br/>&nbsp;&nbsp;💡 Fix: run <code>df -h</code> to check free space, then remove unneeded files or use external storage."
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:170
+msgid "🔧 <b>Unsupported CPU architecture</b> — only x86_64 and aarch64 (ARM64) are supported.<br/>&nbsp;&nbsp;💡 The device is likely 32-bit ARM or MIPS, which cannot run Node.js 22."
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:173
+msgid "📦 <b>npm failed to install OpenClaw</b> — downloading or installing the npm package failed.<br/>&nbsp;&nbsp;💡 Fix: try <code>openclaw-env setup</code> manually or check the network connection."
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:176
+msgid "🔒 <b>Permission denied</b> — file or directory permission problem.<br/>&nbsp;&nbsp;💡 Fix: run <code>openclaw-env setup</code> or retry as root."
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:179
+msgid "📂 <b>Extraction failed</b> — the Node.js package may have downloaded incompletely.<br/>&nbsp;&nbsp;💡 Fix: clear the cache and retry <code>openclaw-env setup</code>"
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:182
+msgid "⚠️ <b>Install verification failed</b> — the program was downloaded but cannot run.<br/>&nbsp;&nbsp;💡 Possibly a glibc/musl mismatch; check the C library type: <code>ldd --version 2>&1 | head -1</code>"
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:185
+msgid "⚠️ <b>Unrecognized error</b> — review the full log above for the actual cause.<br/>&nbsp;&nbsp;💡 You can also run <code>openclaw-env setup</code> manually for detailed output."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:34
+msgid "<h2>⚙️ Terminal Configuration (Config Management)</h2>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:35
+msgid "<p>Manage OpenClaw end-to-end through the interactive terminal (oc-config): AI model configuration, messaging channel setup (QQ, Telegram, Discord, ...), health checks and more.</p>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:38
+msgid "<span class=\"label\">Terminal service:</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:41
+#: htdocs/luci-static/resources/view/openclaw/console.js:52
+msgid "<span class=\"label\">Status:</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:42
+msgid "<span id=\"oc-term-status-text\">Checking...</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:43
+msgid "<a id=\"oc-term-open-btn\" class=\"btn-open\" href=\"#\" target=\"_blank\" rel=\"noopener\">↗ Open terminal in new window</a>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:49
+#: htdocs/luci-static/resources/view/openclaw/console.js:65
+msgid "<span>🔔 Pending device pairing requests detected</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:52
+msgid "<div style=\"font-size:13px;color:#555;line-height:1.5;margin-bottom:6px;\">A browser connecting to the Control UI triggered the secure pairing policy — approve it right here with one click instead of searching for the Request ID in the terminal below.</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:53
+#: htdocs/luci-static/resources/view/openclaw/console.js:69
+msgid "<div style=\"font-size:12px;color:#cf1322;background:#fff1f0;border:1px solid #ffa39e;padding:6px 10px;border-radius:4px;line-height:1.4;margin-bottom:6px;\">⚠️ <strong>Risk notice</strong>: approving a device pairing grants that browser full control over the OpenClaw gateway. Only approve on a trusted LAN, and only while it is you who is connecting.</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:57
+msgid "<button type=\"button\" id=\"oc-adv-pairing-approve-all-btn\" style=\"padding:6px 14px;background:#52c41a;color:#fff;border:none;border-radius:4px;font-weight:600;font-size:12px;cursor:pointer;\">⚡ Approve all pairings</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:58
+msgid "<button type=\"button\" id=\"oc-adv-pairing-refresh-btn\" style=\"padding:6px 10px;background:#f0f2f5;color:#333;border:1px solid #d0d7de;border-radius:4px;font-size:12px;cursor:pointer;\">🔄 Refresh</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:64
+msgid "<div class=\"oc-terminal-loading\" id=\"oc-terminal-loading\">⏳ Connecting to the config terminal...</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:136
+#: htdocs/luci-static/resources/view/openclaw/console.js:294
+msgid "Unknown IP"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:141
+#: htdocs/luci-static/resources/view/openclaw/console.js:299
+msgid " | <strong>Client:</strong> "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:142
+msgid "\" style=\"font-size:12px;padding:3px 10px;background:#f6ffed;border:1px solid #b7eb8f;color:#389e0d;border-radius:4px;cursor:pointer;\">Approve pairing</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:167
+#: htdocs/luci-static/resources/view/openclaw/console.js:334
+msgid "⏳ Approving device pairing..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:172
+#: htdocs/luci-static/resources/view/openclaw/console.js:346
+msgid "Approved successfully!"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:179
+#: htdocs/luci-static/resources/view/openclaw/console.js:355
+msgid "Approval failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:183
+#: htdocs/luci-static/resources/view/openclaw/console.js:359
+msgid "❌ Approval failed: request error"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:206
+msgid "<span style=\"color:#1a7f37;\">● Running</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:211
+msgid "<span style=\"color:#cf222e;\">● Not running</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:212
+msgid "<div style=\"text-align:center;padding:24px;color:#cf222e;\">❌ The config terminal is not running<br/>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:213
+msgid "<span style=\"font-size:12px;color:#999;\">Enable and start the service under \"Basic Settings\" first.</span></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:217
+msgid "Check complete"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:229
+msgid "<div style=\"font-size:15px;margin-bottom:8px;color:#e5c07b;font-weight:600;\">Due to browser security policy, the HTTP terminal cannot be embedded directly on an HTTPS page</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:231
+msgid "The terminal service is ready on port "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:231
+msgid " and fully ready. Open the interactive terminal in a new window with the button below — the auth token is bound automatically."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:233
+msgid "\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;padding:9px 24px;background:#4a90d9;color:#fff;border-radius:6px;text-decoration:none;font-weight:500;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,0.3);\">Open the terminal in a new window now</a>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:234
+msgid "<div style=\"margin-top:16px;font-size:12px;color:#5c6370;\">Tip: you can also log into the LuCI web UI over HTTP (http://"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:234
+msgid ") and use the embedded terminal right here.</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:45
+msgid "<h2>OpenClaw AI Gateway</h2>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:46
+msgid "<div class=\"cbi-map-descr\">OpenClaw is an AI coding-agent gateway supporting GitHub Copilot, Claude, GPT, Gemini and other large models as well as QQ, Telegram, Discord and other messaging channels.</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:48
+msgid "<div class=\"panel-title\" id=\"oc-panel-title\">🦞 OpenClaw Service Status</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:50
+msgid "<tr><td>Run State</td><td id=\"oc-st-status\"><span class=\"oc-badge oc-badge-unknown\">Loading...</span></td></tr>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:51
+msgid "<tr><td>Gateway Service</td><td id=\"oc-st-gateway\">-</td></tr>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:52
+msgid "<tr><td>Config Terminal</td><td id=\"oc-st-pty\">-</td></tr>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:53
+msgid "<tr><td>Active Model</td><td id=\"oc-st-model\">-</td></tr>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:54
+msgid "<tr><td>Message Channels</td><td id=\"oc-st-channels\">-</td></tr>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:55
+msgid "<tr><td>Process PID</td><td id=\"oc-st-pid\">-</td></tr>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:56
+msgid "<tr><td>Memory Usage</td><td id=\"oc-st-mem\">-</td></tr>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:57
+msgid "<tr><td>Uptime</td><td id=\"oc-st-uptime\">-</td></tr>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:60
+msgid "<tr><td>Plugin Version</td><td id=\"oc-st-plugin\">-</td></tr>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:61
+msgid "<tr><td>Install Path</td><td id=\"oc-st-path\">-</td></tr>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:62
+msgid "<tr><td>Free Space</td><td id=\"oc-st-disk\">-</td></tr>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:65
+msgid "<fieldset class=\"cbi-section\" id=\"oc-quick-section\"><legend>Quick Actions</legend><div class=\"cbi-section-node\">"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:67
+msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-setup\" title=\"Download Node.js and install OpenClaw\">📦 Install Runtime</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:68
+msgid "<button class=\"btn cbi-button cbi-button-action\" type=\"button\" id=\"btn-restart\">🔄 Restart Service</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:69
+msgid "<button class=\"btn cbi-button cbi-button-action\" type=\"button\" id=\"btn-stop\">⏹️ Stop Service</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:70
+msgid "<span style=\"position:relative;display:inline-block;\" id=\"btn-check-update-wrap\"><button class=\"btn cbi-button cbi-button-action\" type=\"button\" id=\"btn-check-update\">🔍 Check for Updates</button><span id=\"update-dot\" style=\"display:none;position:absolute;top:-2px;right:-2px;width:10px;height:10px;background:#e36209;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #e36209;\"></span></span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:71
+msgid "<button class=\"btn cbi-button cbi-button-action\" type=\"button\" id=\"btn-backup\" title=\"Back up or restore the OpenClaw configuration\">💾 Backup / Restore</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:72
+msgid "<button class=\"btn cbi-button cbi-button-remove\" type=\"button\" id=\"btn-uninstall\" title=\"Remove the Node.js and OpenClaw runtime plus related data\">🗑️ Uninstall</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:81
+msgid "<span id=\"setup-log-title\" style=\"font-weight:600;font-size:14px;\">📋 Install Log</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:88
+msgid "<strong style=\"font-size:14px;\">📖 Quick Start</strong><br/>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:90
+msgid "① Click <b>“Install Runtime”</b> on first use — the service auto-starts when done<br/>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:91
+msgid "② Open <b>“Config Management”</b> and use the interactive wizard to configure your AI models and API keys<br/>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:92
+msgid "③ Head to <b>“Web Console”</b> to set up messaging channels and start chatting</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:94
+msgid "<span style=\"color:#888;\">Questions? Follow us on Bilibili and leave a comment:</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:96
+msgid "<span style=\"margin-left:16px;color:#888;\">GitHub project:</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:103
+msgid "<h3 style=\"margin:0 0 16px 0;font-size:16px;color:#333;\">📦 Choose an Install Version</h3>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:107
+msgid "<div><strong style=\"color:#333;\">✅ Stable (Recommended)</strong>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:108
+msgid "<div style=\"font-size:12px;color:#666;margin-top:4px;\" id=\"oc-stable-desc\">Version v2026.9.1 (validated) — fully tested, good compatibility.</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:112
+msgid "<div><strong style=\"color:#333;\">🆕 Latest (Unverified)</strong>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:113
+msgid "<div style=\"font-size:12px;color:#e36209;margin-top:4px;\">⚠️ Installs the newest published npm version (unverified) — it may have unverified compatibility issues.</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:117
+msgid "<div style=\"font-weight:600;font-size:13px;color:#333;margin-bottom:8px;\">📂 Install Path</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:120
+msgid "<button class=\"btn cbi-button\" type=\"button\" id=\"btn-check-path\" style=\"font-size:12px;padding:4px 10px;\">Check Space</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:122
+msgid "<div id=\"oc-path-info\" style=\"font-size:11px;color:#666;margin-top:6px;\">💡 An <b>openclaw</b> folder will be created under this path. At least 2GB of free space is required. If installing on a second disk, make sure it is mounted.</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:125
+msgid "<button class=\"btn cbi-button\" type=\"button\" id=\"btn-setup-cancel\" style=\"min-width:80px;\">Cancel</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:126
+msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-setup-confirm\" style=\"min-width:80px;\">Start Install</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:132
+msgid "<h3 style=\"margin:0 0 16px 0;font-size:16px;color:#333;\">💾 Backup / Restore Config</h3>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:134
+msgid "<div style=\"font-weight:600;font-size:13px;color:#555;margin-bottom:8px;\">📤 Create Backup</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:136
+msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-bk-config\" style=\"font-size:12px;\">📄 Config Only</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:137
+msgid "<button class=\"btn cbi-button cbi-button-action\" type=\"button\" id=\"btn-bk-full\" style=\"font-size:12px;\">📦 Config + State Data</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:139
+msgid "<div style=\"font-size:11px;color:#888;margin-top:6px;\">Config only (~2KB) holds models, channels and plugin settings; a full backup also includes state data such as session history (may be large)</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:143
+msgid "<div style=\"font-weight:600;font-size:13px;color:#555;\">📥 Existing Backups</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:144
+msgid "<button class=\"btn cbi-button\" type=\"button\" id=\"btn-bk-refresh\" style=\"font-size:11px;padding:2px 10px;\">🔄 Refresh</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:150
+msgid "<button class=\"btn cbi-button\" type=\"button\" id=\"btn-bk-close\" style=\"min-width:80px;\">Close</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:193
+msgid "<span class=\"oc-badge oc-badge-unknown\">Query Failed</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:218
+msgid "<span class=\"oc-badge oc-badge-disabled\">Disabled</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:220
+msgid "<span class=\"oc-badge oc-badge-running\">Running</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:222
+msgid "<span class=\"oc-badge oc-badge-starting\">⏳ Starting...</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:224
+msgid "<span class=\"oc-badge oc-badge-failed\">Start Failed</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:226
+msgid "<span class=\"oc-badge oc-badge-stopped\">Stopped</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:230
+#: htdocs/luci-static/resources/view/openclaw/basic.js:240
+msgid "<span class=\"oc-dot oc-dot-green\"></span>Listening on "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:232
+msgid "<span class=\"oc-dot oc-dot-gray\"></span>Initializing — usually 20–40 s; longer on first install or under heavy load..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:234
+msgid "<span class=\"oc-dot oc-dot-red\"></span>Start failed, exit code "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:236
+msgid "<span class=\"oc-dot oc-dot-red\"></span>Not listening"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:242
+msgid "<span class=\"oc-dot oc-dot-gray\"></span>Not listening"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:250
+#: htdocs/luci-static/resources/view/openclaw/basic.js:256
+msgid "Not configured"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:265
+#: htdocs/luci-static/resources/view/openclaw/basic.js:266
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:193
+msgid "Not installed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:277
+msgid "</span> available"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:332
+msgid "⏳ Checking free space..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:335
+msgid "<span style=\"color:#1a7f37;\">✅ Free space: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:336
+msgid " (checking path: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:339
+msgid "<span style=\"color:#cf222e;\">❌ Not enough space: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:340
+msgid " MB free, need ≥ 2048 MB (checking path: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:343
+msgid "<span style=\"color:#e36209;\">⚠️ Check failed</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:354
+msgid "⏳ Checking system configuration..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:367
+msgid "📋 Install Log"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:370
+msgid "🔍 Checking system configuration\n"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:372
+#: htdocs/luci-static/resources/view/openclaw/basic.js:425
+msgid "Install path: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:373
+msgid "Memory: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:373
+msgid " MB (need ≥ 1024 MB) — "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:373
+#: htdocs/luci-static/resources/view/openclaw/basic.js:374
+msgid "✅ Pass"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:373
+#: htdocs/luci-static/resources/view/openclaw/basic.js:374
+msgid "❌ Fail"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:374
+msgid "Disk: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:374
+msgid " MB free (need ≥ 2048 MB) — "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:380
+#: htdocs/luci-static/resources/view/openclaw/basic.js:408
+#: htdocs/luci-static/resources/view/openclaw/basic.js:437
+#: htdocs/luci-static/resources/view/openclaw/basic.js:486
+msgid "📦 Install Runtime"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:381
+msgid "<span style=\"color:#cf222e;\">❌ System requirements not met</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:382
+msgid "❌ System requirements not met — installation aborted\n"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:383
+msgid "💡 Upgrade your hardware or free up disk space, then retry\n"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:386
+msgid "<strong style=\"color:#cf222e;font-size:14px;\">❌ System requirements not met</strong><br/>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:387
+msgid "<div style=\"margin-top:8px;font-size:12px;color:#666;\">💡 Upgrade your hardware or free up disk space, then retry.</div></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:391
+#: htdocs/luci-static/resources/view/openclaw/basic.js:421
+#: htdocs/luci-static/resources/view/openclaw/basic.js:465
+msgid "<span style=\"color:#7aa2f7;\">⏳ Installation in progress...</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:392
+msgid "✅ System check passed — starting the installation...\n\n"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:409
+msgid "System check failed, please retry"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:420
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:286
+msgid "⏳ Installing..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:423
+msgid "📦 Install Runtime ("
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:423
+msgid "Stable"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:423
+msgid "Latest"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:426
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:292
+msgid "Starting the installation...\n"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:435
+msgid "<span style=\"color:#cf222e;\">❌ Failed to start the installation</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:438
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:300
+msgid "Failed to start the installation: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:490
+msgid "<span style=\"color:#1a7f37;\">✅ Installation complete</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:492
+msgid "<strong style=\"color:#1a7f37;font-size:14px;\">🎉 Congratulations! The OpenClaw runtime was installed successfully!</strong><br/>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:493
+msgid "<span style=\"color:#555;font-size:13px;line-height:1.8;\">The service was enabled and started automatically — click the button below to reload the page and see the status.</span><br/>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:494
+msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-reload-after-setup\" style=\"margin-top:10px;\">🔄 Reload Page</button></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:498
+msgid "<span style=\"color:#cf222e;\">❌ Installation failed</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:501
+msgid "<strong style=\"color:#cf222e;font-size:14px;\">❌ Installation failed</strong><br/>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:503
+msgid "<strong>🔍 Possible causes:</strong><br/>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:504
+msgid "<div style=\"margin-top:8px;font-size:12px;color:#666;\">💡 The full log is in the terminal output above; you can also view it with <code>cat /tmp/openclaw-setup.log</code></div></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:513
+msgid "<span style=\"color:#999\">⏳ Working...</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:521
+msgid " done</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:523
+msgid "Failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:527
+msgid "<span style=\"color:red\">❌ Error</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:548
+msgid "⏳ Checking..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:555
+#: htdocs/luci-static/resources/view/openclaw/basic.js:619
+msgid "🔍 Check for Updates"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:568
+msgid "<span class=\"ver-badge-new\">🔌 Plugin update available</span> v"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:570
+msgid "<span class=\"ver-badge-latest\">🔌 Plugin up to date</span> v"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:572
+msgid "<span class=\"ver-badge-unknown\">🔌 Plugin check unavailable</span> v"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:576
+msgid "<span class=\"ver-badge-new\">🦞 Core update available</span> v"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:578
+msgid "<span class=\"ver-badge-latest\">🦞 Core up to date</span> v"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:580
+msgid "<span class=\"ver-badge-unknown\">🦞 Core check unavailable</span> v"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:583
+msgid "<span class=\"ver-badge-unknown\">Unable to get version info</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:596
+msgid "<span style=\"font-size:14px;font-weight:600;color:#24292f;\">📋 Plugin Changelog</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:602
+msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-plugin-upgrade\" style=\"box-shadow:0 2px 4px rgba(0,0,0,0.1);\">⬆️ Upgrade Plugin Now (v"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:603
+msgid "<a href=\"https://github.com/10000ge10000/luci-app-openclaw/releases/latest\" target=\"_blank\" rel=\"noopener\" class=\"btn cbi-button cbi-button-action\" style=\"text-decoration:none;\">📥 Download from GitHub</a>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:605
+msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-core-upgrade\" style=\"background:#d97706;border-color:#b45309;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.1);\">⬆️ Upgrade OpenClaw Core Now (v"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:621
+msgid "<span style=\"color:red\">❌ Check failed</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:638
+msgid "Upgrade the OpenClaw core to v"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:638
+msgid "?\n\nThe upgrade runs a safe transaction: automatic full-state backup, SQLite database precheck and smooth configuration migration."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:650
+msgid "⏳ Starting the core upgrade..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:653
+msgid "Starting the OpenClaw core upgrade transaction...\n"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:654
+msgid "📋 OpenClaw Core Upgrade Log"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:655
+msgid "<span style=\"color:#7aa2f7;\">⏳ Core upgrade in progress (state-machine transaction)...</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:664
+#: htdocs/luci-static/resources/view/openclaw/basic.js:702
+msgid "<span style=\"color:#cf222e;\">❌ Failed to start the upgrade</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:665
+msgid "Failed to start the core upgrade: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:675
+msgid "Could not determine the latest version"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:678
+msgid "Upgrade the plugin to v"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:678
+msgid "?\n\nThe upgrade replaces the plugin files and clears the LuCI cache; the running OpenClaw service is not affected."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:689
+msgid "⏳ Upgrading the plugin..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:691
+msgid "Starting the plugin upgrade...\n"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:692
+msgid "📋 Plugin Upgrade Log"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:693
+#: htdocs/luci-static/resources/view/openclaw/basic.js:727
+msgid "<span style=\"color:#7aa2f7;\">⏳ Plugin upgrade in progress...</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:703
+msgid "Failed to start the plugin upgrade: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:756
+msgid "⬆️ Upgrade Plugin"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:761
+msgid "<span style=\"color:#1a7f37;\">✅ Plugin upgrade complete</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:763
+msgid "<strong style=\"color:#1a7f37;font-size:14px;\">🎉 Plugin upgrade successful!</strong><br/>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:764
+msgid "<span style=\"color:#555;font-size:13px;line-height:1.8;\">The plugin files were updated; the OpenClaw service is unaffected. Reload the page to load the new UI.</span><br/>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:765
+msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-reload-after-plugin\" style=\"margin-top:10px;\">🔄 Reload Page</button></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:769
+msgid "<span style=\"color:#cf222e;\">❌ Plugin upgrade failed</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:771
+msgid "<strong style=\"color:#cf222e;font-size:14px;\">❌ Plugin upgrade failed</strong><br/>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:772
+msgid "<span style=\"color:#555;font-size:13px;\">See the log above for details, or run <code>cat /tmp/openclaw-plugin-upgrade.log</code> manually</span><br/>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:773
+msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-reload-after-plugin-fail\" style=\"margin-top:10px;\">🔄 Reload Page</button></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:782
+msgid "Uninstall the OpenClaw runtime?\n\nNode.js, the OpenClaw program and its configuration data will be deleted and the service stopped.\n\nThis plugin itself is kept — you can reinstall the runtime later."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:789
+msgid "⏳ Uninstalling..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:790
+msgid "<span style=\"color:#999\">Stopping the service and cleaning up files...</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:794
+#: htdocs/luci-static/resources/view/openclaw/basic.js:807
+msgid "🗑️ Uninstall"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:797
+msgid "<strong style=\"color:#1a7f37;\">✅ Uninstall complete</strong><br/>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:799
+msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-reload-after-uninstall\" style=\"margin-top:8px;\">🔄 Reload Page</button></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:803
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:655
+msgid "Uninstall failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:808
+msgid "<span style=\"color:red\">❌ Request failed</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:824
+msgid "<div style=\"color:#7aa2f7;font-size:12px;padding:8px;\">⏳ Loading backup list...</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:830
+msgid "<th style=\"padding:6px 8px;text-align:left;\">Type</th>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:831
+msgid "<th style=\"padding:6px 8px;text-align:left;\">Backup Time</th>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:832
+msgid "<th style=\"padding:6px 8px;text-align:right;\">Size</th>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:833
+msgid "<th style=\"padding:6px 8px;text-align:center;\">Action</th></tr>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:838
+msgid "<span style=\"background:#ddf4ff;color:#0969da;padding:2px 6px;border-radius:3px;font-size:11px;white-space:nowrap;\">📄 Config Only</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:839
+msgid "<span style=\"background:#fff8c5;color:#9a6700;padding:2px 6px;border-radius:3px;font-size:11px;white-space:nowrap;\">📦 Full Backup</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:846
+msgid "\">Restore</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:847
+msgid "\">Delete</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:866
+msgid "<div style=\"color:#888;font-size:12px;padding:8px;text-align:center;\">No backups yet — create one first</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:869
+msgid "Failed to load the list"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:872
+msgid "<div style=\"color:#e36209;font-size:12px;padding:8px;\">⚠️ Could not load the list</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:884
+msgid "<div style=\"color:#7aa2f7;font-size:12px;padding:8px;\">⏳ Creating backup..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:885
+msgid " (config only)"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:885
+msgid " (full backup — this may take a while)"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:892
+msgid "<strong style=\"color:#1a7f37;\">✅ Backup complete</strong></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:896
+msgid "Backup failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:902
+msgid "<div style=\"color:#e36209;font-size:12px;padding:8px;\">⚠️ Backups require OpenClaw v2026.3.8+</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:914
+msgid "Restore the configuration from this backup?\n\n"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:914
+msgid "\n\nThe current openclaw.json will be overwritten with the backed-up version and the service will restart."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:919
+msgid "<div style=\"color:#7aa2f7;font-size:12px;padding:8px;\">⏳ Restoring configuration...</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:924
+msgid "<strong style=\"color:#1a7f37;\">✅ Configuration restored</strong><br/>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:926
+msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-reload-after-restore\" style=\"margin-top:6px;font-size:12px;\">🔄 Reload Page</button></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:930
+msgid "Restore failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:933
+msgid "<div style=\"color:#cf222e;font-size:12px;padding:8px;\">❌ Restore failed — check the log</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:940
+msgid "Delete this backup?\n\n"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:940
+msgid "\n\nThis cannot be undone."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:945
+msgid "<div style=\"color:#7aa2f7;font-size:12px;padding:8px;\">⏳ Deleting...</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:953
+msgid "Delete failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:957
+msgid "<div style=\"color:#cf222e;font-size:12px;padding:8px;\">❌ Delete failed</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:42
+msgid "<h2>🖥️ Web Console</h2>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:43
+msgid "<p>The official OpenClaw web UI — configure AI models and messaging channels (QQ, Telegram, Discord, ...), chat with the AI directly, and manage every feature.</p>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:46
+msgid "<span class=\"label\">Gateway address:</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:49
+msgid "<span class=\"label\">Active model:</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:53
+msgid "<span id=\"oc-console-status-text\">Checking...</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:55
+msgid "<button type=\"button\" id=\"oc-console-pairing-toggle-btn\" class=\"btn-action\" title=\"Manage / approve device pairing requests\">📱 Device pairing <span id=\"oc-console-pairing-nav-badge\" style=\"display:none;background:#ff4d4f;color:#fff;padding:0 6px;border-radius:10px;font-size:11px;font-weight:600;margin-left:2px;\">0</span></button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:56
+msgid "<button type=\"button\" id=\"oc-console-refresh-btn\" class=\"btn-action\" title=\"Reload the current session\">🔄 Refresh</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:57
+msgid "<button type=\"button\" id=\"oc-console-fullscreen-btn\" class=\"btn-action\" title=\"View fullscreen\">⛶ Fullscreen</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:58
+msgid "<a id=\"oc-console-open-btn\" class=\"btn-open\" href=\"#\" target=\"_blank\" rel=\"noopener\">↗ Open in new window</a>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:68
+msgid "<div style=\"font-size:13px;color:#555;line-height:1.5;margin-bottom:6px;\">When the Control UI is first opened, the gateway asks the host to approve this browser. Click \"Approve all pairings\" to authorize it and enter the console.</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:73
+msgid "<button type=\"button\" id=\"oc-pairing-approve-all-btn\" class=\"btn-open\" style=\"background:#52c41a;font-weight:600;padding:6px 14px;\">⚡ Approve all pairings</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:74
+msgid "<button type=\"button\" id=\"oc-pairing-refresh-btn\" class=\"btn-action\" style=\"padding:6px 10px;\">🔄 Refresh</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:79
+msgid "⚠️ <strong>Browser security notice</strong>: you are accessing LuCI over HTTPS. Because the OpenClaw gateway is an HTTP service, the browser may block the cross-protocol embedded page (Mixed Content). If the area below is blank, click \"<strong>↗ Open in new window</strong>\" in the top-right, or access LuCI over HTTP."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:85
+msgid "<span>Connecting to the OpenClaw console...</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:194
+msgid "<span style=\"color:#1a7f37;\">● Gateway running</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:212
+msgid "<span style=\"color:#cf222e;\">● Gateway failed to start</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:217
+msgid "<div style=\"font-size:15px;margin-bottom:6px;\">The OpenClaw gateway failed to start</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:218
+msgid "<div style=\"font-size:12px;color:#999;\">Exit code: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:218
+msgid ". Check the system log or the install log.</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:223
+msgid "<span style=\"color:#9a6700;\">⏳ Gateway is starting</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:228
+msgid "<div style=\"font-size:15px;margin-bottom:6px;\">The OpenClaw gateway is starting up...</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:229
+msgid "<div style=\"font-size:12px;color:#999;\">Usually 20–40 seconds; longer on first install or under heavy router load. The page refreshes automatically.</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:235
+msgid "<span style=\"color:#cf222e;\">● Gateway not running</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:240
+msgid "<div style=\"font-size:15px;margin-bottom:6px;\">The OpenClaw gateway is not running</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:241
+msgid "<div style=\"font-size:12px;color:#999;\">Enable and start the service on the \"Basic Settings\" page first.</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:246
+msgid "Query failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:300
+msgid "\" style=\"font-size:12px;padding:3px 10px;background:#f6ffed;border-color:#b7eb8f;color:#389e0d;cursor:pointer;\">Approve pairing</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:315
+msgid "<div style=\"color:#666;font-size:12px;padding:4px 0;\">No pending device pairing requests. When a browser connecting to the console is asked to pair, refresh here to show and approve it.</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:323
+msgid "<div style=\"color:#cf222e;font-size:12px;\">Failed to query the device list</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:346
+msgid " Reloading the console..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:70
+msgid "<h2>💬 WeChat Channel</h2>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:71
+msgid "<p>Connect WeChat through the ClawBot plugin and chat privately with your AI assistant. Multiple accounts can be online at the same time.</p>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:74
+msgid "<h3>📋 Prerequisites</h3>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:76
+msgid "<li><strong>Install / reinstall the WeChat plugin first</strong> — the page automatically checks Node, python3, directory permissions and WeChat API reachability</li>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:77
+msgid "<li><strong>Click “Log in”</strong> — open the link that appears, then scan it with the WeChat scanner</li>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:78
+msgid "<li><strong>Wait for the success notice</strong> — the gateway then reloads the WeChat account; verify by sending it a message from WeChat</li>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:80
+msgid "<div class=\"warning\">⚠️ Common failure causes: expired QR code, account risk control, TLS/timeout between the router and ilinkai.weixin.qq.com, missing plugin registration, wrong data directory permissions. On failure the recent log is shown.</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:83
+msgid "<h3>📊 Plugin Status</h3>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:84
+msgid "<div class=\"oc-status-row\"><span class=\"oc-status-label\">WeChat Plugin</span><span class=\"oc-status-value\" id=\"oc-wechat-plugin\">Checking...</span></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:85
+msgid "<div class=\"oc-status-row\"><span class=\"oc-status-label\">Plugin Version</span><span class=\"oc-status-value\" id=\"oc-wechat-plugin-ver\">—</span></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:88
+msgid "<span class=\"oc-status-label\" style=\"align-self:center;\">Login Status</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:89
+msgid "<span class=\"oc-status-value\" id=\"oc-wechat-login\">Checking...</span>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:93
+msgid "<div class=\"oc-status-row\"><span class=\"oc-status-label\">OpenClaw Version</span><span class=\"oc-status-value\" id=\"oc-wechat-ocver\">Checking...</span></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:96
+msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-install-plugin\">📦 Install WeChat Plugin</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:97
+msgid "<button class=\"btn cbi-button cbi-button-action\" type=\"button\" id=\"btn-upgrade-plugin\">🔍 Check for Upgrades</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:98
+msgid "<button class=\"btn cbi-button\" type=\"button\" id=\"btn-refresh-status\">🔄 Refresh Status</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:99
+msgid "<button class=\"btn cbi-button\" type=\"button\" id=\"btn-uninstall-plugin\" style=\"background:#ffeef0;color:#cf222e;border-color:#cf222e;\">🗑️ Uninstall Plugin</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:104
+msgid "<div class=\"oc-modal-header\"><h3 id=\"oc-install-title\">📦 Install WeChat Plugin</h3><button class=\"oc-modal-close\" type=\"button\" data-close=\"oc-install-modal\">&times;</button></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:106
+msgid "<div id=\"oc-install-progress\"><div class=\"oc-progress-box\"><span class=\"oc-progress-spinner\"></span><span>Installing, please wait...</span></div><pre id=\"oc-install-log\"></pre><div id=\"oc-install-qrcode-link\" style=\"display:none;margin:10px 0;text-align:center;\"></div></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:112
+msgid "<div class=\"oc-modal-header\"><h3>📱 WeChat QR Login</h3><button class=\"oc-modal-close\" type=\"button\" data-close=\"oc-login-modal\">&times;</button></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:114
+msgid "<div id=\"oc-login-progress\"><div class=\"oc-progress-box\"><span class=\"oc-progress-spinner\"></span><span>Fetching the login QR code...</span></div></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:121
+msgid "<div class=\"oc-modal-header\"><h3>🔍 Check Plugin Upgrade</h3><button class=\"oc-modal-close\" type=\"button\" data-close=\"oc-upgrade-modal\">&times;</button></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:123
+msgid "<div id=\"oc-upgrade-progress\"><div class=\"oc-progress-box\"><span class=\"oc-progress-spinner\"></span><span>Checking...</span></div></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:185
+msgid " ✓ compatible"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:188
+msgid " ⚠️ upgrade to 2026.3.22+ required"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:209
+msgid "✅ Installed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:211
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:357
+msgid "📦 Reinstall Plugin"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:216
+msgid "Installed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:219
+msgid "❌ Not installed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:221
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:289
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:375
+msgid "📦 Install WeChat Plugin"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:227
+msgid "✅ Logged in ("
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:227
+msgid " accounts)"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:234
+msgid "\">Log out</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:237
+msgid "</ul><div style=\"text-align:right;margin-top:8px;\"><button class=\"btn cbi-button\" type=\"button\" data-oc-login-qrcode>➕ Add New Account</button></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:243
+msgid "⚠️ Not logged in"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:245
+msgid "<div style=\"text-align:right;margin-top:8px;\"><button class=\"btn cbi-button\" type=\"button\" data-oc-login-qrcode>Log in</button></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:256
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:257
+msgid "Check failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:298
+msgid "Failed to start the installation"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:322
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:606
+msgid "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"oc-qrcode-link-btn\" style=\"padding:10px 20px;font-size:14px;margin:0;\">🔗 Open the link, then scan it with WeChat</a>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:328
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:612
+msgid "Waiting for output..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:340
+msgid "Installation failed (exit: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:354
+msgid "<div class=\"oc-result-success\">✅ WeChat plugin installed successfully!</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:400
+msgid "Failed to start the login"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:402
+msgid "Failed to start the login: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:409
+msgid "Log out account "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:409
+msgid "? After logging out you will need to scan the QR code again."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:413
+msgid "Logging out..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:423
+msgid "Failed to log out the account: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:438
+msgid "<p style=\"color:#cf222e;font-size:13px;margin:8px 0;text-align:center;\">⌛ QR code refreshed — click the newest link to log in</p>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:439
+msgid "<p style=\"font-size:14px;color:#333;margin-bottom:8px;text-align:center;\">📱 Open the QR code from the link below and scan it with WeChat</p>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:445
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:513
+msgid "Login failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:453
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:469
+msgid "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"oc-qrcode-link-btn\" style=\"font-size:16px;\">🔗 Open the link, then scan it with WeChat</a>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:454
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:470
+msgid "<p class=\"oc-qrcode-copy-link\">Or copy the link: <code>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:455
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:471
+msgid "\">Copy</button></p>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:477
+msgid "<div class=\"oc-qrcode-box\"><p>Loading the login link...</p></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:504
+msgid "✅ WeChat login successful!<br><br>The gateway is reloading your WeChat account — wait 10-20 seconds, then send a test message from WeChat to verify.</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:543
+msgid "🔄 New version available: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:544
+msgid "Current version: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:545
+msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-upgrade-now\">Upgrade now</button>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:552
+msgid "<div class=\"oc-result-error\">❌ Plugin not installed — install it first</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:555
+msgid "<div class=\"oc-result-error\">⚠️ Could not determine the latest version"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:556
+msgid "<br>Currently installed: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:561
+msgid "<div class=\"oc-result-success\">✅ Already on the latest version: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:567
+msgid "<div class=\"oc-result-error\">❌ Check failed: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:574
+msgid "<div class=\"oc-progress-box\"><span class=\"oc-progress-spinner\"></span><span>Upgrading...</span></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:578
+msgid "<div class=\"oc-progress-box\"><pre id=\"oc-upgrade-log\">Upgrading...</pre><div id=\"oc-upgrade-qrcode-link\" style=\"display:none;margin:10px 0;text-align:center;\"></div></div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:582
+msgid "Upgrade failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:585
+msgid "<div class=\"oc-result-error\">❌ Upgrade failed: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:621
+msgid "<div class=\"oc-result-success\">✅ Upgrade successful!</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:625
+msgid "<div class=\"oc-result-error\">❌ Upgrade failed</div>"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:644
+msgid "Uninstall the WeChat plugin? This will delete all WeChat-related configuration."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:649
+msgid "⏳ Removing plugin..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:657
+msgid "Uninstall failed: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:660
+msgid "🗑️ Uninstall Plugin"
+msgstr ""
+
+#: root/usr/share/luci/menu.d/luci-app-openclaw.json:10
+msgid "Basic Settings"
+msgstr ""
+
+#: root/usr/share/luci/menu.d/luci-app-openclaw.json:21
+msgid "Config Management"
+msgstr ""
+
+#: root/usr/share/luci/menu.d/luci-app-openclaw.json:32
+msgid "WeChat"
+msgstr ""
+
+#: root/usr/share/luci/menu.d/luci-app-openclaw.json:43
+msgid "Web Console"
+msgstr ""

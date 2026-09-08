@@ -29,14 +29,18 @@ if grep -q 'v1_tarball' root/usr/bin/openclaw-env; then
 	fail "installer must not silently fall back to legacy Node.js tarball"
 fi
 
-grep -q "wechat.js" Makefile || fail "Makefile must install the wechat JS view"
-grep -q "htdocs/luci-static/resources/view/openclaw" Makefile || fail "Makefile must install JS views"
-grep -q "usr/libexec/rpcd/openclaw" Makefile || fail "Makefile must install the rpcd exec plugin"
-grep -q "luci/menu.d/luci-app-openclaw.json" Makefile || fail "Makefile must install the LuCI JS menu"
+# Makefile 走 luci.mk 自动打包 (同 mosdns/ota): htdocs/* → /www, root/* → / (cp -pR 保留权限)
+grep -Fq 'include $(TOPDIR)/feeds/luci/luci.mk' Makefile || fail "Makefile must use luci.mk auto-install"
 grep -q "libubox" Makefile || fail "Makefile must depend on libubox (jshn.sh)"
 grep -q "jshn" Makefile || fail "Makefile must depend on jshn"
-grep -q "luci-app-openclaw.json" Makefile || fail "Makefile must install rpcd ACL"
-grep -q "openclaw-permissions.sh" Makefile || fail "Makefile must install permission helper"
+for f in \
+	htdocs/luci-static/resources/view/openclaw/wechat.js \
+	root/usr/libexec/rpcd/openclaw \
+	root/usr/share/luci/menu.d/luci-app-openclaw.json \
+	root/usr/share/rpcd/acl.d/luci-app-openclaw.json \
+	root/usr/libexec/openclaw-permissions.sh; do
+	[ -f "$f" ] || fail "missing packaged source: $f (luci.mk installs root/ and htdocs/ automatically)"
+done
 grep -q 'openclaw-permissions.sh fix-state "$${OC_DATA}/.openclaw"' Makefile || fail "postinst must repair existing OpenClaw state permissions after reinstall"
 grep -q '/etc/init.d/openclaw start >/dev/null 2>&1' Makefile || fail "postinst must restart enabled OpenClaw service after reinstall"
 grep -q 'openclaw-permissions.sh fix-state "${OC_DATA}/.openclaw"' scripts/build_ipk.sh || fail "release ipk postinst must repair existing OpenClaw state permissions after reinstall"
@@ -163,7 +167,7 @@ if grep -q 'find "$OC_STATE_DIR" -user root ! -path "*/extensions*"' root/usr/sh
 fi
 grep -q "extractWechatLoginUrl" htdocs/luci-static/resources/openclaw/common.js htdocs/luci-static/resources/view/openclaw/wechat.js || fail "wechat page must filter login URLs"
 grep -q "oc-error-detail" htdocs/luci-static/resources/view/openclaw/wechat.js || fail "wechat page must show real login failure detail"
-grep -q "点击打开链接，然后用微信扫码" htdocs/luci-static/resources/view/openclaw/wechat.js || fail "wechat page must tell users to open link and scan with WeChat"
+grep -q "Open the link, then scan it with WeChat" htdocs/luci-static/resources/view/openclaw/wechat.js || fail "wechat page must tell users to open link and scan with WeChat"
 grep -q "@tencent-weixin/openclaw-weixin/openclaw.plugin.json" root/usr/share/openclaw/oc-config.sh || fail "oc-config wechat npm detection missing"
 grep -q "fix_openclaw_state_permissions" root/usr/share/openclaw/oc-config.sh || fail "oc-config must use permission helper"
 grep -q "fixStatePermissions" root/usr/share/openclaw/oc-config-interactive.js || fail "interactive config must use permission helper"
@@ -189,7 +193,7 @@ grep -q "anthropic-compatible" root/usr/share/openclaw/oc-config.sh || fail "she
 grep -q "anthropic-messages" root/usr/share/openclaw/oc-config.sh || fail "shell custom Anthropic provider mode missing"
 
 grep -q "var url = 'http://'" htdocs/luci-static/resources/view/openclaw/console.js || fail "console must force HTTP gateway URL"
-grep -q "新窗口打开" htdocs/luci-static/resources/view/openclaw/console.js || fail "console must expose a new-window entry"
+grep -q "Open in new window" htdocs/luci-static/resources/view/openclaw/console.js || fail "console must expose a new-window entry"
 grep -q "document.createElement('iframe')" htdocs/luci-static/resources/view/openclaw/console.js || fail "console must embed OpenClaw in an iframe"
 
 grep -q "root/usr/libexec" scripts/build_ipk.sh || fail "ipk script must package shell helpers"
@@ -202,7 +206,7 @@ grep -q "chown -R root:root" scripts/build_ipk.sh || fail ".ipk postinst must re
 grep -q "先解压到临时目录并确认完整，再替换 NODE_BASE" root/usr/bin/openclaw-env || fail "Node install must not delete existing runtime before extraction succeeds"
 grep -q "OC_SETUP_FRESH_ROOT" root/usr/bin/openclaw-env || fail "setup cleanup must preserve existing runtime roots"
 
-grep -q "openclaw-upgrade-state.sh" Makefile || fail "Makefile must install openclaw-upgrade-state.sh"
+[ -f root/usr/libexec/openclaw-upgrade-state.sh ] || fail "missing root/usr/libexec/openclaw-upgrade-state.sh (luci.mk auto-installs root/)"
 grep -q "openclaw-upgrade-state.sh" root/usr/bin/openclaw-env || fail "openclaw-env must reference openclaw-upgrade-state.sh"
 grep -q "openclaw-upgrade-state.sh" root/usr/share/openclaw/oc-config.sh || fail "oc-config must reference openclaw-upgrade-state.sh"
 grep -q "backup create --verify --no-include-workspace" root/usr/libexec/openclaw-upgrade-state.sh || fail "helper must enforce full backup create arguments"

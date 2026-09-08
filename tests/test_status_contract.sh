@@ -34,10 +34,10 @@ if grep -Fq 'pgrep -f "openclaw.*gateway"' "$BACKEND" "$INIT_SCRIPT" || grep -Fq
 fi
 
 # ── UI 区分“启动失败”与“启动中” ──
-grep -Fq "启动失败" "$BASIC_VIEW" || fail "status panel should distinguish startup failure from startup in progress"
+grep -Fq "Start Failed" "$BASIC_VIEW" || fail "status panel should distinguish startup failure from startup in progress"
 grep -Fq "gateway_failed" "$BASIC_VIEW" || fail "status panel should render gateway failure state"
-grep -Fq "正在启动" "$BASIC_VIEW" || fail "status panel should render startup-in-progress state"
-grep -Fq "已禁用" "$BASIC_VIEW" || fail "status panel should render disabled state"
+grep -Fq "Starting" "$BASIC_VIEW" || fail "status panel should render startup-in-progress state"
+grep -Fq "Disabled" "$BASIC_VIEW" || fail "status panel should render disabled state"
 
 grep -Fq "ubus call service list" "$INIT_SCRIPT" || fail "status_service should report procd state via ubus"
 grep -Fq "crash-loop 抑制" "$INIT_SCRIPT" || fail "status_service should report procd crash-loop suppression"
