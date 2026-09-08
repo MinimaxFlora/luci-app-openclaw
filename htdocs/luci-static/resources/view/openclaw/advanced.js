@@ -68,7 +68,11 @@ return view.extend({
 
 		root.innerHTML = html;
 
-		this.initPage();
+		this.rootEl = root;
+
+		oc.whenAttached(root, () => {
+			this.initPage();
+		});
 
 		return root;
 	},

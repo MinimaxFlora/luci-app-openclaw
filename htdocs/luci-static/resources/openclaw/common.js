@@ -208,5 +208,19 @@ common.$ = function(id) {
 	return document.getElementById(id);
 };
 
+/** run fn once el is attached to the live document. LuCI inserts the
+ * view root only after render() returns, so any initialisation doing
+ * document.getElementById / querySelector must wait until then. */
+common.whenAttached = function(el, fn, tries) {
+	tries = tries || 0;
+
+	if (el.isConnected || tries > 200)
+		return fn();
+
+	setTimeout(function() {
+		common.whenAttached(el, fn, tries + 1);
+	}, 15);
+};
+
 return common;
 })());

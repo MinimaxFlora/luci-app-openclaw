@@ -154,9 +154,13 @@ return view.extend({
 
 		root.innerHTML = html;
 
-		this.bindEvents();
-		this.bindStatusPoll();
-		this.startUpdateDotCheck();
+		this.rootEl = root;
+
+		oc.whenAttached(root, () => {
+			this.bindEvents();
+			this.bindStatusPoll();
+			this.startUpdateDotCheck();
+		});
 
 		return root;
 	},
