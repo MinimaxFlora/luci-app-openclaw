@@ -74,16 +74,14 @@ add_files root/usr/bin/openclaw-env
 for f in "$REPO_ROOT"/root/usr/libexec/*.sh; do
 	[ -f "$f" ] && add_files "root/usr/libexec/$(basename "$f")"
 done
-add_files luasrc/controller/openclaw.lua
-for f in "$REPO_ROOT"/luasrc/openclaw/*.lua; do
-	[ -f "$f" ] && add_files "luasrc/openclaw/$(basename "$f")"
+add_files root/usr/libexec/rpcd/openclaw
+for f in "$REPO_ROOT"/htdocs/luci-static/resources/view/openclaw/*.js; do
+	[ -f "$f" ] && add_files "htdocs/luci-static/resources/view/openclaw/$(basename "$f")"
 done
-for f in "$REPO_ROOT"/luasrc/model/cbi/openclaw/*.lua; do
-	[ -f "$f" ] && add_files "luasrc/model/cbi/openclaw/$(basename "$f")"
+for f in "$REPO_ROOT"/htdocs/luci-static/resources/openclaw/*.js; do
+	[ -f "$f" ] && add_files "htdocs/luci-static/resources/openclaw/$(basename "$f")"
 done
-for f in "$REPO_ROOT"/luasrc/view/openclaw/*.htm; do
-	[ -f "$f" ] && add_files "luasrc/view/openclaw/$(basename "$f")"
-done
+add_files root/usr/share/luci/menu.d/luci-app-openclaw.json
 for f in "$REPO_ROOT"/root/usr/share/rpcd/acl.d/*.json; do
 	[ -f "$f" ] && add_files "root/usr/share/rpcd/acl.d/$(basename "$f")"
 done

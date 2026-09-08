@@ -56,25 +56,24 @@ mkdir -p "$DATA_DIR/usr/libexec"
 cp "$PKG_DIR/root/usr/libexec/"*.sh "$DATA_DIR/usr/libexec/"
 chmod +x "$DATA_DIR/usr/libexec/"*.sh
 
-# LuCI controller
-mkdir -p "$DATA_DIR/usr/lib/lua/luci/controller"
-cp "$PKG_DIR/luasrc/controller/openclaw.lua" "$DATA_DIR/usr/lib/lua/luci/controller/"
+# rpcd exec plugin (ubus object "openclaw" — replaces the Lua controller backend)
+mkdir -p "$DATA_DIR/usr/libexec/rpcd"
+cp "$PKG_DIR/root/usr/libexec/rpcd/openclaw" "$DATA_DIR/usr/libexec/rpcd/"
+chmod +x "$DATA_DIR/usr/libexec/rpcd/openclaw"
 
-# shared Lua helpers
-mkdir -p "$DATA_DIR/usr/lib/lua/openclaw"
-cp "$PKG_DIR/luasrc/openclaw/"*.lua "$DATA_DIR/usr/lib/lua/openclaw/"
-
-# LuCI CBI
-mkdir -p "$DATA_DIR/usr/lib/lua/luci/model/cbi/openclaw"
-cp "$PKG_DIR/luasrc/model/cbi/openclaw/"*.lua "$DATA_DIR/usr/lib/lua/luci/model/cbi/openclaw/"
-
-# LuCI views
-mkdir -p "$DATA_DIR/usr/lib/lua/luci/view/openclaw"
-cp "$PKG_DIR/luasrc/view/openclaw/"*.htm "$DATA_DIR/usr/lib/lua/luci/view/openclaw/"
+# LuCI JS menu
+mkdir -p "$DATA_DIR/usr/share/luci/menu.d"
+cp "$PKG_DIR/root/usr/share/luci/menu.d/luci-app-openclaw.json" "$DATA_DIR/usr/share/luci/menu.d/"
 
 # rpcd ACL
 mkdir -p "$DATA_DIR/usr/share/rpcd/acl.d"
 cp "$PKG_DIR/root/usr/share/rpcd/acl.d/"*.json "$DATA_DIR/usr/share/rpcd/acl.d/"
+
+# Modern LuCI JS views + shared modules
+mkdir -p "$DATA_DIR/www/luci-static/resources/view/openclaw"
+cp "$PKG_DIR/htdocs/luci-static/resources/view/openclaw/"*.js "$DATA_DIR/www/luci-static/resources/view/openclaw/"
+mkdir -p "$DATA_DIR/www/luci-static/resources/openclaw"
+cp "$PKG_DIR/htdocs/luci-static/resources/openclaw/"*.js "$DATA_DIR/www/luci-static/resources/openclaw/"
 
 # oc-config assets
 mkdir -p "$DATA_DIR/usr/share/openclaw"
@@ -107,7 +106,7 @@ mkdir -p "$CTRL_DIR"
 cat > "$CTRL_DIR/control" << EOF
 Package: ${PKG_NAME}
 Version: ${PKG_VERSION}-${PKG_RELEASE}
-Depends: luci-compat, luci-base, curl, openssl-util, script-utils, tar, libstdcpp6
+Depends: luci-base, curl, openssl-util, script-utils, tar, libstdcpp6, libubox, jshn
 Source: https://github.com/10000ge10000/luci-app-openclaw
 SourceName: ${PKG_NAME}
 License: GPL-3.0
@@ -181,12 +180,12 @@ cat > "$CTRL_DIR/postinst" << 'EOF'
 		/etc/profile.d/openclaw.sh \
 		/usr/bin/openclaw-env \
 		/usr/libexec/openclaw-permissions.sh \
-		/usr/lib/lua/luci/controller/openclaw.lua \
-		/usr/lib/lua/luci/model/cbi/openclaw \
-		/usr/lib/lua/luci/view/openclaw \
-		/usr/lib/lua/openclaw \
+		/usr/libexec/rpcd/openclaw \
+		/usr/share/luci/menu.d/luci-app-openclaw.json \
 		/usr/share/openclaw \
-		/usr/share/rpcd/acl.d/luci-app-openclaw.json
+		/usr/share/rpcd/acl.d/luci-app-openclaw.json \
+		/www/luci-static/resources/view/openclaw \
+		/www/luci-static/resources/openclaw
 	do
 		[ -e "$p" ] && chown -R root:root "$p" 2>/dev/null || true
 	done
@@ -209,6 +208,11 @@ cat > "$CTRL_DIR/postinst" << 'EOF'
 	# 重启 Web PTY (使其加载新文件和新 token)
 	PTY_PID=$(pgrep -f 'web-pty.js' 2>/dev/null | head -1)
 	[ -n "$PTY_PID" ] && kill "$PTY_PID" 2>/dev/null || true
+
+	# 注册 rpcd exec 插件 (ubus object "openclaw"), 供 JS 视图调用
+	if [ -x /usr/libexec/rpcd/openclaw ] && [ -x /etc/init.d/rpcd ]; then
+		/etc/init.d/rpcd restart >/dev/null 2>&1 || true
+	fi
 
 	# 如果用户原本启用了 OpenClaw，opkg reinstall/upgrade 后恢复服务。
 	if [ "$(uci -q get openclaw.main.enabled 2>/dev/null || echo 0)" = "1" ] && [ -x /etc/init.d/openclaw ]; then

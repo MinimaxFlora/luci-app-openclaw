@@ -13,7 +13,9 @@ PKG_MAINTAINER:=10000ge10000 <10000ge10000@users.noreply.github.com>
 PKG_LICENSE:=GPL-3.0
 
 LUCI_TITLE:=OpenClaw AI 网关 LuCI 管理插件
-LUCI_DEPENDS:=+luci-compat +luci-base +curl +openssl-util +script-utils +tar +libstdcpp6
+# 现代 LuCI JavaScript UI 不再需要 luci-compat (Lua 渲染层)。
+# libubox/jshn 供 rpcd exec 插件 (backend) 生成/解析 JSON。
+LUCI_DEPENDS:=+luci-base +curl +openssl-util +script-utils +tar +libstdcpp6 +libubox +jshn
 LUCI_PKGARCH:=all
 
 # 始终使用 package.mk 并显式定义 Package/...。
@@ -68,19 +70,25 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_BIN) ./root/usr/libexec/openclaw-node.sh $(1)/usr/libexec/openclaw-node.sh
 	$(INSTALL_BIN) ./root/usr/libexec/openclaw-permissions.sh $(1)/usr/libexec/openclaw-permissions.sh
 	$(INSTALL_BIN) ./root/usr/libexec/openclaw-upgrade-state.sh $(1)/usr/libexec/openclaw-upgrade-state.sh
-	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controller
-	$(INSTALL_DATA) ./luasrc/controller/openclaw.lua $(1)/usr/lib/lua/luci/controller/openclaw.lua
-	$(INSTALL_DIR) $(1)/usr/lib/lua/openclaw
-	$(INSTALL_DATA) ./luasrc/openclaw/paths.lua $(1)/usr/lib/lua/openclaw/paths.lua
-	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/model/cbi/openclaw
-	$(INSTALL_DATA) ./luasrc/model/cbi/openclaw/basic.lua $(1)/usr/lib/lua/luci/model/cbi/openclaw/basic.lua
-	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/view/openclaw
-	$(INSTALL_DATA) ./luasrc/view/openclaw/status.htm $(1)/usr/lib/lua/luci/view/openclaw/status.htm
-	$(INSTALL_DATA) ./luasrc/view/openclaw/advanced.htm $(1)/usr/lib/lua/luci/view/openclaw/advanced.htm
-	$(INSTALL_DATA) ./luasrc/view/openclaw/console.htm $(1)/usr/lib/lua/luci/view/openclaw/console.htm
-	$(INSTALL_DATA) ./luasrc/view/openclaw/wechat.htm $(1)/usr/lib/lua/luci/view/openclaw/wechat.htm
+	# rpcd exec plugin → ubus object "openclaw" (replaces the Lua controller backend)
+	$(INSTALL_DIR) $(1)/usr/libexec/rpcd
+	$(INSTALL_BIN) ./root/usr/libexec/rpcd/openclaw $(1)/usr/libexec/rpcd/openclaw
+	# LuCI JS menu
+	$(INSTALL_DIR) $(1)/usr/share/luci/menu.d
+	$(INSTALL_DATA) ./root/usr/share/luci/menu.d/luci-app-openclaw.json $(1)/usr/share/luci/menu.d/luci-app-openclaw.json
+	# rpcd ACL
 	$(INSTALL_DIR) $(1)/usr/share/rpcd/acl.d
 	$(INSTALL_DATA) ./root/usr/share/rpcd/acl.d/luci-app-openclaw.json $(1)/usr/share/rpcd/acl.d/luci-app-openclaw.json
+	# Modern LuCI JS views + shared modules
+	$(INSTALL_DIR) $(1)/www/luci-static/resources/view/openclaw
+	$(INSTALL_DATA) ./htdocs/luci-static/resources/view/openclaw/basic.js $(1)/www/luci-static/resources/view/openclaw/basic.js
+	$(INSTALL_DATA) ./htdocs/luci-static/resources/view/openclaw/console.js $(1)/www/luci-static/resources/view/openclaw/console.js
+	$(INSTALL_DATA) ./htdocs/luci-static/resources/view/openclaw/advanced.js $(1)/www/luci-static/resources/view/openclaw/advanced.js
+	$(INSTALL_DATA) ./htdocs/luci-static/resources/view/openclaw/wechat.js $(1)/www/luci-static/resources/view/openclaw/wechat.js
+	$(INSTALL_DIR) $(1)/www/luci-static/resources/openclaw
+	$(INSTALL_DATA) ./htdocs/luci-static/resources/openclaw/api.js $(1)/www/luci-static/resources/openclaw/api.js
+	$(INSTALL_DATA) ./htdocs/luci-static/resources/openclaw/common.js $(1)/www/luci-static/resources/openclaw/common.js
+	# runtime (oc-config / web-pty / presets / version)
 	$(INSTALL_DIR) $(1)/usr/share/openclaw
 	$(INSTALL_DATA) ./VERSION $(1)/usr/share/openclaw/VERSION
 	$(INSTALL_BIN) ./root/usr/share/openclaw/oc-config.sh $(1)/usr/share/openclaw/oc-config.sh
@@ -112,7 +120,11 @@ define Package/$(PKG_NAME)/postinst
 		/etc/init.d/openclaw enable >/dev/null 2>&1 || true
 		/etc/init.d/openclaw start >/dev/null 2>&1 || true
 	fi
-	rm -f /tmp/luci-indexcache /tmp/luci-modulecache/* 2>/dev/null
+	# 注册 rpcd exec 插件 (ubus object "openclaw"), 供 JS 视图调用
+	if [ -x /usr/libexec/rpcd/openclaw ] && [ -x /etc/init.d/rpcd ]; then
+		/etc/init.d/rpcd restart >/dev/null 2>&1 || true
+	fi
+	rm -f /tmp/luci-indexcache /tmp/luci-modulecache/* /tmp/luci-indexcache.*.json 2>/dev/null
 	exit 0
 }
 endef
@@ -120,7 +132,7 @@ endef
 define Package/$(PKG_NAME)/postrm
 #!/bin/sh
 [ -n "$${IPKG_INSTROOT}" ] || {
-	rm -f /tmp/luci-indexcache /tmp/luci-modulecache/* 2>/dev/null
+	rm -f /tmp/luci-indexcache /tmp/luci-modulecache/* /tmp/luci-indexcache.*.json 2>/dev/null
 }
 endef
 

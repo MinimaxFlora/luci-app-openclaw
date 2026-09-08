@@ -1,103 +1,126 @@
 #!/bin/sh
-# LuCI 端点 CSRF 契约。
+# LuCI 状态变更端点安全契约 (post()/CSRF 时代的护栏在 JS 迁移后的等价物)。
 #
-# 背景: LuCI 的 dispatcher 只对 post() 注册的端点执行 test_post_security()
-# (同时要求 REQUEST_METHOD=POST 且表单 token 与会话 authtoken 匹配)。
-# call() 注册的端点允许 GET 触发且完全不校验 token。
+# 背景: 旧实现把所有“会改状态/返回凭据”的 controller 端点注册为 post()
+# (LuCI test_post_security: POST + 匹配会话的 CSRF token), 只读端点 call()。
 #
-# 原实现里会改状态或返回凭据的端点全都是 call():
-#   service_ctl     启停/重启/安装 OpenClaw
-#   uninstall       删除整个运行环境
-#   plugin_upgrade  下载并执行 .run 安装包
-#   backup          create/restore/delete 备份
-#   get_token       返回网关 token 与 PTY token
-# 这些端点都在 admin/services/openclaw 下(需登录)，但 GET 可触发意味着
-# 诱导已登录的管理员访问一个链接即可卸载环境或读出凭据。
-#
-# 本测试锁定: 改状态/返回凭据的端点必须是 post()，只读端点可以是 call()。
+# 新架构: UI 不再有 HTTP 端点 —— 全部调用经 LuCI /admin/ubus (JSON-RPC,
+# 会话 + token, 无 GET 副作用) 打到 rpcd exec 插件 "openclaw"。因此安全
+# 契约等价转化为:
+#   1. 全部后端方法只能经 ubus 调用: htdocs 不得出现 XHR/裸端点字符串,
+#      也不得残留旧 Lua controller 路径。
+#   2. ACL 文件按读写拆分: 状态变更 / 返回凭据的方法只出现在 write 组;
+#      只读方法在 read 组。任何方法都不得缺失于 ACL。
+#   3. 视图层唯一调用通道是 openclaw/api.js 的 rpc.declare 封装。
 set -eu
 
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname "$0")" && pwd)
 REPO_ROOT=$(CDPATH= cd -- "$SCRIPT_DIR/.." && pwd)
-CONTROLLER="$REPO_ROOT/luasrc/controller/openclaw.lua"
-BASIC="$REPO_ROOT/luasrc/model/cbi/openclaw/basic.lua"
-ADVANCED="$REPO_ROOT/luasrc/view/openclaw/advanced.htm"
-CONSOLE="$REPO_ROOT/luasrc/view/openclaw/console.htm"
+# Windows 宿主下给原生 python 用的路径 (MSYS /d/... 形式 python 打不开)
+REPO_WIN=$(cd "$REPO_ROOT" && pwd -W 2>/dev/null || printf '%s' "$REPO_ROOT")
+ACL="$REPO_ROOT/root/usr/share/rpcd/acl.d/luci-app-openclaw.json"
+API="$REPO_ROOT/htdocs/luci-static/resources/openclaw/api.js"
+BACKEND="$REPO_ROOT/root/usr/libexec/rpcd/openclaw"
+VIEWS="$REPO_ROOT/htdocs/luci-static/resources/view/openclaw"
 
 fail() {
 	echo "FAIL: $1" >&2
 	exit 1
 }
 
-for f in "$CONTROLLER" "$BASIC" "$ADVANCED" "$CONSOLE"; do
+for f in "$ACL" "$API" "$BACKEND"; do
 	[ -f "$f" ] || fail "missing $f"
 done
 
-# 必须用 post() 注册的端点: 会改状态或返回凭据
-MUST_POST="service_ctl uninstall plugin_upgrade backup get_token
-wechat_install wechat_login wechat_logout wechat_uninstall wechat_upgrade_plugin
-devices_approve"
-
-for ep in $MUST_POST; do
-	line=$(grep -F "\"openclaw\", \"$ep\"}" "$CONTROLLER" | head -1)
-	[ -n "$line" ] || fail "endpoint $ep not registered"
-	case "$line" in
-		*"post(\"action_"*) ;;
-		*"call(\"action_"*)
-			fail "endpoint $ep must be registered with post() — it changes state or returns credentials, and call() allows GET without CSRF validation"
-			;;
-		*) fail "endpoint $ep: unrecognized registration form" ;;
-	esac
-done
-
-# 前端必须以 POST 方式调用这些端点，并带上 CSRF token。
-# basic.lua 里针对 post 端点的调用不得再使用 XHR get。
-for u in ctl_url uninstall_url plugin_upgrade_url backup_url; do
-	if grep -F '(new XHR()).get(' "$BASIC" | grep -Fq ".. $u"; then
-		fail "basic.lua still calls $u with XHR get (post endpoints reject GET with 405)"
+# python3 优先, 其次 python (CI 的 ubuntu runner 自带 python3; Windows 商店
+# 的 python3 占位符不是可用解释器, 因此用真实解释一次探测筛选)
+PYBIN=""
+for _cand in python3 python; do
+	if command -v "$_cand" >/dev/null 2>&1 && "$_cand" -c 'import json' >/dev/null 2>&1; then
+		PYBIN=$(command -v "$_cand")
+		break
 	fi
 done
+[ -n "$PYBIN" ] || fail "no working python interpreter for ACL JSON parsing"
 
-# CSRF token 必须被注入前端并随请求提交
-grep -Fq 'context.authtoken' "$BASIC" || fail "basic.lua must expose the CSRF token to its scripts"
-grep -Fq 'ocCsrfToken' "$BASIC" || fail "basic.lua must pass the CSRF token in requests"
-# 允许 {token:ocCsrfToken} 与 {token: ocCsrfToken} 两种写法
-grep -Eq 'token:[[:space:]]*ocCsrfToken' "$BASIC" \
-	|| fail "basic.lua post calls must include the CSRF token"
+# ── 1. 方法全集: backend 的 list 签名 与 api.js 声明 与 ACL 三者一致 ──
+METHODS=$("$PYBIN" - "$REPO_WIN/root/usr/libexec/rpcd/openclaw" "$REPO_WIN/htdocs/luci-static/resources/openclaw/api.js" "$REPO_WIN/root/usr/share/rpcd/acl.d/luci-app-openclaw.json" <<'PYEOF'
+import json, re, sys
+backend, api, acl = sys.argv[1], sys.argv[2], sys.argv[3]
 
-# 每个 post 调用都必须带 token, 不能漏掉某一处
-post_calls=$(grep -c '(new XHR()).post(' "$BASIC" || true)
-post_with_token=$(grep '(new XHR()).post(' "$BASIC" | grep -Ec 'token:[[:space:]]*ocCsrfToken' || true)
-[ "$post_calls" = "$post_with_token" ] \
-	|| fail "basic.lua has $post_calls post calls but only $post_with_token carry the CSRF token"
+src = open(backend, encoding="utf-8").read()
+m = re.search(r'^\{"status":\{.*\}$', src, re.M)
+methods = set(re.findall(r'"([a-z_]+)":\{', m.group(0) if m else ''))
 
-# get_token 的两个调用方也必须改为带 token 的 POST
-for f in "$ADVANCED" "$CONSOLE"; do
-	b=$(basename "$f")
-	grep -Fq '(new XHR()).get(tokenUrl' "$f" \
-		&& fail "$b must POST to get_token (it is now a post() endpoint)"
-	grep -Fq '(new XHR()).post(tokenUrl' "$f" \
-		|| fail "$b must call get_token via POST"
-	grep -Eq 'token:[[:space:]]*ocCsrfToken' "$f" || fail "$b must send the CSRF token to get_token"
-	grep -Fq "var ocCsrfToken = '<%=token%>'" "$f" \
-		|| fail "$b must read the CSRF token from the LuCI template"
-done
+api_src = open(api, encoding="utf-8").read()
+decl = re.findall(r"method: '([a-z_]+)'", api_src)
+api_methods = set(decl)
 
-# 只读端点保持 call() 即可 —— 确认没有被误改成 post 而导致前端 GET 调用失效
-READ_ONLY="status_api setup_log check_update check_system plugin_upgrade_log
+acl_data = json.load(open(acl, encoding="utf-8"))
+acl_obj = acl_data["luci-app-openclaw"]
+read = set(acl_obj.get("read", {}).get("ubus", {}).get("openclaw", []))
+write = set(acl_obj.get("write", {}).get("ubus", {}).get("openclaw", []))
+
+issues = []
+for meth in sorted(methods):
+    if meth not in api_methods:
+        issues.append("backend method %s missing from api.js" % meth)
+    if meth not in read and meth not in write:
+        issues.append("backend method %s missing from ACL" % meth)
+for meth in sorted(api_methods):
+    if meth not in methods:
+        issues.append("api.js declares unknown method %s" % meth)
+if issues:
+    print("\n".join(issues))
+    sys.exit(1)
+print("ok")
+PYEOF
+)
+[ "$METHODS" = "ok" ] || fail "method registry mismatch:
+$METHODS"
+
+# ── 2. 状态变更/凭据方法只能出现在 write 组 (ACL 语义拆分) ──
+MUST_WRITE="service_ctl uninstall plugin_upgrade backup get_token
+wechat_install wechat_login wechat_logout wechat_uninstall wechat_upgrade_plugin
+devices_approve"
+MUST_READ="status setup_log check_update plugin_upgrade_log check_system
 wechat_status wechat_install_log wechat_login_status wechat_check_upgrade
 devices_list"
-for ep in $READ_ONLY; do
-	line=$(grep -F "\"openclaw\", \"$ep\"}" "$CONTROLLER" | head -1)
-	[ -n "$line" ] || fail "endpoint $ep not registered"
-	case "$line" in
-		*"post(\"action_"*)
-			# 若改为 post，前端必须同步改为带 token 的 POST，否则会 405
-			if grep -F "$ep" "$BASIC" "$ADVANCED" "$CONSOLE" 2>/dev/null | grep -Fq '(new XHR()).get('; then
-				fail "endpoint $ep was switched to post() but a frontend caller still uses GET"
-			fi
-			;;
-	esac
+
+check_acl() {
+	_want="$1"  # read|write
+	_meth="$2"
+	"$PYBIN" - "$REPO_WIN/root/usr/share/rpcd/acl.d/luci-app-openclaw.json" "$_want" "$_meth" <<'PYEOF'
+import json, sys
+acl = json.load(open(sys.argv[1], encoding="utf-8"))
+obj = acl["luci-app-openclaw"]
+want = sys.argv[2]
+meth = sys.argv[3]
+grp = obj.get(want, {}).get("ubus", {}).get("openclaw", [])
+sys.exit(0 if meth in grp else 1)
+PYEOF
+}
+
+for m in $MUST_WRITE; do
+	check_acl write "$m" || fail "method $m must be granted under ACL write (state change / credentials)"
+	check_acl read "$m" && fail "method $m must NOT be granted under ACL read"
 done
+for m in $MUST_READ; do
+	check_acl read "$m" || fail "method $m must be granted under ACL read"
+	check_acl write "$m" && fail "method $m must NOT be granted under ACL write"
+done
+
+# ── 3. 前端必须零直接 HTTP/端点痕迹 ──
+if grep -Rns "(new XHR())\|ocCsrfToken\|build_url\|status_api\|service_ctl?\|luci.controller\|luci.model.cbi\|template.render" "$VIEWS" "$REPO_ROOT/htdocs/luci-static/resources/openclaw" 2>/dev/null | grep -v "api.js" | grep -q .; then
+	fail "views must not contain raw XHR / legacy endpoint / CSRF plumbing"
+fi
+if grep -Rq "luci.controller\|luci.model.cbi\|template.render" "$REPO_ROOT/htdocs" 2>/dev/null; then
+	fail "htdocs must not reference legacy Lua LuCI machinery"
+fi
+
+# ── 4. LuCI Lua UI 层必须已删除 (controller/model/view 不再安装) ──
+if [ -d "$REPO_ROOT/luasrc" ]; then
+	fail "luasrc/ must be removed after the JS migration"
+fi
 
 echo "ok"

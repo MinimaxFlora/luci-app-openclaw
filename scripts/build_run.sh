@@ -59,25 +59,24 @@ install_files() {
 	cp "$PKG_DIR/root/usr/libexec/"*.sh "$dest/usr/libexec/"
 	chmod +x "$dest/usr/libexec/"*.sh
 
-	# LuCI controller
-	mkdir -p "$dest/usr/lib/lua/luci/controller"
-	cp "$PKG_DIR/luasrc/controller/openclaw.lua" "$dest/usr/lib/lua/luci/controller/"
+	# rpcd exec plugin (ubus object "openclaw" — replaces the Lua controller backend)
+	mkdir -p "$dest/usr/libexec/rpcd"
+	cp "$PKG_DIR/root/usr/libexec/rpcd/openclaw" "$dest/usr/libexec/rpcd/"
+	chmod +x "$dest/usr/libexec/rpcd/openclaw"
 
-	# shared Lua helpers
-	mkdir -p "$dest/usr/lib/lua/openclaw"
-	cp "$PKG_DIR/luasrc/openclaw/"*.lua "$dest/usr/lib/lua/openclaw/"
-
-	# LuCI CBI
-	mkdir -p "$dest/usr/lib/lua/luci/model/cbi/openclaw"
-	cp "$PKG_DIR/luasrc/model/cbi/openclaw/"*.lua "$dest/usr/lib/lua/luci/model/cbi/openclaw/"
-
-	# LuCI views
-	mkdir -p "$dest/usr/lib/lua/luci/view/openclaw"
-	cp "$PKG_DIR/luasrc/view/openclaw/"*.htm "$dest/usr/lib/lua/luci/view/openclaw/"
+	# LuCI JS menu
+	mkdir -p "$dest/usr/share/luci/menu.d"
+	cp "$PKG_DIR/root/usr/share/luci/menu.d/luci-app-openclaw.json" "$dest/usr/share/luci/menu.d/"
 
 	# rpcd ACL
 	mkdir -p "$dest/usr/share/rpcd/acl.d"
 	cp "$PKG_DIR/root/usr/share/rpcd/acl.d/"*.json "$dest/usr/share/rpcd/acl.d/"
+
+	# Modern LuCI JS views + shared modules
+	mkdir -p "$dest/www/luci-static/resources/view/openclaw"
+	cp "$PKG_DIR/htdocs/luci-static/resources/view/openclaw/"*.js "$dest/www/luci-static/resources/view/openclaw/"
+	mkdir -p "$dest/www/luci-static/resources/openclaw"
+	cp "$PKG_DIR/htdocs/luci-static/resources/openclaw/"*.js "$dest/www/luci-static/resources/openclaw/"
 
 	# oc-config assets
 	mkdir -p "$dest/usr/share/openclaw"
@@ -120,7 +119,7 @@ esac
 # 检查依赖
 # .run 不经过 opkg 依赖解析，需要主动补齐运行时依赖。
 # 特别是精简固件常见 /bin/tar 为 BusyBox 版本，无法解压 Node.js 的 .tar.xz。
-for dep in luci-compat luci-base curl openssl-util script-utils tar libstdcpp6; do
+for dep in luci-base curl openssl-util script-utils tar libstdcpp6 libubox jshn; do
 	if ! opkg list-installed 2>/dev/null | grep -q "^${dep} "; then
 		echo "警告: 缺少依赖 $dep，尝试安装..."
 		opkg update >/dev/null 2>&1 || true
@@ -142,10 +141,10 @@ for p in \
 	/etc/profile.d/openclaw.sh \
 	/usr/bin/openclaw-env \
 	/usr/libexec/openclaw-permissions.sh \
-	/usr/lib/lua/luci/controller/openclaw.lua \
-	/usr/lib/lua/luci/model/cbi/openclaw \
-	/usr/lib/lua/luci/view/openclaw \
-	/usr/lib/lua/openclaw \
+	/usr/libexec/rpcd/openclaw \
+	/usr/share/luci/menu.d/luci-app-openclaw.json \
+	/www/luci-static/resources/view/openclaw \
+	/www/luci-static/resources/openclaw \
 	/usr/share/openclaw \
 	/usr/share/rpcd/acl.d/luci-app-openclaw.json
 do
@@ -174,7 +173,7 @@ mkdir -p "$INFO_DIR"
 cat > "$INFO_DIR/$PKG.control" << CTLEOF
 Package: $PKG
 Version: $PKG_VER
-Depends: luci-compat, luci-base, curl, openssl-util, script-utils, tar, libstdcpp6
+Depends: luci-base, curl, openssl-util, script-utils, tar, libstdcpp6, libubox, jshn
 Section: luci
 Architecture: all
 Installed-Size: 0
@@ -210,7 +209,7 @@ cat >> "$STATUS_FILE" << STEOF
 
 Package: $PKG
 Version: $PKG_VER
-Depends: luci-compat, luci-base, curl, openssl-util, script-utils, tar, libstdcpp6
+Depends: luci-base, curl, openssl-util, script-utils, tar, libstdcpp6, libubox, jshn
 Status: install user installed
 Architecture: all
 Conffiles:

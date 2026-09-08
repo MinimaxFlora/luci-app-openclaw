@@ -1,16 +1,39 @@
 {
 	"luci-app-openclaw": {
-		"description": "Grant access to the OpenClaw LuCI application",
+		"description": "Grant access to the OpenClaw LuCI application (ubus object provided by the rpcd exec plugin /usr/libexec/rpcd/openclaw)",
 		"read": {
 			"uci": [ "openclaw" ],
 			"ubus": {
-				"service": [ "list" ]
+				"openclaw": [
+					"status",
+					"setup_log",
+					"check_update",
+					"plugin_upgrade_log",
+					"check_system",
+					"wechat_status",
+					"wechat_install_log",
+					"wechat_login_status",
+					"wechat_check_upgrade",
+					"devices_list"
+				]
 			}
 		},
 		"write": {
 			"uci": [ "openclaw" ],
 			"ubus": {
-				"service": [ "list", "set", "delete" ]
+				"openclaw": [
+					"service_ctl",
+					"uninstall",
+					"get_token",
+					"plugin_upgrade",
+					"backup",
+					"wechat_install",
+					"wechat_login",
+					"wechat_logout",
+					"wechat_upgrade_plugin",
+					"wechat_uninstall",
+					"devices_approve"
+				]
 			}
 		}
 	}
