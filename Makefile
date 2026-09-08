@@ -31,6 +31,11 @@ LUCI_PKGARCH:=all
 #   2. 直接放入 package/ 目录
 include $(INCLUDE_DIR)/package.mk
 
+# 纯文件包: 无源码编译阶段。不覆盖的话默认 Build/Compile 会在
+# PKG_BUILD_DIR 里执行 make (SDK / full-tree 下报 "No makefile found")。
+define Build/Compile
+endef
+
 define Package/$(PKG_NAME)
   SECTION:=luci
   CATEGORY:=LuCI
