@@ -6,6 +6,9 @@
 			"acl": [
 				"luci-app-openclaw"
 			]
+		},
+		"action": {
+			"type": "firstchild"
 		}
 	},
 	"admin/services/openclaw/basic": {
