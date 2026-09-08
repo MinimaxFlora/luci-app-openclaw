@@ -67,60 +67,60 @@ return view.extend({
 		const html =
 			'<style>' + style + '</style>' +
 			'<div class="oc-page-header">' +
-			'<h2>💬 微信渠道配置</h2>' +
-			'<p>通过微信 ClawBot 插件连接微信，实现与 AI 助手的私聊对话。支持多账号同时在线。</p>' +
+			'<h2>' + _('💬 WeChat Channel') + '</h2>' +
+			'<p>' + _('Connect WeChat through the ClawBot plugin and chat privately with your AI assistant. Multiple accounts can be online at the same time.') + '</p>' +
 			'</div>' +
 			'<div class="oc-prereq-box">' +
-			'<h3>📋 前置条件</h3>' +
+			'<h3>' + _('📋 Prerequisites') + '</h3>' +
 			'<ol>' +
-			'<li><strong>先安装/重新安装微信插件</strong> — 页面会自动检查 Node、python3、目录权限和微信接口连通性</li>' +
-			'<li><strong>点击“登录账号”</strong> — 出现链接后先点击打开，再使用微信客户端「扫一扫」扫码</li>' +
-			'<li><strong>等待成功提示</strong> — 成功后网关会重新加载微信账号，再用微信发一条消息验证</li>' +
+			'<li>' + '<strong>' + _('Install / reinstall the WeChat plugin first') + '</strong>' + _(' — the page automatically checks Node, python3, directory permissions and WeChat API reachability') + '</li>' +
+			'<li>' + '<strong>' + _('Click “Log in”') + '</strong>' + _(' — open the link that appears, then scan it with the WeChat scanner') + '</li>' +
+			'<li>' + '<strong>' + _('Wait for the success notice') + '</strong>' + _(' — the gateway then reloads the WeChat account; verify by sending it a message from WeChat') + '</li>' +
 			'</ol>' +
-			'<div class="warning">⚠️ 常见失败原因：二维码过期、账号风控、路由器到 ilinkai.weixin.qq.com TLS/timeout、插件注册缺失、数据目录权限错误。失败时页面会显示最近日志。</div>' +
+			'<div class="warning">' + _('⚠️ Common failure causes: expired QR code, account risk control, TLS/timeout between the router and ilinkai.weixin.qq.com, missing plugin registration, wrong data directory permissions. On failure the recent log is shown.') + '</div>' +
 			'</div>' +
 			'<div class="oc-status-box">' +
-			'<h3>📊 插件状态</h3>' +
-			'<div class="oc-status-row"><span class="oc-status-label">微信插件</span><span class="oc-status-value" id="oc-wechat-plugin">检测中...</span></div>' +
-			'<div class="oc-status-row"><span class="oc-status-label">插件版本</span><span class="oc-status-value" id="oc-wechat-plugin-ver">—</span></div>' +
+			'<h3>' + _('📊 Plugin Status') + '</h3>' +
+			'<div class="oc-status-row">' + '<span class="oc-status-label">' + _('WeChat Plugin') + '</span>' + '<span class="oc-status-value" id="oc-wechat-plugin">' + _('Detecting...') + '</span>' + '</div>' +
+			'<div class="oc-status-row">' + '<span class="oc-status-label">' + _('Plugin Version') + '</span>' + '<span class="oc-status-value" id="oc-wechat-plugin-ver">' + '—' + '</span>' + '</div>' +
 			'<div class="oc-status-row" id="oc-wechat-accounts-row" style="flex-direction:column;align-items:flex-start;">' +
 			'<div style="display:flex;justify-content:space-between;width:100%;">' +
-			'<span class="oc-status-label" style="align-self:center;">登录状态</span>' +
-			'<span class="oc-status-value" id="oc-wechat-login">检测中...</span>' +
+			'<span class="oc-status-label" style="align-self:center;">' + _('Login Status') + '</span>' +
+			'<span class="oc-status-value" id="oc-wechat-login">' + _('Detecting...') + '</span>' +
 			'</div>' +
 			'<div id="oc-wechat-accounts-list" style="width:100%;margin-top:10px;display:none;"></div>' +
 			'</div>' +
-			'<div class="oc-status-row"><span class="oc-status-label">OpenClaw 版本</span><span class="oc-status-value" id="oc-wechat-ocver">检测中...</span></div>' +
+			'<div class="oc-status-row">' + '<span class="oc-status-label">' + _('OpenClaw Version') + '</span>' + '<span class="oc-status-value" id="oc-wechat-ocver">' + _('Detecting...') + '</span>' + '</div>' +
 			'</div>' +
 			'<div class="oc-action-bar">' +
-			'<button class="btn cbi-button cbi-button-apply" type="button" id="btn-install-plugin">📦 安装微信插件</button>' +
-			'<button class="btn cbi-button cbi-button-action" type="button" id="btn-upgrade-plugin">🔍 检测升级</button>' +
-			'<button class="btn cbi-button" type="button" id="btn-refresh-status">🔄 刷新状态</button>' +
-			'<button class="btn cbi-button" type="button" id="btn-uninstall-plugin" style="background:#ffeef0;color:#cf222e;border-color:#cf222e;">🗑️ 卸载插件</button>' +
+			'<button class="btn cbi-button cbi-button-apply" type="button" id="btn-install-plugin">' + _('📦 Install WeChat Plugin') + '</button>' +
+			'<button class="btn cbi-button cbi-button-action" type="button" id="btn-upgrade-plugin">' + _('🔍 Check for Upgrades') + '</button>' +
+			'<button class="btn cbi-button" type="button" id="btn-refresh-status">' + _('🔄 Refresh Status') + '</button>' +
+			'<button class="btn cbi-button" type="button" id="btn-uninstall-plugin" style="background:#ffeef0;color:#cf222e;border-color:#cf222e;">' + _('🗑️ Uninstall Plugin') + '</button>' +
 			'</div>' +
 			/* 安装进度对话框 */
 			'<div class="oc-modal-overlay" id="oc-install-modal">' +
 			'<div class="oc-modal">' +
-			'<div class="oc-modal-header"><h3 id="oc-install-title">📦 安装微信插件</h3><button class="oc-modal-close" type="button" data-close="oc-install-modal">&times;</button></div>' +
+			'<div class="oc-modal-header">' + '<h3 id="oc-install-title">' + _('📦 Install WeChat Plugin') + '</h3>' + '<button class="oc-modal-close" type="button" data-close="oc-install-modal">' + '&times;' + '</button>' + '</div>' +
 			'<div class="oc-modal-body">' +
-			'<div id="oc-install-progress"><div class="oc-progress-box"><span class="oc-progress-spinner"></span><span>正在安装，请稍候...</span></div><pre id="oc-install-log"></pre><div id="oc-install-qrcode-link" style="display:none;margin:10px 0;text-align:center;"></div></div>' +
+			'<div id="oc-install-progress">' + '<div class="oc-progress-box">' + '<span class="oc-progress-spinner">' + '</span>' + '<span>' + _('Installing, please wait...') + '</span>' + '</div>' + '<pre id="oc-install-log">' + '</pre>' + '<div id="oc-install-qrcode-link" style="display:none;margin:10px 0;text-align:center;">' + '</div>' + '</div>' +
 			'<div id="oc-install-result" style="display:none;"></div>' +
 			'</div></div></div>' +
 			/* 登录二维码对话框 */
 			'<div class="oc-modal-overlay" id="oc-login-modal">' +
 			'<div class="oc-modal">' +
-			'<div class="oc-modal-header"><h3>📱 微信扫码登录</h3><button class="oc-modal-close" type="button" data-close="oc-login-modal">&times;</button></div>' +
+			'<div class="oc-modal-header">' + '<h3>' + _('📱 WeChat QR Login') + '</h3>' + '<button class="oc-modal-close" type="button" data-close="oc-login-modal">' + '&times;' + '</button>' + '</div>' +
 			'<div class="oc-modal-body">' +
-			'<div id="oc-login-progress"><div class="oc-progress-box"><span class="oc-progress-spinner"></span><span>正在获取登录二维码...</span></div></div>' +
+			'<div id="oc-login-progress">' + '<div class="oc-progress-box">' + '<span class="oc-progress-spinner">' + '</span>' + '<span>' + _('Fetching the login QR code...') + '</span>' + '</div>' + '</div>' +
 			'<div id="oc-login-qrcode" style="display:none;"></div>' +
 			'<div id="oc-login-result" style="display:none;"></div>' +
 			'</div></div></div>' +
 			/* 升级检测对话框 */
 			'<div class="oc-modal-overlay" id="oc-upgrade-modal">' +
 			'<div class="oc-modal">' +
-			'<div class="oc-modal-header"><h3>🔍 检测插件升级</h3><button class="oc-modal-close" type="button" data-close="oc-upgrade-modal">&times;</button></div>' +
+			'<div class="oc-modal-header">' + '<h3>' + _('🔍 Check Plugin Upgrade') + '</h3>' + '<button class="oc-modal-close" type="button" data-close="oc-upgrade-modal">' + '&times;' + '</button>' + '</div>' +
 			'<div class="oc-modal-body">' +
-			'<div id="oc-upgrade-progress"><div class="oc-progress-box"><span class="oc-progress-spinner"></span><span>正在检测...</span></div></div>' +
+			'<div id="oc-upgrade-progress">' + '<div class="oc-progress-box">' + '<span class="oc-progress-spinner">' + '</span>' + '<span>' + _('Checking for updates...') + '</span>' + '</div>' + '</div>' +
 			'<div id="oc-upgrade-result" style="display:none;"></div>' +
 			'</div></div></div>';
 
@@ -182,15 +182,15 @@ return view.extend({
 				verEl.textContent = 'v' + d.oc_version;
 				verEl.className = 'oc-status-value ok';
 				if (d.oc_version >= '2026.3.22') {
-					verEl.textContent += ' ✓ 兼容';
+					verEl.textContent += _(' ✓ compatible');
 				}
 				else {
-					verEl.textContent += ' ⚠️ 需升级至 2026.3.22+';
+					verEl.textContent += _(' ⚠️ upgrade to 2026.3.22+ required');
 					verEl.className = 'oc-status-value warn';
 				}
 			}
 			else {
-				verEl.textContent = '未安装';
+				verEl.textContent = _('Not installed');
 				verEl.className = 'oc-status-value error';
 			}
 		}).catch(function() {});
@@ -206,43 +206,43 @@ return view.extend({
 			self.pluginInstalled = d.plugin_installed;
 
 			if (d.plugin_installed) {
-				pluginEl.textContent = '✅ 已安装';
+				pluginEl.textContent = _('✅ Installed');
 				pluginEl.className = 'oc-status-value ok';
-				btnInstall.textContent = '📦 重新安装插件';
+				btnInstall.textContent = _('📦 Reinstall Plugin');
 				btnUpgrade.disabled = false;
 				if (d.plugin_version)
 					pluginVerEl.textContent = 'v' + d.plugin_version;
 				else
-					pluginVerEl.textContent = '已安装';
+					pluginVerEl.textContent = _('Installed');
 			}
 			else {
-				pluginEl.textContent = '❌ 未安装';
+				pluginEl.textContent = _('❌ Not installed');
 				pluginEl.className = 'oc-status-value error';
-				btnInstall.textContent = '📦 安装微信插件';
+				btnInstall.textContent = _('📦 Install WeChat Plugin');
 				btnUpgrade.disabled = true;
 				pluginVerEl.textContent = '—';
 			}
 
 			if (d.logged_in && d.accounts && d.accounts.length > 0) {
-				loginEl.textContent = '✅ 已登录 (' + d.accounts.length + ' 个账号)';
+				loginEl.textContent = _('✅ Logged in (') + d.accounts.length + _(' accounts)');
 				loginEl.className = 'oc-status-value ok';
 
 				var accHtml = '<ul style="list-style:none;padding:0;margin:0;border-top:1px dashed #eee;padding-top:10px;">';
 				for (var i = 0; i < d.accounts.length; i++) {
 					accHtml += '<li style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding:6px;background:#fafafa;border-radius:4px;">' +
 						'<span style="font-size:13px;color:#555;">👤 ' + oc.escapeHtml(d.accounts[i].name) + '</span>' +
-						'<button class="oc-copy-btn" style="color:#cf222e;border-color:#cf222e;" data-oc-logout="' + oc.escapeHtml(d.accounts[i].name) + '">退出账号</button>' +
+						'<button class="oc-copy-btn" style="color:#cf222e;border-color:#cf222e;" data-oc-logout="' + oc.escapeHtml(d.accounts[i].name) + '">' + _('Log out') + '</button>' +
 						'</li>';
 				}
-				accHtml += '</ul><div style="text-align:right;margin-top:8px;"><button class="btn cbi-button" type="button" data-oc-login-qrcode>➕ 添加新账号</button></div>';
+				accHtml += '</ul>' + '<div style="text-align:right;margin-top:8px;">' + '<button class="btn cbi-button" type="button" data-oc-login-qrcode>' + _('➕ Add New Account') + '</button>' + '</div>';
 
 				accList.innerHTML = accHtml;
 				accList.style.display = 'block';
 			}
 			else if (d.plugin_installed) {
-				loginEl.textContent = '⚠️ 未登录';
+				loginEl.textContent = _('⚠️ Not logged in');
 				loginEl.className = 'oc-status-value warn';
-				accList.innerHTML = '<div style="text-align:right;margin-top:8px;"><button class="btn cbi-button" type="button" data-oc-login-qrcode>登录账号</button></div>';
+				accList.innerHTML = '<div style="text-align:right;margin-top:8px;">' + '<button class="btn cbi-button" type="button" data-oc-login-qrcode>' + _('Log in') + '</button>' + '</div>';
 				accList.style.display = 'block';
 			}
 			else {
@@ -253,8 +253,8 @@ return view.extend({
 
 			self.wireAccountButtons(accList);
 		}).catch(function(e) {
-			oc.$('oc-wechat-plugin').textContent = '检测失败';
-			oc.$('oc-wechat-login').textContent = '检测失败';
+			oc.$('oc-wechat-plugin').textContent = _('Check failed');
+			oc.$('oc-wechat-login').textContent = _('Check failed');
 		});
 	},
 
@@ -283,21 +283,21 @@ return view.extend({
 		var btn = oc.$('btn-install-plugin');
 
 		btn.disabled = true;
-		btn.textContent = '⏳ 安装中...';
+		btn.textContent = _('⏳ Installing...');
 
 		oc.$('oc-install-modal').classList.add('show');
-		oc.$('oc-install-title').textContent = '📦 安装微信插件';
+		oc.$('oc-install-title').textContent = _('📦 Install WeChat Plugin');
 		oc.$('oc-install-progress').style.display = 'block';
 		oc.$('oc-install-result').style.display = 'none';
-		oc.$('oc-install-log').textContent = '正在启动安装...\n';
+		oc.$('oc-install-log').textContent = _('Starting the installation...\n');
 
 		api.wechatInstall().then(function(d) {
 			if (d.status === 'ok')
 				self.pollInstallLog(false);
 			else
-				self.showInstallError(d.message || '启动安装失败');
+				self.showInstallError(d.message || _('Failed to start the installation'));
 		}).catch(function(e) {
-			self.showInstallError('启动安装失败: ' + e.message);
+			self.showInstallError(_('Failed to start the installation: ') + e.message);
 		});
 	},
 
@@ -319,13 +319,13 @@ return view.extend({
 				if (linkUrl) {
 					var linkContainer = oc.$('oc-install-qrcode-link');
 					linkContainer.style.display = 'block';
-					linkContainer.innerHTML = '<a href="' + oc.escapeHtml(linkUrl) + '" target="_blank" rel="noopener noreferrer" class="oc-qrcode-link-btn" style="padding:10px 20px;font-size:14px;margin:0;">🔗 点击打开链接，然后用微信扫码</a>';
+					linkContainer.innerHTML = '<a href="' + oc.escapeHtml(linkUrl) + '" target="_blank" rel="noopener noreferrer" class="oc-qrcode-link-btn" style="padding:10px 20px;font-size:14px;margin:0;">' + _('🔗 Open the link, then scan it with WeChat') + '</a>';
 				}
 
 				logEl.textContent = cleanLog;
 			}
 			else {
-				logEl.textContent = '等待输出...';
+				logEl.textContent = _('Waiting for output...');
 			}
 
 			logEl.scrollTop = logEl.scrollHeight;
@@ -337,7 +337,7 @@ return view.extend({
 				self.showInstallSuccess(autoShowQRCode);
 			}
 			else if (d.state === 'failed') {
-				self.showInstallError('安装失败 (exit: ' + d.exit_code + ')');
+				self.showInstallError(_('Installation failed (exit: ') + d.exit_code + ')');
 			}
 		}).catch(function(e) {
 			self.installPollTimer = setTimeout(function() { self.pollInstallLog(autoShowQRCode); }, 1500);
@@ -351,10 +351,10 @@ return view.extend({
 		oc.$('oc-install-progress').style.display = 'none';
 		var resultEl = oc.$('oc-install-result');
 		resultEl.style.display = 'block';
-		resultEl.innerHTML = '<div class="oc-result-success">✅ 微信插件安装成功！</div>';
+		resultEl.innerHTML = '<div class="oc-result-success">' + _('✅ WeChat plugin installed successfully!') + '</div>';
 
 		btn.disabled = false;
-		btn.textContent = '📦 重新安装插件';
+		btn.textContent = _('📦 Reinstall Plugin');
 
 		this.refreshWechatStatus();
 
@@ -372,7 +372,7 @@ return view.extend({
 
 		var btn = oc.$('btn-install-plugin');
 		btn.disabled = false;
-		btn.textContent = '📦 安装微信插件';
+		btn.textContent = _('📦 Install WeChat Plugin');
 	},
 
 	closeInstallModal: function() {
@@ -397,20 +397,20 @@ return view.extend({
 			if (d.status === 'ok')
 				setTimeout(function() { self.pollLoginStatus(); }, 2000);
 			else
-				self.showLoginError(d.message || '启动登录失败');
+				self.showLoginError(d.message || _('Failed to start the login'));
 		}).catch(function(e) {
-			self.showLoginError('启动登录失败: ' + e.message);
+			self.showLoginError(_('Failed to start the login: ') + e.message);
 		});
 	},
 
 	logoutWechatAccount: function(accountId, btn) {
 		var self = this;
 
-		if (!confirm('确认退出账号 ' + accountId + ' 吗？退出后需要重新扫码。'))
+		if (!confirm(_('Log out account ') + accountId + _('? After logging out you will need to scan the QR code again.')))
 			return;
 
 		var oldText = btn.textContent;
-		btn.textContent = '退出中...';
+		btn.textContent = _('Logging out...');
 		btn.disabled = true;
 
 		api.wechatLogout(accountId).then(function(d) {
@@ -420,7 +420,7 @@ return view.extend({
 		}).catch(function(e) {
 			btn.textContent = oldText;
 			btn.disabled = false;
-			alert('退出账号失败: ' + (e.message || e));
+			alert(_('Failed to log out the account: ') + (e.message || e));
 		});
 	},
 
@@ -435,14 +435,14 @@ return view.extend({
 
 			var isExpired = (d.qrcode && (d.qrcode.indexOf('已被扫描') > -1 || d.qrcode.indexOf('二维码已过期') > -1));
 			var statusMessage = isExpired
-				? '<p style="color:#cf222e;font-size:13px;margin:8px 0;text-align:center;">⌛ 二维码已刷新，请点击最新链接扫码登录</p>'
-				: '<p style="font-size:14px;color:#333;margin-bottom:8px;text-align:center;">📱 请点击下方链接打开二维码，再用微信扫码</p>';
+				? '<p style="color:#cf222e;font-size:13px;margin:8px 0;text-align:center;">' + _('⌛ QR code refreshed — click the newest link to log in') + '</p>'
+				: '<p style="font-size:14px;color:#333;margin-bottom:8px;text-align:center;">' + _('📱 Open the QR code from the link below and scan it with WeChat') + '</p>';
 
 			if (d.state === 'success' || d.logged_in) {
 				self.showLoginSuccess();
 			}
 			else if (d.state === 'failed') {
-				self.showLoginError(d.message || '登录失败', d.error_detail || d.qrcode || '');
+				self.showLoginError(d.message || _('Login failed'), d.error_detail || d.qrcode || '');
 			}
 			else if (d.state === 'qrcode' && d.qrcode_url) {
 				oc.$('oc-login-progress').style.display = 'none';
@@ -450,9 +450,9 @@ return view.extend({
 				var safeUrl = oc.escapeHtml(d.qrcode_url);
 				qrcodeEl.innerHTML = '<div class="oc-qrcode-box">' +
 					statusMessage +
-					'<a href="' + safeUrl + '" target="_blank" rel="noopener noreferrer" class="oc-qrcode-link-btn" style="font-size:16px;">🔗 点击打开链接，然后用微信扫码</a>' +
-					'<p class="oc-qrcode-copy-link">或复制链接: <code>' + safeUrl + '</code>' +
-					'<button class="oc-copy-btn" data-oc-copy="' + safeUrl.replace(/"/g, '&quot;') + '">复制</button></p>' +
+					'<a href="' + safeUrl + '" target="_blank" rel="noopener noreferrer" class="oc-qrcode-link-btn" style="font-size:16px;">' + _('🔗 Open the link, then scan it with WeChat') + '</a>' +
+					'<p class="oc-qrcode-copy-link">' + _('Or copy the link: ') + '<code>' + safeUrl + '</code>' +
+					'<button class="oc-copy-btn" data-oc-copy="' + safeUrl.replace(/"/g, '&quot;') + '">' + _('Copy') + '</button>' + '</p>' +
 					'</div>';
 				self.wireCopyButtons(qrcodeEl);
 				self.loginPollTimer = setTimeout(function() { self.pollLoginStatus(); }, 2000);
@@ -466,15 +466,15 @@ return view.extend({
 						var safeUrl2 = oc.escapeHtml(extractedUrl);
 						qrcodeEl.innerHTML = '<div class="oc-qrcode-box">' +
 							statusMessage +
-							'<a href="' + safeUrl2 + '" target="_blank" rel="noopener noreferrer" class="oc-qrcode-link-btn" style="font-size:16px;">🔗 点击打开链接，然后用微信扫码</a>' +
-							'<p class="oc-qrcode-copy-link">或复制链接: <code>' + safeUrl2 + '</code>' +
-							'<button class="oc-copy-btn" data-oc-copy="' + safeUrl2.replace(/"/g, '&quot;') + '">复制</button></p>' +
+							'<a href="' + safeUrl2 + '" target="_blank" rel="noopener noreferrer" class="oc-qrcode-link-btn" style="font-size:16px;">' + _('🔗 Open the link, then scan it with WeChat') + '</a>' +
+							'<p class="oc-qrcode-copy-link">' + _('Or copy the link: ') + '<code>' + safeUrl2 + '</code>' +
+							'<button class="oc-copy-btn" data-oc-copy="' + safeUrl2.replace(/"/g, '&quot;') + '">' + _('Copy') + '</button>' + '</p>' +
 							'</div>';
 						self.wireCopyButtons(qrcodeEl);
 					}
 					else {
 						qrcodeEl.style.display = 'block';
-						qrcodeEl.innerHTML = '<div class="oc-qrcode-box"><p>正在加载登录链接...</p></div>';
+						qrcodeEl.innerHTML = '<div class="oc-qrcode-box">' + '<p>' + _('Loading the login link...') + '</p>' + '</div>';
 					}
 				}
 				self.loginPollTimer = setTimeout(function() { self.pollLoginStatus(); }, 2000);
@@ -501,7 +501,7 @@ return view.extend({
 		oc.$('oc-login-qrcode').style.display = 'none';
 		var resultEl = oc.$('oc-login-result');
 		resultEl.style.display = 'block';
-		resultEl.innerHTML = '<div class="oc-result-success">✅ 微信登录成功！<br><br>网关正在重新加载微信账号，请等待 10-20 秒后，用微信给网关发一条测试消息验证。</div>';
+		resultEl.innerHTML = _('✅ WeChat login successful!') + '<br>' + '<br>' + _('The gateway is reloading your WeChat account — wait 10-20 seconds, then send a test message from WeChat to verify.') + '</div>';
 
 		this.refreshWechatStatus();
 	},
@@ -510,7 +510,7 @@ return view.extend({
 		oc.$('oc-login-progress').style.display = 'none';
 		var resultEl = oc.$('oc-login-result');
 		resultEl.style.display = 'block';
-		var html = '<div class="oc-result-error">❌ ' + oc.escapeHtml(message || '登录失败');
+		var html = '<div class="oc-result-error">❌ ' + oc.escapeHtml(message || _('Login failed'));
 		if (detail)
 			html += '<pre class="oc-error-detail">' + oc.escapeHtml(detail) + '</pre>';
 		html += '</div>';
@@ -540,49 +540,49 @@ return view.extend({
 
 			if (d.has_upgrade) {
 				resultEl.innerHTML = '<div class="oc-result-info">' +
-					'🔄 发现新版本: ' + d.latest_version + '<br>' +
-					'当前版本: ' + d.current_version + '<br><br>' +
-					'<button class="btn cbi-button cbi-button-apply" type="button" id="btn-upgrade-now">立即升级</button>' +
+					_('🔄 New version available: ') + d.latest_version + '<br>' +
+					_('Current version: ') + d.current_version + '<br><br>' +
+					'<button class="btn cbi-button cbi-button-apply" type="button" id="btn-upgrade-now">' + _('Upgrade now') + '</button>' +
 					'</div>';
 				oc.$('btn-upgrade-now').addEventListener('click', function() {
 					self.upgradeWechatPlugin();
 				});
 			}
 			else if (!d.current_version) {
-				resultEl.innerHTML = '<div class="oc-result-error">❌ 插件未安装，请先安装</div>';
+				resultEl.innerHTML = '<div class="oc-result-error">' + _('❌ Plugin not installed — install it first') + '</div>';
 			}
 			else if (d.status !== 'ok' || !d.latest_version) {
-				resultEl.innerHTML = '<div class="oc-result-error">⚠️ 无法确认最新版本' +
-					'<br>当前已安装: ' + d.current_version +
+				resultEl.innerHTML = '<div class="oc-result-error">' + _('⚠️ Could not determine the latest version') +
+					'<br>' + _('Currently installed: ') + d.current_version +
 					(d.message ? '<br><span style="font-size:12px;">' + oc.escapeHtml(d.message) + '</span>' : '') +
 					'</div>';
 			}
 			else {
-				resultEl.innerHTML = '<div class="oc-result-success">✅ 当前已是最新版本: ' + d.current_version + '</div>';
+				resultEl.innerHTML = '<div class="oc-result-success">' + _('✅ Already on the latest version: ') + d.current_version + '</div>';
 			}
 		}).catch(function(e) {
 			oc.$('oc-upgrade-progress').style.display = 'none';
 			var resultEl = oc.$('oc-upgrade-result');
 			resultEl.style.display = 'block';
-			resultEl.innerHTML = '<div class="oc-result-error">❌ 检测失败: ' + e.message + '</div>';
+			resultEl.innerHTML = '<div class="oc-result-error">' + _('❌ Check failed: ') + e.message + '</div>';
 		});
 	},
 
 	upgradeWechatPlugin: function() {
 		var self = this;
 
-		oc.$('oc-upgrade-result').innerHTML = '<div class="oc-progress-box"><span class="oc-progress-spinner"></span><span>正在升级...</span></div>';
+		oc.$('oc-upgrade-result').innerHTML = '<div class="oc-progress-box">' + '<span class="oc-progress-spinner">' + '</span>' + '<span>' + _('Upgrading...') + '</span>' + '</div>';
 
 		api.wechatUpgradePlugin().then(function(d) {
 			if (d.status === 'ok') {
-				oc.$('oc-upgrade-result').innerHTML = '<div class="oc-progress-box"><pre id="oc-upgrade-log">正在升级...</pre><div id="oc-upgrade-qrcode-link" style="display:none;margin:10px 0;text-align:center;"></div></div>';
+				oc.$('oc-upgrade-result').innerHTML = '<div class="oc-progress-box">' + '<pre id="oc-upgrade-log">' + 'Upgrading...' + '</pre>' + '<div id="oc-upgrade-qrcode-link" style="display:none;margin:10px 0;text-align:center;">' + '</div>' + '</div>';
 				self.pollUpgradeLog();
 			}
 			else {
-				oc.$('oc-upgrade-result').innerHTML = '<div class="oc-result-error">❌ ' + (d.message || '升级失败') + '</div>';
+				oc.$('oc-upgrade-result').innerHTML = '<div class="oc-result-error">❌ ' + (d.message || _('Upgrade failed')) + '</div>';
 			}
 		}).catch(function(e) {
-			oc.$('oc-upgrade-result').innerHTML = '<div class="oc-result-error">❌ 升级失败: ' + e.message + '</div>';
+			oc.$('oc-upgrade-result').innerHTML = '<div class="oc-result-error">' + _('❌ Upgrade failed: ') + e.message + '</div>';
 		});
 	},
 
@@ -603,13 +603,13 @@ return view.extend({
 						var linkContainer = oc.$('oc-upgrade-qrcode-link');
 						if (linkContainer) {
 							linkContainer.style.display = 'block';
-							linkContainer.innerHTML = '<a href="' + oc.escapeHtml(linkUrl) + '" target="_blank" rel="noopener noreferrer" class="oc-qrcode-link-btn" style="padding:10px 20px;font-size:14px;margin:0;">🔗 点击打开链接，然后用微信扫码</a>';
+							linkContainer.innerHTML = '<a href="' + oc.escapeHtml(linkUrl) + '" target="_blank" rel="noopener noreferrer" class="oc-qrcode-link-btn" style="padding:10px 20px;font-size:14px;margin:0;">' + _('🔗 Open the link, then scan it with WeChat') + '</a>';
 						}
 					}
 					logEl.textContent = cleanLog;
 				}
 				else {
-					logEl.textContent = '等待输出...';
+					logEl.textContent = _('Waiting for output...');
 				}
 				logEl.scrollTop = logEl.scrollHeight;
 			}
@@ -618,11 +618,11 @@ return view.extend({
 				self.upgradePollTimer = setTimeout(function() { self.pollUpgradeLog(); }, 1500);
 			}
 			else if (d.state === 'success') {
-				oc.$('oc-upgrade-result').innerHTML = '<div class="oc-result-success">✅ 升级成功！</div>';
+				oc.$('oc-upgrade-result').innerHTML = '<div class="oc-result-success">' + _('✅ Upgrade successful!') + '</div>';
 				self.refreshWechatStatus();
 			}
 			else if (d.state === 'failed') {
-				oc.$('oc-upgrade-result').innerHTML = '<div class="oc-result-error">❌ 升级失败</div>';
+				oc.$('oc-upgrade-result').innerHTML = '<div class="oc-result-error">' + _('❌ Upgrade failed') + '</div>';
 			}
 		}).catch(function(e) {
 			self.upgradePollTimer = setTimeout(function() { self.pollUpgradeLog(); }, 1500);
@@ -641,23 +641,23 @@ return view.extend({
 	uninstallWechatPlugin: function() {
 		var self = this;
 
-		if (!confirm('确定要卸载微信插件吗？这将删除微信相关的所有配置。'))
+		if (!confirm(_('Uninstall the WeChat plugin? This will delete all WeChat-related configuration.')))
 			return;
 
 		var btn = oc.$('btn-uninstall-plugin');
 		btn.disabled = true;
-		btn.textContent = '⏳ 卸载中...';
+		btn.textContent = _('⏳ Removing plugin...');
 
 		api.wechatUninstall().then(function(d) {
 			if (d.status === 'ok')
 				alert('✅ ' + d.message);
 			else
-				alert('❌ ' + (d.message || '卸载失败'));
+				alert('❌ ' + (d.message || _('Uninstall failed')));
 		}).catch(function(e) {
-			alert('卸载失败: ' + e.message);
+			alert(_('Uninstall failed: ') + e.message);
 		}).finally(function() {
 			btn.disabled = false;
-			btn.textContent = '🗑️ 卸载插件';
+			btn.textContent = _('🗑️ Uninstall Plugin');
 			self.refreshWechatStatus();
 		});
 	}

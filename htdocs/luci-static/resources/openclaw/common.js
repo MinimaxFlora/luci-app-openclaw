@@ -40,10 +40,10 @@ common.extractWechatLoginUrl = function(text) {
 /** copy text to clipboard with legacy fallback (wechat.htm ocCopyToClipboard) */
 common.copyToClipboard = function(text, btn) {
 	var done = function() {
-		btn.textContent = '已复制';
+		btn.textContent = _('Copied');
 		btn.classList.add('copied');
 		setTimeout(function() {
-			btn.textContent = '复制';
+			btn.textContent = _('Copy');
 			btn.classList.remove('copied');
 		}, 2000);
 	};
@@ -71,10 +71,10 @@ common._fallbackCopy = function(text, btn, done) {
 		if (document.execCommand('copy'))
 			done();
 		else
-			alert('复制失败，请手动复制: ' + text);
+			alert(_('Copy failed, please copy manually: ') + text);
 	}
 	catch (e) {
-		alert('复制失败，请手动复制: ' + text);
+		alert(_('Copy failed, please copy manually: ') + text);
 	}
 
 	document.body.removeChild(input);
@@ -154,35 +154,35 @@ common.analyzeFailure = function(log) {
 	var reasons = [];
 
 	if (!log)
-		return '未知错误，请检查日志。';
+		return _('Unknown error, please check the logs.');
 
 	var ll = log.toLowerCase();
 
 	if (ll.indexOf('could not resolve') >= 0 || ll.indexOf('connection timed out') >= 0 ||
 	    (ll.indexOf('curl') >= 0 && ll.indexOf('fail') >= 0) ||
 	    (ll.indexOf('wget') >= 0 && ll.indexOf('fail') >= 0) || ll.indexOf('所有镜像均下载失败') >= 0)
-		reasons.push('🌐 <b>网络连接失败</b> — 无法下载 Node.js。请检查路由器是否能访问外网。<br/>&nbsp;&nbsp;💡 解决: 检查 DNS 设置和网络连接，或手动指定镜像: <code>NODE_MIRROR=https://npmmirror.com/mirrors/node openclaw-env setup</code>');
+		reasons.push('🌐 ' + '<b>' + _('Network connection failed') + '</b>' + _(' — unable to download Node.js. Make sure the router can reach the internet.') + '<br/>' + '&nbsp;&nbsp;' + _('💡 Fix: check DNS settings and connectivity, or point to a mirror manually: ') + '<code>' + 'NODE_MIRROR=https://npmmirror.com/mirrors/node openclaw-env setup' + '</code>');
 
 	if (ll.indexOf('no space') >= 0 || ll.indexOf('disk full') >= 0 || ll.indexOf('enospc') >= 0)
-		reasons.push('💾 <b>磁盘空间不足</b> — Node.js + OpenClaw 需要约 200MB 空间。<br/>&nbsp;&nbsp;💡 解决: 运行 <code>df -h</code> 检查可用空间，清理不需要的文件或使用外部存储。');
+		reasons.push('💾 ' + '<b>' + _('Not enough disk space') + '</b>' + _(' — Node.js + OpenClaw need roughly 200 MB.') + '<br/>' + '&nbsp;&nbsp;' + _('💡 Fix: run ') + '<code>' + 'df -h' + '</code>' + _(' to check free space, then remove unneeded files or use external storage.'));
 
 	if (ll.indexOf('不支持的 cpu 架构') >= 0 || ll.indexOf('不支持的架构') >= 0)
-		reasons.push('🔧 <b>CPU 架构不支持</b> — 仅支持 x86_64 和 aarch64 (ARM64)。<br/>&nbsp;&nbsp;💡 当前设备架构可能是 32 位 ARM 或 MIPS，无法运行 Node.js 22。');
+		reasons.push('🔧 ' + '<b>' + _('Unsupported CPU architecture') + '</b>' + _(' — only x86_64 and aarch64 (ARM64) are supported.') + '<br/>' + '&nbsp;&nbsp;' + _('💡 The device is likely 32-bit ARM or MIPS, which cannot run Node.js 22.'));
 
 	if ((ll.indexOf('npm err') >= 0 || (ll.indexOf('npm warn') >= 0 && ll.indexOf('openclaw 安装验证失败') >= 0)))
-		reasons.push('📦 <b>npm 安装 OpenClaw 失败</b> — npm 包下载或安装出错。<br/>&nbsp;&nbsp;💡 解决: 尝试手动安装 <code>openclaw-env setup</code> 或检查网络连接。');
+		reasons.push('📦 ' + '<b>' + _('npm failed to install OpenClaw') + '</b>' + _(' — downloading or installing the npm package failed.') + '<br/>' + '&nbsp;&nbsp;' + _('💡 Fix: try ') + '<code>' + 'openclaw-env setup' + '</code>' + _(' manually or check the network connection.'));
 
 	if (ll.indexOf('permission denied') >= 0 || ll.indexOf('eacces') >= 0)
-		reasons.push('🔒 <b>权限不足</b> — 文件或目录权限问题。<br/>&nbsp;&nbsp;💡 解决: 运行 <code>openclaw-env setup</code> 或以 root 用户重试。');
+		reasons.push('🔒 ' + '<b>' + _('Permission denied') + '</b>' + _(' — file or directory permission problem.') + '<br/>' + '&nbsp;&nbsp;' + _('💡 Fix: run ') + '<code>' + 'openclaw-env setup' + '</code>' + _(' or retry as root.'));
 
 	if (ll.indexOf('tar') >= 0 && (ll.indexOf('error') >= 0 || ll.indexOf('fail') >= 0))
-		reasons.push('📂 <b>解压失败</b> — Node.js 安装包可能下载不完整。<br/>&nbsp;&nbsp;💡 解决: 删除缓存重试 <code>openclaw-env setup</code>');
+		reasons.push('📂 ' + '<b>' + _('Extraction failed') + '</b>' + _(' — the Node.js package may have downloaded incompletely.') + '<br/>' + '&nbsp;&nbsp;' + _('💡 Fix: clear the cache and retry ') + '<code>' + 'openclaw-env setup' + '</code>');
 
 	if (ll.indexOf('安装验证失败') >= 0)
-		reasons.push('⚠️ <b>安装验证失败</b> — 程序已下载但无法正常运行。<br/>&nbsp;&nbsp;💡 可能是 glibc/musl 不兼容，请确认系统 C 库类型: <code>ldd --version 2>&1 | head -1</code>');
+		reasons.push('⚠️ ' + '<b>' + _('Install verification failed') + '</b>' + _(' — the program was downloaded but cannot run.') + '<br/>' + '&nbsp;&nbsp;' + _('💡 Possibly a glibc/musl mismatch; check the C library type: ') + '<code>' + 'ldd --version 2>&1 | head -1' + '</code>');
 
 	if (reasons.length === 0)
-		reasons.push('⚠️ <b>未识别的错误</b> — 请查看上方完整日志分析具体原因。<br/>&nbsp;&nbsp;💡 您也可以尝试手动执行: <code>openclaw-env setup</code> 查看详细输出。');
+		reasons.push('⚠️ ' + '<b>' + _('Unrecognized error') + '</b>' + _(' — review the full log above for the actual cause.') + '<br/>' + '&nbsp;&nbsp;' + _('💡 You can also run ') + '<code>' + 'openclaw-env setup' + '</code>' + _(' manually for detailed output.'));
 
 	return reasons.join('<br/><br/>');
 };

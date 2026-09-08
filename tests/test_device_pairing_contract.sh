@@ -57,9 +57,13 @@ grep -Fq "No pending device" "$BACKEND" || fail "backend must treat 'No pending 
 grep -Eq 'rc=\$[?]|oc_devices_cli_capture' "$BACKEND" || fail "backend must capture the CLI exit code"
 
 # ── 4. Web 端安全风险提示契约 (4 处界面必须显著标注) ──
-for f in "$JS_CONFIG" "$SH_CONFIG" "$CONSOLE" "$ADVANCED"; do
+for f in "$JS_CONFIG" "$SH_CONFIG"; do
 	grep -Fq "风险提示" "$f" || fail "$(basename "$f") missing risk warning heading"
 	grep -Fq "完全控制权限" "$f" || fail "$(basename "$f") missing full control permission warning"
+done
+for f in "$CONSOLE" "$ADVANCED"; do
+	grep -Fq "Risk notice" "$f" || fail "$(basename "$f") missing risk warning heading"
+	grep -Fq "full control over the OpenClaw gateway" "$f" || fail "$(basename "$f") missing full control permission warning"
 done
 
 # ── 5. 前端 ubus 调用契约 ──

@@ -3,51 +3,61 @@
 		"title": "OpenClaw",
 		"order": 90,
 		"depends": {
-			"acl": [ "luci-app-openclaw" ]
+			"acl": [
+				"luci-app-openclaw"
+			]
 		}
 	},
 	"admin/services/openclaw/basic": {
-		"title": "基本设置",
+		"title": "Basic Settings",
 		"order": 10,
 		"action": {
 			"type": "view",
 			"path": "openclaw/basic"
 		},
 		"depends": {
-			"acl": [ "luci-app-openclaw" ]
+			"acl": [
+				"luci-app-openclaw"
+			]
 		}
 	},
 	"admin/services/openclaw/advanced": {
-		"title": "配置管理",
+		"title": "Config Management",
 		"order": 20,
 		"action": {
 			"type": "view",
 			"path": "openclaw/advanced"
 		},
 		"depends": {
-			"acl": [ "luci-app-openclaw" ]
+			"acl": [
+				"luci-app-openclaw"
+			]
 		}
 	},
 	"admin/services/openclaw/wechat": {
-		"title": "微信配置",
+		"title": "WeChat",
 		"order": 25,
 		"action": {
 			"type": "view",
 			"path": "openclaw/wechat"
 		},
 		"depends": {
-			"acl": [ "luci-app-openclaw" ]
+			"acl": [
+				"luci-app-openclaw"
+			]
 		}
 	},
 	"admin/services/openclaw/console": {
-		"title": "Web 控制台",
+		"title": "Web Console",
 		"order": 30,
 		"action": {
 			"type": "view",
 			"path": "openclaw/console"
 		},
 		"depends": {
-			"acl": [ "luci-app-openclaw" ]
+			"acl": [
+				"luci-app-openclaw"
+			]
 		}
 	}
 }

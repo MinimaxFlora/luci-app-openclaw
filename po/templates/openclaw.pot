@@ -1,0 +1,1438 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+
+#: htdocs/luci-static/resources/openclaw/common.js:43
+msgid "Copied"
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:46
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:455
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:471
+msgid "Copy"
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:74
+#: htdocs/luci-static/resources/openclaw/common.js:77
+msgid "Copy failed, please copy manually: "
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:157
+msgid "Unknown error, please check the logs."
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:164
+msgid "Network connection failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:164
+msgid " — unable to download Node.js. Make sure the router can reach the internet."
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:164
+msgid "💡 Fix: check DNS settings and connectivity, or point to a mirror manually: "
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:167
+msgid "Not enough disk space"
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:167
+msgid " — Node.js + OpenClaw need roughly 200 MB."
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:167
+#: htdocs/luci-static/resources/openclaw/common.js:176
+msgid "💡 Fix: run "
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:167
+msgid " to check free space, then remove unneeded files or use external storage."
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:170
+msgid "Unsupported CPU architecture"
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:170
+msgid " — only x86_64 and aarch64 (ARM64) are supported."
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:170
+msgid "💡 The device is likely 32-bit ARM or MIPS, which cannot run Node.js 22."
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:173
+msgid "npm failed to install OpenClaw"
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:173
+msgid " — downloading or installing the npm package failed."
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:173
+msgid "💡 Fix: try "
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:173
+msgid " manually or check the network connection."
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:176
+msgid "Permission denied"
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:176
+msgid " — file or directory permission problem."
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:176
+msgid " or retry as root."
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:179
+msgid "Extraction failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:179
+msgid " — the Node.js package may have downloaded incompletely."
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:179
+msgid "💡 Fix: clear the cache and retry "
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:182
+msgid "Install verification failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:182
+msgid " — the program was downloaded but cannot run."
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:182
+msgid "💡 Possibly a glibc/musl mismatch; check the C library type: "
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:185
+msgid "Unrecognized error"
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:185
+msgid " — review the full log above for the actual cause."
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:185
+msgid "💡 You can also run "
+msgstr ""
+
+#: htdocs/luci-static/resources/openclaw/common.js:185
+msgid " manually for detailed output."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:34
+msgid "⚙️ Terminal Configuration (Config Management)"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:35
+msgid "Manage OpenClaw end-to-end through the interactive terminal (oc-config): AI model configuration, messaging channel setup (QQ, Telegram, Discord, ...), health checks and more."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:38
+msgid "Terminal service:"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:41
+#: htdocs/luci-static/resources/view/openclaw/console.js:52
+msgid "Status:"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:42
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:84
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:89
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:93
+msgid "Detecting..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:43
+msgid "↗ Open terminal in new window"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:49
+#: htdocs/luci-static/resources/view/openclaw/console.js:65
+msgid "🔔 Pending device pairing requests detected"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:52
+msgid "A browser connecting to the Control UI triggered the secure pairing policy — approve it right here with one click instead of searching for the Request ID in the terminal below."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:53
+#: htdocs/luci-static/resources/view/openclaw/console.js:69
+msgid "Risk notice"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:53
+#: htdocs/luci-static/resources/view/openclaw/console.js:69
+msgid ": approving a device pairing grants that browser full control over the OpenClaw gateway. Only approve on a trusted LAN, and only while it is you who is connecting."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:57
+#: htdocs/luci-static/resources/view/openclaw/console.js:73
+msgid "⚡ Approve all pairings"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:58
+#: htdocs/luci-static/resources/view/openclaw/basic.js:144
+#: htdocs/luci-static/resources/view/openclaw/console.js:56
+#: htdocs/luci-static/resources/view/openclaw/console.js:74
+msgid "🔄 Refresh"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:64
+msgid "⏳ Connecting to the config terminal..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:136
+#: htdocs/luci-static/resources/view/openclaw/console.js:294
+msgid "Unknown IP"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:141
+#: htdocs/luci-static/resources/view/openclaw/console.js:299
+msgid "Client:"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:142
+#: htdocs/luci-static/resources/view/openclaw/console.js:300
+msgid "Approve pairing"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:167
+#: htdocs/luci-static/resources/view/openclaw/console.js:334
+msgid "⏳ Approving device pairing..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:172
+#: htdocs/luci-static/resources/view/openclaw/console.js:346
+msgid "Approved successfully!"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:179
+#: htdocs/luci-static/resources/view/openclaw/console.js:355
+msgid "Approval failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:183
+#: htdocs/luci-static/resources/view/openclaw/console.js:359
+msgid "❌ Approval failed: request error"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:206
+msgid "● Running"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:211
+msgid "● Not running"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:212
+msgid "❌ The config terminal is not running"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:213
+msgid "Enable and start the service under \"Basic Settings\" first."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:217
+msgid "Check complete"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:229
+msgid "Due to browser security policy, the HTTP terminal cannot be embedded directly on an HTTPS page"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:231
+msgid "The terminal service is ready on port "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:231
+msgid " and fully ready. Open the interactive terminal in a new window with the button below — the auth token is bound automatically."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:233
+msgid "Open the terminal in a new window now"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:234
+msgid "Tip: you can also log into the LuCI web UI over HTTP (http://"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:234
+msgid ") and use the embedded terminal right here."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:45
+msgid "OpenClaw AI Gateway"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:46
+msgid "OpenClaw is an AI coding-agent gateway supporting GitHub Copilot, Claude, GPT, Gemini and other large models as well as QQ, Telegram, Discord and other messaging channels."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:48
+msgid "🦞 OpenClaw Service Status"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:50
+msgid "Run State"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:50
+msgid "Loading..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:51
+msgid "Gateway Service"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:52
+msgid "Config Terminal"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:53
+msgid "Active Model"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:54
+msgid "Message Channels"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:55
+msgid "Process PID"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:56
+msgid "Memory Usage"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:57
+msgid "Uptime"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:60
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:85
+msgid "Plugin Version"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:61
+msgid "Install Path"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:62
+msgid "Free Space"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:65
+msgid "Quick Actions"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:67
+#: htdocs/luci-static/resources/view/openclaw/basic.js:380
+#: htdocs/luci-static/resources/view/openclaw/basic.js:408
+#: htdocs/luci-static/resources/view/openclaw/basic.js:437
+#: htdocs/luci-static/resources/view/openclaw/basic.js:486
+msgid "📦 Install Runtime"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:68
+msgid "🔄 Restart Service"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:69
+msgid "⏹️ Stop Service"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:70
+#: htdocs/luci-static/resources/view/openclaw/basic.js:555
+#: htdocs/luci-static/resources/view/openclaw/basic.js:619
+msgid "🔍 Check for Updates"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:71
+msgid "💾 Backup / Restore"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:72
+#: htdocs/luci-static/resources/view/openclaw/basic.js:794
+#: htdocs/luci-static/resources/view/openclaw/basic.js:807
+msgid "🗑️ Uninstall"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:81
+#: htdocs/luci-static/resources/view/openclaw/basic.js:367
+msgid "📋 Install Log"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:88
+msgid "📖 Quick Start"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:90
+msgid "① Click "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:90
+msgid "“Install Runtime”"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:90
+msgid " on first use — the service auto-starts when done"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:91
+msgid "② Open "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:91
+msgid "“Config Management”"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:91
+msgid " and use the interactive wizard to configure your AI models and API keys"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:92
+msgid "③ Head to "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:92
+msgid "“Web Console”"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:92
+msgid " to set up messaging channels and start chatting"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:94
+msgid "Questions? Follow us on Bilibili and leave a comment:"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:96
+msgid "GitHub project:"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:103
+msgid "📦 Choose an Install Version"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:107
+msgid "✅ Stable (Recommended)"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:108
+msgid "Version v2026.9.1 (validated) — fully tested, good compatibility."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:112
+msgid "🆕 Latest (Unverified)"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:113
+msgid "⚠️ Installs the newest published npm version (unverified) — it may have unverified compatibility issues."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:117
+msgid "📂 Install Path"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:120
+msgid "Check Space"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:122
+msgid "💡 An openclaw folder will be created under this path. At least 2GB of free space is required. If installing on a second disk, make sure it is mounted."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:125
+msgid "Cancel"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:126
+msgid "Start Install"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:132
+msgid "💾 Backup / Restore Config"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:134
+msgid "📤 Create Backup"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:136
+#: htdocs/luci-static/resources/view/openclaw/basic.js:838
+msgid "📄 Config Only"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:137
+msgid "📦 Config + State Data"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:139
+msgid "Config only (~2KB) holds models, channels and plugin settings; a full backup also includes state data such as session history (may be large)"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:143
+msgid "📥 Existing Backups"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:150
+msgid "Close"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:193
+msgid "Query Failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:218
+msgid "Disabled"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:220
+msgid "Running"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:222
+msgid "⏳ Starting..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:224
+msgid "Start Failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:226
+msgid "Stopped"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:230
+#: htdocs/luci-static/resources/view/openclaw/basic.js:240
+msgid "Listening on "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:232
+msgid "Initializing — usually 20–40 s; longer on first install or under heavy load..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:234
+msgid "Start failed, exit code "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:236
+#: htdocs/luci-static/resources/view/openclaw/basic.js:242
+msgid "Not listening"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:250
+#: htdocs/luci-static/resources/view/openclaw/basic.js:256
+msgid "Not configured"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:265
+#: htdocs/luci-static/resources/view/openclaw/basic.js:266
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:193
+msgid "Not installed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:277
+msgid " available"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:332
+msgid "⏳ Checking free space..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:335
+msgid "✅ Free space: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:336
+msgid " (checking path: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:339
+msgid "❌ Not enough space: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:340
+msgid " MB free, need ≥ 2048 MB (checking path: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:343
+msgid "⚠️ Check failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:354
+msgid "⏳ Checking system configuration..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:370
+msgid "🔍 Checking system configuration\n"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:372
+#: htdocs/luci-static/resources/view/openclaw/basic.js:425
+msgid "Install path: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:373
+msgid "Memory: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:373
+msgid " MB (need ≥ 1024 MB) — "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:373
+#: htdocs/luci-static/resources/view/openclaw/basic.js:374
+msgid "✅ Pass"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:373
+#: htdocs/luci-static/resources/view/openclaw/basic.js:374
+msgid "❌ Fail"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:374
+msgid "Disk: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:374
+msgid " MB free (need ≥ 2048 MB) — "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:381
+#: htdocs/luci-static/resources/view/openclaw/basic.js:386
+msgid "❌ System requirements not met"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:382
+msgid "❌ System requirements not met — installation aborted\n"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:383
+msgid "💡 Upgrade your hardware or free up disk space, then retry\n"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:387
+msgid "💡 Upgrade your hardware or free up disk space, then retry."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:391
+#: htdocs/luci-static/resources/view/openclaw/basic.js:421
+#: htdocs/luci-static/resources/view/openclaw/basic.js:465
+msgid "⏳ Installation in progress..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:392
+msgid "✅ System check passed — starting the installation...\n\n"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:409
+msgid "System check failed, please retry"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:420
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:286
+msgid "⏳ Installing..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:423
+msgid "📦 Install Runtime ("
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:423
+msgid "Stable"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:423
+msgid "Latest"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:426
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:292
+msgid "Starting the installation...\n"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:435
+msgid "❌ Failed to start the installation"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:438
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:300
+msgid "Failed to start the installation: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:490
+msgid "✅ Installation complete"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:492
+msgid "🎉 Congratulations! The OpenClaw runtime was installed successfully!"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:493
+msgid "The service was enabled and started automatically — click the button below to reload the page and see the status."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:494
+#: htdocs/luci-static/resources/view/openclaw/basic.js:765
+#: htdocs/luci-static/resources/view/openclaw/basic.js:773
+#: htdocs/luci-static/resources/view/openclaw/basic.js:799
+#: htdocs/luci-static/resources/view/openclaw/basic.js:926
+msgid "🔄 Reload Page"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:498
+#: htdocs/luci-static/resources/view/openclaw/basic.js:501
+msgid "❌ Installation failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:503
+msgid "🔍 Possible causes:"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:504
+msgid "💡 The full log is in the terminal output above; you can also view it with "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:513
+msgid "⏳ Working..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:521
+msgid " done"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:523
+msgid "Failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:527
+msgid "❌ Error"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:548
+msgid "⏳ Checking..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:568
+msgid "🔌 Plugin update available"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:568
+#: htdocs/luci-static/resources/view/openclaw/basic.js:570
+#: htdocs/luci-static/resources/view/openclaw/basic.js:572
+#: htdocs/luci-static/resources/view/openclaw/basic.js:576
+#: htdocs/luci-static/resources/view/openclaw/basic.js:578
+#: htdocs/luci-static/resources/view/openclaw/basic.js:580
+msgid " v"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:570
+msgid "🔌 Plugin up to date"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:572
+msgid "🔌 Plugin check unavailable"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:576
+msgid "🦞 Core update available"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:578
+msgid "🦞 Core up to date"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:580
+msgid "🦞 Core check unavailable"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:583
+msgid "Unable to get version info"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:596
+msgid "📋 Plugin Changelog"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:602
+msgid "⬆️ Upgrade Plugin Now (v"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:603
+msgid "📥 Download from GitHub"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:605
+msgid "⬆️ Upgrade OpenClaw Core Now (v"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:621
+msgid "❌ Check failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:638
+msgid "Upgrade the OpenClaw core to v"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:638
+msgid "?\n\nThe upgrade runs a safe transaction: automatic full-state backup, SQLite database precheck and smooth configuration migration."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:650
+msgid "⏳ Starting the core upgrade..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:653
+msgid "Starting the OpenClaw core upgrade transaction...\n"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:654
+msgid "📋 OpenClaw Core Upgrade Log"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:655
+msgid "⏳ Core upgrade in progress (state-machine transaction)..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:664
+#: htdocs/luci-static/resources/view/openclaw/basic.js:702
+msgid "❌ Failed to start the upgrade"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:665
+msgid "Failed to start the core upgrade: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:675
+msgid "Could not determine the latest version"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:678
+msgid "Upgrade the plugin to v"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:678
+msgid "?\n\nThe upgrade replaces the plugin files and clears the LuCI cache; the running OpenClaw service is not affected."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:689
+msgid "⏳ Upgrading the plugin..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:691
+msgid "Starting the plugin upgrade...\n"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:692
+msgid "📋 Plugin Upgrade Log"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:693
+#: htdocs/luci-static/resources/view/openclaw/basic.js:727
+msgid "⏳ Plugin upgrade in progress..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:703
+msgid "Failed to start the plugin upgrade: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:756
+msgid "⬆️ Upgrade Plugin"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:761
+msgid "✅ Plugin upgrade complete"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:763
+msgid "🎉 Plugin upgrade successful!"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:764
+msgid "The plugin files were updated; the OpenClaw service is unaffected. Reload the page to load the new UI."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:769
+#: htdocs/luci-static/resources/view/openclaw/basic.js:771
+msgid "❌ Plugin upgrade failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:772
+msgid "See the log above for details, or run "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:782
+msgid "Uninstall the OpenClaw runtime?\n\nNode.js, the OpenClaw program and its configuration data will be deleted and the service stopped.\n\nThis plugin itself is kept — you can reinstall the runtime later."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:789
+msgid "⏳ Uninstalling..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:790
+msgid "Stopping the service and cleaning up files..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:797
+msgid "✅ Uninstall complete"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:803
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:655
+msgid "Uninstall failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:808
+msgid "❌ Request failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:824
+msgid "⏳ Loading backup list..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:830
+msgid "Type"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:831
+msgid "Backup Time"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:832
+msgid "Size"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:833
+msgid "Action"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:839
+msgid "📦 Full Backup"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:846
+msgid "Restore"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:847
+msgid "Delete"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:866
+msgid "No backups yet — create one first"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:869
+msgid "Failed to load the list"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:872
+msgid "⚠️ Could not load the list"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:884
+msgid "⏳ Creating backup..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:885
+msgid " (config only)"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:885
+msgid " (full backup — this may take a while)"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:892
+msgid "✅ Backup complete"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:896
+msgid "Backup failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:902
+msgid "⚠️ Backups require OpenClaw v2026.3.8+"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:914
+msgid "Restore the configuration from this backup?\n\n"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:914
+msgid "\n\nThe current openclaw.json will be overwritten with the backed-up version and the service will restart."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:919
+msgid "⏳ Restoring configuration..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:924
+msgid "✅ Configuration restored"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:930
+msgid "Restore failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:933
+msgid "❌ Restore failed — check the log"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:940
+msgid "Delete this backup?\n\n"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:940
+msgid "\n\nThis cannot be undone."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:945
+msgid "⏳ Deleting..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:953
+msgid "Delete failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:957
+msgid "❌ Delete failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:42
+msgid "🖥️ Web Console"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:43
+msgid "The official OpenClaw web UI — configure AI models and messaging channels (QQ, Telegram, Discord, ...), chat with the AI directly, and manage every feature."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:46
+msgid "Gateway address:"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:49
+msgid "Active model:"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:53
+msgid "Checking..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:55
+msgid "📱 Device pairing "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:55
+msgid "0"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:57
+msgid "⛶ Fullscreen"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:58
+#: htdocs/luci-static/resources/view/openclaw/console.js:79
+msgid "↗ Open in new window"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:68
+msgid "When the Control UI is first opened, the gateway asks the host to approve this browser. Click \"Approve all pairings\" to authorize it and enter the console."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:79
+msgid "Browser security notice"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:79
+msgid ": you are accessing LuCI over HTTPS. Because the OpenClaw gateway is an HTTP service, the browser may block the cross-protocol embedded page (Mixed Content). If the area below is blank, click \""
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:79
+msgid "\" in the top-right, or access LuCI over HTTP."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:85
+msgid "Connecting to the OpenClaw console..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:194
+msgid "● Gateway running"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:212
+msgid "● Gateway failed to start"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:217
+msgid "The OpenClaw gateway failed to start"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:218
+msgid "Exit code: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:218
+msgid ". Check the system log or the install log."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:223
+msgid "⏳ Gateway is starting"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:228
+msgid "The OpenClaw gateway is starting up..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:229
+msgid "Usually 20–40 seconds; longer on first install or under heavy router load. The page refreshes automatically."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:235
+msgid "● Gateway not running"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:240
+msgid "The OpenClaw gateway is not running"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:241
+msgid "Enable and start the service on the \"Basic Settings\" page first."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:246
+msgid "Query failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:315
+msgid "No pending device pairing requests. When a browser connecting to the console is asked to pair, refresh here to show and approve it."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:323
+msgid "Failed to query the device list"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:346
+msgid " Reloading the console..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:70
+msgid "💬 WeChat Channel"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:71
+msgid "Connect WeChat through the ClawBot plugin and chat privately with your AI assistant. Multiple accounts can be online at the same time."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:74
+msgid "📋 Prerequisites"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:76
+msgid "Install / reinstall the WeChat plugin first"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:76
+msgid " — the page automatically checks Node, python3, directory permissions and WeChat API reachability"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:77
+msgid "Click “Log in”"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:77
+msgid " — open the link that appears, then scan it with the WeChat scanner"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:78
+msgid "Wait for the success notice"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:78
+msgid " — the gateway then reloads the WeChat account; verify by sending it a message from WeChat"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:80
+msgid "⚠️ Common failure causes: expired QR code, account risk control, TLS/timeout between the router and ilinkai.weixin.qq.com, missing plugin registration, wrong data directory permissions. On failure the recent log is shown."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:83
+msgid "📊 Plugin Status"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:84
+msgid "WeChat Plugin"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:88
+msgid "Login Status"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:93
+msgid "OpenClaw Version"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:96
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:104
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:221
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:289
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:375
+msgid "📦 Install WeChat Plugin"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:97
+msgid "🔍 Check for Upgrades"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:98
+msgid "🔄 Refresh Status"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:99
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:660
+msgid "🗑️ Uninstall Plugin"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:106
+msgid "Installing, please wait..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:112
+msgid "📱 WeChat QR Login"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:114
+msgid "Fetching the login QR code..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:121
+msgid "🔍 Check Plugin Upgrade"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:123
+msgid "Checking for updates..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:185
+msgid " ✓ compatible"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:188
+msgid " ⚠️ upgrade to 2026.3.22+ required"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:209
+msgid "✅ Installed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:211
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:357
+msgid "📦 Reinstall Plugin"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:216
+msgid "Installed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:219
+msgid "❌ Not installed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:227
+msgid "✅ Logged in ("
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:227
+msgid " accounts)"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:234
+msgid "Log out"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:237
+msgid "➕ Add New Account"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:243
+msgid "⚠️ Not logged in"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:245
+msgid "Log in"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:256
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:257
+msgid "Check failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:298
+msgid "Failed to start the installation"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:322
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:453
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:469
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:606
+msgid "🔗 Open the link, then scan it with WeChat"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:328
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:612
+msgid "Waiting for output..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:340
+msgid "Installation failed (exit: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:354
+msgid "✅ WeChat plugin installed successfully!"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:400
+msgid "Failed to start the login"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:402
+msgid "Failed to start the login: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:409
+msgid "Log out account "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:409
+msgid "? After logging out you will need to scan the QR code again."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:413
+msgid "Logging out..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:423
+msgid "Failed to log out the account: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:438
+msgid "⌛ QR code refreshed — click the newest link to log in"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:439
+msgid "📱 Open the QR code from the link below and scan it with WeChat"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:445
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:513
+msgid "Login failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:454
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:470
+msgid "Or copy the link: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:477
+msgid "Loading the login link..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:504
+msgid "✅ WeChat login successful!"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:504
+msgid "The gateway is reloading your WeChat account — wait 10-20 seconds, then send a test message from WeChat to verify."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:543
+msgid "🔄 New version available: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:544
+msgid "Current version: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:545
+msgid "Upgrade now"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:552
+msgid "❌ Plugin not installed — install it first"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:555
+msgid "⚠️ Could not determine the latest version"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:556
+msgid "Currently installed: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:561
+msgid "✅ Already on the latest version: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:567
+msgid "❌ Check failed: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:574
+msgid "Upgrading..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:582
+msgid "Upgrade failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:585
+msgid "❌ Upgrade failed: "
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:621
+msgid "✅ Upgrade successful!"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:625
+msgid "❌ Upgrade failed"
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:644
+msgid "Uninstall the WeChat plugin? This will delete all WeChat-related configuration."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:649
+msgid "⏳ Removing plugin..."
+msgstr ""
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:657
+msgid "Uninstall failed: "
+msgstr ""
+
+#: root/usr/share/luci/menu.d/luci-app-openclaw.json:10
+msgid "Basic Settings"
+msgstr ""
+
+#: root/usr/share/luci/menu.d/luci-app-openclaw.json:21
+msgid "Config Management"
+msgstr ""
+
+#: root/usr/share/luci/menu.d/luci-app-openclaw.json:32
+msgid "WeChat"
+msgstr ""
+
+#: root/usr/share/luci/menu.d/luci-app-openclaw.json:43
+msgid "Web Console"
+msgstr ""

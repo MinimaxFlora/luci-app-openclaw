@@ -49,7 +49,7 @@ printf '%s' "$BODY" | grep -Fq 'json_add_string "message"' \
 # 正确顺序: has_upgrade -> 未安装 -> 查询失败 -> 已是最新
 printf '%s' "$(cat "$VIEW")" | grep -Fq "d.status !== 'ok' || !d.latest_version" \
 	|| fail "wechat.js must handle a failed version lookup before claiming 'up to date'"
-printf '%s' "$(cat "$VIEW")" | grep -Fq '无法确认最新版本' \
+printf '%s' "$(cat "$VIEW")" | grep -Fq 'Could not determine the latest version' \
 	|| fail "wechat.js must surface an explicit 'cannot determine latest version' state"
 
 echo "ok"

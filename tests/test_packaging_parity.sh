@@ -38,6 +38,17 @@ covered() {
 	_file="$1"   # 相对仓库根的路径, 如 root/usr/share/openclaw/oc-menu-engine.js
 	_script="$2"
 
+	# Makefile 走 luci.mk 自动打包 (与 mosdns/ota 同款):
+	#   htdocs/* → /www, root/* → / (cp -pR), po/<lang>/*.po → luci-i18n 包
+	# 因此只要源文件位于这些目录且 Makefile include 了 luci.mk 即视为覆盖。
+	if [ "$_script" = "$MK" ]; then
+		grep -Eq '^[[:space:]]*include[[:space:]].*feeds/luci/luci\.mk' "$MK" || return 1
+		case "$_file" in
+			root/*|htdocs/luci-static/resources/*|po/zh_Hans/*.po) return 0 ;;
+		esac
+		return 1
+	fi
+
 	_base=$(basename "$_file")
 	_dir=$(dirname "$_file")
 	_ext=$(printf '%s' "$_base" | sed -n 's/.*\.\([A-Za-z0-9]\+\)$/\1/p')
@@ -106,38 +117,43 @@ if [ -n "$missing" ]; then
 	fail "packaging paths disagree on which files to install"
 fi
 
-# ── ui/ 目录与 VERSION ──
-for s in "$MK" "$IPK" "$RUN"; do
+# ── ui/ 目录与 VERSION (luci.mk 模式下由 root/ 自动携带) ──
+grep -Eq '^[[:space:]]*include[[:space:]].*feeds/luci/luci\.mk' "$MK" || fail "Makefile must use luci.mk (auto-installs ui/ and VERSION)"
+[ -d "$REPO_ROOT/root/usr/share/openclaw/ui" ] || fail "missing source dir root/usr/share/openclaw/ui"
+[ -f "$REPO_ROOT/VERSION" ] || fail "missing VERSION file"
+for s in "$IPK" "$RUN"; do
 	grep -Fq 'share/openclaw/ui' "$s" || fail "$(basename "$s") must install the Web PTY ui/ directory"
 	grep -Fq 'VERSION' "$s" || fail "$(basename "$s") must ship the VERSION file"
 done
 
 # ── 回归钉子 ──
-# 这两个文件曾只在 build 脚本里、Makefile 漏装
-grep -Fq 'oc-config-interactive.js' "$MK" || fail "Makefile must install oc-config-interactive.js (feeds/SDK builds fell back to the legacy menu without it)"
-grep -Fq 'oc-menu-engine.js' "$MK" || fail "Makefile must install oc-menu-engine.js"
+# 这两个文件曾只在 build 脚本里、Makefile 漏装; luci.mk 模式下 root/* 全自动,
+# 源文件存在性 + covered("$MK") 已保证三条路径一致。
+[ -f "$REPO_ROOT/root/usr/share/openclaw/oc-config-interactive.js" ] || fail "missing oc-config-interactive.js"
+[ -f "$REPO_ROOT/root/usr/share/openclaw/oc-menu-engine.js" ] || fail "missing oc-menu-engine.js"
 
 # 依赖声明三处必须一致, 且不得丢掉 libstdcpp6 (issue #28: 缺失导致 Node 无法运行)
 for s in "$MK" "$IPK" "$RUN"; do
 	grep -Fq 'libstdcpp6' "$s" || fail "$(basename "$s") must keep the libstdcpp6 dependency (issue #28)"
 done
 
-# feeds 集成: 不得再依赖 luci.mk 的隐式 Package 生成 (issue #60)
-# 只看真正的 include 语句, 注释里提到 luci.mk (说明历史原因) 是允许的。
-if grep -E '^[[:space:]]*include[[:space:]].*feeds/luci/luci\.mk' "$MK" >/dev/null 2>&1; then
-	fail "Makefile must not depend on luci.mk implicit package generation (breaks OpenWrt 25.x feeds, issue #60)"
+# feeds 集成: 走 luci.mk 全自动打包 (同 luci-app-mosdns / luci-app-ota),
+# htdocs/root/po 由 luci.mk 安装, i18n 自动拆分为 luci-i18n-openclaw-zh-cn 包。
+grep -Eq '^[[:space:]]*include[[:space:]].*feeds/luci/luci\.mk' "$MK" || fail "Makefile must include feeds/luci/luci.mk"
+# 主包主体 (define Package/<name>) 由 luci.mk 生成; 不得再手写 install 覆盖自动安装
+if grep -Eq '^define Package/\$\(PKG_NAME\)/install' "$MK"; then
+	fail "Makefile must not hand-roll Package install (luci.mk auto-installs htdocs/ and root/)"
 fi
-if grep -E '^[[:space:]]*ifeq[[:space:]]*\(\$\(wildcard[[:space:]].*luci\.mk' "$MK" >/dev/null 2>&1; then
-	fail "Makefile must not branch on luci.mk availability (issue #60)"
-fi
-grep -Fq 'define Package/$(PKG_NAME)' "$MK" || fail "Makefile must define Package/... explicitly"
+# po/zh_Hans 必须存在 → luci.mk 自动生成 luci-i18n-openclaw-zh-cn
+[ -f "$REPO_ROOT/po/zh_Hans/openclaw.po" ] || fail "missing po/zh_Hans/openclaw.po (luci.mk i18n source)"
 
-# 新增的共享数据文件必须显式安装: build 脚本只 cp *.js 通配，
-# .json 不会被自动带上 (model-presets.json 曾因此漏装)。
-for s in "$MK" "$IPK" "$RUN"; do
+# 新增的共享数据文件: build 脚本只 cp *.js 通配, .json 需显式; luci.mk 模式下 root/ 全自动
+for s in "$IPK" "$RUN"; do
 	grep -Fq 'model-presets.json' "$s" \
 		|| fail "$(basename "$s") must install model-presets.json (the *.js glob does not cover it)"
 done
+[ -f "$REPO_ROOT/root/usr/share/openclaw/model-presets.json" ] \
+	|| fail "missing root/usr/share/openclaw/model-presets.json (luci.mk auto-installs root/)"
 
 # ── 真实构建产物校验 ──
 # 前面的检查都是静态文本比对，抓不到"脚本已改但产物仍缺文件"的情况

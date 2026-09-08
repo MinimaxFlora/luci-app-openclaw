@@ -1,0 +1,1448 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-09 02:00+0800\n"
+"PO-Revision-Date: 2026-09-09 02:00+0800\n"
+"Last-Translator: 10000ge10000 <10000ge10000@users.noreply.github.com>\n"
+"Language-Team: Chinese\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+
+#: htdocs/luci-static/resources/openclaw/common.js:43
+msgid "Copied"
+msgstr "已复制"
+
+#: htdocs/luci-static/resources/openclaw/common.js:46
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:455
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:471
+msgid "Copy"
+msgstr "复制"
+
+#: htdocs/luci-static/resources/openclaw/common.js:74
+#: htdocs/luci-static/resources/openclaw/common.js:77
+msgid "Copy failed, please copy manually: "
+msgstr "复制失败，请手动复制: "
+
+#: htdocs/luci-static/resources/openclaw/common.js:157
+msgid "Unknown error, please check the logs."
+msgstr "未知错误，请检查日志。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:164
+msgid "Network connection failed"
+msgstr "网络连接失败"
+
+#: htdocs/luci-static/resources/openclaw/common.js:164
+msgid " — unable to download Node.js. Make sure the router can reach the internet."
+msgstr " — 无法下载 Node.js。请检查路由器是否能访问外网。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:164
+msgid "💡 Fix: check DNS settings and connectivity, or point to a mirror manually: "
+msgstr "💡 解决: 检查 DNS 设置和网络连接，或手动指定镜像: "
+
+#: htdocs/luci-static/resources/openclaw/common.js:167
+msgid "Not enough disk space"
+msgstr "磁盘空间不足"
+
+#: htdocs/luci-static/resources/openclaw/common.js:167
+msgid " — Node.js + OpenClaw need roughly 200 MB."
+msgstr " — Node.js + OpenClaw 需要约 200MB 空间。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:167
+#: htdocs/luci-static/resources/openclaw/common.js:176
+msgid "💡 Fix: run "
+msgstr "💡 解决: 运行 "
+
+#: htdocs/luci-static/resources/openclaw/common.js:167
+msgid " to check free space, then remove unneeded files or use external storage."
+msgstr " 检查可用空间，清理不需要的文件或使用外部存储。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:170
+msgid "Unsupported CPU architecture"
+msgstr "CPU 架构不支持"
+
+#: htdocs/luci-static/resources/openclaw/common.js:170
+msgid " — only x86_64 and aarch64 (ARM64) are supported."
+msgstr " — 仅支持 x86_64 和 aarch64 (ARM64)。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:170
+msgid "💡 The device is likely 32-bit ARM or MIPS, which cannot run Node.js 22."
+msgstr "💡 当前设备架构可能是 32 位 ARM 或 MIPS，无法运行 Node.js 22。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:173
+msgid "npm failed to install OpenClaw"
+msgstr "npm 安装 OpenClaw 失败"
+
+#: htdocs/luci-static/resources/openclaw/common.js:173
+msgid " — downloading or installing the npm package failed."
+msgstr " — npm 包下载或安装出错。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:173
+msgid "💡 Fix: try "
+msgstr "💡 解决: 尝试手动安装 "
+
+#: htdocs/luci-static/resources/openclaw/common.js:173
+msgid " manually or check the network connection."
+msgstr " 或检查网络连接。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:176
+msgid "Permission denied"
+msgstr "权限不足"
+
+#: htdocs/luci-static/resources/openclaw/common.js:176
+msgid " — file or directory permission problem."
+msgstr " — 文件或目录权限问题。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:176
+msgid " or retry as root."
+msgstr " 或以 root 用户重试。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:179
+msgid "Extraction failed"
+msgstr "解压失败"
+
+#: htdocs/luci-static/resources/openclaw/common.js:179
+msgid " — the Node.js package may have downloaded incompletely."
+msgstr " — Node.js 安装包可能下载不完整。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:179
+msgid "💡 Fix: clear the cache and retry "
+msgstr "💡 解决: 删除缓存重试 "
+
+#: htdocs/luci-static/resources/openclaw/common.js:182
+msgid "Install verification failed"
+msgstr "安装验证失败"
+
+#: htdocs/luci-static/resources/openclaw/common.js:182
+msgid " — the program was downloaded but cannot run."
+msgstr " — 程序已下载但无法正常运行。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:182
+msgid "💡 Possibly a glibc/musl mismatch; check the C library type: "
+msgstr "💡 可能是 glibc/musl 不兼容，请确认系统 C 库类型: "
+
+#: htdocs/luci-static/resources/openclaw/common.js:185
+msgid "Unrecognized error"
+msgstr "未识别的错误"
+
+#: htdocs/luci-static/resources/openclaw/common.js:185
+msgid " — review the full log above for the actual cause."
+msgstr " — 请查看上方完整日志分析具体原因。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:185
+msgid "💡 You can also run "
+msgstr "💡 您也可以尝试手动执行: "
+
+#: htdocs/luci-static/resources/openclaw/common.js:185
+msgid " manually for detailed output."
+msgstr " 查看详细输出。"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:34
+msgid "⚙️ Terminal Configuration (Config Management)"
+msgstr "⚙️ 终端配置 (配置管理)"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:35
+msgid "Manage OpenClaw end-to-end through the interactive terminal (oc-config): AI model configuration, messaging channel setup (QQ, Telegram, Discord, ...), health checks and more."
+msgstr "通过交互式终端 (oc-config) 进行 OpenClaw 的完整配置管理。支持 AI 模型配置、消息渠道设置（QQ、Telegram、Discord 等）、健康检查等。"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:38
+msgid "Terminal service:"
+msgstr "终端服务："
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:41
+#: htdocs/luci-static/resources/view/openclaw/console.js:52
+msgid "Status:"
+msgstr "状态："
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:42
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:84
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:89
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:93
+msgid "Detecting..."
+msgstr "检测中..."
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:43
+msgid "↗ Open terminal in new window"
+msgstr "↗ 新窗口打开终端"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:49
+#: htdocs/luci-static/resources/view/openclaw/console.js:65
+msgid "🔔 Pending device pairing requests detected"
+msgstr "🔔 检测到待配对设备请求"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:52
+msgid "A browser connecting to the Control UI triggered the secure pairing policy — approve it right here with one click instead of searching for the Request ID in the terminal below."
+msgstr "Control UI 浏览器连接时触发了安全配对策略，您可直接在此一键批准，无需在下方终端中手动查找与输入 Request ID。"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:53
+#: htdocs/luci-static/resources/view/openclaw/console.js:69
+msgid "Risk notice"
+msgstr "风险提示"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:53
+#: htdocs/luci-static/resources/view/openclaw/console.js:69
+msgid ": approving a device pairing grants that browser full control over the OpenClaw gateway. Only approve on a trusted LAN, and only while it is you who is connecting."
+msgstr "：批准设备配对后，该浏览器将获得 OpenClaw 网关的完全控制权限。请确保在受信任的局域网环境，并仅在您本人正在连接时批准。"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:57
+#: htdocs/luci-static/resources/view/openclaw/console.js:73
+msgid "⚡ Approve all pairings"
+msgstr "⚡ 一键批准配对"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:58
+#: htdocs/luci-static/resources/view/openclaw/basic.js:144
+#: htdocs/luci-static/resources/view/openclaw/console.js:56
+#: htdocs/luci-static/resources/view/openclaw/console.js:74
+msgid "🔄 Refresh"
+msgstr "🔄 刷新"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:64
+msgid "⏳ Connecting to the config terminal..."
+msgstr "⏳ 正在连接配置终端..."
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:136
+#: htdocs/luci-static/resources/view/openclaw/console.js:294
+msgid "Unknown IP"
+msgstr "未知IP"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:141
+#: htdocs/luci-static/resources/view/openclaw/console.js:299
+msgid "Client:"
+msgstr "客户端:"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:142
+#: htdocs/luci-static/resources/view/openclaw/console.js:300
+msgid "Approve pairing"
+msgstr "批准配对"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:167
+#: htdocs/luci-static/resources/view/openclaw/console.js:334
+msgid "⏳ Approving device pairing..."
+msgstr "⏳ 正在批准设备配对..."
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:172
+#: htdocs/luci-static/resources/view/openclaw/console.js:346
+msgid "Approved successfully!"
+msgstr "批准成功！"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:179
+#: htdocs/luci-static/resources/view/openclaw/console.js:355
+msgid "Approval failed"
+msgstr "批准失败"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:183
+#: htdocs/luci-static/resources/view/openclaw/console.js:359
+msgid "❌ Approval failed: request error"
+msgstr "❌ 批准失败：请求异常"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:206
+msgid "● Running"
+msgstr "● 运行中"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:211
+msgid "● Not running"
+msgstr "● 未运行"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:212
+msgid "❌ The config terminal is not running"
+msgstr "❌ 配置终端未运行"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:213
+msgid "Enable and start the service under \"Basic Settings\" first."
+msgstr "请先在「基本设置」中启用并启动服务。"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:217
+msgid "Check complete"
+msgstr "检测完成"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:229
+msgid "Due to browser security policy, the HTTP terminal cannot be embedded directly on an HTTPS page"
+msgstr "由于浏览器安全策略限制，无法在 HTTPS 页面中直接内嵌 HTTP 终端"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:231
+msgid "The terminal service is ready on port "
+msgstr "终端服务已在端口 "
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:231
+msgid " and fully ready. Open the interactive terminal in a new window with the button below — the auth token is bound automatically."
+msgstr " 正常就绪。请点击下方按钮直接在新窗口打开交互式终端，已自动绑定认证 Token。"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:233
+msgid "Open the terminal in a new window now"
+msgstr "立即在新窗口打开终端"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:234
+msgid "Tip: you can also log into the LuCI web UI over HTTP (http://"
+msgstr "小贴士：您也可以通过 HTTP (http://"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:234
+msgid ") and use the embedded terminal right here."
+msgstr ") 登录路由器后台直接在此内嵌操作。"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:45
+msgid "OpenClaw AI Gateway"
+msgstr "OpenClaw AI 网关"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:46
+msgid "OpenClaw is an AI coding-agent gateway supporting GitHub Copilot, Claude, GPT, Gemini and other large models as well as QQ, Telegram, Discord and other messaging channels."
+msgstr "OpenClaw 是一个 AI 编程代理网关，支持 GitHub Copilot、Claude、GPT、Gemini 等大模型以及 QQ、Telegram、Discord 等多种消息渠道。"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:48
+msgid "🦞 OpenClaw Service Status"
+msgstr "🦞 OpenClaw 服务状态"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:50
+msgid "Run State"
+msgstr "运行状态"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:50
+msgid "Loading..."
+msgstr "加载中..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:51
+msgid "Gateway Service"
+msgstr "网关服务"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:52
+msgid "Config Terminal"
+msgstr "配置终端"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:53
+msgid "Active Model"
+msgstr "活跃模型"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:54
+msgid "Message Channels"
+msgstr "消息渠道"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:55
+msgid "Process PID"
+msgstr "进程 PID"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:56
+msgid "Memory Usage"
+msgstr "内存占用"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:57
+msgid "Uptime"
+msgstr "运行时间"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:60
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:85
+msgid "Plugin Version"
+msgstr "插件版本"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:61
+msgid "Install Path"
+msgstr "安装路径"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:62
+msgid "Free Space"
+msgstr "剩余空间"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:65
+msgid "Quick Actions"
+msgstr "快捷操作"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:67
+#: htdocs/luci-static/resources/view/openclaw/basic.js:380
+#: htdocs/luci-static/resources/view/openclaw/basic.js:408
+#: htdocs/luci-static/resources/view/openclaw/basic.js:437
+#: htdocs/luci-static/resources/view/openclaw/basic.js:486
+msgid "📦 Install Runtime"
+msgstr "📦 安装运行环境"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:68
+msgid "🔄 Restart Service"
+msgstr "🔄 重启服务"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:69
+msgid "⏹️ Stop Service"
+msgstr "⏹️ 停止服务"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:70
+#: htdocs/luci-static/resources/view/openclaw/basic.js:555
+#: htdocs/luci-static/resources/view/openclaw/basic.js:619
+msgid "🔍 Check for Updates"
+msgstr "🔍 检测升级"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:71
+msgid "💾 Backup / Restore"
+msgstr "💾 备份/恢复"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:72
+#: htdocs/luci-static/resources/view/openclaw/basic.js:794
+#: htdocs/luci-static/resources/view/openclaw/basic.js:807
+msgid "🗑️ Uninstall"
+msgstr "🗑️ 卸载环境"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:81
+#: htdocs/luci-static/resources/view/openclaw/basic.js:367
+msgid "📋 Install Log"
+msgstr "📋 安装日志"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:88
+msgid "📖 Quick Start"
+msgstr "📖 使用指南"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:90
+msgid "① Click "
+msgstr "① 首次使用请点击 "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:90
+msgid "“Install Runtime”"
+msgstr "「安装运行环境」"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:90
+msgid " on first use — the service auto-starts when done"
+msgstr "，安装完成后服务会自动启动"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:91
+msgid "② Open "
+msgstr "② 进入 "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:91
+msgid "“Config Management”"
+msgstr "「配置管理」"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:91
+msgid " and use the interactive wizard to configure your AI models and API keys"
+msgstr " 使用交互式向导快速配置 AI 模型和 API Key"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:92
+msgid "③ Head to "
+msgstr "③ 进入 "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:92
+msgid "“Web Console”"
+msgstr "「Web 控制台」"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:92
+msgid " to set up messaging channels and start chatting"
+msgstr " 配置消息渠道，直接开始对话"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:94
+msgid "Questions? Follow us on Bilibili and leave a comment:"
+msgstr "有疑问？请关注B站并留言："
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:96
+msgid "GitHub project:"
+msgstr "GitHub 项目："
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:103
+msgid "📦 Choose an Install Version"
+msgstr "📦 选择安装版本"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:107
+msgid "✅ Stable (Recommended)"
+msgstr "✅ 稳定版 (推荐)"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:108
+msgid "Version v2026.9.1 (validated) — fully tested, good compatibility."
+msgstr "版本 v2026.9.1 (已验证版)，已经过完整测试，兼容性良好。"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:112
+msgid "🆕 Latest (Unverified)"
+msgstr "🆕 最新版 (未经验证)"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:113
+msgid "⚠️ Installs the newest published npm version (unverified) — it may have unverified compatibility issues."
+msgstr "⚠️ 安装 npm 上的最新发布版本 (未经验证)，可能存在未经验证的兼容性问题。"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:117
+msgid "📂 Install Path"
+msgstr "📂 安装路径"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:120
+msgid "Check Space"
+msgstr "检测空间"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:122
+msgid "💡 An openclaw folder will be created under this path. At least 2GB of free space is required. If installing on a second disk, make sure it is mounted."
+msgstr "💡 程序将在此路径下创建 openclaw 目录进行安装。最小需要 2GB 可用空间。如安装在第二块硬盘，请确保硬盘已挂载。"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:125
+msgid "Cancel"
+msgstr "取消"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:126
+msgid "Start Install"
+msgstr "开始安装"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:132
+msgid "💾 Backup / Restore Config"
+msgstr "💾 备份 / 恢复配置"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:134
+msgid "📤 Create Backup"
+msgstr "📤 创建备份"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:136
+#: htdocs/luci-static/resources/view/openclaw/basic.js:838
+msgid "📄 Config Only"
+msgstr "📄 仅配置"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:137
+msgid "📦 Config + State Data"
+msgstr "📦 配置 + 状态数据"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:139
+msgid "Config only (~2KB) holds models, channels and plugin settings; a full backup also includes state data such as session history (may be large)"
+msgstr "仅配置文件 (~2KB) 包含模型、渠道、插件设置；完整备份含会话历史等状态数据（可能较大）"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:143
+msgid "📥 Existing Backups"
+msgstr "📥 现有备份"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:150
+msgid "Close"
+msgstr "关闭"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:193
+msgid "Query Failed"
+msgstr "查询失败"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:218
+msgid "Disabled"
+msgstr "已禁用"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:220
+msgid "Running"
+msgstr "运行中"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:222
+msgid "⏳ Starting..."
+msgstr "⏳ 正在启动..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:224
+msgid "Start Failed"
+msgstr "启动失败"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:226
+msgid "Stopped"
+msgstr "已停止"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:230
+#: htdocs/luci-static/resources/view/openclaw/basic.js:240
+msgid "Listening on "
+msgstr "监听中 :"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:232
+msgid "Initializing — usually 20–40 s; longer on first install or under heavy load..."
+msgstr "初始化中，通常 20~40 秒；首次安装或负载较高时会更久..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:234
+msgid "Start failed, exit code "
+msgstr "启动失败，退出码 "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:236
+#: htdocs/luci-static/resources/view/openclaw/basic.js:242
+msgid "Not listening"
+msgstr "未监听"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:250
+#: htdocs/luci-static/resources/view/openclaw/basic.js:256
+msgid "Not configured"
+msgstr "未配置"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:265
+#: htdocs/luci-static/resources/view/openclaw/basic.js:266
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:193
+msgid "Not installed"
+msgstr "未安装"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:277
+msgid " available"
+msgstr " 可用"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:332
+msgid "⏳ Checking free space..."
+msgstr "⏳ 正在检测空间..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:335
+msgid "✅ Free space: "
+msgstr "✅ 可用空间: "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:336
+msgid " (checking path: "
+msgstr " (检测路径: "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:339
+msgid "❌ Not enough space: "
+msgstr "❌ 空间不足: "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:340
+msgid " MB free, need ≥ 2048 MB (checking path: "
+msgstr " MB 可用，需要 ≥ 2048 MB (检测路径: "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:343
+msgid "⚠️ Check failed"
+msgstr "⚠️ 检测失败"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:354
+msgid "⏳ Checking system configuration..."
+msgstr "⏳ 检测系统配置..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:370
+msgid "🔍 Checking system configuration\n"
+msgstr "🔍 系统配置检测\\n"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:372
+#: htdocs/luci-static/resources/view/openclaw/basic.js:425
+msgid "Install path: "
+msgstr "安装路径: "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:373
+msgid "Memory: "
+msgstr "内存: "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:373
+msgid " MB (need ≥ 1024 MB) — "
+msgstr " MB (需要 ≥ 1024 MB) — "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:373
+#: htdocs/luci-static/resources/view/openclaw/basic.js:374
+msgid "✅ Pass"
+msgstr "✅ 通过"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:373
+#: htdocs/luci-static/resources/view/openclaw/basic.js:374
+msgid "❌ Fail"
+msgstr "❌ 不达标"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:374
+msgid "Disk: "
+msgstr "磁盘: "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:374
+msgid " MB free (need ≥ 2048 MB) — "
+msgstr " MB 可用 (需要 ≥ 2048 MB) — "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:381
+#: htdocs/luci-static/resources/view/openclaw/basic.js:386
+msgid "❌ System requirements not met"
+msgstr "❌ 系统配置不满足要求"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:382
+msgid "❌ System requirements not met — installation aborted\n"
+msgstr "❌ 系统配置不满足要求，安装已终止\\n"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:383
+msgid "💡 Upgrade your hardware or free up disk space, then retry\n"
+msgstr "💡 请升级硬件配置或清理磁盘空间后重试\\n"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:387
+msgid "💡 Upgrade your hardware or free up disk space, then retry."
+msgstr "💡 请升级硬件配置或清理磁盘空间后重试。"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:391
+#: htdocs/luci-static/resources/view/openclaw/basic.js:421
+#: htdocs/luci-static/resources/view/openclaw/basic.js:465
+msgid "⏳ Installation in progress..."
+msgstr "⏳ 安装进行中..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:392
+msgid "✅ System check passed — starting the installation...\n\n"
+msgstr "✅ 系统配置检测通过，开始安装...\\n\\n"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:409
+msgid "System check failed, please retry"
+msgstr "系统检测失败，请重试"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:420
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:286
+msgid "⏳ Installing..."
+msgstr "⏳ 安装中..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:423
+msgid "📦 Install Runtime ("
+msgstr "📦 安装运行环境 ("
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:423
+msgid "Stable"
+msgstr "稳定版"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:423
+msgid "Latest"
+msgstr "最新版"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:426
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:292
+msgid "Starting the installation...\n"
+msgstr "正在启动安装...\\n"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:435
+msgid "❌ Failed to start the installation"
+msgstr "❌ 启动安装失败"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:438
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:300
+msgid "Failed to start the installation: "
+msgstr "启动安装失败: "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:490
+msgid "✅ Installation complete"
+msgstr "✅ 安装完成"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:492
+msgid "🎉 Congratulations! The OpenClaw runtime was installed successfully!"
+msgstr "🎉 恭喜！OpenClaw 运行环境安装成功！"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:493
+msgid "The service was enabled and started automatically — click the button below to reload the page and see the status."
+msgstr "服务已自动启用并启动，点击下方按钮刷新页面查看运行状态。"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:494
+#: htdocs/luci-static/resources/view/openclaw/basic.js:765
+#: htdocs/luci-static/resources/view/openclaw/basic.js:773
+#: htdocs/luci-static/resources/view/openclaw/basic.js:799
+#: htdocs/luci-static/resources/view/openclaw/basic.js:926
+msgid "🔄 Reload Page"
+msgstr "🔄 刷新页面"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:498
+#: htdocs/luci-static/resources/view/openclaw/basic.js:501
+msgid "❌ Installation failed"
+msgstr "❌ 安装失败"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:503
+msgid "🔍 Possible causes:"
+msgstr "🔍 可能的失败原因："
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:504
+msgid "💡 The full log is in the terminal output above; you can also view it with "
+msgstr "💡 完整日志见上方终端输出，也可在终端查看："
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:513
+msgid "⏳ Working..."
+msgstr "⏳ 正在执行..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:521
+msgid " done"
+msgstr " 已完成"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:523
+msgid "Failed"
+msgstr "失败"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:527
+msgid "❌ Error"
+msgstr "❌ 错误"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:548
+msgid "⏳ Checking..."
+msgstr "⏳ 正在检测..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:568
+msgid "🔌 Plugin update available"
+msgstr "🔌 插件有新版"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:568
+#: htdocs/luci-static/resources/view/openclaw/basic.js:570
+#: htdocs/luci-static/resources/view/openclaw/basic.js:572
+#: htdocs/luci-static/resources/view/openclaw/basic.js:576
+#: htdocs/luci-static/resources/view/openclaw/basic.js:578
+#: htdocs/luci-static/resources/view/openclaw/basic.js:580
+msgid " v"
+msgstr " v"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:570
+msgid "🔌 Plugin up to date"
+msgstr "🔌 插件已是最新"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:572
+msgid "🔌 Plugin check unavailable"
+msgstr "🔌 插件无法检查"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:576
+msgid "🦞 Core update available"
+msgstr "🦞 核心有新版"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:578
+msgid "🦞 Core up to date"
+msgstr "🦞 核心已是最新"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:580
+msgid "🦞 Core check unavailable"
+msgstr "🦞 核心无法检查"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:583
+msgid "Unable to get version info"
+msgstr "无法获取版本信息"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:596
+msgid "📋 Plugin Changelog"
+msgstr "📋 插件更新日志"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:602
+msgid "⬆️ Upgrade Plugin Now (v"
+msgstr "⬆️ 一键升级插件 (v"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:603
+msgid "📥 Download from GitHub"
+msgstr "📥 GitHub 下载"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:605
+msgid "⬆️ Upgrade OpenClaw Core Now (v"
+msgstr "⬆️ 一键升级 OpenClaw 核心 (v"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:621
+msgid "❌ Check failed"
+msgstr "❌ 检测失败"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:638
+msgid "Upgrade the OpenClaw core to v"
+msgstr "确定要将 OpenClaw 核心升级到 v"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:638
+msgid "?\n\nThe upgrade runs a safe transaction: automatic full-state backup, SQLite database precheck and smooth configuration migration."
+msgstr "？\\n\\n升级将执行安全事务：自动全量备份状态、SQLite 数据库预检与配置平滑迁移。"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:650
+msgid "⏳ Starting the core upgrade..."
+msgstr "⏳ 正在启动核心升级..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:653
+msgid "Starting the OpenClaw core upgrade transaction...\n"
+msgstr "正在启动 OpenClaw 核心升级事务...\\n"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:654
+msgid "📋 OpenClaw Core Upgrade Log"
+msgstr "📋 OpenClaw 核心升级日志"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:655
+msgid "⏳ Core upgrade in progress (state-machine transaction)..."
+msgstr "⏳ 核心升级中 (执行状态机事务)..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:664
+#: htdocs/luci-static/resources/view/openclaw/basic.js:702
+msgid "❌ Failed to start the upgrade"
+msgstr "❌ 启动升级失败"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:665
+msgid "Failed to start the core upgrade: "
+msgstr "启动核心升级失败: "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:675
+msgid "Could not determine the latest version"
+msgstr "无法获取最新版本号"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:678
+msgid "Upgrade the plugin to v"
+msgstr "确定要升级插件到 v"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:678
+msgid "?\n\nThe upgrade replaces the plugin files and clears the LuCI cache; the running OpenClaw service is not affected."
+msgstr "？\\n\\n升级会替换插件文件并清除 LuCI 缓存，不会影响正在运行的 OpenClaw 服务。"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:689
+msgid "⏳ Upgrading the plugin..."
+msgstr "⏳ 正在升级插件..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:691
+msgid "Starting the plugin upgrade...\n"
+msgstr "正在启动插件升级...\\n"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:692
+msgid "📋 Plugin Upgrade Log"
+msgstr "📋 插件升级日志"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:693
+#: htdocs/luci-static/resources/view/openclaw/basic.js:727
+msgid "⏳ Plugin upgrade in progress..."
+msgstr "⏳ 插件升级中..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:703
+msgid "Failed to start the plugin upgrade: "
+msgstr "启动插件升级失败: "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:756
+msgid "⬆️ Upgrade Plugin"
+msgstr "⬆️ 升级插件"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:761
+msgid "✅ Plugin upgrade complete"
+msgstr "✅ 插件升级完成"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:763
+msgid "🎉 Plugin upgrade successful!"
+msgstr "🎉 插件升级成功！"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:764
+msgid "The plugin files were updated; the OpenClaw service is unaffected. Reload the page to load the new UI."
+msgstr "插件文件已更新，OpenClaw 服务不受影响。请刷新页面加载新版界面。"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:769
+#: htdocs/luci-static/resources/view/openclaw/basic.js:771
+msgid "❌ Plugin upgrade failed"
+msgstr "❌ 插件升级失败"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:772
+msgid "See the log above for details, or run "
+msgstr "请查看上方日志了解详情。也可手动执行："
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:782
+msgid "Uninstall the OpenClaw runtime?\n\nNode.js, the OpenClaw program and its configuration data will be deleted and the service stopped.\n\nThis plugin itself is kept — you can reinstall the runtime later."
+msgstr "确定要卸载 OpenClaw 运行环境？\\n\\n将删除 Node.js、OpenClaw 程序及配置数据，服务将停止运行。\\n\\n插件本身不会被删除，之后可重新安装运行环境。"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:789
+msgid "⏳ Uninstalling..."
+msgstr "⏳ 正在卸载..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:790
+msgid "Stopping the service and cleaning up files..."
+msgstr "正在停止服务并清理文件..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:797
+msgid "✅ Uninstall complete"
+msgstr "✅ 卸载完成"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:803
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:655
+msgid "Uninstall failed"
+msgstr "卸载失败"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:808
+msgid "❌ Request failed"
+msgstr "❌ 请求失败"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:824
+msgid "⏳ Loading backup list..."
+msgstr "⏳ 加载备份列表..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:830
+msgid "Type"
+msgstr "类型"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:831
+msgid "Backup Time"
+msgstr "备份时间"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:832
+msgid "Size"
+msgstr "大小"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:833
+msgid "Action"
+msgstr "操作"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:839
+msgid "📦 Full Backup"
+msgstr "📦 完整备份"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:846
+msgid "Restore"
+msgstr "恢复"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:847
+msgid "Delete"
+msgstr "删除"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:866
+msgid "No backups yet — create one first"
+msgstr "暂无备份，请先创建备份"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:869
+msgid "Failed to load the list"
+msgstr "获取列表失败"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:872
+msgid "⚠️ Could not load the list"
+msgstr "⚠️ 无法加载列表"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:884
+msgid "⏳ Creating backup..."
+msgstr "⏳ 正在创建备份..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:885
+msgid " (config only)"
+msgstr "（仅配置）"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:885
+msgid " (full backup — this may take a while)"
+msgstr "（完整备份，可能需要较长时间）"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:892
+msgid "✅ Backup complete"
+msgstr "✅ 备份完成"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:896
+msgid "Backup failed"
+msgstr "备份失败"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:902
+msgid "⚠️ Backups require OpenClaw v2026.3.8+"
+msgstr "⚠️ 备份功能需要 OpenClaw v2026.3.8+"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:914
+msgid "Restore the configuration from this backup?\n\n"
+msgstr "确定要从此备份恢复配置？\\n\\n"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:914
+msgid "\n\nThe current openclaw.json will be overwritten with the backed-up version and the service will restart."
+msgstr "\\n\\n当前 openclaw.json 将被备份中的版本覆盖，服务将自动重启。"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:919
+msgid "⏳ Restoring configuration..."
+msgstr "⏳ 正在恢复配置..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:924
+msgid "✅ Configuration restored"
+msgstr "✅ 配置已恢复"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:930
+msgid "Restore failed"
+msgstr "恢复失败"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:933
+msgid "❌ Restore failed — check the log"
+msgstr "❌ 恢复失败，请检查日志"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:940
+msgid "Delete this backup?\n\n"
+msgstr "确定要删除此备份？\\n\\n"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:940
+msgid "\n\nThis cannot be undone."
+msgstr "\\n\\n删除后无法恢复。"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:945
+msgid "⏳ Deleting..."
+msgstr "⏳ 正在删除..."
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:953
+msgid "Delete failed"
+msgstr "删除失败"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:957
+msgid "❌ Delete failed"
+msgstr "❌ 删除失败"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:42
+msgid "🖥️ Web Console"
+msgstr "🖥️ Web 控制台"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:43
+msgid "The official OpenClaw web UI — configure AI models and messaging channels (QQ, Telegram, Discord, ...), chat with the AI directly, and manage every feature."
+msgstr "OpenClaw 官方 Web 管理界面 — 在这里可以配置 AI 模型、消息渠道（QQ、Telegram、Discord 等），直接与 AI 进行对话，以及管理所有功能。"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:46
+msgid "Gateway address:"
+msgstr "网关地址："
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:49
+msgid "Active model:"
+msgstr "活跃模型："
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:53
+msgid "Checking..."
+msgstr "检查中..."
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:55
+msgid "📱 Device pairing "
+msgstr "📱 设备配对 "
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:55
+msgid "0"
+msgstr "0"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:57
+msgid "⛶ Fullscreen"
+msgstr "⛶ 全屏"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:58
+#: htdocs/luci-static/resources/view/openclaw/console.js:79
+msgid "↗ Open in new window"
+msgstr "↗ 新窗口打开"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:68
+msgid "When the Control UI is first opened, the gateway asks the host to approve this browser. Click \"Approve all pairings\" to authorize it and enter the console."
+msgstr "首次访问 Control UI 时网关需要主机批准该浏览器。点击「一键批准配对」即可完成授权并进入控制台。"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:79
+msgid "Browser security notice"
+msgstr "浏览器安全提示"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:79
+msgid ": you are accessing LuCI over HTTPS. Because the OpenClaw gateway is an HTTP service, the browser may block the cross-protocol embedded page (Mixed Content). If the area below is blank, click \""
+msgstr "：当前正在通过 HTTPS 访问 LuCI。由于 OpenClaw 网关为 HTTP 服务，浏览器可能会拦截跨协议内嵌页面（Mixed Content）。若下方界面显示空白，请点击右上角「"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:79
+msgid "\" in the top-right, or access LuCI over HTTP."
+msgstr "」直接访问会话，或改用 HTTP 协议访问 LuCI。"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:85
+msgid "Connecting to the OpenClaw console..."
+msgstr "正在连接 OpenClaw 控制台..."
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:194
+msgid "● Gateway running"
+msgstr "● 网关运行中"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:212
+msgid "● Gateway failed to start"
+msgstr "● 网关启动失败"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:217
+msgid "The OpenClaw gateway failed to start"
+msgstr "OpenClaw 网关启动失败"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:218
+msgid "Exit code: "
+msgstr "退出码："
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:218
+msgid ". Check the system log or the install log."
+msgstr "。请查看系统日志或安装日志。"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:223
+msgid "⏳ Gateway is starting"
+msgstr "⏳ 网关正在启动"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:228
+msgid "The OpenClaw gateway is starting up..."
+msgstr "OpenClaw 网关正在启动中..."
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:229
+msgid "Usually 20–40 seconds; longer on first install or under heavy router load. The page refreshes automatically."
+msgstr "通常 20~40 秒；首次安装或路由器负载较高时会更久，页面会自动刷新。"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:235
+msgid "● Gateway not running"
+msgstr "● 网关未运行"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:240
+msgid "The OpenClaw gateway is not running"
+msgstr "OpenClaw 网关未运行"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:241
+msgid "Enable and start the service on the \"Basic Settings\" page first."
+msgstr "请先在「基本设置」页面启用服务并启动。"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:246
+msgid "Query failed"
+msgstr "查询失败"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:315
+msgid "No pending device pairing requests. When a browser connecting to the console is asked to pair, refresh here to show and approve it."
+msgstr "当前无待配对设备请求。当浏览器连接控制台提示「需要设备配对」时，在此刷新即可显示并批准。"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:323
+msgid "Failed to query the device list"
+msgstr "查询设备列表失败"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:346
+msgid " Reloading the console..."
+msgstr " 正在重新载入控制台..."
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:70
+msgid "💬 WeChat Channel"
+msgstr "💬 微信渠道配置"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:71
+msgid "Connect WeChat through the ClawBot plugin and chat privately with your AI assistant. Multiple accounts can be online at the same time."
+msgstr "通过微信 ClawBot 插件连接微信，实现与 AI 助手的私聊对话。支持多账号同时在线。"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:74
+msgid "📋 Prerequisites"
+msgstr "📋 前置条件"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:76
+msgid "Install / reinstall the WeChat plugin first"
+msgstr "先安装/重新安装微信插件"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:76
+msgid " — the page automatically checks Node, python3, directory permissions and WeChat API reachability"
+msgstr " — 页面会自动检查 Node、python3、目录权限和微信接口连通性"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:77
+msgid "Click “Log in”"
+msgstr "点击“登录账号”"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:77
+msgid " — open the link that appears, then scan it with the WeChat scanner"
+msgstr " — 出现链接后先点击打开，再使用微信客户端「扫一扫」扫码"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:78
+msgid "Wait for the success notice"
+msgstr "等待成功提示"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:78
+msgid " — the gateway then reloads the WeChat account; verify by sending it a message from WeChat"
+msgstr " — 成功后网关会重新加载微信账号，再用微信发一条消息验证"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:80
+msgid "⚠️ Common failure causes: expired QR code, account risk control, TLS/timeout between the router and ilinkai.weixin.qq.com, missing plugin registration, wrong data directory permissions. On failure the recent log is shown."
+msgstr "⚠️ 常见失败原因：二维码过期、账号风控、路由器到 ilinkai.weixin.qq.com TLS/timeout、插件注册缺失、数据目录权限错误。失败时页面会显示最近日志。"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:83
+msgid "📊 Plugin Status"
+msgstr "📊 插件状态"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:84
+msgid "WeChat Plugin"
+msgstr "微信插件"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:88
+msgid "Login Status"
+msgstr "登录状态"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:93
+msgid "OpenClaw Version"
+msgstr "OpenClaw 版本"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:96
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:104
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:221
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:289
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:375
+msgid "📦 Install WeChat Plugin"
+msgstr "📦 安装微信插件"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:97
+msgid "🔍 Check for Upgrades"
+msgstr "🔍 检测升级"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:98
+msgid "🔄 Refresh Status"
+msgstr "🔄 刷新状态"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:99
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:660
+msgid "🗑️ Uninstall Plugin"
+msgstr "🗑️ 卸载插件"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:106
+msgid "Installing, please wait..."
+msgstr "正在安装，请稍候..."
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:112
+msgid "📱 WeChat QR Login"
+msgstr "📱 微信扫码登录"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:114
+msgid "Fetching the login QR code..."
+msgstr "正在获取登录二维码..."
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:121
+msgid "🔍 Check Plugin Upgrade"
+msgstr "🔍 检测插件升级"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:123
+msgid "Checking for updates..."
+msgstr "正在检测..."
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:185
+msgid " ✓ compatible"
+msgstr " ✓ 兼容"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:188
+msgid " ⚠️ upgrade to 2026.3.22+ required"
+msgstr " ⚠️ 需升级至 2026.3.22+"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:209
+msgid "✅ Installed"
+msgstr "✅ 已安装"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:211
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:357
+msgid "📦 Reinstall Plugin"
+msgstr "📦 重新安装插件"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:216
+msgid "Installed"
+msgstr "已安装"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:219
+msgid "❌ Not installed"
+msgstr "❌ 未安装"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:227
+msgid "✅ Logged in ("
+msgstr "✅ 已登录 ("
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:227
+msgid " accounts)"
+msgstr " 个账号)"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:234
+msgid "Log out"
+msgstr "退出账号"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:237
+msgid "➕ Add New Account"
+msgstr "➕ 添加新账号"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:243
+msgid "⚠️ Not logged in"
+msgstr "⚠️ 未登录"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:245
+msgid "Log in"
+msgstr "登录账号"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:256
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:257
+msgid "Check failed"
+msgstr "检测失败"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:298
+msgid "Failed to start the installation"
+msgstr "启动安装失败"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:322
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:453
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:469
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:606
+msgid "🔗 Open the link, then scan it with WeChat"
+msgstr "🔗 点击打开链接，然后用微信扫码"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:328
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:612
+msgid "Waiting for output..."
+msgstr "等待输出..."
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:340
+msgid "Installation failed (exit: "
+msgstr "安装失败 (exit: "
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:354
+msgid "✅ WeChat plugin installed successfully!"
+msgstr "✅ 微信插件安装成功！"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:400
+msgid "Failed to start the login"
+msgstr "启动登录失败"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:402
+msgid "Failed to start the login: "
+msgstr "启动登录失败: "
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:409
+msgid "Log out account "
+msgstr "确认退出账号 "
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:409
+msgid "? After logging out you will need to scan the QR code again."
+msgstr " 吗？退出后需要重新扫码。"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:413
+msgid "Logging out..."
+msgstr "退出中..."
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:423
+msgid "Failed to log out the account: "
+msgstr "退出账号失败: "
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:438
+msgid "⌛ QR code refreshed — click the newest link to log in"
+msgstr "⌛ 二维码已刷新，请点击最新链接扫码登录"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:439
+msgid "📱 Open the QR code from the link below and scan it with WeChat"
+msgstr "📱 请点击下方链接打开二维码，再用微信扫码"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:445
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:513
+msgid "Login failed"
+msgstr "登录失败"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:454
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:470
+msgid "Or copy the link: "
+msgstr "或复制链接: "
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:477
+msgid "Loading the login link..."
+msgstr "正在加载登录链接..."
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:504
+msgid "✅ WeChat login successful!"
+msgstr "✅ 微信登录成功！"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:504
+msgid "The gateway is reloading your WeChat account — wait 10-20 seconds, then send a test message from WeChat to verify."
+msgstr "网关正在重新加载微信账号，请等待 10-20 秒后，用微信给网关发一条测试消息验证。"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:543
+msgid "🔄 New version available: "
+msgstr "🔄 发现新版本: "
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:544
+msgid "Current version: "
+msgstr "当前版本: "
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:545
+msgid "Upgrade now"
+msgstr "立即升级"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:552
+msgid "❌ Plugin not installed — install it first"
+msgstr "❌ 插件未安装，请先安装"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:555
+msgid "⚠️ Could not determine the latest version"
+msgstr "⚠️ 无法确认最新版本"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:556
+msgid "Currently installed: "
+msgstr "当前已安装: "
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:561
+msgid "✅ Already on the latest version: "
+msgstr "✅ 当前已是最新版本: "
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:567
+msgid "❌ Check failed: "
+msgstr "❌ 检测失败: "
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:574
+msgid "Upgrading..."
+msgstr "正在升级..."
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:582
+msgid "Upgrade failed"
+msgstr "升级失败"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:585
+msgid "❌ Upgrade failed: "
+msgstr "❌ 升级失败: "
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:621
+msgid "✅ Upgrade successful!"
+msgstr "✅ 升级成功！"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:625
+msgid "❌ Upgrade failed"
+msgstr "❌ 升级失败"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:644
+msgid "Uninstall the WeChat plugin? This will delete all WeChat-related configuration."
+msgstr "确定要卸载微信插件吗？这将删除微信相关的所有配置。"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:649
+msgid "⏳ Removing plugin..."
+msgstr "⏳ 卸载中..."
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:657
+msgid "Uninstall failed: "
+msgstr "卸载失败: "
+
+#: root/usr/share/luci/menu.d/luci-app-openclaw.json:10
+msgid "Basic Settings"
+msgstr "基本设置"
+
+#: root/usr/share/luci/menu.d/luci-app-openclaw.json:21
+msgid "Config Management"
+msgstr "配置管理"
+
+#: root/usr/share/luci/menu.d/luci-app-openclaw.json:32
+msgid "WeChat"
+msgstr "微信配置"
+
+#: root/usr/share/luci/menu.d/luci-app-openclaw.json:43
+msgid "Web Console"
+msgstr "Web 控制台"
