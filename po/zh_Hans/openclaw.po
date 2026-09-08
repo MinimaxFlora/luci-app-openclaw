@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-09 01:37+0800\n"
-"PO-Revision-Date: 2026-09-09 01:37+0800\n"
+"POT-Creation-Date: 2026-09-09 01:54+0800\n"
+"PO-Revision-Date: 2026-09-09 01:54+0800\n"
 "Last-Translator: 10000ge10000 <10000ge10000@users.noreply.github.com>\n"
 "Language-Team: Chinese\n"
 "Language: zh_Hans\n"
@@ -30,87 +30,176 @@ msgid "Unknown error, please check the logs."
 msgstr "未知错误，请检查日志。"
 
 #: htdocs/luci-static/resources/openclaw/common.js:164
-msgid "🌐 <b>Network connection failed</b> — unable to download Node.js. Make sure the router can reach the internet.<br/>&nbsp;&nbsp;💡 Fix: check DNS settings and connectivity, or point to a mirror manually: <code>NODE_MIRROR=https://npmmirror.com/mirrors/node openclaw-env setup</code>"
-msgstr "🌐 <b>网络连接失败</b> — 无法下载 Node.js。请检查路由器是否能访问外网。<br/>&nbsp;&nbsp;💡 解决: 检查 DNS 设置和网络连接，或手动指定镜像: <code>NODE_MIRROR=https://npmmirror.com/mirrors/node openclaw-env setup</code>"
+msgid "Network connection failed"
+msgstr "网络连接失败"
+
+#: htdocs/luci-static/resources/openclaw/common.js:164
+msgid " — unable to download Node.js. Make sure the router can reach the internet."
+msgstr " — 无法下载 Node.js。请检查路由器是否能访问外网。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:164
+msgid "&nbsp;&nbsp;💡 Fix: check DNS settings and connectivity, or point to a mirror manually: "
+msgstr "&nbsp;&nbsp;💡 解决: 检查 DNS 设置和网络连接，或手动指定镜像: "
 
 #: htdocs/luci-static/resources/openclaw/common.js:167
-msgid "💾 <b>Not enough disk space</b> — Node.js + OpenClaw need roughly 200 MB.<br/>&nbsp;&nbsp;💡 Fix: run <code>df -h</code> to check free space, then remove unneeded files or use external storage."
-msgstr "💾 <b>磁盘空间不足</b> — Node.js + OpenClaw 需要约 200MB 空间。<br/>&nbsp;&nbsp;💡 解决: 运行 <code>df -h</code> 检查可用空间，清理不需要的文件或使用外部存储。"
+msgid "Not enough disk space"
+msgstr "磁盘空间不足"
+
+#: htdocs/luci-static/resources/openclaw/common.js:167
+msgid " — Node.js + OpenClaw need roughly 200 MB."
+msgstr " — Node.js + OpenClaw 需要约 200MB 空间。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:167
+#: htdocs/luci-static/resources/openclaw/common.js:176
+msgid "&nbsp;&nbsp;💡 Fix: run "
+msgstr "&nbsp;&nbsp;💡 解决: 运行 "
+
+#: htdocs/luci-static/resources/openclaw/common.js:167
+msgid " to check free space, then remove unneeded files or use external storage."
+msgstr " 检查可用空间，清理不需要的文件或使用外部存储。"
 
 #: htdocs/luci-static/resources/openclaw/common.js:170
-msgid "🔧 <b>Unsupported CPU architecture</b> — only x86_64 and aarch64 (ARM64) are supported.<br/>&nbsp;&nbsp;💡 The device is likely 32-bit ARM or MIPS, which cannot run Node.js 22."
-msgstr "🔧 <b>CPU 架构不支持</b> — 仅支持 x86_64 和 aarch64 (ARM64)。<br/>&nbsp;&nbsp;💡 当前设备架构可能是 32 位 ARM 或 MIPS，无法运行 Node.js 22。"
+msgid "Unsupported CPU architecture"
+msgstr "CPU 架构不支持"
+
+#: htdocs/luci-static/resources/openclaw/common.js:170
+msgid " — only x86_64 and aarch64 (ARM64) are supported."
+msgstr " — 仅支持 x86_64 和 aarch64 (ARM64)。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:170
+msgid "&nbsp;&nbsp;💡 The device is likely 32-bit ARM or MIPS, which cannot run Node.js 22."
+msgstr "&nbsp;&nbsp;💡 当前设备架构可能是 32 位 ARM 或 MIPS，无法运行 Node.js 22。"
 
 #: htdocs/luci-static/resources/openclaw/common.js:173
-msgid "📦 <b>npm failed to install OpenClaw</b> — downloading or installing the npm package failed.<br/>&nbsp;&nbsp;💡 Fix: try <code>openclaw-env setup</code> manually or check the network connection."
-msgstr "📦 <b>npm 安装 OpenClaw 失败</b> — npm 包下载或安装出错。<br/>&nbsp;&nbsp;💡 解决: 尝试手动安装 <code>openclaw-env setup</code> 或检查网络连接。"
+msgid "npm failed to install OpenClaw"
+msgstr "npm 安装 OpenClaw 失败"
+
+#: htdocs/luci-static/resources/openclaw/common.js:173
+msgid " — downloading or installing the npm package failed."
+msgstr " — npm 包下载或安装出错。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:173
+msgid "&nbsp;&nbsp;💡 Fix: try "
+msgstr "&nbsp;&nbsp;💡 解决: 尝试手动安装 "
+
+#: htdocs/luci-static/resources/openclaw/common.js:173
+msgid " manually or check the network connection."
+msgstr " 或检查网络连接。"
 
 #: htdocs/luci-static/resources/openclaw/common.js:176
-msgid "🔒 <b>Permission denied</b> — file or directory permission problem.<br/>&nbsp;&nbsp;💡 Fix: run <code>openclaw-env setup</code> or retry as root."
-msgstr "🔒 <b>权限不足</b> — 文件或目录权限问题。<br/>&nbsp;&nbsp;💡 解决: 运行 <code>openclaw-env setup</code> 或以 root 用户重试。"
+msgid "Permission denied"
+msgstr "权限不足"
+
+#: htdocs/luci-static/resources/openclaw/common.js:176
+msgid " — file or directory permission problem."
+msgstr " — 文件或目录权限问题。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:176
+msgid " or retry as root."
+msgstr " 或以 root 用户重试。"
 
 #: htdocs/luci-static/resources/openclaw/common.js:179
-msgid "📂 <b>Extraction failed</b> — the Node.js package may have downloaded incompletely.<br/>&nbsp;&nbsp;💡 Fix: clear the cache and retry <code>openclaw-env setup</code>"
-msgstr "📂 <b>解压失败</b> — Node.js 安装包可能下载不完整。<br/>&nbsp;&nbsp;💡 解决: 删除缓存重试 <code>openclaw-env setup</code>"
+msgid "Extraction failed"
+msgstr "解压失败"
+
+#: htdocs/luci-static/resources/openclaw/common.js:179
+msgid " — the Node.js package may have downloaded incompletely."
+msgstr " — Node.js 安装包可能下载不完整。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:179
+msgid "&nbsp;&nbsp;💡 Fix: clear the cache and retry "
+msgstr "&nbsp;&nbsp;💡 解决: 删除缓存重试 "
 
 #: htdocs/luci-static/resources/openclaw/common.js:182
-msgid "⚠️ <b>Install verification failed</b> — the program was downloaded but cannot run.<br/>&nbsp;&nbsp;💡 Possibly a glibc/musl mismatch; check the C library type: <code>ldd --version 2>&1 | head -1</code>"
-msgstr "⚠️ <b>安装验证失败</b> — 程序已下载但无法正常运行。<br/>&nbsp;&nbsp;💡 可能是 glibc/musl 不兼容，请确认系统 C 库类型: <code>ldd --version 2>&1 | head -1</code>"
+msgid "Install verification failed"
+msgstr "安装验证失败"
+
+#: htdocs/luci-static/resources/openclaw/common.js:182
+msgid " — the program was downloaded but cannot run."
+msgstr " — 程序已下载但无法正常运行。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:182
+msgid "&nbsp;&nbsp;💡 Possibly a glibc/musl mismatch; check the C library type: "
+msgstr "&nbsp;&nbsp;💡 可能是 glibc/musl 不兼容，请确认系统 C 库类型: "
 
 #: htdocs/luci-static/resources/openclaw/common.js:185
-msgid "⚠️ <b>Unrecognized error</b> — review the full log above for the actual cause.<br/>&nbsp;&nbsp;💡 You can also run <code>openclaw-env setup</code> manually for detailed output."
-msgstr "⚠️ <b>未识别的错误</b> — 请查看上方完整日志分析具体原因。<br/>&nbsp;&nbsp;💡 您也可以尝试手动执行: <code>openclaw-env setup</code> 查看详细输出。"
+msgid "Unrecognized error"
+msgstr "未识别的错误"
+
+#: htdocs/luci-static/resources/openclaw/common.js:185
+msgid " — review the full log above for the actual cause."
+msgstr " — 请查看上方完整日志分析具体原因。"
+
+#: htdocs/luci-static/resources/openclaw/common.js:185
+msgid "&nbsp;&nbsp;💡 You can also run "
+msgstr "&nbsp;&nbsp;💡 您也可以尝试手动执行: "
+
+#: htdocs/luci-static/resources/openclaw/common.js:185
+msgid " manually for detailed output."
+msgstr " 查看详细输出。"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:34
-msgid "<h2>⚙️ Terminal Configuration (Config Management)</h2>"
-msgstr "<h2>⚙️ 终端配置 (配置管理)</h2>"
+msgid "⚙️ Terminal Configuration (Config Management)"
+msgstr "⚙️ 终端配置 (配置管理)"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:35
-msgid "<p>Manage OpenClaw end-to-end through the interactive terminal (oc-config): AI model configuration, messaging channel setup (QQ, Telegram, Discord, ...), health checks and more.</p>"
-msgstr "<p>通过交互式终端 (oc-config) 进行 OpenClaw 的完整配置管理。支持 AI 模型配置、消息渠道设置（QQ、Telegram、Discord 等）、健康检查等。</p>"
+msgid "Manage OpenClaw end-to-end through the interactive terminal (oc-config): AI model configuration, messaging channel setup (QQ, Telegram, Discord, ...), health checks and more."
+msgstr "通过交互式终端 (oc-config) 进行 OpenClaw 的完整配置管理。支持 AI 模型配置、消息渠道设置（QQ、Telegram、Discord 等）、健康检查等。"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:38
-msgid "<span class=\"label\">Terminal service:</span>"
-msgstr "<span class=\"label\">终端服务：</span>"
+msgid "Terminal service:"
+msgstr "终端服务："
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:41
 #: htdocs/luci-static/resources/view/openclaw/console.js:52
-msgid "<span class=\"label\">Status:</span>"
-msgstr "<span class=\"label\">状态：</span>"
+msgid "Status:"
+msgstr "状态："
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:42
-msgid "<span id=\"oc-term-status-text\">Checking...</span>"
-msgstr "<span id=\"oc-term-status-text\">检测中...</span>"
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:84
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:89
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:93
+msgid "Detecting..."
+msgstr "检测中..."
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:43
-msgid "<a id=\"oc-term-open-btn\" class=\"btn-open\" href=\"#\" target=\"_blank\" rel=\"noopener\">↗ Open terminal in new window</a>"
-msgstr "<a id=\"oc-term-open-btn\" class=\"btn-open\" href=\"#\" target=\"_blank\" rel=\"noopener\">↗ 新窗口打开终端</a>"
+msgid "↗ Open terminal in new window"
+msgstr "↗ 新窗口打开终端"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:49
 #: htdocs/luci-static/resources/view/openclaw/console.js:65
-msgid "<span>🔔 Pending device pairing requests detected</span>"
-msgstr "<span>🔔 检测到待配对设备请求</span>"
+msgid "🔔 Pending device pairing requests detected"
+msgstr "🔔 检测到待配对设备请求"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:52
-msgid "<div style=\"font-size:13px;color:#555;line-height:1.5;margin-bottom:6px;\">A browser connecting to the Control UI triggered the secure pairing policy — approve it right here with one click instead of searching for the Request ID in the terminal below.</div>"
-msgstr "<div style=\"font-size:13px;color:#555;line-height:1.5;margin-bottom:6px;\">Control UI 浏览器连接时触发了安全配对策略，您可直接在此一键批准，无需在下方终端中手动查找与输入 Request ID。</div>"
+msgid "A browser connecting to the Control UI triggered the secure pairing policy — approve it right here with one click instead of searching for the Request ID in the terminal below."
+msgstr "Control UI 浏览器连接时触发了安全配对策略，您可直接在此一键批准，无需在下方终端中手动查找与输入 Request ID。"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:53
 #: htdocs/luci-static/resources/view/openclaw/console.js:69
-msgid "<div style=\"font-size:12px;color:#cf1322;background:#fff1f0;border:1px solid #ffa39e;padding:6px 10px;border-radius:4px;line-height:1.4;margin-bottom:6px;\">⚠️ <strong>Risk notice</strong>: approving a device pairing grants that browser full control over the OpenClaw gateway. Only approve on a trusted LAN, and only while it is you who is connecting.</div>"
-msgstr "<div style=\"font-size:12px;color:#cf1322;background:#fff1f0;border:1px solid #ffa39e;padding:6px 10px;border-radius:4px;line-height:1.4;margin-bottom:6px;\">⚠️ <strong>风险提示</strong>：批准设备配对后，该浏览器将获得 OpenClaw 网关的完全控制权限。请确保在受信任的局域网环境，并仅在您本人正在连接时批准。</div>"
+msgid "Risk notice"
+msgstr "风险提示"
+
+#: htdocs/luci-static/resources/view/openclaw/advanced.js:53
+#: htdocs/luci-static/resources/view/openclaw/console.js:69
+msgid ": approving a device pairing grants that browser full control over the OpenClaw gateway. Only approve on a trusted LAN, and only while it is you who is connecting."
+msgstr "：批准设备配对后，该浏览器将获得 OpenClaw 网关的完全控制权限。请确保在受信任的局域网环境，并仅在您本人正在连接时批准。"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:57
-msgid "<button type=\"button\" id=\"oc-adv-pairing-approve-all-btn\" style=\"padding:6px 14px;background:#52c41a;color:#fff;border:none;border-radius:4px;font-weight:600;font-size:12px;cursor:pointer;\">⚡ Approve all pairings</button>"
-msgstr "<button type=\"button\" id=\"oc-adv-pairing-approve-all-btn\" style=\"padding:6px 14px;background:#52c41a;color:#fff;border:none;border-radius:4px;font-weight:600;font-size:12px;cursor:pointer;\">⚡ 一键批准配对</button>"
+#: htdocs/luci-static/resources/view/openclaw/console.js:73
+msgid "⚡ Approve all pairings"
+msgstr "⚡ 一键批准配对"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:58
-msgid "<button type=\"button\" id=\"oc-adv-pairing-refresh-btn\" style=\"padding:6px 10px;background:#f0f2f5;color:#333;border:1px solid #d0d7de;border-radius:4px;font-size:12px;cursor:pointer;\">🔄 Refresh</button>"
-msgstr "<button type=\"button\" id=\"oc-adv-pairing-refresh-btn\" style=\"padding:6px 10px;background:#f0f2f5;color:#333;border:1px solid #d0d7de;border-radius:4px;font-size:12px;cursor:pointer;\">🔄 刷新</button>"
+#: htdocs/luci-static/resources/view/openclaw/basic.js:144
+#: htdocs/luci-static/resources/view/openclaw/console.js:56
+#: htdocs/luci-static/resources/view/openclaw/console.js:74
+msgid "🔄 Refresh"
+msgstr "🔄 刷新"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:64
-msgid "<div class=\"oc-terminal-loading\" id=\"oc-terminal-loading\">⏳ Connecting to the config terminal...</div>"
-msgstr "<div class=\"oc-terminal-loading\" id=\"oc-terminal-loading\">⏳ 正在连接配置终端...</div>"
+msgid "⏳ Connecting to the config terminal..."
+msgstr "⏳ 正在连接配置终端..."
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:136
 #: htdocs/luci-static/resources/view/openclaw/console.js:294
@@ -119,12 +208,12 @@ msgstr "未知IP"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:141
 #: htdocs/luci-static/resources/view/openclaw/console.js:299
-msgid " | <strong>Client:</strong> "
-msgstr " | <strong>客户端:</strong> "
+msgid "Client:"
+msgstr "客户端:"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:142
-msgid "\" style=\"font-size:12px;padding:3px 10px;background:#f6ffed;border:1px solid #b7eb8f;color:#389e0d;border-radius:4px;cursor:pointer;\">Approve pairing</button>"
-msgstr "\" style=\"font-size:12px;padding:3px 10px;background:#f6ffed;border:1px solid #b7eb8f;color:#389e0d;border-radius:4px;cursor:pointer;\">批准配对</button>"
+msgid "\" style=\"font-size:12px;padding:3px 10px;background:#f6ffed;border:1px solid #b7eb8f;color:#389e0d;border-radius:4px;cursor:pointer;\">Approve pairing"
+msgstr "\" style=\"font-size:12px;padding:3px 10px;background:#f6ffed;border:1px solid #b7eb8f;color:#389e0d;border-radius:4px;cursor:pointer;\">批准配对"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:167
 #: htdocs/luci-static/resources/view/openclaw/console.js:334
@@ -147,28 +236,28 @@ msgid "❌ Approval failed: request error"
 msgstr "❌ 批准失败：请求异常"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:206
-msgid "<span style=\"color:#1a7f37;\">● Running</span>"
-msgstr "<span style=\"color:#1a7f37;\">● 运行中</span>"
+msgid "● Running"
+msgstr "● 运行中"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:211
-msgid "<span style=\"color:#cf222e;\">● Not running</span>"
-msgstr "<span style=\"color:#cf222e;\">● 未运行</span>"
+msgid "● Not running"
+msgstr "● 未运行"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:212
-msgid "<div style=\"text-align:center;padding:24px;color:#cf222e;\">❌ The config terminal is not running<br/>"
-msgstr "<div style=\"text-align:center;padding:24px;color:#cf222e;\">❌ 配置终端未运行<br/>"
+msgid "❌ The config terminal is not running"
+msgstr "❌ 配置终端未运行"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:213
-msgid "<span style=\"font-size:12px;color:#999;\">Enable and start the service under \"Basic Settings\" first.</span></div>"
-msgstr "<span style=\"font-size:12px;color:#999;\">请先在「基本设置」中启用并启动服务。</span></div>"
+msgid "Enable and start the service under \"Basic Settings\" first."
+msgstr "请先在「基本设置」中启用并启动服务。"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:217
 msgid "Check complete"
 msgstr "检测完成"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:229
-msgid "<div style=\"font-size:15px;margin-bottom:8px;color:#e5c07b;font-weight:600;\">Due to browser security policy, the HTTP terminal cannot be embedded directly on an HTTPS page</div>"
-msgstr "<div style=\"font-size:15px;margin-bottom:8px;color:#e5c07b;font-weight:600;\">由于浏览器安全策略限制，无法在 HTTPS 页面中直接内嵌 HTTP 终端</div>"
+msgid "Due to browser security policy, the HTTP terminal cannot be embedded directly on an HTTPS page"
+msgstr "由于浏览器安全策略限制，无法在 HTTPS 页面中直接内嵌 HTTP 终端"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:231
 msgid "The terminal service is ready on port "
@@ -179,245 +268,277 @@ msgid " and fully ready. Open the interactive terminal in a new window with the 
 msgstr " 正常就绪。请点击下方按钮直接在新窗口打开交互式终端，已自动绑定认证 Token。"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:233
-msgid "\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;padding:9px 24px;background:#4a90d9;color:#fff;border-radius:6px;text-decoration:none;font-weight:500;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,0.3);\">Open the terminal in a new window now</a>"
-msgstr "\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;padding:9px 24px;background:#4a90d9;color:#fff;border-radius:6px;text-decoration:none;font-weight:500;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,0.3);\">立即在新窗口打开终端</a>"
+msgid "\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;padding:9px 24px;background:#4a90d9;color:#fff;border-radius:6px;text-decoration:none;font-weight:500;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,0.3);\">Open the terminal in a new window now"
+msgstr "\" target=\"_blank\" rel=\"noopener\" style=\"display:inline-block;padding:9px 24px;background:#4a90d9;color:#fff;border-radius:6px;text-decoration:none;font-weight:500;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,0.3);\">立即在新窗口打开终端"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:234
-msgid "<div style=\"margin-top:16px;font-size:12px;color:#5c6370;\">Tip: you can also log into the LuCI web UI over HTTP (http://"
-msgstr "<div style=\"margin-top:16px;font-size:12px;color:#5c6370;\">小贴士：您也可以通过 HTTP (http://"
+msgid "Tip: you can also log into the LuCI web UI over HTTP (http://"
+msgstr "小贴士：您也可以通过 HTTP (http://"
 
 #: htdocs/luci-static/resources/view/openclaw/advanced.js:234
-msgid ") and use the embedded terminal right here.</div>"
-msgstr ") 登录路由器后台直接在此内嵌操作。</div>"
+msgid ") and use the embedded terminal right here."
+msgstr ") 登录路由器后台直接在此内嵌操作。"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:45
-msgid "<h2>OpenClaw AI Gateway</h2>"
-msgstr "<h2>OpenClaw AI 网关</h2>"
+msgid "OpenClaw AI Gateway"
+msgstr "OpenClaw AI 网关"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:46
-msgid "<div class=\"cbi-map-descr\">OpenClaw is an AI coding-agent gateway supporting GitHub Copilot, Claude, GPT, Gemini and other large models as well as QQ, Telegram, Discord and other messaging channels.</div>"
-msgstr "<div class=\"cbi-map-descr\">OpenClaw 是一个 AI 编程代理网关，支持 GitHub Copilot、Claude、GPT、Gemini 等大模型以及 QQ、Telegram、Discord 等多种消息渠道。</div>"
+msgid "OpenClaw is an AI coding-agent gateway supporting GitHub Copilot, Claude, GPT, Gemini and other large models as well as QQ, Telegram, Discord and other messaging channels."
+msgstr "OpenClaw 是一个 AI 编程代理网关，支持 GitHub Copilot、Claude、GPT、Gemini 等大模型以及 QQ、Telegram、Discord 等多种消息渠道。"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:48
-msgid "<div class=\"panel-title\" id=\"oc-panel-title\">🦞 OpenClaw Service Status</div>"
-msgstr "<div class=\"panel-title\" id=\"oc-panel-title\">🦞 OpenClaw 服务状态</div>"
+msgid "🦞 OpenClaw Service Status"
+msgstr "🦞 OpenClaw 服务状态"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:50
-msgid "<tr><td>Run State</td><td id=\"oc-st-status\"><span class=\"oc-badge oc-badge-unknown\">Loading...</span></td></tr>"
-msgstr "<tr><td>运行状态</td><td id=\"oc-st-status\"><span class=\"oc-badge oc-badge-unknown\">加载中...</span></td></tr>"
+msgid "Run State"
+msgstr "运行状态"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:50
+msgid "Loading..."
+msgstr "加载中..."
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:51
-msgid "<tr><td>Gateway Service</td><td id=\"oc-st-gateway\">-</td></tr>"
-msgstr "<tr><td>网关服务</td><td id=\"oc-st-gateway\">-</td></tr>"
+msgid "Gateway Service"
+msgstr "网关服务"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:52
-msgid "<tr><td>Config Terminal</td><td id=\"oc-st-pty\">-</td></tr>"
-msgstr "<tr><td>配置终端</td><td id=\"oc-st-pty\">-</td></tr>"
+msgid "Config Terminal"
+msgstr "配置终端"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:53
-msgid "<tr><td>Active Model</td><td id=\"oc-st-model\">-</td></tr>"
-msgstr "<tr><td>活跃模型</td><td id=\"oc-st-model\">-</td></tr>"
+msgid "Active Model"
+msgstr "活跃模型"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:54
-msgid "<tr><td>Message Channels</td><td id=\"oc-st-channels\">-</td></tr>"
-msgstr "<tr><td>消息渠道</td><td id=\"oc-st-channels\">-</td></tr>"
+msgid "Message Channels"
+msgstr "消息渠道"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:55
-msgid "<tr><td>Process PID</td><td id=\"oc-st-pid\">-</td></tr>"
-msgstr "<tr><td>进程 PID</td><td id=\"oc-st-pid\">-</td></tr>"
+msgid "Process PID"
+msgstr "进程 PID"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:56
-msgid "<tr><td>Memory Usage</td><td id=\"oc-st-mem\">-</td></tr>"
-msgstr "<tr><td>内存占用</td><td id=\"oc-st-mem\">-</td></tr>"
+msgid "Memory Usage"
+msgstr "内存占用"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:57
-msgid "<tr><td>Uptime</td><td id=\"oc-st-uptime\">-</td></tr>"
-msgstr "<tr><td>运行时间</td><td id=\"oc-st-uptime\">-</td></tr>"
+msgid "Uptime"
+msgstr "运行时间"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:60
-msgid "<tr><td>Plugin Version</td><td id=\"oc-st-plugin\">-</td></tr>"
-msgstr "<tr><td>插件版本</td><td id=\"oc-st-plugin\">-</td></tr>"
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:85
+msgid "Plugin Version"
+msgstr "插件版本"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:61
-msgid "<tr><td>Install Path</td><td id=\"oc-st-path\">-</td></tr>"
-msgstr "<tr><td>安装路径</td><td id=\"oc-st-path\">-</td></tr>"
+msgid "Install Path"
+msgstr "安装路径"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:62
-msgid "<tr><td>Free Space</td><td id=\"oc-st-disk\">-</td></tr>"
-msgstr "<tr><td>剩余空间</td><td id=\"oc-st-disk\">-</td></tr>"
+msgid "Free Space"
+msgstr "剩余空间"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:65
-msgid "<fieldset class=\"cbi-section\" id=\"oc-quick-section\"><legend>Quick Actions</legend><div class=\"cbi-section-node\">"
-msgstr "<fieldset class=\"cbi-section\" id=\"oc-quick-section\"><legend>快捷操作</legend><div class=\"cbi-section-node\">"
+msgid "Quick Actions"
+msgstr "快捷操作"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:67
-msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-setup\" title=\"Download Node.js and install OpenClaw\">📦 Install Runtime</button>"
-msgstr "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-setup\" title=\"下载 Node.js 并安装 OpenClaw\">📦 安装运行环境</button>"
+#: htdocs/luci-static/resources/view/openclaw/basic.js:380
+#: htdocs/luci-static/resources/view/openclaw/basic.js:408
+#: htdocs/luci-static/resources/view/openclaw/basic.js:437
+#: htdocs/luci-static/resources/view/openclaw/basic.js:486
+msgid "📦 Install Runtime"
+msgstr "📦 安装运行环境"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:68
-msgid "<button class=\"btn cbi-button cbi-button-action\" type=\"button\" id=\"btn-restart\">🔄 Restart Service</button>"
-msgstr "<button class=\"btn cbi-button cbi-button-action\" type=\"button\" id=\"btn-restart\">🔄 重启服务</button>"
+msgid "🔄 Restart Service"
+msgstr "🔄 重启服务"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:69
-msgid "<button class=\"btn cbi-button cbi-button-action\" type=\"button\" id=\"btn-stop\">⏹️ Stop Service</button>"
-msgstr "<button class=\"btn cbi-button cbi-button-action\" type=\"button\" id=\"btn-stop\">⏹️ 停止服务</button>"
+msgid "⏹️ Stop Service"
+msgstr "⏹️ 停止服务"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:70
-msgid "<span style=\"position:relative;display:inline-block;\" id=\"btn-check-update-wrap\"><button class=\"btn cbi-button cbi-button-action\" type=\"button\" id=\"btn-check-update\">🔍 Check for Updates</button><span id=\"update-dot\" style=\"display:none;position:absolute;top:-2px;right:-2px;width:10px;height:10px;background:#e36209;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #e36209;\"></span></span>"
-msgstr "<span style=\"position:relative;display:inline-block;\" id=\"btn-check-update-wrap\"><button class=\"btn cbi-button cbi-button-action\" type=\"button\" id=\"btn-check-update\">🔍 检测升级</button><span id=\"update-dot\" style=\"display:none;position:absolute;top:-2px;right:-2px;width:10px;height:10px;background:#e36209;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #e36209;\"></span></span>"
+#: htdocs/luci-static/resources/view/openclaw/basic.js:555
+#: htdocs/luci-static/resources/view/openclaw/basic.js:619
+msgid "🔍 Check for Updates"
+msgstr "🔍 检测升级"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:71
-msgid "<button class=\"btn cbi-button cbi-button-action\" type=\"button\" id=\"btn-backup\" title=\"Back up or restore the OpenClaw configuration\">💾 Backup / Restore</button>"
-msgstr "<button class=\"btn cbi-button cbi-button-action\" type=\"button\" id=\"btn-backup\" title=\"备份或恢复 OpenClaw 配置\">💾 备份/恢复</button>"
+msgid "💾 Backup / Restore"
+msgstr "💾 备份/恢复"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:72
-msgid "<button class=\"btn cbi-button cbi-button-remove\" type=\"button\" id=\"btn-uninstall\" title=\"Remove the Node.js and OpenClaw runtime plus related data\">🗑️ Uninstall</button>"
-msgstr "<button class=\"btn cbi-button cbi-button-remove\" type=\"button\" id=\"btn-uninstall\" title=\"删除 Node.js、OpenClaw 运行环境及相关数据\">🗑️ 卸载环境</button>"
+#: htdocs/luci-static/resources/view/openclaw/basic.js:794
+#: htdocs/luci-static/resources/view/openclaw/basic.js:807
+msgid "🗑️ Uninstall"
+msgstr "🗑️ 卸载环境"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:81
-msgid "<span id=\"setup-log-title\" style=\"font-weight:600;font-size:14px;\">📋 Install Log</span>"
-msgstr "<span id=\"setup-log-title\" style=\"font-weight:600;font-size:14px;\">📋 安装日志</span>"
+#: htdocs/luci-static/resources/view/openclaw/basic.js:367
+msgid "📋 Install Log"
+msgstr "📋 安装日志"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:88
-msgid "<strong style=\"font-size:14px;\">📖 Quick Start</strong><br/>"
-msgstr "<strong style=\"font-size:14px;\">📖 使用指南</strong><br/>"
+msgid "📖 Quick Start"
+msgstr "📖 使用指南"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:90
-msgid "① Click <b>“Install Runtime”</b> on first use — the service auto-starts when done<br/>"
-msgstr "① 首次使用请点击 <b>「安装运行环境」</b>，安装完成后服务会自动启动<br/>"
+msgid "① Click "
+msgstr "① 首次使用请点击 "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:90
+msgid "“Install Runtime”"
+msgstr "「安装运行环境」"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:90
+msgid " on first use — the service auto-starts when done"
+msgstr "，安装完成后服务会自动启动"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:91
-msgid "② Open <b>“Config Management”</b> and use the interactive wizard to configure your AI models and API keys<br/>"
-msgstr "② 进入 <b>「配置管理」</b> 使用交互式向导快速配置 AI 模型和 API Key<br/>"
+msgid "② Open "
+msgstr "② 进入 "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:91
+msgid "“Config Management”"
+msgstr "「配置管理」"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:91
+msgid " and use the interactive wizard to configure your AI models and API keys"
+msgstr " 使用交互式向导快速配置 AI 模型和 API Key"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:92
-msgid "③ Head to <b>“Web Console”</b> to set up messaging channels and start chatting</span>"
-msgstr "③ 进入 <b>「Web 控制台」</b> 配置消息渠道，直接开始对话</span>"
+msgid "③ Head to "
+msgstr "③ 进入 "
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:92
+msgid "“Web Console”"
+msgstr "「Web 控制台」"
+
+#: htdocs/luci-static/resources/view/openclaw/basic.js:92
+msgid " to set up messaging channels and start chatting"
+msgstr " 配置消息渠道，直接开始对话"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:94
-msgid "<span style=\"color:#888;\">Questions? Follow us on Bilibili and leave a comment:</span>"
-msgstr "<span style=\"color:#888;\">有疑问？请关注B站并留言：</span>"
+msgid "Questions? Follow us on Bilibili and leave a comment:"
+msgstr "有疑问？请关注B站并留言："
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:96
-msgid "<span style=\"margin-left:16px;color:#888;\">GitHub project:</span>"
-msgstr "<span style=\"margin-left:16px;color:#888;\">GitHub 项目：</span>"
+msgid "GitHub project:"
+msgstr "GitHub 项目："
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:103
-msgid "<h3 style=\"margin:0 0 16px 0;font-size:16px;color:#333;\">📦 Choose an Install Version</h3>"
-msgstr "<h3 style=\"margin:0 0 16px 0;font-size:16px;color:#333;\">📦 选择安装版本</h3>"
+msgid "📦 Choose an Install Version"
+msgstr "📦 选择安装版本"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:107
-msgid "<div><strong style=\"color:#333;\">✅ Stable (Recommended)</strong>"
-msgstr "<div><strong style=\"color:#333;\">✅ 稳定版 (推荐)</strong>"
+msgid "✅ Stable (Recommended)"
+msgstr "✅ 稳定版 (推荐)"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:108
-msgid "<div style=\"font-size:12px;color:#666;margin-top:4px;\" id=\"oc-stable-desc\">Version v2026.9.1 (validated) — fully tested, good compatibility.</div>"
-msgstr "<div style=\"font-size:12px;color:#666;margin-top:4px;\" id=\"oc-stable-desc\">版本 v2026.9.1 (已验证版)，已经过完整测试，兼容性良好。</div>"
+msgid "Version v2026.9.1 (validated) — fully tested, good compatibility."
+msgstr "版本 v2026.9.1 (已验证版)，已经过完整测试，兼容性良好。"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:112
-msgid "<div><strong style=\"color:#333;\">🆕 Latest (Unverified)</strong>"
-msgstr "<div><strong style=\"color:#333;\">🆕 最新版 (未经验证)</strong>"
+msgid "🆕 Latest (Unverified)"
+msgstr "🆕 最新版 (未经验证)"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:113
-msgid "<div style=\"font-size:12px;color:#e36209;margin-top:4px;\">⚠️ Installs the newest published npm version (unverified) — it may have unverified compatibility issues.</div>"
-msgstr "<div style=\"font-size:12px;color:#e36209;margin-top:4px;\">⚠️ 安装 npm 上的最新发布版本 (未经验证)，可能存在未经验证的兼容性问题。</div>"
+msgid "⚠️ Installs the newest published npm version (unverified) — it may have unverified compatibility issues."
+msgstr "⚠️ 安装 npm 上的最新发布版本 (未经验证)，可能存在未经验证的兼容性问题。"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:117
-msgid "<div style=\"font-weight:600;font-size:13px;color:#333;margin-bottom:8px;\">📂 Install Path</div>"
-msgstr "<div style=\"font-weight:600;font-size:13px;color:#333;margin-bottom:8px;\">📂 安装路径</div>"
+msgid "📂 Install Path"
+msgstr "📂 安装路径"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:120
-msgid "<button class=\"btn cbi-button\" type=\"button\" id=\"btn-check-path\" style=\"font-size:12px;padding:4px 10px;\">Check Space</button>"
-msgstr "<button class=\"btn cbi-button\" type=\"button\" id=\"btn-check-path\" style=\"font-size:12px;padding:4px 10px;\">检测空间</button>"
+msgid "Check Space"
+msgstr "检测空间"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:122
-msgid "<div id=\"oc-path-info\" style=\"font-size:11px;color:#666;margin-top:6px;\">💡 An <b>openclaw</b> folder will be created under this path. At least 2GB of free space is required. If installing on a second disk, make sure it is mounted.</div>"
-msgstr "<div id=\"oc-path-info\" style=\"font-size:11px;color:#666;margin-top:6px;\">💡 程序将在此路径下创建 openclaw 目录进行安装。最小需要 2GB 可用空间。如安装在第二块硬盘，请确保硬盘已挂载。</div>"
+msgid "💡 An openclaw folder will be created under this path. At least 2GB of free space is required. If installing on a second disk, make sure it is mounted."
+msgstr "💡 程序将在此路径下创建 openclaw 目录进行安装。最小需要 2GB 可用空间。如安装在第二块硬盘，请确保硬盘已挂载。"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:125
-msgid "<button class=\"btn cbi-button\" type=\"button\" id=\"btn-setup-cancel\" style=\"min-width:80px;\">Cancel</button>"
-msgstr "<button class=\"btn cbi-button\" type=\"button\" id=\"btn-setup-cancel\" style=\"min-width:80px;\">取消</button>"
+msgid "Cancel"
+msgstr "取消"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:126
-msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-setup-confirm\" style=\"min-width:80px;\">Start Install</button>"
-msgstr "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-setup-confirm\" style=\"min-width:80px;\">开始安装</button>"
+msgid "Start Install"
+msgstr "开始安装"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:132
-msgid "<h3 style=\"margin:0 0 16px 0;font-size:16px;color:#333;\">💾 Backup / Restore Config</h3>"
-msgstr "<h3 style=\"margin:0 0 16px 0;font-size:16px;color:#333;\">💾 备份 / 恢复配置</h3>"
+msgid "💾 Backup / Restore Config"
+msgstr "💾 备份 / 恢复配置"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:134
-msgid "<div style=\"font-weight:600;font-size:13px;color:#555;margin-bottom:8px;\">📤 Create Backup</div>"
-msgstr "<div style=\"font-weight:600;font-size:13px;color:#555;margin-bottom:8px;\">📤 创建备份</div>"
+msgid "📤 Create Backup"
+msgstr "📤 创建备份"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:136
-msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-bk-config\" style=\"font-size:12px;\">📄 Config Only</button>"
-msgstr "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-bk-config\" style=\"font-size:12px;\">📄 仅配置文件</button>"
+#: htdocs/luci-static/resources/view/openclaw/basic.js:838
+msgid "📄 Config Only"
+msgstr "📄 仅配置"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:137
-msgid "<button class=\"btn cbi-button cbi-button-action\" type=\"button\" id=\"btn-bk-full\" style=\"font-size:12px;\">📦 Config + State Data</button>"
-msgstr "<button class=\"btn cbi-button cbi-button-action\" type=\"button\" id=\"btn-bk-full\" style=\"font-size:12px;\">📦 配置 + 状态数据</button>"
+msgid "📦 Config + State Data"
+msgstr "📦 配置 + 状态数据"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:139
-msgid "<div style=\"font-size:11px;color:#888;margin-top:6px;\">Config only (~2KB) holds models, channels and plugin settings; a full backup also includes state data such as session history (may be large)</div>"
-msgstr "<div style=\"font-size:11px;color:#888;margin-top:6px;\">仅配置文件 (~2KB) 包含模型、渠道、插件设置；完整备份含会话历史等状态数据（可能较大）</div>"
+msgid "Config only (~2KB) holds models, channels and plugin settings; a full backup also includes state data such as session history (may be large)"
+msgstr "仅配置文件 (~2KB) 包含模型、渠道、插件设置；完整备份含会话历史等状态数据（可能较大）"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:143
-msgid "<div style=\"font-weight:600;font-size:13px;color:#555;\">📥 Existing Backups</div>"
-msgstr "<div style=\"font-weight:600;font-size:13px;color:#555;\">📥 现有备份</div>"
-
-#: htdocs/luci-static/resources/view/openclaw/basic.js:144
-msgid "<button class=\"btn cbi-button\" type=\"button\" id=\"btn-bk-refresh\" style=\"font-size:11px;padding:2px 10px;\">🔄 Refresh</button>"
-msgstr "<button class=\"btn cbi-button\" type=\"button\" id=\"btn-bk-refresh\" style=\"font-size:11px;padding:2px 10px;\">🔄 刷新</button>"
+msgid "📥 Existing Backups"
+msgstr "📥 现有备份"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:150
-msgid "<button class=\"btn cbi-button\" type=\"button\" id=\"btn-bk-close\" style=\"min-width:80px;\">Close</button>"
-msgstr "<button class=\"btn cbi-button\" type=\"button\" id=\"btn-bk-close\" style=\"min-width:80px;\">关闭</button>"
+msgid "Close"
+msgstr "关闭"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:193
-msgid "<span class=\"oc-badge oc-badge-unknown\">Query Failed</span>"
-msgstr "<span class=\"oc-badge oc-badge-unknown\">查询失败</span>"
+msgid "Query Failed"
+msgstr "查询失败"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:218
-msgid "<span class=\"oc-badge oc-badge-disabled\">Disabled</span>"
-msgstr "<span class=\"oc-badge oc-badge-disabled\">已禁用</span>"
+msgid "Disabled"
+msgstr "已禁用"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:220
-msgid "<span class=\"oc-badge oc-badge-running\">Running</span>"
-msgstr "<span class=\"oc-badge oc-badge-running\">运行中</span>"
+msgid "Running"
+msgstr "运行中"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:222
-msgid "<span class=\"oc-badge oc-badge-starting\">⏳ Starting...</span>"
-msgstr "<span class=\"oc-badge oc-badge-starting\">⏳ 正在启动...</span>"
+msgid "⏳ Starting..."
+msgstr "⏳ 正在启动..."
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:224
-msgid "<span class=\"oc-badge oc-badge-failed\">Start Failed</span>"
-msgstr "<span class=\"oc-badge oc-badge-failed\">启动失败</span>"
+msgid "Start Failed"
+msgstr "启动失败"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:226
-msgid "<span class=\"oc-badge oc-badge-stopped\">Stopped</span>"
-msgstr "<span class=\"oc-badge oc-badge-stopped\">已停止</span>"
+msgid "Stopped"
+msgstr "已停止"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:230
 #: htdocs/luci-static/resources/view/openclaw/basic.js:240
-msgid "<span class=\"oc-dot oc-dot-green\"></span>Listening on "
-msgstr "<span class=\"oc-dot oc-dot-green\"></span>监听中 :"
+msgid "Listening on "
+msgstr "监听中 :"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:232
-msgid "<span class=\"oc-dot oc-dot-gray\"></span>Initializing — usually 20–40 s; longer on first install or under heavy load..."
-msgstr "<span class=\"oc-dot oc-dot-gray\"></span>初始化中，通常 20~40 秒；首次安装或负载较高时会更久..."
+msgid "Initializing — usually 20–40 s; longer on first install or under heavy load..."
+msgstr "初始化中，通常 20~40 秒；首次安装或负载较高时会更久..."
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:234
-msgid "<span class=\"oc-dot oc-dot-red\"></span>Start failed, exit code "
-msgstr "<span class=\"oc-dot oc-dot-red\"></span>启动失败，退出码 "
+msgid "Start failed, exit code "
+msgstr "启动失败，退出码 "
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:236
-msgid "<span class=\"oc-dot oc-dot-red\"></span>Not listening"
-msgstr "<span class=\"oc-dot oc-dot-red\"></span>未监听"
-
 #: htdocs/luci-static/resources/view/openclaw/basic.js:242
-msgid "<span class=\"oc-dot oc-dot-gray\"></span>Not listening"
-msgstr "<span class=\"oc-dot oc-dot-gray\"></span>未监听"
+msgid "Not listening"
+msgstr "未监听"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:250
 #: htdocs/luci-static/resources/view/openclaw/basic.js:256
@@ -431,40 +552,36 @@ msgid "Not installed"
 msgstr "未安装"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:277
-msgid "</span> available"
-msgstr "</span> 可用"
+msgid " available"
+msgstr " 可用"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:332
 msgid "⏳ Checking free space..."
 msgstr "⏳ 正在检测空间..."
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:335
-msgid "<span style=\"color:#1a7f37;\">✅ Free space: "
-msgstr "<span style=\"color:#1a7f37;\">✅ 可用空间: "
+msgid "✅ Free space: "
+msgstr "✅ 可用空间: "
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:336
 msgid " (checking path: "
 msgstr " (检测路径: "
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:339
-msgid "<span style=\"color:#cf222e;\">❌ Not enough space: "
-msgstr "<span style=\"color:#cf222e;\">❌ 空间不足: "
+msgid "❌ Not enough space: "
+msgstr "❌ 空间不足: "
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:340
 msgid " MB free, need ≥ 2048 MB (checking path: "
 msgstr " MB 可用，需要 ≥ 2048 MB (检测路径: "
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:343
-msgid "<span style=\"color:#e36209;\">⚠️ Check failed</span>"
-msgstr "<span style=\"color:#e36209;\">⚠️ 检测失败</span>"
+msgid "⚠️ Check failed"
+msgstr "⚠️ 检测失败"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:354
 msgid "⏳ Checking system configuration..."
 msgstr "⏳ 检测系统配置..."
-
-#: htdocs/luci-static/resources/view/openclaw/basic.js:367
-msgid "📋 Install Log"
-msgstr "📋 安装日志"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:370
 msgid "🔍 Checking system configuration\n"
@@ -501,16 +618,10 @@ msgstr "磁盘: "
 msgid " MB free (need ≥ 2048 MB) — "
 msgstr " MB 可用 (需要 ≥ 2048 MB) — "
 
-#: htdocs/luci-static/resources/view/openclaw/basic.js:380
-#: htdocs/luci-static/resources/view/openclaw/basic.js:408
-#: htdocs/luci-static/resources/view/openclaw/basic.js:437
-#: htdocs/luci-static/resources/view/openclaw/basic.js:486
-msgid "📦 Install Runtime"
-msgstr "📦 安装运行环境"
-
 #: htdocs/luci-static/resources/view/openclaw/basic.js:381
-msgid "<span style=\"color:#cf222e;\">❌ System requirements not met</span>"
-msgstr "<span style=\"color:#cf222e;\">❌ 系统配置不满足要求</span>"
+#: htdocs/luci-static/resources/view/openclaw/basic.js:386
+msgid "❌ System requirements not met"
+msgstr "❌ 系统配置不满足要求"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:382
 msgid "❌ System requirements not met — installation aborted\n"
@@ -520,19 +631,15 @@ msgstr "❌ 系统配置不满足要求，安装已终止\\n"
 msgid "💡 Upgrade your hardware or free up disk space, then retry\n"
 msgstr "💡 请升级硬件配置或清理磁盘空间后重试\\n"
 
-#: htdocs/luci-static/resources/view/openclaw/basic.js:386
-msgid "<strong style=\"color:#cf222e;font-size:14px;\">❌ System requirements not met</strong><br/>"
-msgstr "<strong style=\"color:#cf222e;font-size:14px;\">❌ 系统配置不满足要求</strong><br/>"
-
 #: htdocs/luci-static/resources/view/openclaw/basic.js:387
-msgid "<div style=\"margin-top:8px;font-size:12px;color:#666;\">💡 Upgrade your hardware or free up disk space, then retry.</div></div>"
-msgstr "<div style=\"margin-top:8px;font-size:12px;color:#666;\">💡 请升级硬件配置或清理磁盘空间后重试。</div></div>"
+msgid "💡 Upgrade your hardware or free up disk space, then retry."
+msgstr "💡 请升级硬件配置或清理磁盘空间后重试。"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:391
 #: htdocs/luci-static/resources/view/openclaw/basic.js:421
 #: htdocs/luci-static/resources/view/openclaw/basic.js:465
-msgid "<span style=\"color:#7aa2f7;\">⏳ Installation in progress...</span>"
-msgstr "<span style=\"color:#7aa2f7;\">⏳ 安装进行中...</span>"
+msgid "⏳ Installation in progress..."
+msgstr "⏳ 安装进行中..."
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:392
 msgid "✅ System check passed — starting the installation...\n\n"
@@ -565,8 +672,8 @@ msgid "Starting the installation...\n"
 msgstr "正在启动安装...\\n"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:435
-msgid "<span style=\"color:#cf222e;\">❌ Failed to start the installation</span>"
-msgstr "<span style=\"color:#cf222e;\">❌ 启动安装失败</span>"
+msgid "❌ Failed to start the installation"
+msgstr "❌ 启动安装失败"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:438
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:300
@@ -574,109 +681,114 @@ msgid "Failed to start the installation: "
 msgstr "启动安装失败: "
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:490
-msgid "<span style=\"color:#1a7f37;\">✅ Installation complete</span>"
-msgstr "<span style=\"color:#1a7f37;\">✅ 安装完成</span>"
+msgid "✅ Installation complete"
+msgstr "✅ 安装完成"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:492
-msgid "<strong style=\"color:#1a7f37;font-size:14px;\">🎉 Congratulations! The OpenClaw runtime was installed successfully!</strong><br/>"
-msgstr "<strong style=\"color:#1a7f37;font-size:14px;\">🎉 恭喜！OpenClaw 运行环境安装成功！</strong><br/>"
+msgid "🎉 Congratulations! The OpenClaw runtime was installed successfully!"
+msgstr "🎉 恭喜！OpenClaw 运行环境安装成功！"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:493
-msgid "<span style=\"color:#555;font-size:13px;line-height:1.8;\">The service was enabled and started automatically — click the button below to reload the page and see the status.</span><br/>"
-msgstr "<span style=\"color:#555;font-size:13px;line-height:1.8;\">服务已自动启用并启动，点击下方按钮刷新页面查看运行状态。</span><br/>"
+msgid "The service was enabled and started automatically — click the button below to reload the page and see the status."
+msgstr "服务已自动启用并启动，点击下方按钮刷新页面查看运行状态。"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:494
-msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-reload-after-setup\" style=\"margin-top:10px;\">🔄 Reload Page</button></div>"
-msgstr "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-reload-after-setup\" style=\"margin-top:10px;\">🔄 刷新页面</button></div>"
+#: htdocs/luci-static/resources/view/openclaw/basic.js:765
+#: htdocs/luci-static/resources/view/openclaw/basic.js:773
+#: htdocs/luci-static/resources/view/openclaw/basic.js:799
+#: htdocs/luci-static/resources/view/openclaw/basic.js:926
+msgid "🔄 Reload Page"
+msgstr "🔄 刷新页面"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:498
-msgid "<span style=\"color:#cf222e;\">❌ Installation failed</span>"
-msgstr "<span style=\"color:#cf222e;\">❌ 安装失败</span>"
-
 #: htdocs/luci-static/resources/view/openclaw/basic.js:501
-msgid "<strong style=\"color:#cf222e;font-size:14px;\">❌ Installation failed</strong><br/>"
-msgstr "<strong style=\"color:#cf222e;font-size:14px;\">❌ 安装失败</strong><br/>"
+msgid "❌ Installation failed"
+msgstr "❌ 安装失败"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:503
-msgid "<strong>🔍 Possible causes:</strong><br/>"
-msgstr "<strong>🔍 可能的失败原因：</strong><br/>"
+msgid "🔍 Possible causes:"
+msgstr "🔍 可能的失败原因："
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:504
-msgid "<div style=\"margin-top:8px;font-size:12px;color:#666;\">💡 The full log is in the terminal output above; you can also view it with <code>cat /tmp/openclaw-setup.log</code></div></div>"
-msgstr "<div style=\"margin-top:8px;font-size:12px;color:#666;\">💡 完整日志见上方终端输出，也可在终端查看：<code>cat /tmp/openclaw-setup.log</code></div></div>"
+msgid "💡 The full log is in the terminal output above; you can also view it with "
+msgstr "💡 完整日志见上方终端输出，也可在终端查看："
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:513
-msgid "<span style=\"color:#999\">⏳ Working...</span>"
-msgstr "<span style=\"color:#999\">⏳ 正在执行...</span>"
+msgid "⏳ Working..."
+msgstr "⏳ 正在执行..."
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:521
-msgid " done</span>"
-msgstr " 已完成</span>"
+msgid " done"
+msgstr " 已完成"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:523
 msgid "Failed"
 msgstr "失败"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:527
-msgid "<span style=\"color:red\">❌ Error</span>"
-msgstr "<span style=\"color:red\">❌ 错误</span>"
+msgid "❌ Error"
+msgstr "❌ 错误"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:548
 msgid "⏳ Checking..."
 msgstr "⏳ 正在检测..."
 
-#: htdocs/luci-static/resources/view/openclaw/basic.js:555
-#: htdocs/luci-static/resources/view/openclaw/basic.js:619
-msgid "🔍 Check for Updates"
-msgstr "🔍 检测升级"
+#: htdocs/luci-static/resources/view/openclaw/basic.js:568
+msgid "🔌 Plugin update available"
+msgstr "🔌 插件有新版"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:568
-msgid "<span class=\"ver-badge-new\">🔌 Plugin update available</span> v"
-msgstr "<span class=\"ver-badge-new\">🔌 插件有新版</span> v"
+#: htdocs/luci-static/resources/view/openclaw/basic.js:570
+#: htdocs/luci-static/resources/view/openclaw/basic.js:572
+#: htdocs/luci-static/resources/view/openclaw/basic.js:576
+#: htdocs/luci-static/resources/view/openclaw/basic.js:578
+#: htdocs/luci-static/resources/view/openclaw/basic.js:580
+msgid " v"
+msgstr " v"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:570
-msgid "<span class=\"ver-badge-latest\">🔌 Plugin up to date</span> v"
-msgstr "<span class=\"ver-badge-latest\">🔌 插件已是最新</span> v"
+msgid "🔌 Plugin up to date"
+msgstr "🔌 插件已是最新"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:572
-msgid "<span class=\"ver-badge-unknown\">🔌 Plugin check unavailable</span> v"
-msgstr "<span class=\"ver-badge-unknown\">🔌 插件无法检查</span> v"
+msgid "🔌 Plugin check unavailable"
+msgstr "🔌 插件无法检查"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:576
-msgid "<span class=\"ver-badge-new\">🦞 Core update available</span> v"
-msgstr "<span class=\"ver-badge-new\">🦞 核心有新版</span> v"
+msgid "🦞 Core update available"
+msgstr "🦞 核心有新版"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:578
-msgid "<span class=\"ver-badge-latest\">🦞 Core up to date</span> v"
-msgstr "<span class=\"ver-badge-latest\">🦞 核心已是最新</span> v"
+msgid "🦞 Core up to date"
+msgstr "🦞 核心已是最新"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:580
-msgid "<span class=\"ver-badge-unknown\">🦞 Core check unavailable</span> v"
-msgstr "<span class=\"ver-badge-unknown\">🦞 核心无法检查</span> v"
+msgid "🦞 Core check unavailable"
+msgstr "🦞 核心无法检查"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:583
-msgid "<span class=\"ver-badge-unknown\">Unable to get version info</span>"
-msgstr "<span class=\"ver-badge-unknown\">无法获取版本信息</span>"
+msgid "Unable to get version info"
+msgstr "无法获取版本信息"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:596
-msgid "<span style=\"font-size:14px;font-weight:600;color:#24292f;\">📋 Plugin Changelog</span>"
-msgstr "<span style=\"font-size:14px;font-weight:600;color:#24292f;\">📋 插件更新日志</span>"
+msgid "📋 Plugin Changelog"
+msgstr "📋 插件更新日志"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:602
-msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-plugin-upgrade\" style=\"box-shadow:0 2px 4px rgba(0,0,0,0.1);\">⬆️ Upgrade Plugin Now (v"
-msgstr "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-plugin-upgrade\" style=\"box-shadow:0 2px 4px rgba(0,0,0,0.1);\">⬆️ 一键升级插件 (v"
+msgid "⬆️ Upgrade Plugin Now (v"
+msgstr "⬆️ 一键升级插件 (v"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:603
-msgid "<a href=\"https://github.com/10000ge10000/luci-app-openclaw/releases/latest\" target=\"_blank\" rel=\"noopener\" class=\"btn cbi-button cbi-button-action\" style=\"text-decoration:none;\">📥 Download from GitHub</a>"
-msgstr "<a href=\"https://github.com/10000ge10000/luci-app-openclaw/releases/latest\" target=\"_blank\" rel=\"noopener\" class=\"btn cbi-button cbi-button-action\" style=\"text-decoration:none;\">📥 GitHub 下载</a>"
+msgid "📥 Download from GitHub"
+msgstr "📥 GitHub 下载"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:605
-msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-core-upgrade\" style=\"background:#d97706;border-color:#b45309;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.1);\">⬆️ Upgrade OpenClaw Core Now (v"
-msgstr "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-core-upgrade\" style=\"background:#d97706;border-color:#b45309;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.1);\">⬆️ 一键升级 OpenClaw 核心 (v"
+msgid "⬆️ Upgrade OpenClaw Core Now (v"
+msgstr "⬆️ 一键升级 OpenClaw 核心 (v"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:621
-msgid "<span style=\"color:red\">❌ Check failed</span>"
-msgstr "<span style=\"color:red\">❌ 检测失败</span>"
+msgid "❌ Check failed"
+msgstr "❌ 检测失败"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:638
 msgid "Upgrade the OpenClaw core to v"
@@ -699,13 +811,13 @@ msgid "📋 OpenClaw Core Upgrade Log"
 msgstr "📋 OpenClaw 核心升级日志"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:655
-msgid "<span style=\"color:#7aa2f7;\">⏳ Core upgrade in progress (state-machine transaction)...</span>"
-msgstr "<span style=\"color:#7aa2f7;\">⏳ 核心升级中 (执行状态机事务)...</span>"
+msgid "⏳ Core upgrade in progress (state-machine transaction)..."
+msgstr "⏳ 核心升级中 (执行状态机事务)..."
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:664
 #: htdocs/luci-static/resources/view/openclaw/basic.js:702
-msgid "<span style=\"color:#cf222e;\">❌ Failed to start the upgrade</span>"
-msgstr "<span style=\"color:#cf222e;\">❌ 启动升级失败</span>"
+msgid "❌ Failed to start the upgrade"
+msgstr "❌ 启动升级失败"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:665
 msgid "Failed to start the core upgrade: "
@@ -737,8 +849,8 @@ msgstr "📋 插件升级日志"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:693
 #: htdocs/luci-static/resources/view/openclaw/basic.js:727
-msgid "<span style=\"color:#7aa2f7;\">⏳ Plugin upgrade in progress...</span>"
-msgstr "<span style=\"color:#7aa2f7;\">⏳ 插件升级中...</span>"
+msgid "⏳ Plugin upgrade in progress..."
+msgstr "⏳ 插件升级中..."
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:703
 msgid "Failed to start the plugin upgrade: "
@@ -749,36 +861,25 @@ msgid "⬆️ Upgrade Plugin"
 msgstr "⬆️ 升级插件"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:761
-msgid "<span style=\"color:#1a7f37;\">✅ Plugin upgrade complete</span>"
-msgstr "<span style=\"color:#1a7f37;\">✅ 插件升级完成</span>"
+msgid "✅ Plugin upgrade complete"
+msgstr "✅ 插件升级完成"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:763
-msgid "<strong style=\"color:#1a7f37;font-size:14px;\">🎉 Plugin upgrade successful!</strong><br/>"
-msgstr "<strong style=\"color:#1a7f37;font-size:14px;\">🎉 插件升级成功！</strong><br/>"
+msgid "🎉 Plugin upgrade successful!"
+msgstr "🎉 插件升级成功！"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:764
-msgid "<span style=\"color:#555;font-size:13px;line-height:1.8;\">The plugin files were updated; the OpenClaw service is unaffected. Reload the page to load the new UI.</span><br/>"
-msgstr "<span style=\"color:#555;font-size:13px;line-height:1.8;\">插件文件已更新，OpenClaw 服务不受影响。请刷新页面加载新版界面。</span><br/>"
-
-#: htdocs/luci-static/resources/view/openclaw/basic.js:765
-msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-reload-after-plugin\" style=\"margin-top:10px;\">🔄 Reload Page</button></div>"
-msgstr "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-reload-after-plugin\" style=\"margin-top:10px;\">🔄 刷新页面</button></div>"
+msgid "The plugin files were updated; the OpenClaw service is unaffected. Reload the page to load the new UI."
+msgstr "插件文件已更新，OpenClaw 服务不受影响。请刷新页面加载新版界面。"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:769
-msgid "<span style=\"color:#cf222e;\">❌ Plugin upgrade failed</span>"
-msgstr "<span style=\"color:#cf222e;\">❌ 插件升级失败</span>"
-
 #: htdocs/luci-static/resources/view/openclaw/basic.js:771
-msgid "<strong style=\"color:#cf222e;font-size:14px;\">❌ Plugin upgrade failed</strong><br/>"
-msgstr "<strong style=\"color:#cf222e;font-size:14px;\">❌ 插件升级失败</strong><br/>"
+msgid "❌ Plugin upgrade failed"
+msgstr "❌ 插件升级失败"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:772
-msgid "<span style=\"color:#555;font-size:13px;\">See the log above for details, or run <code>cat /tmp/openclaw-plugin-upgrade.log</code> manually</span><br/>"
-msgstr "<span style=\"color:#555;font-size:13px;\">请查看上方日志了解详情。也可手动执行：<code>cat /tmp/openclaw-plugin-upgrade.log</code></span><br/>"
-
-#: htdocs/luci-static/resources/view/openclaw/basic.js:773
-msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-reload-after-plugin-fail\" style=\"margin-top:10px;\">🔄 Reload Page</button></div>"
-msgstr "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-reload-after-plugin-fail\" style=\"margin-top:10px;\">🔄 刷新页面</button></div>"
+msgid "See the log above for details, or run "
+msgstr "请查看上方日志了解详情。也可手动执行："
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:782
 msgid "Uninstall the OpenClaw runtime?\n\nNode.js, the OpenClaw program and its configuration data will be deleted and the service stopped.\n\nThis plugin itself is kept — you can reinstall the runtime later."
@@ -789,21 +890,12 @@ msgid "⏳ Uninstalling..."
 msgstr "⏳ 正在卸载..."
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:790
-msgid "<span style=\"color:#999\">Stopping the service and cleaning up files...</span>"
-msgstr "<span style=\"color:#999\">正在停止服务并清理文件...</span>"
-
-#: htdocs/luci-static/resources/view/openclaw/basic.js:794
-#: htdocs/luci-static/resources/view/openclaw/basic.js:807
-msgid "🗑️ Uninstall"
-msgstr "🗑️ 卸载环境"
+msgid "Stopping the service and cleaning up files..."
+msgstr "正在停止服务并清理文件..."
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:797
-msgid "<strong style=\"color:#1a7f37;\">✅ Uninstall complete</strong><br/>"
-msgstr "<strong style=\"color:#1a7f37;\">✅ 卸载完成</strong><br/>"
-
-#: htdocs/luci-static/resources/view/openclaw/basic.js:799
-msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-reload-after-uninstall\" style=\"margin-top:8px;\">🔄 Reload Page</button></div>"
-msgstr "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-reload-after-uninstall\" style=\"margin-top:8px;\">🔄 刷新页面</button></div>"
+msgid "✅ Uninstall complete"
+msgstr "✅ 卸载完成"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:803
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:655
@@ -811,60 +903,56 @@ msgid "Uninstall failed"
 msgstr "卸载失败"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:808
-msgid "<span style=\"color:red\">❌ Request failed</span>"
-msgstr "<span style=\"color:red\">❌ 请求失败</span>"
+msgid "❌ Request failed"
+msgstr "❌ 请求失败"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:824
-msgid "<div style=\"color:#7aa2f7;font-size:12px;padding:8px;\">⏳ Loading backup list...</div>"
-msgstr "<div style=\"color:#7aa2f7;font-size:12px;padding:8px;\">⏳ 加载备份列表...</div>"
+msgid "⏳ Loading backup list..."
+msgstr "⏳ 加载备份列表..."
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:830
-msgid "<th style=\"padding:6px 8px;text-align:left;\">Type</th>"
-msgstr "<th style=\"padding:6px 8px;text-align:left;\">类型</th>"
+msgid "Type"
+msgstr "类型"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:831
-msgid "<th style=\"padding:6px 8px;text-align:left;\">Backup Time</th>"
-msgstr "<th style=\"padding:6px 8px;text-align:left;\">备份时间</th>"
+msgid "Backup Time"
+msgstr "备份时间"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:832
-msgid "<th style=\"padding:6px 8px;text-align:right;\">Size</th>"
-msgstr "<th style=\"padding:6px 8px;text-align:right;\">大小</th>"
+msgid "Size"
+msgstr "大小"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:833
-msgid "<th style=\"padding:6px 8px;text-align:center;\">Action</th></tr>"
-msgstr "<th style=\"padding:6px 8px;text-align:center;\">操作</th></tr>"
-
-#: htdocs/luci-static/resources/view/openclaw/basic.js:838
-msgid "<span style=\"background:#ddf4ff;color:#0969da;padding:2px 6px;border-radius:3px;font-size:11px;white-space:nowrap;\">📄 Config Only</span>"
-msgstr "<span style=\"background:#ddf4ff;color:#0969da;padding:2px 6px;border-radius:3px;font-size:11px;white-space:nowrap;\">📄 仅配置</span>"
+msgid "Action"
+msgstr "操作"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:839
-msgid "<span style=\"background:#fff8c5;color:#9a6700;padding:2px 6px;border-radius:3px;font-size:11px;white-space:nowrap;\">📦 Full Backup</span>"
-msgstr "<span style=\"background:#fff8c5;color:#9a6700;padding:2px 6px;border-radius:3px;font-size:11px;white-space:nowrap;\">📦 完整备份</span>"
+msgid "📦 Full Backup"
+msgstr "📦 完整备份"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:846
-msgid "\">Restore</button>"
-msgstr "\">恢复</button>"
+msgid "\">Restore"
+msgstr "\">恢复"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:847
-msgid "\">Delete</button>"
-msgstr "\">删除</button>"
+msgid "\">Delete"
+msgstr "\">删除"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:866
-msgid "<div style=\"color:#888;font-size:12px;padding:8px;text-align:center;\">No backups yet — create one first</div>"
-msgstr "<div style=\"color:#888;font-size:12px;padding:8px;text-align:center;\">暂无备份，请先创建备份</div>"
+msgid "No backups yet — create one first"
+msgstr "暂无备份，请先创建备份"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:869
 msgid "Failed to load the list"
 msgstr "获取列表失败"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:872
-msgid "<div style=\"color:#e36209;font-size:12px;padding:8px;\">⚠️ Could not load the list</div>"
-msgstr "<div style=\"color:#e36209;font-size:12px;padding:8px;\">⚠️ 无法加载列表</div>"
+msgid "⚠️ Could not load the list"
+msgstr "⚠️ 无法加载列表"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:884
-msgid "<div style=\"color:#7aa2f7;font-size:12px;padding:8px;\">⏳ Creating backup..."
-msgstr "<div style=\"color:#7aa2f7;font-size:12px;padding:8px;\">⏳ 正在创建备份..."
+msgid "⏳ Creating backup..."
+msgstr "⏳ 正在创建备份..."
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:885
 msgid " (config only)"
@@ -875,16 +963,16 @@ msgid " (full backup — this may take a while)"
 msgstr "（完整备份，可能需要较长时间）"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:892
-msgid "<strong style=\"color:#1a7f37;\">✅ Backup complete</strong></div>"
-msgstr "<strong style=\"color:#1a7f37;\">✅ 备份完成</strong></div>"
+msgid "✅ Backup complete"
+msgstr "✅ 备份完成"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:896
 msgid "Backup failed"
 msgstr "备份失败"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:902
-msgid "<div style=\"color:#e36209;font-size:12px;padding:8px;\">⚠️ Backups require OpenClaw v2026.3.8+</div>"
-msgstr "<div style=\"color:#e36209;font-size:12px;padding:8px;\">⚠️ 备份功能需要 OpenClaw v2026.3.8+</div>"
+msgid "⚠️ Backups require OpenClaw v2026.3.8+"
+msgstr "⚠️ 备份功能需要 OpenClaw v2026.3.8+"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:914
 msgid "Restore the configuration from this backup?\n\n"
@@ -895,24 +983,20 @@ msgid "\n\nThe current openclaw.json will be overwritten with the backed-up vers
 msgstr "\\n\\n当前 openclaw.json 将被备份中的版本覆盖，服务将自动重启。"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:919
-msgid "<div style=\"color:#7aa2f7;font-size:12px;padding:8px;\">⏳ Restoring configuration...</div>"
-msgstr "<div style=\"color:#7aa2f7;font-size:12px;padding:8px;\">⏳ 正在恢复配置...</div>"
+msgid "⏳ Restoring configuration..."
+msgstr "⏳ 正在恢复配置..."
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:924
-msgid "<strong style=\"color:#1a7f37;\">✅ Configuration restored</strong><br/>"
-msgstr "<strong style=\"color:#1a7f37;\">✅ 配置已恢复</strong><br/>"
-
-#: htdocs/luci-static/resources/view/openclaw/basic.js:926
-msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-reload-after-restore\" style=\"margin-top:6px;font-size:12px;\">🔄 Reload Page</button></div>"
-msgstr "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-reload-after-restore\" style=\"margin-top:6px;font-size:12px;\">🔄 刷新页面</button></div>"
+msgid "✅ Configuration restored"
+msgstr "✅ 配置已恢复"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:930
 msgid "Restore failed"
 msgstr "恢复失败"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:933
-msgid "<div style=\"color:#cf222e;font-size:12px;padding:8px;\">❌ Restore failed — check the log</div>"
-msgstr "<div style=\"color:#cf222e;font-size:12px;padding:8px;\">❌ 恢复失败，请检查日志</div>"
+msgid "❌ Restore failed — check the log"
+msgstr "❌ 恢复失败，请检查日志"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:940
 msgid "Delete this backup?\n\n"
@@ -923,228 +1007,240 @@ msgid "\n\nThis cannot be undone."
 msgstr "\\n\\n删除后无法恢复。"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:945
-msgid "<div style=\"color:#7aa2f7;font-size:12px;padding:8px;\">⏳ Deleting...</div>"
-msgstr "<div style=\"color:#7aa2f7;font-size:12px;padding:8px;\">⏳ 正在删除...</div>"
+msgid "⏳ Deleting..."
+msgstr "⏳ 正在删除..."
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:953
 msgid "Delete failed"
 msgstr "删除失败"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:957
-msgid "<div style=\"color:#cf222e;font-size:12px;padding:8px;\">❌ Delete failed</div>"
-msgstr "<div style=\"color:#cf222e;font-size:12px;padding:8px;\">❌ 删除失败</div>"
+msgid "❌ Delete failed"
+msgstr "❌ 删除失败"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:42
-msgid "<h2>🖥️ Web Console</h2>"
-msgstr "<h2>🖥️ Web 控制台</h2>"
+msgid "🖥️ Web Console"
+msgstr "🖥️ Web 控制台"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:43
-msgid "<p>The official OpenClaw web UI — configure AI models and messaging channels (QQ, Telegram, Discord, ...), chat with the AI directly, and manage every feature.</p>"
-msgstr "<p>OpenClaw 官方 Web 管理界面 — 在这里可以配置 AI 模型、消息渠道（QQ、Telegram、Discord 等），直接与 AI 进行对话，以及管理所有功能。</p>"
+msgid "The official OpenClaw web UI — configure AI models and messaging channels (QQ, Telegram, Discord, ...), chat with the AI directly, and manage every feature."
+msgstr "OpenClaw 官方 Web 管理界面 — 在这里可以配置 AI 模型、消息渠道（QQ、Telegram、Discord 等），直接与 AI 进行对话，以及管理所有功能。"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:46
-msgid "<span class=\"label\">Gateway address:</span>"
-msgstr "<span class=\"label\">网关地址：</span>"
+msgid "Gateway address:"
+msgstr "网关地址："
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:49
-msgid "<span class=\"label\">Active model:</span>"
-msgstr "<span class=\"label\">活跃模型：</span>"
+msgid "Active model:"
+msgstr "活跃模型："
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:53
-msgid "<span id=\"oc-console-status-text\">Checking...</span>"
-msgstr "<span id=\"oc-console-status-text\">检查中...</span>"
+msgid "Checking..."
+msgstr "检查中..."
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:55
-msgid "<button type=\"button\" id=\"oc-console-pairing-toggle-btn\" class=\"btn-action\" title=\"Manage / approve device pairing requests\">📱 Device pairing <span id=\"oc-console-pairing-nav-badge\" style=\"display:none;background:#ff4d4f;color:#fff;padding:0 6px;border-radius:10px;font-size:11px;font-weight:600;margin-left:2px;\">0</span></button>"
-msgstr "<button type=\"button\" id=\"oc-console-pairing-toggle-btn\" class=\"btn-action\" title=\"管理/批准设备配对请求\">📱 设备配对 <span id=\"oc-console-pairing-nav-badge\" style=\"display:none;background:#ff4d4f;color:#fff;padding:0 6px;border-radius:10px;font-size:11px;font-weight:600;margin-left:2px;\">0</span></button>"
+msgid "📱 Device pairing "
+msgstr "📱 设备配对 "
 
-#: htdocs/luci-static/resources/view/openclaw/console.js:56
-msgid "<button type=\"button\" id=\"oc-console-refresh-btn\" class=\"btn-action\" title=\"Reload the current session\">🔄 Refresh</button>"
-msgstr "<button type=\"button\" id=\"oc-console-refresh-btn\" class=\"btn-action\" title=\"重新载入当前会话\">🔄 刷新</button>"
+#: htdocs/luci-static/resources/view/openclaw/console.js:55
+msgid "0"
+msgstr "0"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:57
-msgid "<button type=\"button\" id=\"oc-console-fullscreen-btn\" class=\"btn-action\" title=\"View fullscreen\">⛶ Fullscreen</button>"
-msgstr "<button type=\"button\" id=\"oc-console-fullscreen-btn\" class=\"btn-action\" title=\"全屏查看\">⛶ 全屏</button>"
+msgid "⛶ Fullscreen"
+msgstr "⛶ 全屏"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:58
-msgid "<a id=\"oc-console-open-btn\" class=\"btn-open\" href=\"#\" target=\"_blank\" rel=\"noopener\">↗ Open in new window</a>"
-msgstr "<a id=\"oc-console-open-btn\" class=\"btn-open\" href=\"#\" target=\"_blank\" rel=\"noopener\">↗ 新窗口打开</a>"
+#: htdocs/luci-static/resources/view/openclaw/console.js:79
+msgid "↗ Open in new window"
+msgstr "↗ 新窗口打开"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:68
-msgid "<div style=\"font-size:13px;color:#555;line-height:1.5;margin-bottom:6px;\">When the Control UI is first opened, the gateway asks the host to approve this browser. Click \"Approve all pairings\" to authorize it and enter the console.</div>"
-msgstr "<div style=\"font-size:13px;color:#555;line-height:1.5;margin-bottom:6px;\">首次访问 Control UI 时网关需要主机批准该浏览器。点击「一键批准配对」即可完成授权并进入控制台。</div>"
-
-#: htdocs/luci-static/resources/view/openclaw/console.js:73
-msgid "<button type=\"button\" id=\"oc-pairing-approve-all-btn\" class=\"btn-open\" style=\"background:#52c41a;font-weight:600;padding:6px 14px;\">⚡ Approve all pairings</button>"
-msgstr "<button type=\"button\" id=\"oc-pairing-approve-all-btn\" class=\"btn-open\" style=\"background:#52c41a;font-weight:600;padding:6px 14px;\">⚡ 一键批准配对</button>"
-
-#: htdocs/luci-static/resources/view/openclaw/console.js:74
-msgid "<button type=\"button\" id=\"oc-pairing-refresh-btn\" class=\"btn-action\" style=\"padding:6px 10px;\">🔄 Refresh</button>"
-msgstr "<button type=\"button\" id=\"oc-pairing-refresh-btn\" class=\"btn-action\" style=\"padding:6px 10px;\">🔄 刷新</button>"
+msgid "When the Control UI is first opened, the gateway asks the host to approve this browser. Click \"Approve all pairings\" to authorize it and enter the console."
+msgstr "首次访问 Control UI 时网关需要主机批准该浏览器。点击「一键批准配对」即可完成授权并进入控制台。"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:79
-msgid "⚠️ <strong>Browser security notice</strong>: you are accessing LuCI over HTTPS. Because the OpenClaw gateway is an HTTP service, the browser may block the cross-protocol embedded page (Mixed Content). If the area below is blank, click \"<strong>↗ Open in new window</strong>\" in the top-right, or access LuCI over HTTP."
-msgstr "⚠️ <strong>浏览器安全提示</strong>：当前正在通过 HTTPS 访问 LuCI。由于 OpenClaw 网关为 HTTP 服务，浏览器可能会拦截跨协议内嵌页面（Mixed Content）。若下方界面显示空白，请点击右上角「<strong>↗ 新窗口打开</strong>」直接访问会话，或改用 HTTP 协议访问 LuCI。"
+msgid "Browser security notice"
+msgstr "浏览器安全提示"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:79
+msgid ": you are accessing LuCI over HTTPS. Because the OpenClaw gateway is an HTTP service, the browser may block the cross-protocol embedded page (Mixed Content). If the area below is blank, click \""
+msgstr "：当前正在通过 HTTPS 访问 LuCI。由于 OpenClaw 网关为 HTTP 服务，浏览器可能会拦截跨协议内嵌页面（Mixed Content）。若下方界面显示空白，请点击右上角「"
+
+#: htdocs/luci-static/resources/view/openclaw/console.js:79
+msgid "\" in the top-right, or access LuCI over HTTP."
+msgstr "」直接访问会话，或改用 HTTP 协议访问 LuCI。"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:85
-msgid "<span>Connecting to the OpenClaw console...</span>"
-msgstr "<span>正在连接 OpenClaw 控制台...</span>"
+msgid "Connecting to the OpenClaw console..."
+msgstr "正在连接 OpenClaw 控制台..."
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:194
-msgid "<span style=\"color:#1a7f37;\">● Gateway running</span>"
-msgstr "<span style=\"color:#1a7f37;\">● 网关运行中</span>"
+msgid "● Gateway running"
+msgstr "● 网关运行中"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:212
-msgid "<span style=\"color:#cf222e;\">● Gateway failed to start</span>"
-msgstr "<span style=\"color:#cf222e;\">● 网关启动失败</span>"
+msgid "● Gateway failed to start"
+msgstr "● 网关启动失败"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:217
-msgid "<div style=\"font-size:15px;margin-bottom:6px;\">The OpenClaw gateway failed to start</div>"
-msgstr "<div style=\"font-size:15px;margin-bottom:6px;\">OpenClaw 网关启动失败</div>"
+msgid "The OpenClaw gateway failed to start"
+msgstr "OpenClaw 网关启动失败"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:218
-msgid "<div style=\"font-size:12px;color:#999;\">Exit code: "
-msgstr "<div style=\"font-size:12px;color:#999;\">退出码："
+msgid "Exit code: "
+msgstr "退出码："
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:218
-msgid ". Check the system log or the install log.</div>"
-msgstr "。请查看系统日志或安装日志。</div>"
+msgid ". Check the system log or the install log."
+msgstr "。请查看系统日志或安装日志。"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:223
-msgid "<span style=\"color:#9a6700;\">⏳ Gateway is starting</span>"
-msgstr "<span style=\"color:#9a6700;\">⏳ 网关正在启动</span>"
+msgid "⏳ Gateway is starting"
+msgstr "⏳ 网关正在启动"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:228
-msgid "<div style=\"font-size:15px;margin-bottom:6px;\">The OpenClaw gateway is starting up...</div>"
-msgstr "<div style=\"font-size:15px;margin-bottom:6px;\">OpenClaw 网关正在启动中...</div>"
+msgid "The OpenClaw gateway is starting up..."
+msgstr "OpenClaw 网关正在启动中..."
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:229
-msgid "<div style=\"font-size:12px;color:#999;\">Usually 20–40 seconds; longer on first install or under heavy router load. The page refreshes automatically.</div>"
-msgstr "<div style=\"font-size:12px;color:#999;\">通常 20~40 秒；首次安装或路由器负载较高时会更久，页面会自动刷新。</div>"
+msgid "Usually 20–40 seconds; longer on first install or under heavy router load. The page refreshes automatically."
+msgstr "通常 20~40 秒；首次安装或路由器负载较高时会更久，页面会自动刷新。"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:235
-msgid "<span style=\"color:#cf222e;\">● Gateway not running</span>"
-msgstr "<span style=\"color:#cf222e;\">● 网关未运行</span>"
+msgid "● Gateway not running"
+msgstr "● 网关未运行"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:240
-msgid "<div style=\"font-size:15px;margin-bottom:6px;\">The OpenClaw gateway is not running</div>"
-msgstr "<div style=\"font-size:15px;margin-bottom:6px;\">OpenClaw 网关未运行</div>"
+msgid "The OpenClaw gateway is not running"
+msgstr "OpenClaw 网关未运行"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:241
-msgid "<div style=\"font-size:12px;color:#999;\">Enable and start the service on the \"Basic Settings\" page first.</div>"
-msgstr "<div style=\"font-size:12px;color:#999;\">请先在「基本设置」页面启用服务并启动。</div>"
+msgid "Enable and start the service on the \"Basic Settings\" page first."
+msgstr "请先在「基本设置」页面启用服务并启动。"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:246
 msgid "Query failed"
 msgstr "查询失败"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:300
-msgid "\" style=\"font-size:12px;padding:3px 10px;background:#f6ffed;border-color:#b7eb8f;color:#389e0d;cursor:pointer;\">Approve pairing</button>"
-msgstr "\" style=\"font-size:12px;padding:3px 10px;background:#f6ffed;border-color:#b7eb8f;color:#389e0d;cursor:pointer;\">批准配对</button>"
+msgid "\" style=\"font-size:12px;padding:3px 10px;background:#f6ffed;border-color:#b7eb8f;color:#389e0d;cursor:pointer;\">Approve pairing"
+msgstr "\" style=\"font-size:12px;padding:3px 10px;background:#f6ffed;border-color:#b7eb8f;color:#389e0d;cursor:pointer;\">批准配对"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:315
-msgid "<div style=\"color:#666;font-size:12px;padding:4px 0;\">No pending device pairing requests. When a browser connecting to the console is asked to pair, refresh here to show and approve it.</div>"
-msgstr "<div style=\"color:#666;font-size:12px;padding:4px 0;\">当前无待配对设备请求。当浏览器连接控制台提示「需要设备配对」时，在此刷新即可显示并批准。</div>"
+msgid "No pending device pairing requests. When a browser connecting to the console is asked to pair, refresh here to show and approve it."
+msgstr "当前无待配对设备请求。当浏览器连接控制台提示「需要设备配对」时，在此刷新即可显示并批准。"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:323
-msgid "<div style=\"color:#cf222e;font-size:12px;\">Failed to query the device list</div>"
-msgstr "<div style=\"color:#cf222e;font-size:12px;\">查询设备列表失败</div>"
+msgid "Failed to query the device list"
+msgstr "查询设备列表失败"
 
 #: htdocs/luci-static/resources/view/openclaw/console.js:346
 msgid " Reloading the console..."
 msgstr " 正在重新载入控制台..."
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:70
-msgid "<h2>💬 WeChat Channel</h2>"
-msgstr "<h2>💬 微信渠道配置</h2>"
+msgid "💬 WeChat Channel"
+msgstr "💬 微信渠道配置"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:71
-msgid "<p>Connect WeChat through the ClawBot plugin and chat privately with your AI assistant. Multiple accounts can be online at the same time.</p>"
-msgstr "<p>通过微信 ClawBot 插件连接微信，实现与 AI 助手的私聊对话。支持多账号同时在线。</p>"
+msgid "Connect WeChat through the ClawBot plugin and chat privately with your AI assistant. Multiple accounts can be online at the same time."
+msgstr "通过微信 ClawBot 插件连接微信，实现与 AI 助手的私聊对话。支持多账号同时在线。"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:74
-msgid "<h3>📋 Prerequisites</h3>"
-msgstr "<h3>📋 前置条件</h3>"
+msgid "📋 Prerequisites"
+msgstr "📋 前置条件"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:76
-msgid "<li><strong>Install / reinstall the WeChat plugin first</strong> — the page automatically checks Node, python3, directory permissions and WeChat API reachability</li>"
-msgstr "<li><strong>先安装/重新安装微信插件</strong> — 页面会自动检查 Node、python3、目录权限和微信接口连通性</li>"
+msgid "Install / reinstall the WeChat plugin first"
+msgstr "先安装/重新安装微信插件"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:76
+msgid " — the page automatically checks Node, python3, directory permissions and WeChat API reachability"
+msgstr " — 页面会自动检查 Node、python3、目录权限和微信接口连通性"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:77
-msgid "<li><strong>Click “Log in”</strong> — open the link that appears, then scan it with the WeChat scanner</li>"
-msgstr "<li><strong>点击“登录账号”</strong> — 出现链接后先点击打开，再使用微信客户端「扫一扫」扫码</li>"
+msgid "Click “Log in”"
+msgstr "点击“登录账号”"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:77
+msgid " — open the link that appears, then scan it with the WeChat scanner"
+msgstr " — 出现链接后先点击打开，再使用微信客户端「扫一扫」扫码"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:78
-msgid "<li><strong>Wait for the success notice</strong> — the gateway then reloads the WeChat account; verify by sending it a message from WeChat</li>"
-msgstr "<li><strong>等待成功提示</strong> — 成功后网关会重新加载微信账号，再用微信发一条消息验证</li>"
+msgid "Wait for the success notice"
+msgstr "等待成功提示"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:78
+msgid " — the gateway then reloads the WeChat account; verify by sending it a message from WeChat"
+msgstr " — 成功后网关会重新加载微信账号，再用微信发一条消息验证"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:80
-msgid "<div class=\"warning\">⚠️ Common failure causes: expired QR code, account risk control, TLS/timeout between the router and ilinkai.weixin.qq.com, missing plugin registration, wrong data directory permissions. On failure the recent log is shown.</div>"
-msgstr "<div class=\"warning\">⚠️ 常见失败原因：二维码过期、账号风控、路由器到 ilinkai.weixin.qq.com TLS/timeout、插件注册缺失、数据目录权限错误。失败时页面会显示最近日志。</div>"
+msgid "⚠️ Common failure causes: expired QR code, account risk control, TLS/timeout between the router and ilinkai.weixin.qq.com, missing plugin registration, wrong data directory permissions. On failure the recent log is shown."
+msgstr "⚠️ 常见失败原因：二维码过期、账号风控、路由器到 ilinkai.weixin.qq.com TLS/timeout、插件注册缺失、数据目录权限错误。失败时页面会显示最近日志。"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:83
-msgid "<h3>📊 Plugin Status</h3>"
-msgstr "<h3>📊 插件状态</h3>"
+msgid "📊 Plugin Status"
+msgstr "📊 插件状态"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:84
-msgid "<div class=\"oc-status-row\"><span class=\"oc-status-label\">WeChat Plugin</span><span class=\"oc-status-value\" id=\"oc-wechat-plugin\">Checking...</span></div>"
-msgstr "<div class=\"oc-status-row\"><span class=\"oc-status-label\">微信插件</span><span class=\"oc-status-value\" id=\"oc-wechat-plugin\">检测中...</span></div>"
-
-#: htdocs/luci-static/resources/view/openclaw/wechat.js:85
-msgid "<div class=\"oc-status-row\"><span class=\"oc-status-label\">Plugin Version</span><span class=\"oc-status-value\" id=\"oc-wechat-plugin-ver\">—</span></div>"
-msgstr "<div class=\"oc-status-row\"><span class=\"oc-status-label\">插件版本</span><span class=\"oc-status-value\" id=\"oc-wechat-plugin-ver\">—</span></div>"
+msgid "WeChat Plugin"
+msgstr "微信插件"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:88
-msgid "<span class=\"oc-status-label\" style=\"align-self:center;\">Login Status</span>"
-msgstr "<span class=\"oc-status-label\" style=\"align-self:center;\">登录状态</span>"
-
-#: htdocs/luci-static/resources/view/openclaw/wechat.js:89
-msgid "<span class=\"oc-status-value\" id=\"oc-wechat-login\">Checking...</span>"
-msgstr "<span class=\"oc-status-value\" id=\"oc-wechat-login\">检测中...</span>"
+msgid "Login Status"
+msgstr "登录状态"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:93
-msgid "<div class=\"oc-status-row\"><span class=\"oc-status-label\">OpenClaw Version</span><span class=\"oc-status-value\" id=\"oc-wechat-ocver\">Checking...</span></div>"
-msgstr "<div class=\"oc-status-row\"><span class=\"oc-status-label\">OpenClaw 版本</span><span class=\"oc-status-value\" id=\"oc-wechat-ocver\">检测中...</span></div>"
+msgid "OpenClaw Version"
+msgstr "OpenClaw 版本"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:96
-msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-install-plugin\">📦 Install WeChat Plugin</button>"
-msgstr "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-install-plugin\">📦 安装微信插件</button>"
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:104
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:221
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:289
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:375
+msgid "📦 Install WeChat Plugin"
+msgstr "📦 安装微信插件"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:97
-msgid "<button class=\"btn cbi-button cbi-button-action\" type=\"button\" id=\"btn-upgrade-plugin\">🔍 Check for Upgrades</button>"
-msgstr "<button class=\"btn cbi-button cbi-button-action\" type=\"button\" id=\"btn-upgrade-plugin\">🔍 检测升级</button>"
+msgid "🔍 Check for Upgrades"
+msgstr "🔍 检测升级"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:98
-msgid "<button class=\"btn cbi-button\" type=\"button\" id=\"btn-refresh-status\">🔄 Refresh Status</button>"
-msgstr "<button class=\"btn cbi-button\" type=\"button\" id=\"btn-refresh-status\">🔄 刷新状态</button>"
+msgid "🔄 Refresh Status"
+msgstr "🔄 刷新状态"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:99
-msgid "<button class=\"btn cbi-button\" type=\"button\" id=\"btn-uninstall-plugin\" style=\"background:#ffeef0;color:#cf222e;border-color:#cf222e;\">🗑️ Uninstall Plugin</button>"
-msgstr "<button class=\"btn cbi-button\" type=\"button\" id=\"btn-uninstall-plugin\" style=\"background:#ffeef0;color:#cf222e;border-color:#cf222e;\">🗑️ 卸载插件</button>"
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:660
+msgid "🗑️ Uninstall Plugin"
+msgstr "🗑️ 卸载插件"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:104
-msgid "<div class=\"oc-modal-header\"><h3 id=\"oc-install-title\">📦 Install WeChat Plugin</h3><button class=\"oc-modal-close\" type=\"button\" data-close=\"oc-install-modal\">&times;</button></div>"
-msgstr "<div class=\"oc-modal-header\"><h3 id=\"oc-install-title\">📦 安装微信插件</h3><button class=\"oc-modal-close\" type=\"button\" data-close=\"oc-install-modal\">&times;</button></div>"
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:112
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:121
+msgid "&times;"
+msgstr "&times;"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:106
-msgid "<div id=\"oc-install-progress\"><div class=\"oc-progress-box\"><span class=\"oc-progress-spinner\"></span><span>Installing, please wait...</span></div><pre id=\"oc-install-log\"></pre><div id=\"oc-install-qrcode-link\" style=\"display:none;margin:10px 0;text-align:center;\"></div></div>"
-msgstr "<div id=\"oc-install-progress\"><div class=\"oc-progress-box\"><span class=\"oc-progress-spinner\"></span><span>正在安装，请稍候...</span></div><pre id=\"oc-install-log\"></pre><div id=\"oc-install-qrcode-link\" style=\"display:none;margin:10px 0;text-align:center;\"></div></div>"
+msgid "Installing, please wait..."
+msgstr "正在安装，请稍候..."
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:112
-msgid "<div class=\"oc-modal-header\"><h3>📱 WeChat QR Login</h3><button class=\"oc-modal-close\" type=\"button\" data-close=\"oc-login-modal\">&times;</button></div>"
-msgstr "<div class=\"oc-modal-header\"><h3>📱 微信扫码登录</h3><button class=\"oc-modal-close\" type=\"button\" data-close=\"oc-login-modal\">&times;</button></div>"
+msgid "📱 WeChat QR Login"
+msgstr "📱 微信扫码登录"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:114
-msgid "<div id=\"oc-login-progress\"><div class=\"oc-progress-box\"><span class=\"oc-progress-spinner\"></span><span>Fetching the login QR code...</span></div></div>"
-msgstr "<div id=\"oc-login-progress\"><div class=\"oc-progress-box\"><span class=\"oc-progress-spinner\"></span><span>正在获取登录二维码...</span></div></div>"
+msgid "Fetching the login QR code..."
+msgstr "正在获取登录二维码..."
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:121
-msgid "<div class=\"oc-modal-header\"><h3>🔍 Check Plugin Upgrade</h3><button class=\"oc-modal-close\" type=\"button\" data-close=\"oc-upgrade-modal\">&times;</button></div>"
-msgstr "<div class=\"oc-modal-header\"><h3>🔍 检测插件升级</h3><button class=\"oc-modal-close\" type=\"button\" data-close=\"oc-upgrade-modal\">&times;</button></div>"
+msgid "🔍 Check Plugin Upgrade"
+msgstr "🔍 检测插件升级"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:123
-msgid "<div id=\"oc-upgrade-progress\"><div class=\"oc-progress-box\"><span class=\"oc-progress-spinner\"></span><span>Checking...</span></div></div>"
-msgstr "<div id=\"oc-upgrade-progress\"><div class=\"oc-progress-box\"><span class=\"oc-progress-spinner\"></span><span>正在检测...</span></div></div>"
+msgid "Checking for updates..."
+msgstr "正在检测..."
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:185
 msgid " ✓ compatible"
@@ -1171,12 +1267,6 @@ msgstr "已安装"
 msgid "❌ Not installed"
 msgstr "❌ 未安装"
 
-#: htdocs/luci-static/resources/view/openclaw/wechat.js:221
-#: htdocs/luci-static/resources/view/openclaw/wechat.js:289
-#: htdocs/luci-static/resources/view/openclaw/wechat.js:375
-msgid "📦 Install WeChat Plugin"
-msgstr "📦 安装微信插件"
-
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:227
 msgid "✅ Logged in ("
 msgstr "✅ 已登录 ("
@@ -1186,20 +1276,20 @@ msgid " accounts)"
 msgstr " 个账号)"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:234
-msgid "\">Log out</button>"
-msgstr "\">退出账号</button>"
+msgid "\">Log out"
+msgstr "\">退出账号"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:237
-msgid "</ul><div style=\"text-align:right;margin-top:8px;\"><button class=\"btn cbi-button\" type=\"button\" data-oc-login-qrcode>➕ Add New Account</button></div>"
-msgstr "</ul><div style=\"text-align:right;margin-top:8px;\"><button class=\"btn cbi-button\" type=\"button\" data-oc-login-qrcode>➕ 添加新账号</button></div>"
+msgid "➕ Add New Account"
+msgstr "➕ 添加新账号"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:243
 msgid "⚠️ Not logged in"
 msgstr "⚠️ 未登录"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:245
-msgid "<div style=\"text-align:right;margin-top:8px;\"><button class=\"btn cbi-button\" type=\"button\" data-oc-login-qrcode>Log in</button></div>"
-msgstr "<div style=\"text-align:right;margin-top:8px;\"><button class=\"btn cbi-button\" type=\"button\" data-oc-login-qrcode>登录账号</button></div>"
+msgid "Log in"
+msgstr "登录账号"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:256
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:257
@@ -1212,8 +1302,8 @@ msgstr "启动安装失败"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:322
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:606
-msgid "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"oc-qrcode-link-btn\" style=\"padding:10px 20px;font-size:14px;margin:0;\">🔗 Open the link, then scan it with WeChat</a>"
-msgstr "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"oc-qrcode-link-btn\" style=\"padding:10px 20px;font-size:14px;margin:0;\">🔗 点击打开链接，然后用微信扫码</a>"
+msgid "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"oc-qrcode-link-btn\" style=\"padding:10px 20px;font-size:14px;margin:0;\">🔗 Open the link, then scan it with WeChat"
+msgstr "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"oc-qrcode-link-btn\" style=\"padding:10px 20px;font-size:14px;margin:0;\">🔗 点击打开链接，然后用微信扫码"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:328
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:612
@@ -1225,8 +1315,8 @@ msgid "Installation failed (exit: "
 msgstr "安装失败 (exit: "
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:354
-msgid "<div class=\"oc-result-success\">✅ WeChat plugin installed successfully!</div>"
-msgstr "<div class=\"oc-result-success\">✅ 微信插件安装成功！</div>"
+msgid "✅ WeChat plugin installed successfully!"
+msgstr "✅ 微信插件安装成功！"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:400
 msgid "Failed to start the login"
@@ -1253,12 +1343,12 @@ msgid "Failed to log out the account: "
 msgstr "退出账号失败: "
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:438
-msgid "<p style=\"color:#cf222e;font-size:13px;margin:8px 0;text-align:center;\">⌛ QR code refreshed — click the newest link to log in</p>"
-msgstr "<p style=\"color:#cf222e;font-size:13px;margin:8px 0;text-align:center;\">⌛ 二维码已刷新，请点击最新链接扫码登录</p>"
+msgid "⌛ QR code refreshed — click the newest link to log in"
+msgstr "⌛ 二维码已刷新，请点击最新链接扫码登录"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:439
-msgid "<p style=\"font-size:14px;color:#333;margin-bottom:8px;text-align:center;\">📱 Open the QR code from the link below and scan it with WeChat</p>"
-msgstr "<p style=\"font-size:14px;color:#333;margin-bottom:8px;text-align:center;\">📱 请点击下方链接打开二维码，再用微信扫码</p>"
+msgid "📱 Open the QR code from the link below and scan it with WeChat"
+msgstr "📱 请点击下方链接打开二维码，再用微信扫码"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:445
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:513
@@ -1267,26 +1357,30 @@ msgstr "登录失败"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:453
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:469
-msgid "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"oc-qrcode-link-btn\" style=\"font-size:16px;\">🔗 Open the link, then scan it with WeChat</a>"
-msgstr "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"oc-qrcode-link-btn\" style=\"font-size:16px;\">🔗 点击打开链接，然后用微信扫码</a>"
+msgid "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"oc-qrcode-link-btn\" style=\"font-size:16px;\">🔗 Open the link, then scan it with WeChat"
+msgstr "\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"oc-qrcode-link-btn\" style=\"font-size:16px;\">🔗 点击打开链接，然后用微信扫码"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:454
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:470
-msgid "<p class=\"oc-qrcode-copy-link\">Or copy the link: <code>"
-msgstr "<p class=\"oc-qrcode-copy-link\">或复制链接: <code>"
+msgid "Or copy the link: "
+msgstr "或复制链接: "
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:455
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:471
-msgid "\">Copy</button></p>"
-msgstr "\">复制</button></p>"
+msgid "\">Copy"
+msgstr "\">复制"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:477
-msgid "<div class=\"oc-qrcode-box\"><p>Loading the login link...</p></div>"
-msgstr "<div class=\"oc-qrcode-box\"><p>正在加载登录链接...</p></div>"
+msgid "Loading the login link..."
+msgstr "正在加载登录链接..."
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:504
-msgid "✅ WeChat login successful!<br><br>The gateway is reloading your WeChat account — wait 10-20 seconds, then send a test message from WeChat to verify.</div>"
-msgstr "<div class=\"oc-result-success\">✅ 微信登录成功！<br><br>网关正在重新加载微信账号，请等待 10-20 秒后，用微信给网关发一条测试消息验证。</div>"
+msgid "✅ WeChat login successful!"
+msgstr "✅ 微信登录成功！"
+
+#: htdocs/luci-static/resources/view/openclaw/wechat.js:504
+msgid "The gateway is reloading your WeChat account — wait 10-20 seconds, then send a test message from WeChat to verify."
+msgstr "网关正在重新加载微信账号，请等待 10-20 秒后，用微信给网关发一条测试消息验证。"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:543
 msgid "🔄 New version available: "
@@ -1297,52 +1391,48 @@ msgid "Current version: "
 msgstr "当前版本: "
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:545
-msgid "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-upgrade-now\">Upgrade now</button>"
-msgstr "<button class=\"btn cbi-button cbi-button-apply\" type=\"button\" id=\"btn-upgrade-now\">立即升级</button>"
+msgid "Upgrade now"
+msgstr "立即升级"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:552
-msgid "<div class=\"oc-result-error\">❌ Plugin not installed — install it first</div>"
-msgstr "<div class=\"oc-result-error\">❌ 插件未安装，请先安装</div>"
+msgid "❌ Plugin not installed — install it first"
+msgstr "❌ 插件未安装，请先安装"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:555
-msgid "<div class=\"oc-result-error\">⚠️ Could not determine the latest version"
-msgstr "<div class=\"oc-result-error\">⚠️ 无法确认最新版本"
+msgid "⚠️ Could not determine the latest version"
+msgstr "⚠️ 无法确认最新版本"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:556
-msgid "<br>Currently installed: "
-msgstr "<br>当前已安装: "
+msgid "Currently installed: "
+msgstr "当前已安装: "
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:561
-msgid "<div class=\"oc-result-success\">✅ Already on the latest version: "
-msgstr "<div class=\"oc-result-success\">✅ 当前已是最新版本: "
+msgid "✅ Already on the latest version: "
+msgstr "✅ 当前已是最新版本: "
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:567
-msgid "<div class=\"oc-result-error\">❌ Check failed: "
-msgstr "<div class=\"oc-result-error\">❌ 检测失败: "
+msgid "❌ Check failed: "
+msgstr "❌ 检测失败: "
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:574
-msgid "<div class=\"oc-progress-box\"><span class=\"oc-progress-spinner\"></span><span>Upgrading...</span></div>"
-msgstr "<div class=\"oc-progress-box\"><span class=\"oc-progress-spinner\"></span><span>正在升级...</span></div>"
-
-#: htdocs/luci-static/resources/view/openclaw/wechat.js:578
-msgid "<div class=\"oc-progress-box\"><pre id=\"oc-upgrade-log\">Upgrading...</pre><div id=\"oc-upgrade-qrcode-link\" style=\"display:none;margin:10px 0;text-align:center;\"></div></div>"
-msgstr "<div class=\"oc-progress-box\"><pre id=\"oc-upgrade-log\">正在升级...</pre><div id=\"oc-upgrade-qrcode-link\" style=\"display:none;margin:10px 0;text-align:center;\"></div></div>"
+msgid "Upgrading..."
+msgstr "正在升级..."
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:582
 msgid "Upgrade failed"
 msgstr "升级失败"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:585
-msgid "<div class=\"oc-result-error\">❌ Upgrade failed: "
-msgstr "<div class=\"oc-result-error\">❌ 升级失败: "
+msgid "❌ Upgrade failed: "
+msgstr "❌ 升级失败: "
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:621
-msgid "<div class=\"oc-result-success\">✅ Upgrade successful!</div>"
-msgstr "<div class=\"oc-result-success\">✅ 升级成功！</div>"
+msgid "✅ Upgrade successful!"
+msgstr "✅ 升级成功！"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:625
-msgid "<div class=\"oc-result-error\">❌ Upgrade failed</div>"
-msgstr "<div class=\"oc-result-error\">❌ 升级失败</div>"
+msgid "❌ Upgrade failed"
+msgstr "❌ 升级失败"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:644
 msgid "Uninstall the WeChat plugin? This will delete all WeChat-related configuration."
@@ -1355,10 +1445,6 @@ msgstr "⏳ 卸载中..."
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:657
 msgid "Uninstall failed: "
 msgstr "卸载失败: "
-
-#: htdocs/luci-static/resources/view/openclaw/wechat.js:660
-msgid "🗑️ Uninstall Plugin"
-msgstr "🗑️ 卸载插件"
 
 #: root/usr/share/luci/menu.d/luci-app-openclaw.json:10
 msgid "Basic Settings"

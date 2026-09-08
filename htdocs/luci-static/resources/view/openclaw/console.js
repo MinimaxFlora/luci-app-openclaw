@@ -39,50 +39,50 @@ return view.extend({
 		const html =
 			'<style>' + style + '</style>' +
 			'<div class="oc-page-header">' +
-			_('<h2>🖥️ Web Console</h2>') +
-			_('<p>The official OpenClaw web UI — configure AI models and messaging channels (QQ, Telegram, Discord, ...), chat with the AI directly, and manage every feature.</p>') +
+			'<h2>' + _('🖥️ Web Console') + '</h2>' +
+			'<p>' + _('The official OpenClaw web UI — configure AI models and messaging channels (QQ, Telegram, Discord, ...), chat with the AI directly, and manage every feature.') + '</p>' +
 			'</div>' +
 			'<div class="oc-console-info">' +
-			_('<span class="label">Gateway address:</span>') +
+			'<span class="label">' + _('Gateway address:') + '</span>' +
 			'<span class="value" id="oc-console-addr">-</span>' +
 			'<span class="sep">|</span>' +
-			_('<span class="label">Active model:</span>') +
+			'<span class="label">' + _('Active model:') + '</span>' +
 			'<span class="value" id="oc-console-model" style="color:#555;">-</span>' +
 			'<span class="sep">|</span>' +
-			_('<span class="label">Status:</span>') +
-			_('<span id="oc-console-status-text">Checking...</span>') +
+			'<span class="label">' + _('Status:') + '</span>' +
+			'<span id="oc-console-status-text">' + _('Checking...') + '</span>' +
 			'<div class="oc-console-actions" id="oc-console-actions" style="display:none;">' +
-			_('<button type="button" id="oc-console-pairing-toggle-btn" class="btn-action" title="Manage / approve device pairing requests">📱 Device pairing <span id="oc-console-pairing-nav-badge" style="display:none;background:#ff4d4f;color:#fff;padding:0 6px;border-radius:10px;font-size:11px;font-weight:600;margin-left:2px;">0</span></button>') +
-			_('<button type="button" id="oc-console-refresh-btn" class="btn-action" title="Reload the current session">🔄 Refresh</button>') +
-			_('<button type="button" id="oc-console-fullscreen-btn" class="btn-action" title="View fullscreen">⛶ Fullscreen</button>') +
-			_('<a id="oc-console-open-btn" class="btn-open" href="#" target="_blank" rel="noopener">↗ Open in new window</a>') +
+			'<button type="button" id="oc-console-pairing-toggle-btn" class="btn-action" title="Manage / approve device pairing requests">' + _('📱 Device pairing ') + '<span id="oc-console-pairing-nav-badge" style="display:none;background:#ff4d4f;color:#fff;padding:0 6px;border-radius:10px;font-size:11px;font-weight:600;margin-left:2px;">' + _('0') + '</span>' + '</button>' +
+			'<button type="button" id="oc-console-refresh-btn" class="btn-action" title="Reload the current session">' + _('🔄 Refresh') + '</button>' +
+			'<button type="button" id="oc-console-fullscreen-btn" class="btn-action" title="View fullscreen">' + _('⛶ Fullscreen') + '</button>' +
+			'<a id="oc-console-open-btn" class="btn-open" href="#" target="_blank" rel="noopener">' + _('↗ Open in new window') + '</a>' +
 			'</div>' +
 			'</div>' +
 			'<div id="oc-pairing-banner" style="display:none;padding:12px 16px;margin-bottom:14px;background:#fffbe6;border:1px solid #ffe58f;border-left:4px solid #faad14;border-radius:6px;">' +
 			'<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;">' +
 			'<div style="flex:1;min-width:280px;">' +
 			'<div style="font-weight:600;color:#d48806;font-size:14px;margin-bottom:4px;display:flex;align-items:center;gap:8px;">' +
-			_('<span>🔔 Pending device pairing requests detected</span>') +
+			'<span>' + _('🔔 Pending device pairing requests detected') + '</span>' +
 			'<span id="oc-pairing-badge" style="background:#faad14;color:#fff;padding:1px 7px;border-radius:10px;font-size:11px;">0</span>' +
 			'</div>' +
-			_('<div style="font-size:13px;color:#555;line-height:1.5;margin-bottom:6px;">When the Control UI is first opened, the gateway asks the host to approve this browser. Click "Approve all pairings" to authorize it and enter the console.</div>') +
-			_('<div style="font-size:12px;color:#cf1322;background:#fff1f0;border:1px solid #ffa39e;padding:6px 10px;border-radius:4px;line-height:1.4;margin-bottom:6px;">⚠️ <strong>Risk notice</strong>: approving a device pairing grants that browser full control over the OpenClaw gateway. Only approve on a trusted LAN, and only while it is you who is connecting.</div>') +
+			'<div style="font-size:13px;color:#555;line-height:1.5;margin-bottom:6px;">' + _('When the Control UI is first opened, the gateway asks the host to approve this browser. Click "Approve all pairings" to authorize it and enter the console.') + '</div>' +
+			'<div style="font-size:12px;color:#cf1322;background:#fff1f0;border:1px solid #ffa39e;padding:6px 10px;border-radius:4px;line-height:1.4;margin-bottom:6px;">' + '⚠️ ' + '<strong>' + _('Risk notice') + '</strong>' + _(': approving a device pairing grants that browser full control over the OpenClaw gateway. Only approve on a trusted LAN, and only while it is you who is connecting.') + '</div>' +
 			'<div id="oc-pairing-items" style="font-size:12px;font-family:monospace;color:#333;line-height:1.6;"></div>' +
 			'</div>' +
 			'<div style="display:flex;gap:8px;align-items:center;margin-top:4px;">' +
-			_('<button type="button" id="oc-pairing-approve-all-btn" class="btn-open" style="background:#52c41a;font-weight:600;padding:6px 14px;">⚡ Approve all pairings</button>') +
-			_('<button type="button" id="oc-pairing-refresh-btn" class="btn-action" style="padding:6px 10px;">🔄 Refresh</button>') +
+			'<button type="button" id="oc-pairing-approve-all-btn" class="btn-open" style="background:#52c41a;font-weight:600;padding:6px 14px;">' + _('⚡ Approve all pairings') + '</button>' +
+			'<button type="button" id="oc-pairing-refresh-btn" class="btn-action" style="padding:6px 10px;">' + _('🔄 Refresh') + '</button>' +
 			'</div></div>' +
 			'<div id="oc-pairing-msg" style="display:none;margin-top:8px;font-size:13px;font-weight:500;"></div>' +
 			'</div>' +
 			'<div id="oc-console-https-hint" style="display:none;padding:10px 14px;margin-bottom:14px;background:#fffbe6;border:1px solid #ffe58f;border-radius:6px;font-size:13px;color:#d48806;line-height:1.6;">' +
-			_('⚠️ <strong>Browser security notice</strong>: you are accessing LuCI over HTTPS. Because the OpenClaw gateway is an HTTP service, the browser may block the cross-protocol embedded page (Mixed Content). If the area below is blank, click "<strong>↗ Open in new window</strong>" in the top-right, or access LuCI over HTTP.') +
+			'⚠️ ' + '<strong>' + _('Browser security notice') + '</strong>' + _(': you are accessing LuCI over HTTPS. Because the OpenClaw gateway is an HTTP service, the browser may block the cross-protocol embedded page (Mixed Content). If the area below is blank, click "') + '<strong>' + _('↗ Open in new window') + '</strong>' + _('" in the top-right, or access LuCI over HTTP.') +
 			'</div>' +
 			'<div class="oc-console-wrap" id="oc-console-wrap">' +
 			'<div id="oc-console-container">' +
 			'<div class="oc-console-loading" id="oc-console-loading">' +
 			'<div class="spinner"></div>' +
-			_('<span>Connecting to the OpenClaw console...</span>') +
+			'<span>' + _('Connecting to the OpenClaw console...') + '</span>' +
 			'</div></div></div>';
 
 		const root = E('div', { 'id': 'oc-console-page' });
@@ -191,7 +191,7 @@ return view.extend({
 				if (d.active_model)
 					self.modelEl.textContent = d.active_model;
 				self.gwPort = d.port || self.gwPort;
-				self.statusTextEl.innerHTML = _('<span style="color:#1a7f37;">● Gateway running</span>');
+				self.statusTextEl.innerHTML = '<span style="color:#1a7f37;">' + _('● Gateway running') + '</span>';
 				self.openBtn.href = self.getConsoleUrl();
 				self.actionsEl.style.display = 'flex';
 				if (location.protocol === 'https:') {
@@ -209,36 +209,36 @@ return view.extend({
 					clearTimeout(self.retryTimer);
 					self.retryTimer = null;
 				}
-				self.statusTextEl.innerHTML = _('<span style="color:#cf222e;">● Gateway failed to start</span>');
+				self.statusTextEl.innerHTML = '<span style="color:#cf222e;">' + _('● Gateway failed to start') + '</span>';
 				self.actionsEl.style.display = 'none';
 				self.loading.style.display = '';
 				self.loading.innerHTML = '<div style="text-align:center;color:#666;">' +
 					'<div style="font-size:40px;margin-bottom:12px;">×</div>' +
-					_('<div style="font-size:15px;margin-bottom:6px;">The OpenClaw gateway failed to start</div>') +
-					_('<div style="font-size:12px;color:#999;">Exit code: ') + (d.gateway_exit_code || '-') + _('. Check the system log or the install log.</div>') +
+					'<div style="font-size:15px;margin-bottom:6px;">' + _('The OpenClaw gateway failed to start') + '</div>' +
+					'<div style="font-size:12px;color:#999;">' + _('Exit code: ') + (d.gateway_exit_code || '-') + _('. Check the system log or the install log.') + '</div>' +
 					'</div>';
 			}
 			else if (d.gateway_starting) {
 				self.gwPort = d.port || self.gwPort;
-				self.statusTextEl.innerHTML = _('<span style="color:#9a6700;">⏳ Gateway is starting</span>');
+				self.statusTextEl.innerHTML = '<span style="color:#9a6700;">' + _('⏳ Gateway is starting') + '</span>';
 				self.actionsEl.style.display = 'none';
 				self.loading.style.display = '';
 				self.loading.innerHTML = '<div style="text-align:center;color:#666;">' +
 					'<div style="font-size:40px;margin-bottom:12px;">⏳</div>' +
-					_('<div style="font-size:15px;margin-bottom:6px;">The OpenClaw gateway is starting up...</div>') +
-					_('<div style="font-size:12px;color:#999;">Usually 20–40 seconds; longer on first install or under heavy router load. The page refreshes automatically.</div>') +
+					'<div style="font-size:15px;margin-bottom:6px;">' + _('The OpenClaw gateway is starting up...') + '</div>' +
+					'<div style="font-size:12px;color:#999;">' + _('Usually 20–40 seconds; longer on first install or under heavy router load. The page refreshes automatically.') + '</div>' +
 					'</div>';
 				self.scheduleCheck(3000);
 			}
 			else {
 				self.gwPort = d.port || self.gwPort;
-				self.statusTextEl.innerHTML = _('<span style="color:#cf222e;">● Gateway not running</span>');
+				self.statusTextEl.innerHTML = '<span style="color:#cf222e;">' + _('● Gateway not running') + '</span>';
 				self.actionsEl.style.display = 'none';
 				self.loading.style.display = '';
 				self.loading.innerHTML = '<div style="text-align:center;color:#666;">' +
 					'<div style="font-size:40px;margin-bottom:12px;">🧠</div>' +
-					_('<div style="font-size:15px;margin-bottom:6px;">The OpenClaw gateway is not running</div>') +
-					_('<div style="font-size:12px;color:#999;">Enable and start the service on the "Basic Settings" page first.</div>') +
+					'<div style="font-size:15px;margin-bottom:6px;">' + _('The OpenClaw gateway is not running') + '</div>' +
+					'<div style="font-size:12px;color:#999;">' + _('Enable and start the service on the "Basic Settings" page first.') + '</div>' +
 					'</div>';
 				self.scheduleCheck(5000);
 			}
@@ -296,8 +296,8 @@ return view.extend({
 					var plat = oc.escapeHtml(item.platform || '');
 					var rid = oc.escapeHtml(item.requestId || '');
 					html += '<div style="background:#fff;border:1px solid #e1e4e8;border-radius:4px;padding:6px 10px;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">' +
-						'<div><strong>IP:</strong> ' + ip + _(' | <strong>Client:</strong> ') + client + (plat ? ' (' + plat + ')' : '') + ' <br/><span style="color:#888;font-size:11px;">ID: ' + rid + '</span></div>' +
-						'<button type="button" class="btn-action btn-approve-single" data-rid="' + rid + _('" style="font-size:12px;padding:3px 10px;background:#f6ffed;border-color:#b7eb8f;color:#389e0d;cursor:pointer;">Approve pairing</button>') +
+						'<div><strong>IP:</strong> ' + ip + ' | ' + '<strong>' + _('Client:') + '</strong>' + ' ' + client + (plat ? ' (' + plat + ')' : '') + ' <br/><span style="color:#888;font-size:11px;">ID: ' + rid + '</span></div>' +
+						'<button type="button" class="btn-action btn-approve-single" data-rid="' + rid + _('" style="font-size:12px;padding:3px 10px;background:#f6ffed;border-color:#b7eb8f;color:#389e0d;cursor:pointer;">Approve pairing') + '</button>' +
 						'</div>';
 				}
 				self.pairingItems.innerHTML = html;
@@ -312,7 +312,7 @@ return view.extend({
 				}
 			}
 			else {
-				self.pairingItems.innerHTML = _('<div style="color:#666;font-size:12px;padding:4px 0;">No pending device pairing requests. When a browser connecting to the console is asked to pair, refresh here to show and approve it.</div>');
+				self.pairingItems.innerHTML = '<div style="color:#666;font-size:12px;padding:4px 0;">' + _('No pending device pairing requests. When a browser connecting to the console is asked to pair, refresh here to show and approve it.') + '</div>';
 				if (manualOpen)
 					self.pairingBanner.style.display = 'block';
 				else
@@ -320,7 +320,7 @@ return view.extend({
 			}
 		}).catch(function(e) {
 			if (manualOpen) {
-				self.pairingItems.innerHTML = _('<div style="color:#cf222e;font-size:12px;">Failed to query the device list</div>');
+				self.pairingItems.innerHTML = '<div style="color:#cf222e;font-size:12px;">' + _('Failed to query the device list') + '</div>';
 				self.pairingBanner.style.display = 'block';
 			}
 		});

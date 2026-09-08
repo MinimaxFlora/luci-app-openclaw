@@ -42,34 +42,34 @@ return view.extend({
 
 		const html =
 			'<style>' + style + '</style>' +
-			_('<h2>OpenClaw AI Gateway</h2>') +
-			_('<div class="cbi-map-descr">OpenClaw is an AI coding-agent gateway supporting GitHub Copilot, Claude, GPT, Gemini and other large models as well as QQ, Telegram, Discord and other messaging channels.</div>') +
+			'<h2>' + _('OpenClaw AI Gateway') + '</h2>' +
+			'<div class="cbi-map-descr">' + _('OpenClaw is an AI coding-agent gateway supporting GitHub Copilot, Claude, GPT, Gemini and other large models as well as QQ, Telegram, Discord and other messaging channels.') + '</div>' +
 			'<div id="oc-status-panel">' +
-			_('<div class="panel-title" id="oc-panel-title">🦞 OpenClaw Service Status</div>') +
+			'<div class="panel-title" id="oc-panel-title">' + _('🦞 OpenClaw Service Status') + '</div>' +
 			'<div class="panel-body"><table>' +
-			_('<tr><td>Run State</td><td id="oc-st-status"><span class="oc-badge oc-badge-unknown">Loading...</span></td></tr>') +
-			_('<tr><td>Gateway Service</td><td id="oc-st-gateway">-</td></tr>') +
-			_('<tr><td>Config Terminal</td><td id="oc-st-pty">-</td></tr>') +
-			_('<tr><td>Active Model</td><td id="oc-st-model">-</td></tr>') +
-			_('<tr><td>Message Channels</td><td id="oc-st-channels">-</td></tr>') +
-			_('<tr><td>Process PID</td><td id="oc-st-pid">-</td></tr>') +
-			_('<tr><td>Memory Usage</td><td id="oc-st-mem">-</td></tr>') +
-			_('<tr><td>Uptime</td><td id="oc-st-uptime">-</td></tr>') +
+			'<tr>' + '<td>' + _('Run State') + '</td>' + '<td id="oc-st-status">' + '<span class="oc-badge oc-badge-unknown">' + _('Loading...') + '</span>' + '</td>' + '</tr>' +
+			'<tr>' + '<td>' + _('Gateway Service') + '</td>' + '<td id="oc-st-gateway">' + '-' + '</td>' + '</tr>' +
+			'<tr>' + '<td>' + _('Config Terminal') + '</td>' + '<td id="oc-st-pty">' + '-' + '</td>' + '</tr>' +
+			'<tr>' + '<td>' + _('Active Model') + '</td>' + '<td id="oc-st-model">' + '-' + '</td>' + '</tr>' +
+			'<tr>' + '<td>' + _('Message Channels') + '</td>' + '<td id="oc-st-channels">' + '-' + '</td>' + '</tr>' +
+			'<tr>' + '<td>' + _('Process PID') + '</td>' + '<td id="oc-st-pid">' + '-' + '</td>' + '</tr>' +
+			'<tr>' + '<td>' + _('Memory Usage') + '</td>' + '<td id="oc-st-mem">' + '-' + '</td>' + '</tr>' +
+			'<tr>' + '<td>' + _('Uptime') + '</td>' + '<td id="oc-st-uptime">' + '-' + '</td>' + '</tr>' +
 			'<tr><td>Node.js</td><td id="oc-st-node">-</td></tr>' +
 			'<tr><td>OpenClaw</td><td id="oc-st-oc-ver">-</td></tr>' +
-			_('<tr><td>Plugin Version</td><td id="oc-st-plugin">-</td></tr>') +
-			_('<tr><td>Install Path</td><td id="oc-st-path">-</td></tr>') +
-			_('<tr><td>Free Space</td><td id="oc-st-disk">-</td></tr>') +
+			'<tr>' + '<td>' + _('Plugin Version') + '</td>' + '<td id="oc-st-plugin">' + '-' + '</td>' + '</tr>' +
+			'<tr>' + '<td>' + _('Install Path') + '</td>' + '<td id="oc-st-path">' + '-' + '</td>' + '</tr>' +
+			'<tr>' + '<td>' + _('Free Space') + '</td>' + '<td id="oc-st-disk">' + '-' + '</td>' + '</tr>' +
 			'</table></div></div>' +
 
-			_('<fieldset class="cbi-section" id="oc-quick-section"><legend>Quick Actions</legend><div class="cbi-section-node">') +
+			'<fieldset class="cbi-section" id="oc-quick-section">' + '<legend>' + _('Quick Actions') + '</legend>' + '<div class="cbi-section-node">' +
 			'<div style="display:flex;gap:10px;flex-wrap:wrap;margin:10px 0;">' +
-			_('<button class="btn cbi-button cbi-button-apply" type="button" id="btn-setup" title="Download Node.js and install OpenClaw">📦 Install Runtime</button>') +
-			_('<button class="btn cbi-button cbi-button-action" type="button" id="btn-restart">🔄 Restart Service</button>') +
-			_('<button class="btn cbi-button cbi-button-action" type="button" id="btn-stop">⏹️ Stop Service</button>') +
-			_('<span style="position:relative;display:inline-block;" id="btn-check-update-wrap"><button class="btn cbi-button cbi-button-action" type="button" id="btn-check-update">🔍 Check for Updates</button><span id="update-dot" style="display:none;position:absolute;top:-2px;right:-2px;width:10px;height:10px;background:#e36209;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #e36209;"></span></span>') +
-			_('<button class="btn cbi-button cbi-button-action" type="button" id="btn-backup" title="Back up or restore the OpenClaw configuration">💾 Backup / Restore</button>') +
-			_('<button class="btn cbi-button cbi-button-remove" type="button" id="btn-uninstall" title="Remove the Node.js and OpenClaw runtime plus related data">🗑️ Uninstall</button>') +
+			'<button class="btn cbi-button cbi-button-apply" type="button" id="btn-setup" title="Download Node.js and install OpenClaw">' + _('📦 Install Runtime') + '</button>' +
+			'<button class="btn cbi-button cbi-button-action" type="button" id="btn-restart">' + _('🔄 Restart Service') + '</button>' +
+			'<button class="btn cbi-button cbi-button-action" type="button" id="btn-stop">' + _('⏹️ Stop Service') + '</button>' +
+			'<span style="position:relative;display:inline-block;" id="btn-check-update-wrap">' + '<button class="btn cbi-button cbi-button-action" type="button" id="btn-check-update">' + _('🔍 Check for Updates') + '</button>' + '<span id="update-dot" style="display:none;position:absolute;top:-2px;right:-2px;width:10px;height:10px;background:#e36209;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #e36209;">' + '</span>' + '</span>' +
+			'<button class="btn cbi-button cbi-button-action" type="button" id="btn-backup" title="Back up or restore the OpenClaw configuration">' + _('💾 Backup / Restore') + '</button>' +
+			'<button class="btn cbi-button cbi-button-remove" type="button" id="btn-uninstall" title="Remove the Node.js and OpenClaw runtime plus related data">' + _('🗑️ Uninstall') + '</button>' +
 			'</div>' +
 			'<div id="action-result" style="margin-top:8px;"></div>' +
 			'<div id="oc-update-action" style="margin-top:8px;display:none;"></div>' +
@@ -78,76 +78,76 @@ return view.extend({
 			/* 安装日志面板 (默认隐藏) */
 			'<div id="setup-log-panel" style="display:none;margin-top:12px;">' +
 			'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">' +
-			_('<span id="setup-log-title" style="font-weight:600;font-size:14px;">📋 Install Log</span>') +
+			'<span id="setup-log-title" style="font-weight:600;font-size:14px;">' + _('📋 Install Log') + '</span>' +
 			'<span id="setup-log-status" style="font-size:12px;color:#999;"></span></div>' +
 			'<pre id="setup-log-content" style="background:#1a1b26;color:#a9b1d6;padding:14px 16px;border-radius:6px;font-size:12px;line-height:1.6;max-height:400px;overflow-y:auto;white-space:pre-wrap;word-break:break-all;border:1px solid #2d333b;margin:0;"></pre>' +
 			'<div id="setup-log-result" style="margin-top:10px;display:none;"></div></div>' +
 
 			/* 使用指南 (原 basic.lua 尾部) */
 			'<div style="border:1px solid #d0e8ff;background:#f0f7ff;padding:14px 18px;border-radius:6px;margin-top:12px;line-height:1.8;font-size:13px;">' +
-			_('<strong style="font-size:14px;">📖 Quick Start</strong><br/>') +
+			'<strong style="font-size:14px;">' + _('📖 Quick Start') + '</strong>' + '<br/>' +
 			'<span style="color:#555;">' +
-			_('① Click <b>“Install Runtime”</b> on first use — the service auto-starts when done<br/>') +
-			_('② Open <b>“Config Management”</b> and use the interactive wizard to configure your AI models and API keys<br/>') +
-			_('③ Head to <b>“Web Console”</b> to set up messaging channels and start chatting</span>') +
+			_('① Click ') + '<b>' + _('“Install Runtime”') + '</b>' + _(' on first use — the service auto-starts when done') + '<br/>' +
+			_('② Open ') + '<b>' + _('“Config Management”') + '</b>' + _(' and use the interactive wizard to configure your AI models and API keys') + '<br/>' +
+			_('③ Head to ') + '<b>' + _('“Web Console”') + '</b>' + _(' to set up messaging channels and start chatting') + '</span>' +
 			'<div style="margin-top:10px;padding-top:10px;border-top:1px solid #d0e8ff;">' +
-			_('<span style="color:#888;">Questions? Follow us on Bilibili and leave a comment:</span>') +
+			'<span style="color:#888;">' + _('Questions? Follow us on Bilibili and leave a comment:') + '</span>' +
 			'<a href="https://space.bilibili.com/59438380" target="_blank" rel="noopener" style="color:#00a1d6;font-weight:bold;text-decoration:none;">🔗 space.bilibili.com/59438380</a>' +
-			_('<span style="margin-left:16px;color:#888;">GitHub project:</span>') +
+			'<span style="margin-left:16px;color:#888;">' + _('GitHub project:') + '</span>' +
 			'<a href="https://github.com/10000ge10000/luci-app-openclaw" target="_blank" rel="noopener" style="color:#24292f;font-weight:bold;text-decoration:none;">🐙 10000ge10000/luci-app-openclaw</a>' +
 			'</div></div>' +
 
 			/* 版本选择对话框 (原 CBI 内联样式) */
 			'<div id="oc-setup-dialog" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:10000;align-items:center;justify-content:center;">' +
 			'<div style="background:#fff;border-radius:12px;padding:24px 28px;max-width:520px;width:92%;box-shadow:0 8px 32px rgba(0,0,0,0.2);">' +
-			_('<h3 style="margin:0 0 16px 0;font-size:16px;color:#333;">📦 Choose an Install Version</h3>') +
+			'<h3 style="margin:0 0 16px 0;font-size:16px;color:#333;">' + _('📦 Choose an Install Version') + '</h3>' +
 			'<div style="display:flex;flex-direction:column;gap:12px;">' +
 			'<label style="display:flex;align-items:flex-start;gap:10px;padding:14px 16px;border:2px solid #4a90d9;border-radius:8px;cursor:pointer;background:#f0f7ff;" id="oc-opt-stable">' +
 			'<input type="radio" name="oc-ver-choice" value="stable" checked style="margin-top:2px;">' +
-			_('<div><strong style="color:#333;">✅ Stable (Recommended)</strong>') +
-			_('<div style="font-size:12px;color:#666;margin-top:4px;" id="oc-stable-desc">Version v2026.9.1 (validated) — fully tested, good compatibility.</div>') +
+			'<div>' + '<strong style="color:#333;">' + _('✅ Stable (Recommended)') + '</strong>' +
+			'<div style="font-size:12px;color:#666;margin-top:4px;" id="oc-stable-desc">' + _('Version v2026.9.1 (validated) — fully tested, good compatibility.') + '</div>' +
 			'</div></label>' +
 			'<label style="display:flex;align-items:flex-start;gap:10px;padding:14px 16px;border:2px solid #e0e0e0;border-radius:8px;cursor:pointer;background:#fff;" id="oc-opt-latest">' +
 			'<input type="radio" name="oc-ver-choice" value="latest" style="margin-top:2px;">' +
-			_('<div><strong style="color:#333;">🆕 Latest (Unverified)</strong>') +
-			_('<div style="font-size:12px;color:#e36209;margin-top:4px;">⚠️ Installs the newest published npm version (unverified) — it may have unverified compatibility issues.</div>') +
+			'<div>' + '<strong style="color:#333;">' + _('🆕 Latest (Unverified)') + '</strong>' +
+			'<div style="font-size:12px;color:#e36209;margin-top:4px;">' + _('⚠️ Installs the newest published npm version (unverified) — it may have unverified compatibility issues.') + '</div>' +
 			'</div></label>' +
 			'</div>' +
 			'<div style="margin-top:16px;padding-top:14px;border-top:1px solid #eee;">' +
-			_('<div style="font-weight:600;font-size:13px;color:#333;margin-bottom:8px;">📂 Install Path</div>') +
+			'<div style="font-weight:600;font-size:13px;color:#333;margin-bottom:8px;">' + _('📂 Install Path') + '</div>' +
 			'<div style="display:flex;gap:8px;align-items:center;">' +
 			'<input type="text" id="oc-install-path" value="/opt" style="flex:1;padding:8px 12px;border:1px solid #d0d7de;border-radius:6px;font-size:13px;" placeholder="/opt">' +
-			_('<button class="btn cbi-button" type="button" id="btn-check-path" style="font-size:12px;padding:4px 10px;">Check Space</button>') +
+			'<button class="btn cbi-button" type="button" id="btn-check-path" style="font-size:12px;padding:4px 10px;">' + _('Check Space') + '</button>' +
 			'</div>' +
-			_('<div id="oc-path-info" style="font-size:11px;color:#666;margin-top:6px;">💡 An <b>openclaw</b> folder will be created under this path. At least 2GB of free space is required. If installing on a second disk, make sure it is mounted.</div>') +
+			'<div id="oc-path-info" style="font-size:11px;color:#666;margin-top:6px;">' + _('💡 An openclaw folder will be created under this path. At least 2GB of free space is required. If installing on a second disk, make sure it is mounted.') + '</div>' +
 			'</div>' +
 			'<div style="display:flex;gap:10px;justify-content:flex-end;margin-top:20px;">' +
-			_('<button class="btn cbi-button" type="button" id="btn-setup-cancel" style="min-width:80px;">Cancel</button>') +
-			_('<button class="btn cbi-button cbi-button-apply" type="button" id="btn-setup-confirm" style="min-width:80px;">Start Install</button>') +
+			'<button class="btn cbi-button" type="button" id="btn-setup-cancel" style="min-width:80px;">' + _('Cancel') + '</button>' +
+			'<button class="btn cbi-button cbi-button-apply" type="button" id="btn-setup-confirm" style="min-width:80px;">' + _('Start Install') + '</button>' +
 			'</div></div></div>' +
 
 			/* 备份/恢复对话框 */
 			'<div id="oc-backup-dialog" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:10000;align-items:center;justify-content:center;">' +
 			'<div style="background:#fff;border-radius:12px;padding:24px 28px;max-width:520px;width:92%;box-shadow:0 8px 32px rgba(0,0,0,0.2);">' +
-			_('<h3 style="margin:0 0 16px 0;font-size:16px;color:#333;">💾 Backup / Restore Config</h3>') +
+			'<h3 style="margin:0 0 16px 0;font-size:16px;color:#333;">' + _('💾 Backup / Restore Config') + '</h3>' +
 			'<div style="margin-bottom:16px;">' +
-			_('<div style="font-weight:600;font-size:13px;color:#555;margin-bottom:8px;">📤 Create Backup</div>') +
+			'<div style="font-weight:600;font-size:13px;color:#555;margin-bottom:8px;">' + _('📤 Create Backup') + '</div>' +
 			'<div style="display:flex;gap:10px;">' +
-			_('<button class="btn cbi-button cbi-button-apply" type="button" id="btn-bk-config" style="font-size:12px;">📄 Config Only</button>') +
-			_('<button class="btn cbi-button cbi-button-action" type="button" id="btn-bk-full" style="font-size:12px;">📦 Config + State Data</button>') +
+			'<button class="btn cbi-button cbi-button-apply" type="button" id="btn-bk-config" style="font-size:12px;">' + _('📄 Config Only') + '</button>' +
+			'<button class="btn cbi-button cbi-button-action" type="button" id="btn-bk-full" style="font-size:12px;">' + _('📦 Config + State Data') + '</button>' +
 			'</div>' +
-			_('<div style="font-size:11px;color:#888;margin-top:6px;">Config only (~2KB) holds models, channels and plugin settings; a full backup also includes state data such as session history (may be large)</div>') +
+			'<div style="font-size:11px;color:#888;margin-top:6px;">' + _('Config only (~2KB) holds models, channels and plugin settings; a full backup also includes state data such as session history (may be large)') + '</div>' +
 			'</div>' +
 			'<div style="border-top:1px solid #eee;padding-top:14px;margin-bottom:16px;">' +
 			'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">' +
-			_('<div style="font-weight:600;font-size:13px;color:#555;">📥 Existing Backups</div>') +
-			_('<button class="btn cbi-button" type="button" id="btn-bk-refresh" style="font-size:11px;padding:2px 10px;">🔄 Refresh</button>') +
+			'<div style="font-weight:600;font-size:13px;color:#555;">' + _('📥 Existing Backups') + '</div>' +
+			'<button class="btn cbi-button" type="button" id="btn-bk-refresh" style="font-size:11px;padding:2px 10px;">' + _('🔄 Refresh') + '</button>' +
 			'</div>' +
 			'<div id="oc-backup-list" style="max-height:260px;overflow-y:auto;"></div>' +
 			'</div>' +
 			'<div id="oc-backup-result" style="margin-bottom:14px;display:none;"></div>' +
 			'<div style="display:flex;justify-content:flex-end;">' +
-			_('<button class="btn cbi-button" type="button" id="btn-bk-close" style="min-width:80px;">Close</button>') +
+			'<button class="btn cbi-button" type="button" id="btn-bk-close" style="min-width:80px;">' + _('Close') + '</button>' +
 			'</div></div></div>';
 
 		const root = E('div', { 'class': 'cbi-map', 'id': 'content' });
@@ -190,7 +190,7 @@ return view.extend({
 			}).catch(function(e) {
 				var stEl = oc.$('oc-st-status');
 				if (stEl)
-					stEl.innerHTML = _('<span class="oc-badge oc-badge-unknown">Query Failed</span>');
+					stEl.innerHTML = '<span class="oc-badge oc-badge-unknown">' + _('Query Failed') + '</span>';
 			});
 		};
 
@@ -215,31 +215,31 @@ return view.extend({
 			this._lastInstallPath = d.install_path;
 
 		if (d.enabled !== '1')
-			stEl.innerHTML = _('<span class="oc-badge oc-badge-disabled">Disabled</span>');
+			stEl.innerHTML = '<span class="oc-badge oc-badge-disabled">' + _('Disabled') + '</span>';
 		else if (d.gateway_running)
-			stEl.innerHTML = _('<span class="oc-badge oc-badge-running">Running</span>');
+			stEl.innerHTML = '<span class="oc-badge oc-badge-running">' + _('Running') + '</span>';
 		else if (d.gateway_starting)
-			stEl.innerHTML = _('<span class="oc-badge oc-badge-starting">⏳ Starting...</span>');
+			stEl.innerHTML = '<span class="oc-badge oc-badge-starting">' + _('⏳ Starting...') + '</span>';
 		else if (d.gateway_failed)
-			stEl.innerHTML = _('<span class="oc-badge oc-badge-failed">Start Failed</span>');
+			stEl.innerHTML = '<span class="oc-badge oc-badge-failed">' + _('Start Failed') + '</span>';
 		else
-			stEl.innerHTML = _('<span class="oc-badge oc-badge-stopped">Stopped</span>');
+			stEl.innerHTML = '<span class="oc-badge oc-badge-stopped">' + _('Stopped') + '</span>';
 
 		var gwEl = oc.$('oc-st-gateway');
 		if (d.gateway_running)
-			gwEl.innerHTML = _('<span class="oc-dot oc-dot-green"></span>Listening on ') + d.port;
+			gwEl.innerHTML = '<span class="oc-dot oc-dot-green">' + '</span>' + _('Listening on ') + d.port;
 		else if (d.gateway_starting)
-			gwEl.innerHTML = _('<span class="oc-dot oc-dot-gray"></span>Initializing — usually 20–40 s; longer on first install or under heavy load...');
+			gwEl.innerHTML = '<span class="oc-dot oc-dot-gray">' + '</span>' + _('Initializing — usually 20–40 s; longer on first install or under heavy load...');
 		else if (d.gateway_failed)
-			gwEl.innerHTML = _('<span class="oc-dot oc-dot-red"></span>Start failed, exit code ') + (d.gateway_exit_code || '-');
+			gwEl.innerHTML = '<span class="oc-dot oc-dot-red">' + '</span>' + _('Start failed, exit code ') + (d.gateway_exit_code || '-');
 		else
-			gwEl.innerHTML = _('<span class="oc-dot oc-dot-red"></span>Not listening');
+			gwEl.innerHTML = '<span class="oc-dot oc-dot-red">' + '</span>' + _('Not listening');
 
 		var ptyEl = oc.$('oc-st-pty');
 		if (d.pty_running)
-			ptyEl.innerHTML = _('<span class="oc-dot oc-dot-green"></span>Listening on ') + d.pty_port;
+			ptyEl.innerHTML = '<span class="oc-dot oc-dot-green">' + '</span>' + _('Listening on ') + d.pty_port;
 		else
-			ptyEl.innerHTML = _('<span class="oc-dot oc-dot-gray"></span>Not listening');
+			ptyEl.innerHTML = '<span class="oc-dot oc-dot-gray">' + '</span>' + _('Not listening');
 
 		oc.$('oc-st-pid').textContent = d.pid || '-';
 
@@ -274,7 +274,7 @@ return view.extend({
 
 		var diskEl = oc.$('oc-st-disk');
 		if (d.disk_free)
-			diskEl.innerHTML = '<span style="color:#1a7f37;font-weight:500;">' + d.disk_free + _('</span> available');
+			diskEl.innerHTML = '<span style="color:#1a7f37;font-weight:500;">' + d.disk_free + '</span>' + _(' available');
 		else
 			diskEl.textContent = '-';
 	},
@@ -332,15 +332,15 @@ return view.extend({
 		infoEl.innerHTML = _('⏳ Checking free space...');
 		api.checkSystem(path).then(function(r) {
 			if (r.disk_ok) {
-				infoEl.innerHTML = _('<span style="color:#1a7f37;">✅ Free space: ') + r.disk_free_str +
+				infoEl.innerHTML = '<span style="color:#1a7f37;">' + _('✅ Free space: ') + r.disk_free_str +
 					_(' (checking path: ') + r.disk_path + ')</span>';
 			}
 			else {
-				infoEl.innerHTML = _('<span style="color:#cf222e;">❌ Not enough space: ') + r.disk_mb +
+				infoEl.innerHTML = '<span style="color:#cf222e;">' + _('❌ Not enough space: ') + r.disk_mb +
 					_(' MB free, need ≥ 2048 MB (checking path: ') + r.disk_path + ')</span>';
 			}
 		}).catch(function() {
-			infoEl.innerHTML = _('<span style="color:#e36209;">⚠️ Check failed</span>');
+			infoEl.innerHTML = '<span style="color:#e36209;">' + _('⚠️ Check failed') + '</span>';
 		});
 	},
 
@@ -378,17 +378,17 @@ return view.extend({
 				self.closeSetupDialog();
 				btn.disabled = false;
 				btn.textContent = _('📦 Install Runtime');
-				statusEl.innerHTML = _('<span style="color:#cf222e;">❌ System requirements not met</span>');
+				statusEl.innerHTML = '<span style="color:#cf222e;">' + _('❌ System requirements not met') + '</span>';
 				logEl.textContent += _('❌ System requirements not met — installation aborted\n');
 				logEl.textContent += _('💡 Upgrade your hardware or free up disk space, then retry\n');
 				resultEl.style.display = 'block';
 				resultEl.innerHTML = '<div style="border:1px solid #f5c6cb;background:#ffeef0;padding:12px 16px;border-radius:6px;">' +
-					_('<strong style="color:#cf222e;font-size:14px;">❌ System requirements not met</strong><br/>') +
-					_('<div style="margin-top:8px;font-size:12px;color:#666;">💡 Upgrade your hardware or free up disk space, then retry.</div></div>');
+					'<strong style="color:#cf222e;font-size:14px;">' + _('❌ System requirements not met') + '</strong>' + '<br/>' +
+					'<div style="margin-top:8px;font-size:12px;color:#666;">' + _('💡 Upgrade your hardware or free up disk space, then retry.') + '</div>' + '</div>';
 				return;
 			}
 
-			statusEl.innerHTML = _('<span style="color:#7aa2f7;">⏳ Installation in progress...</span>');
+			statusEl.innerHTML = '<span style="color:#7aa2f7;">' + _('⏳ Installation in progress...') + '</span>';
 			logEl.textContent += _('✅ System check passed — starting the installation...\n\n');
 			self.closeSetupDialog();
 
@@ -418,7 +418,7 @@ return view.extend({
 
 		btn.disabled = true;
 		btn.textContent = _('⏳ Installing...');
-		statusEl.innerHTML = _('<span style="color:#7aa2f7;">⏳ Installation in progress...</span>');
+		statusEl.innerHTML = '<span style="color:#7aa2f7;">' + _('⏳ Installation in progress...') + '</span>';
 		logEl.textContent += '════════════════════════════════════════\n';
 		logEl.textContent += _('📦 Install Runtime (') + ((version === 'stable') ? _('Stable') : _('Latest')) + ')\n';
 		logEl.textContent += '════════════════════════════════════════\n';
@@ -432,7 +432,7 @@ return view.extend({
 		api.service.setup(version, installPath).then(function() {
 			self.pollSetupLog();
 		}).catch(function(e) {
-			statusEl.innerHTML = _('<span style="color:#cf222e;">❌ Failed to start the installation</span>');
+			statusEl.innerHTML = '<span style="color:#cf222e;">' + _('❌ Failed to start the installation') + '</span>';
 			btn.disabled = false;
 			btn.textContent = _('📦 Install Runtime');
 			alert(_('Failed to start the installation: ') + (e.message || e));
@@ -462,7 +462,7 @@ return view.extend({
 
 				var statusEl = oc.$('setup-log-status');
 				if (r.state === 'running')
-					statusEl.innerHTML = _('<span style="color:#7aa2f7;">⏳ Installation in progress...</span>');
+					statusEl.innerHTML = '<span style="color:#7aa2f7;">' + _('⏳ Installation in progress...') + '</span>';
 				else if (r.state === 'success') {
 					clearInterval(self._setupTimer);
 					self._setupTimer = null;
@@ -487,21 +487,21 @@ return view.extend({
 		resultEl.style.display = 'block';
 
 		if (ok) {
-			statusEl.innerHTML = _('<span style="color:#1a7f37;">✅ Installation complete</span>');
+			statusEl.innerHTML = '<span style="color:#1a7f37;">' + _('✅ Installation complete') + '</span>';
 			resultEl.innerHTML = '<div style="border:1px solid #c6e9c9;background:#e6f7e9;padding:12px 16px;border-radius:6px;">' +
-				_('<strong style="color:#1a7f37;font-size:14px;">🎉 Congratulations! The OpenClaw runtime was installed successfully!</strong><br/>') +
-				_('<span style="color:#555;font-size:13px;line-height:1.8;">The service was enabled and started automatically — click the button below to reload the page and see the status.</span><br/>') +
-				_('<button class="btn cbi-button cbi-button-apply" type="button" id="btn-reload-after-setup" style="margin-top:10px;">🔄 Reload Page</button></div>');
+				'<strong style="color:#1a7f37;font-size:14px;">' + _('🎉 Congratulations! The OpenClaw runtime was installed successfully!') + '</strong>' + '<br/>' +
+				'<span style="color:#555;font-size:13px;line-height:1.8;">' + _('The service was enabled and started automatically — click the button below to reload the page and see the status.') + '</span>' + '<br/>' +
+				'<button class="btn cbi-button cbi-button-apply" type="button" id="btn-reload-after-setup" style="margin-top:10px;">' + _('🔄 Reload Page') + '</button>' + '</div>';
 			oc.$('btn-reload-after-setup').addEventListener('click', function() { location.reload(); });
 		}
 		else {
-			statusEl.innerHTML = _('<span style="color:#cf222e;">❌ Installation failed</span>');
+			statusEl.innerHTML = '<span style="color:#cf222e;">' + _('❌ Installation failed') + '</span>';
 			var reasons = oc.analyzeFailure(log);
 			resultEl.innerHTML = '<div style="border:1px solid #f5c6cb;background:#ffeef0;padding:12px 16px;border-radius:6px;">' +
-				_('<strong style="color:#cf222e;font-size:14px;">❌ Installation failed</strong><br/>') +
+				'<strong style="color:#cf222e;font-size:14px;">' + _('❌ Installation failed') + '</strong>' + '<br/>' +
 				'<div style="margin:8px 0;padding:10px 14px;background:#fff5f5;border-radius:4px;font-size:13px;line-height:1.8;">' +
-				_('<strong>🔍 Possible causes:</strong><br/>') + reasons + '</div>' +
-				_('<div style="margin-top:8px;font-size:12px;color:#666;">💡 The full log is in the terminal output above; you can also view it with <code>cat /tmp/openclaw-setup.log</code></div></div>');
+				'<strong>' + _('🔍 Possible causes:') + '</strong>' + '<br/>' + reasons + '</div>' +
+				'<div style="margin-top:8px;font-size:12px;color:#666;">' + _('💡 The full log is in the terminal output above; you can also view it with ') + '<code>' + 'cat /tmp/openclaw-setup.log' + '</code>' + '</div>' + '</div>';
 		}
 	},
 
@@ -510,7 +510,7 @@ return view.extend({
 		var self = this;
 		var el = oc.$('action-result');
 
-		el.innerHTML = _('<span style="color:#999">⏳ Working...</span>');
+		el.innerHTML = '<span style="color:#999">' + _('⏳ Working...') + '</span>';
 		if (action === 'restart')
 			api.service.restart().then(apply).catch(fail);
 		else
@@ -518,13 +518,13 @@ return view.extend({
 
 		function apply(r) {
 			if (r.status === 'ok')
-				el.innerHTML = '<span style="color:green">✅ ' + action + _(' done</span>');
+				el.innerHTML = '<span style="color:green">✅ ' + action + _(' done') + '</span>';
 			else
 				el.innerHTML = '<span style="color:red">❌ ' + (r.message || _('Failed')) + '</span>';
 			self.updateStatusOnceSoon();
 		}
 		function fail(e) {
-			el.innerHTML = _('<span style="color:red">❌ Error</span>');
+			el.innerHTML = '<span style="color:red">' + _('❌ Error') + '</span>';
 		}
 	},
 
@@ -565,22 +565,22 @@ return view.extend({
 			var msgs = [];
 			if (r.plugin_current) {
 				if (r.plugin_has_update)
-					msgs.push(_('<span class="ver-badge-new">🔌 Plugin update available</span> v') + r.plugin_current + ' → <span class="ver-tag">v' + r.plugin_latest + '</span>');
+					msgs.push('<span class="ver-badge-new">' + _('🔌 Plugin update available') + '</span>' + _(' v') + r.plugin_current + ' → <span class="ver-tag">v' + r.plugin_latest + '</span>');
 				else if (r.plugin_latest)
-					msgs.push(_('<span class="ver-badge-latest">🔌 Plugin up to date</span> v') + r.plugin_current);
+					msgs.push('<span class="ver-badge-latest">' + _('🔌 Plugin up to date') + '</span>' + _(' v') + r.plugin_current);
 				else
-					msgs.push(_('<span class="ver-badge-unknown">🔌 Plugin check unavailable</span> v') + r.plugin_current);
+					msgs.push('<span class="ver-badge-unknown">' + _('🔌 Plugin check unavailable') + '</span>' + _(' v') + r.plugin_current);
 			}
 			if (r.openclaw_current) {
 				if (r.openclaw_has_update)
-					msgs.push(_('<span class="ver-badge-new">🦞 Core update available</span> v') + r.openclaw_current + ' → <span class="ver-tag">v' + r.openclaw_latest + '</span>');
+					msgs.push('<span class="ver-badge-new">' + _('🦞 Core update available') + '</span>' + _(' v') + r.openclaw_current + ' → <span class="ver-tag">v' + r.openclaw_latest + '</span>');
 				else if (r.openclaw_latest)
-					msgs.push(_('<span class="ver-badge-latest">🦞 Core up to date</span> v') + r.openclaw_current);
+					msgs.push('<span class="ver-badge-latest">' + _('🦞 Core up to date') + '</span>' + _(' v') + r.openclaw_current);
 				else
-					msgs.push(_('<span class="ver-badge-unknown">🦞 Core check unavailable</span> v') + r.openclaw_current);
+					msgs.push('<span class="ver-badge-unknown">' + _('🦞 Core check unavailable') + '</span>' + _(' v') + r.openclaw_current);
 			}
 			if (msgs.length === 0)
-				msgs.push(_('<span class="ver-badge-unknown">Unable to get version info</span>'));
+				msgs.push('<span class="ver-badge-unknown">' + _('Unable to get version info') + '</span>');
 
 			el.innerHTML = msgs.join('<br/>');
 
@@ -593,16 +593,16 @@ return view.extend({
 				if (r.plugin_has_update && r.release_notes)
 					notesHtml = '<div style="margin:12px 0;border:1px solid #d0d7de;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">' +
 						'<div style="background:linear-gradient(135deg,#f6f8fa 0%,#ffffff 100%);padding:12px 16px;border-bottom:1px solid #d0d7de;display:flex;align-items:center;justify-content:space-between;">' +
-						_('<span style="font-size:14px;font-weight:600;color:#24292f;">📋 Plugin Changelog</span>') +
+						'<span style="font-size:14px;font-weight:600;color:#24292f;">' + _('📋 Plugin Changelog') + '</span>' +
 						'<span style="display:inline-flex;align-items:center;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;background:linear-gradient(135deg,#e3f2fd 0%,#bbdefb 100%);color:#1565c0;border:1px solid #64b5f6;">v' + r.plugin_latest + '</span></div>' +
 						'<div style="padding:16px;max-height:450px;overflow-y:auto;background:#fff;">' + oc.markdownToHtml(r.release_notes) + '</div></div>';
 
 				var actBtns = '<div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">';
 				if (r.plugin_has_update)
-					actBtns += _('<button class="btn cbi-button cbi-button-apply" type="button" id="btn-plugin-upgrade" style="box-shadow:0 2px 4px rgba(0,0,0,0.1);">⬆️ Upgrade Plugin Now (v') + r.plugin_latest + ')</button>' +
-						_('<a href="https://github.com/10000ge10000/luci-app-openclaw/releases/latest" target="_blank" rel="noopener" class="btn cbi-button cbi-button-action" style="text-decoration:none;">📥 Download from GitHub</a>');
+					actBtns += '<button class="btn cbi-button cbi-button-apply" type="button" id="btn-plugin-upgrade" style="box-shadow:0 2px 4px rgba(0,0,0,0.1);">' + _('⬆️ Upgrade Plugin Now (v') + r.plugin_latest + ')</button>' +
+						'<a href="https://github.com/10000ge10000/luci-app-openclaw/releases/latest" target="_blank" rel="noopener" class="btn cbi-button cbi-button-action" style="text-decoration:none;">' + _('📥 Download from GitHub') + '</a>';
 				if (r.openclaw_has_update)
-					actBtns += _('<button class="btn cbi-button cbi-button-apply" type="button" id="btn-core-upgrade" style="background:#d97706;border-color:#b45309;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.1);">⬆️ Upgrade OpenClaw Core Now (v') + r.openclaw_latest + ')</button>';
+					actBtns += '<button class="btn cbi-button cbi-button-apply" type="button" id="btn-core-upgrade" style="background:#d97706;border-color:#b45309;color:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.1);">' + _('⬆️ Upgrade OpenClaw Core Now (v') + r.openclaw_latest + ')</button>';
 				actBtns += '</div>';
 
 				act.innerHTML = notesHtml + actBtns;
@@ -618,7 +618,7 @@ return view.extend({
 			btn.disabled = false;
 			btn.textContent = _('🔍 Check for Updates');
 			if (!silent)
-				el.innerHTML = _('<span style="color:red">❌ Check failed</span>');
+				el.innerHTML = '<span style="color:red">' + _('❌ Check failed') + '</span>';
 		});
 	},
 
@@ -652,7 +652,7 @@ return view.extend({
 		panel.style.display = 'block';
 		logEl.textContent = _('Starting the OpenClaw core upgrade transaction...\n');
 		titleEl.textContent = _('📋 OpenClaw Core Upgrade Log');
-		statusEl.innerHTML = _('<span style="color:#7aa2f7;">⏳ Core upgrade in progress (state-machine transaction)...</span>');
+		statusEl.innerHTML = '<span style="color:#7aa2f7;">' + _('⏳ Core upgrade in progress (state-machine transaction)...') + '</span>';
 		resultEl.style.display = 'none';
 
 		this._autoScroll = oc.bindAutoScroll(logEl);
@@ -661,7 +661,7 @@ return view.extend({
 		api.service.coreUpgrade(ver).then(function() {
 			self.pollSetupLog();
 		}).catch(function(e) {
-			statusEl.innerHTML = _('<span style="color:#cf222e;">❌ Failed to start the upgrade</span>');
+			statusEl.innerHTML = '<span style="color:#cf222e;">' + _('❌ Failed to start the upgrade') + '</span>';
 			alert(_('Failed to start the core upgrade: ') + (e.message || e));
 		});
 	},
@@ -690,7 +690,7 @@ return view.extend({
 		panel.style.display = 'block';
 		logEl.textContent = _('Starting the plugin upgrade...\n');
 		titleEl.textContent = _('📋 Plugin Upgrade Log');
-		statusEl.innerHTML = _('<span style="color:#7aa2f7;">⏳ Plugin upgrade in progress...</span>');
+		statusEl.innerHTML = '<span style="color:#7aa2f7;">' + _('⏳ Plugin upgrade in progress...') + '</span>';
 		resultEl.style.display = 'none';
 
 		this._autoScroll = oc.bindAutoScroll(logEl);
@@ -699,7 +699,7 @@ return view.extend({
 		api.pluginUpgrade(ver).then(function() {
 			self.pollPluginUpgradeLog();
 		}).catch(function(e) {
-			statusEl.innerHTML = _('<span style="color:#cf222e;">❌ Failed to start the upgrade</span>');
+			statusEl.innerHTML = '<span style="color:#cf222e;">' + _('❌ Failed to start the upgrade') + '</span>';
 			alert(_('Failed to start the plugin upgrade: ') + (e.message || e));
 		});
 	},
@@ -724,7 +724,7 @@ return view.extend({
 				if (self._autoScroll)
 					self._autoScroll.scroll();
 				if (r.state === 'running')
-					statusEl.innerHTML = _('<span style="color:#7aa2f7;">⏳ Plugin upgrade in progress...</span>');
+					statusEl.innerHTML = '<span style="color:#7aa2f7;">' + _('⏳ Plugin upgrade in progress...') + '</span>';
 				else if (r.state === 'success') {
 					clearInterval(self._pluginUpgradeTimer);
 					self._pluginUpgradeTimer = null;
@@ -758,19 +758,19 @@ return view.extend({
 		resultEl.style.display = 'block';
 
 		if (ok) {
-			statusEl.innerHTML = _('<span style="color:#1a7f37;">✅ Plugin upgrade complete</span>');
+			statusEl.innerHTML = '<span style="color:#1a7f37;">' + _('✅ Plugin upgrade complete') + '</span>';
 			resultEl.innerHTML = '<div style="border:1px solid #c6e9c9;background:#e6f7e9;padding:12px 16px;border-radius:6px;">' +
-				_('<strong style="color:#1a7f37;font-size:14px;">🎉 Plugin upgrade successful!</strong><br/>') +
-				_('<span style="color:#555;font-size:13px;line-height:1.8;">The plugin files were updated; the OpenClaw service is unaffected. Reload the page to load the new UI.</span><br/>') +
-				_('<button class="btn cbi-button cbi-button-apply" type="button" id="btn-reload-after-plugin" style="margin-top:10px;">🔄 Reload Page</button></div>');
+				'<strong style="color:#1a7f37;font-size:14px;">' + _('🎉 Plugin upgrade successful!') + '</strong>' + '<br/>' +
+				'<span style="color:#555;font-size:13px;line-height:1.8;">' + _('The plugin files were updated; the OpenClaw service is unaffected. Reload the page to load the new UI.') + '</span>' + '<br/>' +
+				'<button class="btn cbi-button cbi-button-apply" type="button" id="btn-reload-after-plugin" style="margin-top:10px;">' + _('🔄 Reload Page') + '</button>' + '</div>';
 			oc.$('btn-reload-after-plugin').addEventListener('click', function() { location.reload(); });
 		}
 		else {
-			statusEl.innerHTML = _('<span style="color:#cf222e;">❌ Plugin upgrade failed</span>');
+			statusEl.innerHTML = '<span style="color:#cf222e;">' + _('❌ Plugin upgrade failed') + '</span>';
 			resultEl.innerHTML = '<div style="border:1px solid #f5c6cb;background:#ffeef0;padding:12px 16px;border-radius:6px;">' +
-				_('<strong style="color:#cf222e;font-size:14px;">❌ Plugin upgrade failed</strong><br/>') +
-				_('<span style="color:#555;font-size:13px;">See the log above for details, or run <code>cat /tmp/openclaw-plugin-upgrade.log</code> manually</span><br/>') +
-				_('<button class="btn cbi-button cbi-button-apply" type="button" id="btn-reload-after-plugin-fail" style="margin-top:10px;">🔄 Reload Page</button></div>');
+				'<strong style="color:#cf222e;font-size:14px;">' + _('❌ Plugin upgrade failed') + '</strong>' + '<br/>' +
+				'<span style="color:#555;font-size:13px;">' + _('See the log above for details, or run ') + '<code>' + 'cat /tmp/openclaw-plugin-upgrade.log' + '</code>' + '</span>' + '<br/>' +
+				'<button class="btn cbi-button cbi-button-apply" type="button" id="btn-reload-after-plugin-fail" style="margin-top:10px;">' + _('🔄 Reload Page') + '</button>' + '</div>';
 			oc.$('btn-reload-after-plugin-fail').addEventListener('click', function() { location.reload(); });
 		}
 	},
@@ -787,16 +787,16 @@ return view.extend({
 
 		btn.disabled = true;
 		btn.textContent = _('⏳ Uninstalling...');
-		el.innerHTML = _('<span style="color:#999">Stopping the service and cleaning up files...</span>');
+		el.innerHTML = '<span style="color:#999">' + _('Stopping the service and cleaning up files...') + '</span>';
 
 		api.uninstall().then(function(r) {
 			btn.disabled = false;
 			btn.textContent = _('🗑️ Uninstall');
 			if (r.status === 'ok') {
 				el.innerHTML = '<div style="border:1px solid #d0d7de;background:#f6f8fa;padding:12px 16px;border-radius:6px;">' +
-					_('<strong style="color:#1a7f37;">✅ Uninstall complete</strong><br/>') +
+					'<strong style="color:#1a7f37;">' + _('✅ Uninstall complete') + '</strong>' + '<br/>' +
 					'<span style="color:#555;font-size:13px;">' + r.message + '</span><br/>' +
-					_('<button class="btn cbi-button cbi-button-apply" type="button" id="btn-reload-after-uninstall" style="margin-top:8px;">🔄 Reload Page</button></div>');
+					'<button class="btn cbi-button cbi-button-apply" type="button" id="btn-reload-after-uninstall" style="margin-top:8px;">' + _('🔄 Reload Page') + '</button>' + '</div>';
 				oc.$('btn-reload-after-uninstall').addEventListener('click', function() { location.reload(); });
 			}
 			else {
@@ -805,7 +805,7 @@ return view.extend({
 		}).catch(function(e) {
 			btn.disabled = false;
 			btn.textContent = _('🗑️ Uninstall');
-			el.innerHTML = _('<span style="color:red">❌ Request failed</span>');
+			el.innerHTML = '<span style="color:red">' + _('❌ Request failed') + '</span>';
 		});
 	},
 
@@ -821,30 +821,30 @@ return view.extend({
 		var el = oc.$('oc-backup-list');
 		var self = this;
 
-		el.innerHTML = _('<div style="color:#7aa2f7;font-size:12px;padding:8px;">⏳ Loading backup list...</div>');
+		el.innerHTML = '<div style="color:#7aa2f7;font-size:12px;padding:8px;">' + _('⏳ Loading backup list...') + '</div>';
 
 		api.backup('list', '', '').then(function(r) {
 			if (r.status === 'ok' && r.backups && r.backups.length > 0) {
 				var h = '<table style="width:100%;border-collapse:collapse;font-size:12px;">';
 				h += '<tr style="background:#f6f8fa;border-bottom:2px solid #d0d7de;">' +
-					_('<th style="padding:6px 8px;text-align:left;">Type</th>') +
-					_('<th style="padding:6px 8px;text-align:left;">Backup Time</th>') +
-					_('<th style="padding:6px 8px;text-align:right;">Size</th>') +
-					_('<th style="padding:6px 8px;text-align:center;">Action</th></tr>');
+					'<th style="padding:6px 8px;text-align:left;">' + _('Type') + '</th>' +
+					'<th style="padding:6px 8px;text-align:left;">' + _('Backup Time') + '</th>' +
+					'<th style="padding:6px 8px;text-align:right;">' + _('Size') + '</th>' +
+					'<th style="padding:6px 8px;text-align:center;">' + _('Action') + '</th>' + '</tr>';
 
 				for (var i = 0; i < r.backups.length; i++) {
 					var b = r.backups[i];
 					var typeBadge = (b.backup_type === 'config')
-						? _('<span style="background:#ddf4ff;color:#0969da;padding:2px 6px;border-radius:3px;font-size:11px;white-space:nowrap;">📄 Config Only</span>')
-						: _('<span style="background:#fff8c5;color:#9a6700;padding:2px 6px;border-radius:3px;font-size:11px;white-space:nowrap;">📦 Full Backup</span>');
+						? '<span style="background:#ddf4ff;color:#0969da;padding:2px 6px;border-radius:3px;font-size:11px;white-space:nowrap;">' + _('📄 Config Only') + '</span>'
+						: '<span style="background:#fff8c5;color:#9a6700;padding:2px 6px;border-radius:3px;font-size:11px;white-space:nowrap;">' + _('📦 Full Backup') + '</span>';
 					var rowBg = (i % 2 === 0) ? '#fff' : '#f6f8fa';
 					h += '<tr style="border-bottom:1px solid #eee;background:' + rowBg + ';">' +
 						'<td style="padding:7px 8px;">' + typeBadge + '</td>' +
 						'<td style="padding:7px 8px;color:#555;white-space:nowrap;">' + oc.escapeHtml(b.time) + '</td>' +
 						'<td style="padding:7px 8px;text-align:right;color:#666;white-space:nowrap;">' + oc.escapeHtml(b.size_str) + '</td>' +
 						'<td style="padding:5px 8px;text-align:center;white-space:nowrap;">' +
-						'<button class="btn cbi-button cbi-button-action" style="font-size:11px;padding:1px 8px;margin-right:4px;" data-act="restore" data-file="' + oc.escapeHtml(b.filename) + _('">Restore</button>') +
-						'<button class="btn cbi-button cbi-button-remove" style="font-size:11px;padding:1px 8px;" data-act="delete" data-file="' + oc.escapeHtml(b.filename) + _('">Delete</button>') +
+						'<button class="btn cbi-button cbi-button-action" style="font-size:11px;padding:1px 8px;margin-right:4px;" data-act="restore" data-file="' + oc.escapeHtml(b.filename) + _('">Restore') + '</button>' +
+						'<button class="btn cbi-button cbi-button-remove" style="font-size:11px;padding:1px 8px;" data-act="delete" data-file="' + oc.escapeHtml(b.filename) + _('">Delete') + '</button>' +
 						'</td></tr>';
 				}
 				h += '</table>';
@@ -863,13 +863,13 @@ return view.extend({
 				}
 			}
 			else if (r.status === 'ok') {
-				el.innerHTML = _('<div style="color:#888;font-size:12px;padding:8px;text-align:center;">No backups yet — create one first</div>');
+				el.innerHTML = '<div style="color:#888;font-size:12px;padding:8px;text-align:center;">' + _('No backups yet — create one first') + '</div>';
 			}
 			else {
 				el.innerHTML = '<div style="color:#e36209;font-size:12px;padding:8px;">⚠️ ' + (r.message || _('Failed to load the list')) + '</div>';
 			}
 		}).catch(function(e) {
-			el.innerHTML = _('<div style="color:#e36209;font-size:12px;padding:8px;">⚠️ Could not load the list</div>');
+			el.innerHTML = '<div style="color:#e36209;font-size:12px;padding:8px;">' + _('⚠️ Could not load the list') + '</div>';
 		});
 	},
 
@@ -881,7 +881,7 @@ return view.extend({
 		btnC.disabled = true;
 		btnF.disabled = true;
 		resEl.style.display = 'block';
-		resEl.innerHTML = _('<div style="color:#7aa2f7;font-size:12px;padding:8px;">⏳ Creating backup...') +
+		resEl.innerHTML = '<div style="color:#7aa2f7;font-size:12px;padding:8px;">' + _('⏳ Creating backup...') +
 			(onlyConfig ? _(' (config only)') : _(' (full backup — this may take a while)')) + '</div>';
 
 		api.backup('create', onlyConfig ? '1' : '0', '').then(function(r) {
@@ -889,7 +889,7 @@ return view.extend({
 			btnF.disabled = false;
 			if (r.status === 'ok') {
 				resEl.innerHTML = '<div style="border:1px solid #c6e9c9;background:#e6f7e9;padding:10px 14px;border-radius:6px;font-size:12px;">' +
-					_('<strong style="color:#1a7f37;">✅ Backup complete</strong></div>');
+					'<strong style="color:#1a7f37;">' + _('✅ Backup complete') + '</strong>' + '</div>';
 				this_loadBackupList();
 			}
 			else {
@@ -899,7 +899,7 @@ return view.extend({
 		}).catch(function(e) {
 			btnC.disabled = false;
 			btnF.disabled = false;
-			resEl.innerHTML = _('<div style="color:#e36209;font-size:12px;padding:8px;">⚠️ Backups require OpenClaw v2026.3.8+</div>');
+			resEl.innerHTML = '<div style="color:#e36209;font-size:12px;padding:8px;">' + _('⚠️ Backups require OpenClaw v2026.3.8+') + '</div>';
 		});
 
 		var self = this;
@@ -916,21 +916,21 @@ return view.extend({
 
 		var resEl = oc.$('oc-backup-result');
 		resEl.style.display = 'block';
-		resEl.innerHTML = _('<div style="color:#7aa2f7;font-size:12px;padding:8px;">⏳ Restoring configuration...</div>');
+		resEl.innerHTML = '<div style="color:#7aa2f7;font-size:12px;padding:8px;">' + _('⏳ Restoring configuration...') + '</div>';
 
 		api.backup('restore', '', filename).then(function(r) {
 			if (r.status === 'ok') {
 				resEl.innerHTML = '<div style="border:1px solid #c6e9c9;background:#e6f7e9;padding:10px 14px;border-radius:6px;font-size:12px;">' +
-					_('<strong style="color:#1a7f37;">✅ Configuration restored</strong><br/>') +
+					'<strong style="color:#1a7f37;">' + _('✅ Configuration restored') + '</strong>' + '<br/>' +
 					'<span style="color:#555;">' + r.message + '</span><br/>' +
-					_('<button class="btn cbi-button cbi-button-apply" type="button" id="btn-reload-after-restore" style="margin-top:6px;font-size:12px;">🔄 Reload Page</button></div>');
+					'<button class="btn cbi-button cbi-button-apply" type="button" id="btn-reload-after-restore" style="margin-top:6px;font-size:12px;">' + _('🔄 Reload Page') + '</button>' + '</div>';
 				oc.$('btn-reload-after-restore').addEventListener('click', function() { location.reload(); });
 			}
 			else {
 				resEl.innerHTML = '<div style="color:#cf222e;font-size:12px;padding:8px;">❌ ' + (r.message || _('Restore failed')) + '</div>';
 			}
 		}).catch(function(e) {
-			resEl.innerHTML = _('<div style="color:#cf222e;font-size:12px;padding:8px;">❌ Restore failed — check the log</div>');
+			resEl.innerHTML = '<div style="color:#cf222e;font-size:12px;padding:8px;">' + _('❌ Restore failed — check the log') + '</div>';
 		});
 	},
 
@@ -942,7 +942,7 @@ return view.extend({
 
 		var resEl = oc.$('oc-backup-result');
 		resEl.style.display = 'block';
-		resEl.innerHTML = _('<div style="color:#7aa2f7;font-size:12px;padding:8px;">⏳ Deleting...</div>');
+		resEl.innerHTML = '<div style="color:#7aa2f7;font-size:12px;padding:8px;">' + _('⏳ Deleting...') + '</div>';
 
 		api.backup('delete', '', filename).then(function(r) {
 			if (r.status === 'ok') {
@@ -954,7 +954,7 @@ return view.extend({
 			}
 			self.loadBackupList();
 		}).catch(function(e) {
-			resEl.innerHTML = _('<div style="color:#cf222e;font-size:12px;padding:8px;">❌ Delete failed</div>');
+			resEl.innerHTML = '<div style="color:#cf222e;font-size:12px;padding:8px;">' + _('❌ Delete failed') + '</div>';
 		});
 	}
 });
