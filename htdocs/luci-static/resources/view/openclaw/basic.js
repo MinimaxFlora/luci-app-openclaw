@@ -2,9 +2,9 @@
 'require view';
 'require ui';
 'require dom';
+'require openclaw.api as api';
+'require openclaw.common as oc';
 
-const api = require('openclaw.api');
-const oc = require('openclaw.common');
 
 /*
  * 基本设置 (迁移自 luasrc/model/cbi/openclaw/basic.lua + luasrc/view/openclaw/status.htm)

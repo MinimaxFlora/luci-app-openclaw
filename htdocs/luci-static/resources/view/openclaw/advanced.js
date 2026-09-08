@@ -1,9 +1,9 @@
 'use strict';
 'require view';
 'require dom';
+'require openclaw.api as api';
+'require openclaw.common as oc';
 
-const api = require('openclaw.api');
-const oc = require('openclaw.common');
 
 /*
  * 终端配置 / 配置管理 (迁移自 luasrc/view/openclaw/advanced.htm)

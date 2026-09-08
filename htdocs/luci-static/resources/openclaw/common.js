@@ -1,10 +1,12 @@
 'use strict';
+'require baseclass';
 
 /**
  * openclaw.common — shared UI helpers for the OpenClaw views.
  * Every helper is ported 1:1 from the legacy pages (status.htm / basic.lua /
  * wechat.htm / console.htm / advanced.htm) so rendering & behavior match.
  */
+return baseclass.extend((function() {
 const common = {};
 
 /** HTML escaping (console.htm / advanced.htm escapeHtml) */
@@ -207,3 +209,4 @@ common.$ = function(id) {
 };
 
 return common;
+})());

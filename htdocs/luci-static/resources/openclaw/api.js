@@ -1,4 +1,5 @@
 'use strict';
+'require baseclass';
 'require rpc';
 
 /**
@@ -10,6 +11,7 @@
  *
  * ubus argument order = the order declared below per method.
  */
+return baseclass.extend((function() {
 const api = {};
 
 api.status          = rpc.declare({ object: 'openclaw', method: 'status', params: {} });
@@ -58,3 +60,4 @@ api.service = {
 };
 
 return api;
+})());

@@ -1,9 +1,9 @@
 'use strict';
 'require view';
 'require dom';
+'require openclaw.api as api';
+'require openclaw.common as oc';
 
-const api = require('openclaw.api');
-const oc = require('openclaw.common');
 
 /*
  * 微信渠道配置 (迁移自 luasrc/view/openclaw/wechat.htm)
