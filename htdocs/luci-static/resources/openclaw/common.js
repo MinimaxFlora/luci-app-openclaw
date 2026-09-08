@@ -161,28 +161,28 @@ common.analyzeFailure = function(log) {
 	if (ll.indexOf('could not resolve') >= 0 || ll.indexOf('connection timed out') >= 0 ||
 	    (ll.indexOf('curl') >= 0 && ll.indexOf('fail') >= 0) ||
 	    (ll.indexOf('wget') >= 0 && ll.indexOf('fail') >= 0) || ll.indexOf('所有镜像均下载失败') >= 0)
-		reasons.push('🌐 ' + '<b>' + _('Network connection failed') + '</b>' + _(' — unable to download Node.js. Make sure the router can reach the internet.') + '<br/>' + _('&nbsp;&nbsp;💡 Fix: check DNS settings and connectivity, or point to a mirror manually: ') + '<code>' + 'NODE_MIRROR=https://npmmirror.com/mirrors/node openclaw-env setup' + '</code>');
+		reasons.push('🌐 ' + '<b>' + _('Network connection failed') + '</b>' + _(' — unable to download Node.js. Make sure the router can reach the internet.') + '<br/>' + '&nbsp;&nbsp;' + _('💡 Fix: check DNS settings and connectivity, or point to a mirror manually: ') + '<code>' + 'NODE_MIRROR=https://npmmirror.com/mirrors/node openclaw-env setup' + '</code>');
 
 	if (ll.indexOf('no space') >= 0 || ll.indexOf('disk full') >= 0 || ll.indexOf('enospc') >= 0)
-		reasons.push('💾 ' + '<b>' + _('Not enough disk space') + '</b>' + _(' — Node.js + OpenClaw need roughly 200 MB.') + '<br/>' + _('&nbsp;&nbsp;💡 Fix: run ') + '<code>' + 'df -h' + '</code>' + _(' to check free space, then remove unneeded files or use external storage.'));
+		reasons.push('💾 ' + '<b>' + _('Not enough disk space') + '</b>' + _(' — Node.js + OpenClaw need roughly 200 MB.') + '<br/>' + '&nbsp;&nbsp;' + _('💡 Fix: run ') + '<code>' + 'df -h' + '</code>' + _(' to check free space, then remove unneeded files or use external storage.'));
 
 	if (ll.indexOf('不支持的 cpu 架构') >= 0 || ll.indexOf('不支持的架构') >= 0)
-		reasons.push('🔧 ' + '<b>' + _('Unsupported CPU architecture') + '</b>' + _(' — only x86_64 and aarch64 (ARM64) are supported.') + '<br/>' + _('&nbsp;&nbsp;💡 The device is likely 32-bit ARM or MIPS, which cannot run Node.js 22.'));
+		reasons.push('🔧 ' + '<b>' + _('Unsupported CPU architecture') + '</b>' + _(' — only x86_64 and aarch64 (ARM64) are supported.') + '<br/>' + '&nbsp;&nbsp;' + _('💡 The device is likely 32-bit ARM or MIPS, which cannot run Node.js 22.'));
 
 	if ((ll.indexOf('npm err') >= 0 || (ll.indexOf('npm warn') >= 0 && ll.indexOf('openclaw 安装验证失败') >= 0)))
-		reasons.push('📦 ' + '<b>' + _('npm failed to install OpenClaw') + '</b>' + _(' — downloading or installing the npm package failed.') + '<br/>' + _('&nbsp;&nbsp;💡 Fix: try ') + '<code>' + 'openclaw-env setup' + '</code>' + _(' manually or check the network connection.'));
+		reasons.push('📦 ' + '<b>' + _('npm failed to install OpenClaw') + '</b>' + _(' — downloading or installing the npm package failed.') + '<br/>' + '&nbsp;&nbsp;' + _('💡 Fix: try ') + '<code>' + 'openclaw-env setup' + '</code>' + _(' manually or check the network connection.'));
 
 	if (ll.indexOf('permission denied') >= 0 || ll.indexOf('eacces') >= 0)
-		reasons.push('🔒 ' + '<b>' + _('Permission denied') + '</b>' + _(' — file or directory permission problem.') + '<br/>' + _('&nbsp;&nbsp;💡 Fix: run ') + '<code>' + 'openclaw-env setup' + '</code>' + _(' or retry as root.'));
+		reasons.push('🔒 ' + '<b>' + _('Permission denied') + '</b>' + _(' — file or directory permission problem.') + '<br/>' + '&nbsp;&nbsp;' + _('💡 Fix: run ') + '<code>' + 'openclaw-env setup' + '</code>' + _(' or retry as root.'));
 
 	if (ll.indexOf('tar') >= 0 && (ll.indexOf('error') >= 0 || ll.indexOf('fail') >= 0))
-		reasons.push('📂 ' + '<b>' + _('Extraction failed') + '</b>' + _(' — the Node.js package may have downloaded incompletely.') + '<br/>' + _('&nbsp;&nbsp;💡 Fix: clear the cache and retry ') + '<code>' + 'openclaw-env setup' + '</code>');
+		reasons.push('📂 ' + '<b>' + _('Extraction failed') + '</b>' + _(' — the Node.js package may have downloaded incompletely.') + '<br/>' + '&nbsp;&nbsp;' + _('💡 Fix: clear the cache and retry ') + '<code>' + 'openclaw-env setup' + '</code>');
 
 	if (ll.indexOf('安装验证失败') >= 0)
-		reasons.push('⚠️ ' + '<b>' + _('Install verification failed') + '</b>' + _(' — the program was downloaded but cannot run.') + '<br/>' + _('&nbsp;&nbsp;💡 Possibly a glibc/musl mismatch; check the C library type: ') + '<code>' + 'ldd --version 2>&1 | head -1' + '</code>');
+		reasons.push('⚠️ ' + '<b>' + _('Install verification failed') + '</b>' + _(' — the program was downloaded but cannot run.') + '<br/>' + '&nbsp;&nbsp;' + _('💡 Possibly a glibc/musl mismatch; check the C library type: ') + '<code>' + 'ldd --version 2>&1 | head -1' + '</code>');
 
 	if (reasons.length === 0)
-		reasons.push('⚠️ ' + '<b>' + _('Unrecognized error') + '</b>' + _(' — review the full log above for the actual cause.') + '<br/>' + _('&nbsp;&nbsp;💡 You can also run ') + '<code>' + 'openclaw-env setup' + '</code>' + _(' manually for detailed output.'));
+		reasons.push('⚠️ ' + '<b>' + _('Unrecognized error') + '</b>' + _(' — review the full log above for the actual cause.') + '<br/>' + '&nbsp;&nbsp;' + _('💡 You can also run ') + '<code>' + 'openclaw-env setup' + '</code>' + _(' manually for detailed output.'));
 
 	return reasons.join('<br/><br/>');
 };

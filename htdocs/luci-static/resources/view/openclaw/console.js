@@ -297,7 +297,7 @@ return view.extend({
 					var rid = oc.escapeHtml(item.requestId || '');
 					html += '<div style="background:#fff;border:1px solid #e1e4e8;border-radius:4px;padding:6px 10px;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">' +
 						'<div><strong>IP:</strong> ' + ip + ' | ' + '<strong>' + _('Client:') + '</strong>' + ' ' + client + (plat ? ' (' + plat + ')' : '') + ' <br/><span style="color:#888;font-size:11px;">ID: ' + rid + '</span></div>' +
-						'<button type="button" class="btn-action btn-approve-single" data-rid="' + rid + _('" style="font-size:12px;padding:3px 10px;background:#f6ffed;border-color:#b7eb8f;color:#389e0d;cursor:pointer;">Approve pairing') + '</button>' +
+						'<button type="button" class="btn-action btn-approve-single" data-rid="' + rid + '" style="font-size:12px;padding:3px 10px;background:#f6ffed;border-color:#b7eb8f;color:#389e0d;cursor:pointer;">' + _('Approve pairing') + '</button>' +
 						'</div>';
 				}
 				self.pairingItems.innerHTML = html;

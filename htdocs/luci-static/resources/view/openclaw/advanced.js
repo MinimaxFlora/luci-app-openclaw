@@ -139,7 +139,7 @@ return view.extend({
 					var rid = oc.escapeHtml(item.requestId || '');
 					html += '<div style="background:#fff;border:1px solid #e1e4e8;border-radius:4px;padding:6px 10px;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">' +
 						'<div><strong>IP:</strong> ' + ip + ' | ' + '<strong>' + _('Client:') + '</strong>' + ' ' + client + (plat ? ' (' + plat + ')' : '') + ' <br/><span style="color:#888;font-size:11px;">ID: ' + rid + '</span></div>' +
-						'<button type="button" class="btn-adv-approve-single" data-rid="' + rid + _('" style="font-size:12px;padding:3px 10px;background:#f6ffed;border:1px solid #b7eb8f;color:#389e0d;border-radius:4px;cursor:pointer;">Approve pairing') + '</button>' +
+						'<button type="button" class="btn-adv-approve-single" data-rid="' + rid + '" style="font-size:12px;padding:3px 10px;background:#f6ffed;border:1px solid #b7eb8f;color:#389e0d;border-radius:4px;cursor:pointer;">' + _('Approve pairing') + '</button>' +
 						'</div>';
 				}
 				self.advPairingItems.innerHTML = html;
@@ -230,7 +230,7 @@ return view.extend({
 				'<div style="font-size:13px;color:#828997;max-width:560px;margin:0 auto 20px;line-height:1.6;">' +
 				_('The terminal service is ready on port ') + this.ptyPort + _(' and fully ready. Open the interactive terminal in a new window with the button below — the auth token is bound automatically.') +
 				'</div>' +
-				'<a href="' + this.targetUrl + _('" target="_blank" rel="noopener" style="display:inline-block;padding:9px 24px;background:#4a90d9;color:#fff;border-radius:6px;text-decoration:none;font-weight:500;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,0.3);">Open the terminal in a new window now') + '</a>' +
+				'<a href="' + this.targetUrl + '" target="_blank" rel="noopener" style="display:inline-block;padding:9px 24px;background:#4a90d9;color:#fff;border-radius:6px;text-decoration:none;font-weight:500;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,0.3);">' + _('Open the terminal in a new window now') + '</a>' +
 				'<div style="margin-top:16px;font-size:12px;color:#5c6370;">' + _('Tip: you can also log into the LuCI web UI over HTTP (http://') + window.location.hostname + _(') and use the embedded terminal right here.') + '</div>' +
 				'</div>';
 			return;

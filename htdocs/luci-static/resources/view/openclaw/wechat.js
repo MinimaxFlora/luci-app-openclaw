@@ -101,7 +101,7 @@ return view.extend({
 			/* 安装进度对话框 */
 			'<div class="oc-modal-overlay" id="oc-install-modal">' +
 			'<div class="oc-modal">' +
-			'<div class="oc-modal-header">' + '<h3 id="oc-install-title">' + _('📦 Install WeChat Plugin') + '</h3>' + '<button class="oc-modal-close" type="button" data-close="oc-install-modal">' + _('&times;') + '</button>' + '</div>' +
+			'<div class="oc-modal-header">' + '<h3 id="oc-install-title">' + _('📦 Install WeChat Plugin') + '</h3>' + '<button class="oc-modal-close" type="button" data-close="oc-install-modal">' + '&times;' + '</button>' + '</div>' +
 			'<div class="oc-modal-body">' +
 			'<div id="oc-install-progress">' + '<div class="oc-progress-box">' + '<span class="oc-progress-spinner">' + '</span>' + '<span>' + _('Installing, please wait...') + '</span>' + '</div>' + '<pre id="oc-install-log">' + '</pre>' + '<div id="oc-install-qrcode-link" style="display:none;margin:10px 0;text-align:center;">' + '</div>' + '</div>' +
 			'<div id="oc-install-result" style="display:none;"></div>' +
@@ -109,7 +109,7 @@ return view.extend({
 			/* 登录二维码对话框 */
 			'<div class="oc-modal-overlay" id="oc-login-modal">' +
 			'<div class="oc-modal">' +
-			'<div class="oc-modal-header">' + '<h3>' + _('📱 WeChat QR Login') + '</h3>' + '<button class="oc-modal-close" type="button" data-close="oc-login-modal">' + _('&times;') + '</button>' + '</div>' +
+			'<div class="oc-modal-header">' + '<h3>' + _('📱 WeChat QR Login') + '</h3>' + '<button class="oc-modal-close" type="button" data-close="oc-login-modal">' + '&times;' + '</button>' + '</div>' +
 			'<div class="oc-modal-body">' +
 			'<div id="oc-login-progress">' + '<div class="oc-progress-box">' + '<span class="oc-progress-spinner">' + '</span>' + '<span>' + _('Fetching the login QR code...') + '</span>' + '</div>' + '</div>' +
 			'<div id="oc-login-qrcode" style="display:none;"></div>' +
@@ -118,7 +118,7 @@ return view.extend({
 			/* 升级检测对话框 */
 			'<div class="oc-modal-overlay" id="oc-upgrade-modal">' +
 			'<div class="oc-modal">' +
-			'<div class="oc-modal-header">' + '<h3>' + _('🔍 Check Plugin Upgrade') + '</h3>' + '<button class="oc-modal-close" type="button" data-close="oc-upgrade-modal">' + _('&times;') + '</button>' + '</div>' +
+			'<div class="oc-modal-header">' + '<h3>' + _('🔍 Check Plugin Upgrade') + '</h3>' + '<button class="oc-modal-close" type="button" data-close="oc-upgrade-modal">' + '&times;' + '</button>' + '</div>' +
 			'<div class="oc-modal-body">' +
 			'<div id="oc-upgrade-progress">' + '<div class="oc-progress-box">' + '<span class="oc-progress-spinner">' + '</span>' + '<span>' + _('Checking for updates...') + '</span>' + '</div>' + '</div>' +
 			'<div id="oc-upgrade-result" style="display:none;"></div>' +
@@ -231,7 +231,7 @@ return view.extend({
 				for (var i = 0; i < d.accounts.length; i++) {
 					accHtml += '<li style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;padding:6px;background:#fafafa;border-radius:4px;">' +
 						'<span style="font-size:13px;color:#555;">👤 ' + oc.escapeHtml(d.accounts[i].name) + '</span>' +
-						'<button class="oc-copy-btn" style="color:#cf222e;border-color:#cf222e;" data-oc-logout="' + oc.escapeHtml(d.accounts[i].name) + _('">Log out') + '</button>' +
+						'<button class="oc-copy-btn" style="color:#cf222e;border-color:#cf222e;" data-oc-logout="' + oc.escapeHtml(d.accounts[i].name) + '">' + _('Log out') + '</button>' +
 						'</li>';
 				}
 				accHtml += '</ul>' + '<div style="text-align:right;margin-top:8px;">' + '<button class="btn cbi-button" type="button" data-oc-login-qrcode>' + _('➕ Add New Account') + '</button>' + '</div>';
@@ -319,7 +319,7 @@ return view.extend({
 				if (linkUrl) {
 					var linkContainer = oc.$('oc-install-qrcode-link');
 					linkContainer.style.display = 'block';
-					linkContainer.innerHTML = '<a href="' + oc.escapeHtml(linkUrl) + _('" target="_blank" rel="noopener noreferrer" class="oc-qrcode-link-btn" style="padding:10px 20px;font-size:14px;margin:0;">🔗 Open the link, then scan it with WeChat') + '</a>';
+					linkContainer.innerHTML = '<a href="' + oc.escapeHtml(linkUrl) + '" target="_blank" rel="noopener noreferrer" class="oc-qrcode-link-btn" style="padding:10px 20px;font-size:14px;margin:0;">' + _('🔗 Open the link, then scan it with WeChat') + '</a>';
 				}
 
 				logEl.textContent = cleanLog;
@@ -450,9 +450,9 @@ return view.extend({
 				var safeUrl = oc.escapeHtml(d.qrcode_url);
 				qrcodeEl.innerHTML = '<div class="oc-qrcode-box">' +
 					statusMessage +
-					'<a href="' + safeUrl + _('" target="_blank" rel="noopener noreferrer" class="oc-qrcode-link-btn" style="font-size:16px;">🔗 Open the link, then scan it with WeChat') + '</a>' +
+					'<a href="' + safeUrl + '" target="_blank" rel="noopener noreferrer" class="oc-qrcode-link-btn" style="font-size:16px;">' + _('🔗 Open the link, then scan it with WeChat') + '</a>' +
 					'<p class="oc-qrcode-copy-link">' + _('Or copy the link: ') + '<code>' + safeUrl + '</code>' +
-					'<button class="oc-copy-btn" data-oc-copy="' + safeUrl.replace(/"/g, '&quot;') + _('">Copy') + '</button>' + '</p>' +
+					'<button class="oc-copy-btn" data-oc-copy="' + safeUrl.replace(/"/g, '&quot;') + '">' + _('Copy') + '</button>' + '</p>' +
 					'</div>';
 				self.wireCopyButtons(qrcodeEl);
 				self.loginPollTimer = setTimeout(function() { self.pollLoginStatus(); }, 2000);
@@ -466,9 +466,9 @@ return view.extend({
 						var safeUrl2 = oc.escapeHtml(extractedUrl);
 						qrcodeEl.innerHTML = '<div class="oc-qrcode-box">' +
 							statusMessage +
-							'<a href="' + safeUrl2 + _('" target="_blank" rel="noopener noreferrer" class="oc-qrcode-link-btn" style="font-size:16px;">🔗 Open the link, then scan it with WeChat') + '</a>' +
+							'<a href="' + safeUrl2 + '" target="_blank" rel="noopener noreferrer" class="oc-qrcode-link-btn" style="font-size:16px;">' + _('🔗 Open the link, then scan it with WeChat') + '</a>' +
 							'<p class="oc-qrcode-copy-link">' + _('Or copy the link: ') + '<code>' + safeUrl2 + '</code>' +
-							'<button class="oc-copy-btn" data-oc-copy="' + safeUrl2.replace(/"/g, '&quot;') + _('">Copy') + '</button>' + '</p>' +
+							'<button class="oc-copy-btn" data-oc-copy="' + safeUrl2.replace(/"/g, '&quot;') + '">' + _('Copy') + '</button>' + '</p>' +
 							'</div>';
 						self.wireCopyButtons(qrcodeEl);
 					}
@@ -603,7 +603,7 @@ return view.extend({
 						var linkContainer = oc.$('oc-upgrade-qrcode-link');
 						if (linkContainer) {
 							linkContainer.style.display = 'block';
-							linkContainer.innerHTML = '<a href="' + oc.escapeHtml(linkUrl) + _('" target="_blank" rel="noopener noreferrer" class="oc-qrcode-link-btn" style="padding:10px 20px;font-size:14px;margin:0;">🔗 Open the link, then scan it with WeChat') + '</a>';
+							linkContainer.innerHTML = '<a href="' + oc.escapeHtml(linkUrl) + '" target="_blank" rel="noopener noreferrer" class="oc-qrcode-link-btn" style="padding:10px 20px;font-size:14px;margin:0;">' + _('🔗 Open the link, then scan it with WeChat') + '</a>';
 						}
 					}
 					logEl.textContent = cleanLog;

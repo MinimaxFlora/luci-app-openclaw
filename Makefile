@@ -18,10 +18,9 @@ PKG_NAME:=luci-app-openclaw
 PKG_VERSION:=$(strip $(shell cat $(CURDIR)/VERSION 2>/dev/null || echo "1.0.0"))
 PKG_RELEASE:=1
 
-PKG_MAINTAINER:=10000ge10000 <10000ge10000@users.noreply.github.com>
 PKG_LICENSE:=GPL-3.0
 
-# luci.mk 默认 URL/MAINTAINER 指向 OpenWrt 官方, 这里覆盖为本项目作者
+# luci.mk 读取 LUCI_MAINTAINER/LUCI_URL (默认指向 OpenWrt 官方), 这里覆盖为本项目作者
 LUCI_URL:=https://github.com/10000ge10000/luci-app-openclaw
 LUCI_MAINTAINER:=10000ge10000 <10000ge10000@users.noreply.github.com>
 

@@ -843,8 +843,8 @@ return view.extend({
 						'<td style="padding:7px 8px;color:#555;white-space:nowrap;">' + oc.escapeHtml(b.time) + '</td>' +
 						'<td style="padding:7px 8px;text-align:right;color:#666;white-space:nowrap;">' + oc.escapeHtml(b.size_str) + '</td>' +
 						'<td style="padding:5px 8px;text-align:center;white-space:nowrap;">' +
-						'<button class="btn cbi-button cbi-button-action" style="font-size:11px;padding:1px 8px;margin-right:4px;" data-act="restore" data-file="' + oc.escapeHtml(b.filename) + _('">Restore') + '</button>' +
-						'<button class="btn cbi-button cbi-button-remove" style="font-size:11px;padding:1px 8px;" data-act="delete" data-file="' + oc.escapeHtml(b.filename) + _('">Delete') + '</button>' +
+						'<button class="btn cbi-button cbi-button-action" style="font-size:11px;padding:1px 8px;margin-right:4px;" data-act="restore" data-file="' + oc.escapeHtml(b.filename) + '">' + _('Restore') + '</button>' +
+						'<button class="btn cbi-button cbi-button-remove" style="font-size:11px;padding:1px 8px;" data-act="delete" data-file="' + oc.escapeHtml(b.filename) + '">' + _('Delete') + '</button>' +
 						'</td></tr>';
 				}
 				h += '</table>';
