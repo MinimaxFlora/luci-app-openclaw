@@ -77,16 +77,12 @@ jobs:
           chmod +x scripts/build_run.sh
           sh scripts/build_run.sh dist
 
-      - name: Build .ipk package
-        run: |
-          chmod +x scripts/build_ipk.sh
-          sh scripts/build_ipk.sh dist
-
-      # ── OpenWrt 25.x (apk 包管理) 产物 ──────────────────────────────
-      # OpenWrt main SDK 自 25.x 起以 apk 作为默认包格式 (ZeroWrt 25.x 等
-      # apk-only 固件无 opkg)。仓库根目录即包目录, 先复制为 sdk 需要的
-      # <feed>/luci-app-openclaw 子目录布局, 再用 gh-action-sdk 编译出
-      # .apk (luci.mk 自动生成主包 + luci-i18n-openclaw-zh-cn)。
+      # ── OpenWrt SDK 编译 (.ipk + .apk, 均经 luci.mk) ──────────────
+      # .ipk 与 .apk 统一走 OpenWrt SDK, 与固件集成编译同一条路径
+      # (取代手写 build_ipk.sh): .ipk 用 opkg 时代 SDK (24.10),
+      # .apk 用 main SDK (25.x 起 apk 包管理, ZeroWrt 25.x 等 apk-only)。
+      # 仓库根目录即包目录, 先复制为 SDK 需要的 <feed>/luci-app-openclaw
+      # 子目录布局; gh-action-sdk 经 luci.mk 编译主包 + luci-i18n 包。
       - name: Prepare SDK feed layout
         run: |
           rm -rf sdkfeed
@@ -94,7 +90,25 @@ jobs:
           tar --exclude='./.git' --exclude='./dist' --exclude='./sdkfeed' -cf - . | tar -xf - -C sdkfeed/luci-app-openclaw
           ls sdkfeed/luci-app-openclaw/Makefile
 
-      - name: Build .apk packages (OpenWrt main SDK)
+      - name: Build .ipk packages (OpenWrt 24.10 SDK, opkg)
+        uses: openwrt/gh-action-sdk@v11
+        env:
+          CONTAINER: ghcr.io/openwrt/sdk
+          ARCH: x86_64-24.10.1
+          PACKAGES: luci-app-openclaw luci-i18n-openclaw-zh-cn
+          FEED_DIR: ${{ github.workspace }}/sdkfeed
+          BUILD_LOG: '1'
+          INDEX: '0'
+
+      - name: Collect .ipk artifacts
+        run: |
+          mkdir -p dist
+          echo "=== built .ipk files ==="
+          find bin/ -type f -name '*.ipk' 2>/dev/null | sort || true
+          find bin/ -type f -name '*.ipk' -exec cp -v {} dist/ \; 2>/dev/null || true
+          rm -rf bin
+
+      - name: Build .apk packages (OpenWrt main SDK, apk)
         uses: openwrt/gh-action-sdk@v11
         env:
           CONTAINER: ghcr.io/openwrt/sdk
@@ -110,6 +124,7 @@ jobs:
           echo "=== built .apk files ==="
           find bin/ -type f -name '*.apk' 2>/dev/null | sort || true
           find bin/ -type f -name '*.apk' -exec cp -v {} dist/ \; 2>/dev/null || true
+          rm -rf bin
 
       - name: Build .apk .run installer
         run: |
@@ -192,8 +207,10 @@ jobs:
             # iStoreOS
             sh luci-app-openclaw_${{ steps.version.outputs.version }}.run
 
-            # OpenWrt
+            # OpenWrt (opkg, SDK 编译 luci.mk)
             opkg install luci-app-openclaw_${{ steps.version.outputs.version }}-1_all.ipk
+            # 中文翻译包 (独立 ipk, 含 lmo)
+            opkg install luci-i18n-openclaw-zh-cn_${{ steps.version.outputs.version }}-1_all.ipk
             ```
 
             **OpenWrt 25.x / ZeroWrt 25.x (apk 包管理, 无 opkg)**
