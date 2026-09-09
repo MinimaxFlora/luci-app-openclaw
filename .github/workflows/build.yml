@@ -82,6 +82,41 @@ jobs:
           chmod +x scripts/build_ipk.sh
           sh scripts/build_ipk.sh dist
 
+      # ── OpenWrt 25.x (apk 包管理) 产物 ──────────────────────────────
+      # OpenWrt main SDK 自 25.x 起以 apk 作为默认包格式 (ZeroWrt 25.x 等
+      # apk-only 固件无 opkg)。仓库根目录即包目录, 先复制为 sdk 需要的
+      # <feed>/luci-app-openclaw 子目录布局, 再用 gh-action-sdk 编译出
+      # .apk (luci.mk 自动生成主包 + luci-i18n-openclaw-zh-cn)。
+      - name: Prepare SDK feed layout
+        run: |
+          rm -rf sdkfeed
+          mkdir -p sdkfeed/luci-app-openclaw
+          tar --exclude='./.git' --exclude='./dist' --exclude='./sdkfeed' -cf - . | tar -xf - -C sdkfeed/luci-app-openclaw
+          ls sdkfeed/luci-app-openclaw/Makefile
+
+      - name: Build .apk packages (OpenWrt main SDK)
+        uses: openwrt/gh-action-sdk@v11
+        env:
+          CONTAINER: ghcr.io/openwrt/sdk
+          ARCH: x86_64-main
+          PACKAGES: luci-app-openclaw luci-i18n-openclaw-zh-cn
+          FEED_DIR: ${{ github.workspace }}/sdkfeed
+          BUILD_LOG: '1'
+          INDEX: '0'
+
+      - name: Collect .apk artifacts
+        run: |
+          mkdir -p dist
+          echo "=== built .apk files ==="
+          find bin/ -type f -name '*.apk' 2>/dev/null | sort || true
+          find bin/ -type f -name '*.apk' -exec cp -v {} dist/ \; 2>/dev/null || true
+
+      - name: Build .apk .run installer
+        run: |
+          chmod +x scripts/build_run_apk.sh
+          ls -lh dist/*.apk
+          sh scripts/build_run_apk.sh dist
+
       - name: Set up QEMU for ARM64 Node.js
         uses: docker/setup-qemu-action@v3
         with:
@@ -106,7 +141,7 @@ jobs:
           ls -lh dist/
           echo ""
           echo "=== SHA256 checksums ==="
-          sha256sum dist/*.run dist/*.ipk dist/*.tar.xz 2>/dev/null || true
+          sha256sum dist/*.run dist/*.ipk dist/*.apk dist/*.tar.xz 2>/dev/null || true
 
       - name: Extract changelog
         id: changelog
@@ -129,6 +164,7 @@ jobs:
           path: |
             dist/*.run
             dist/*.ipk
+            dist/*.apk
             dist/*.tar.xz
           retention-days: 30
           compression-level: 0
@@ -142,6 +178,7 @@ jobs:
           files: |
             dist/*.run
             dist/*.ipk
+            dist/*.apk
             dist/*.tar.xz
           draft: false
           prerelease: false
@@ -157,6 +194,16 @@ jobs:
 
             # OpenWrt
             opkg install luci-app-openclaw_${{ steps.version.outputs.version }}-1_all.ipk
+            ```
+
+            **OpenWrt 25.x / ZeroWrt 25.x (apk 包管理, 无 opkg)**
+
+            ```bash
+            # 一键包 (推荐, 内嵌 .apk 并通过 apk 安装)
+            sh luci-app-openclaw_${{ steps.version.outputs.version }}_apk.run
+
+            # 或手动安装 SDK 构建的 .apk (主包 + 中文翻译)
+            apk add --allow-untrusted luci-app-openclaw_${{ steps.version.outputs.version }}-r1_all.apk luci-i18n-openclaw-zh-cn_${{ steps.version.outputs.version }}-r1_all.apk
             ```
 
             [使用文档](https://github.com/10000ge10000/luci-app-openclaw#readme) · [问题反馈](https://github.com/10000ge10000/luci-app-openclaw/issues) · [B站](https://space.bilibili.com/59438380) · [博客](https://blog.910501.xyz/)

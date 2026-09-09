@@ -19,7 +19,8 @@
 |------|------|
 | 架构 | x86_64 或 aarch64 (ARM64) |
 | C 库 | musl（自动检测；离线包仅支持 musl） |
-| 依赖 | luci-compat, luci-base, curl, openssl-util, tar, script-utils |
+| 依赖 | luci-compat, luci-base, curl, openssl-util, tar, script-utils, coreutils-stty |
+| 包管理 | opkg（OpenWrt ≤24.x / iStoreOS）或 apk（OpenWrt 25.x / ZeroWrt 25.x，apk-only 固件无 opkg） |
 | 存储 | **2GB 以上可用空间** |
 | 内存 | 推荐 1GB 及以上 |
 
@@ -38,9 +39,9 @@
 
 ## 📦 安装
 
-### 方式一：.run 自解压包（推荐）
+### 方式一：.run 自解压包（推荐，opkg 固件）
 
-无需 SDK，适用于已安装好的系统。
+无需 SDK，适用于 iStoreOS / OpenWrt（opkg 包管理）等已安装好的系统。
 
 ```bash
 # 下载最新版本（自动获取版本号）
@@ -49,7 +50,25 @@ wget "https://github.com/10000ge10000/luci-app-openclaw/releases/download/v${VER
 sh "luci-app-openclaw_${VER}.run"
 ```
 
-### 方式二：.ipk 安装
+### 方式二：.apk 安装（OpenWrt 25.x / ZeroWrt 25.x，apk 包管理）
+
+OpenWrt 25.x 起改用 apk 包管理（ZeroWrt 25.x 等为 apk-only，无 opkg），
+Release 附 SDK 编译的 `.apk` 与内嵌 .apk 的一键包：
+
+```bash
+VER=$(curl -sI "https://github.com/10000ge10000/luci-app-openclaw/releases/latest" 2>/dev/null | grep -i "location:" | sed 's/.*tag\/v\{0,1\}//' | tr -d '\r\n')
+
+# 一键包（内嵌 .apk，通过 apk 安装并自动解析依赖）
+wget "https://github.com/10000ge10000/luci-app-openclaw/releases/download/v${VER}/luci-app-openclaw_${VER}_apk.run"
+sh "luci-app-openclaw_${VER}_apk.run"
+
+# 或手动安装（主包 + 中文翻译，二者均为 luci.mk 产物）
+wget "https://github.com/10000ge10000/luci-app-openclaw/releases/download/v${VER}/luci-app-openclaw_${VER}-r1_all.apk"
+wget "https://github.com/10000ge10000/luci-app-openclaw/releases/download/v${VER}/luci-i18n-openclaw-zh-cn_${VER}-r1_all.apk"
+apk add --allow-untrusted luci-app-openclaw_${VER}-r1_all.apk luci-i18n-openclaw-zh-cn_${VER}-r1_all.apk
+```
+
+### 方式三：.ipk 安装（opkg 固件）
 
 ```bash
 # 下载最新版本（自动获取版本号）
@@ -58,7 +77,7 @@ wget "https://github.com/10000ge10000/luci-app-openclaw/releases/download/v${VER
 opkg install "luci-app-openclaw_${VER}-1_all.ipk"
 ```
 
-### 方式三：集成到固件编译
+### 方式四：集成到固件编译
 
 适用于自行编译固件或使用在线编译平台的用户。
 
@@ -164,7 +183,7 @@ opkg install python3-light
 - 配置管理界面依赖 `oc-config-interactive.js`；若该文件缺失（例如自行裁剪打包清单），
   界面会静默回落到功能较少的传统数字菜单。`tests/test_packaging_parity.sh` 会校验
   三条打包路径的文件清单一致性。
-- 当前仓库提供源码、OpenWrt feeds 集成方式、本地 `.run` / `.ipk` 构建脚本入口；推送 `v*` 标签后 CI 会自动构建并发布 Release 产物。
+- 当前仓库提供源码、OpenWrt feeds 集成方式、本地 `.run` / `.ipk` / `.apk` 构建脚本入口；推送 `v*` 标签后 CI 会自动构建并发布 Release 产物（opkg 版 `.run`/`.ipk` 与 OpenWrt 25.x 版 `.apk`/`_apk.run`）。
 
 ## 📂 目录结构
 
@@ -196,8 +215,9 @@ luci-app-openclaw/
 │           ├── web-pty.js            # Web PTY 服务
 │           └── ui/                   # 配置终端前端资源
 ├── scripts/
-│   ├── build_ipk.sh                  # 本地 IPK 构建
-│   ├── build_run.sh                  # .run 安装包构建
+│   ├── build_ipk.sh                  # 本地 IPK 构建 (opkg)
+│   ├── build_run.sh                  # .run 安装包构建 (opkg 固件)
+│   ├── build_run_apk.sh              # .run 安装包构建 (apk 固件, 内嵌 .apk)
 │   ├── gen-release-body.sh           # Release 说明生成
 │   └── build-node-musl.sh            # 编译 Node.js musl 静态链接版本
 ├── tests/                            # 契约测试（sh tests/run_all.sh）
