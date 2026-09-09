@@ -17,34 +17,299 @@ on:
         type: boolean
         default: true
 
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   build:
-    name: Build packages
+    name: Build ${{ matrix.package_format }} packages
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - package_format: ipk
+            sdk_base_url: https://downloads.openwrt.org/releases/23.05.5/targets/x86/64
+            sdk_pattern: openwrt-sdk-23.05.5-x86-64_.*Linux-x86_64.tar.xz
+          - package_format: apk
+            sdk_base_url: https://downloads.openwrt.org/snapshots/targets/x86/64
+            sdk_pattern: openwrt-sdk-x86-64_.*Linux-x86_64.tar.zst
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve release version
+        id: version
+        run: |
+          # 版本真相源: 推送的 tag > 手动输入的 version > 仓库 VERSION 文件
+          if [ "${{ github.event_name }}" = "push" ] && [ -n "${GITHUB_REF_NAME}" ]; then
+            version="${GITHUB_REF_NAME#v}"
+          elif [ -n "${{ github.event.inputs.version }}" ]; then
+            version="${{ github.event.inputs.version }}"
+          elif [ -f VERSION ]; then
+            version="$(cat VERSION | tr -d '[:space:]')"
+          else
+            version="$(date -u +%Y.%m.%d)"
+          fi
+
+          if ! printf '%s' "${version}" | grep -Eq '^[0-9][0-9A-Za-z._~+-]*$'; then
+            echo "::error::'${version}' cannot be used as an OpenWrt package version."
+            echo "::error::Use a version tag like v2.4.3 or 2.4.3."
+            exit 1
+          fi
+
+          echo "version=${version}" >> "${GITHUB_OUTPUT}"
+          echo "tag=v${version}" >> "${GITHUB_OUTPUT}"
+          echo "Release version: ${version}"
+
+      - name: Run contract tests
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lua5.1
+          sh tests/run_all.sh
+
+      - name: Install build dependencies
+        run: |
+          sudo -E apt-get update
+          sudo -E apt-get install -y \
+            build-essential \
+            bison \
+            clang \
+            curl \
+            file \
+            flex \
+            g++ \
+            g++-multilib \
+            gawk \
+            gcc-multilib \
+            gettext \
+            git \
+            libncurses-dev \
+            libssl-dev \
+            python3 \
+            python3-setuptools \
+            python3-venv \
+            rsync \
+            unzip \
+            wget \
+            xz-utils \
+            zlib1g-dev \
+            zstd
+
+      - name: Inject version
+        run: |
+          echo "${{ steps.version.outputs.version }}" > VERSION
+          sed -i "s/^PKG_VERSION:=.*/PKG_VERSION:=${{ steps.version.outputs.version }}/" Makefile
+
+      - name: Resolve OpenWrt SDK metadata
+        id: sdk
+        env:
+          SDK_BASE_URL: ${{ matrix.sdk_base_url }}
+          SDK_PATTERN: ${{ matrix.sdk_pattern }}
+        run: |
+          sdk_line="$(
+            curl -fsSL "${SDK_BASE_URL}/sha256sums" |
+              grep -E "[[:space:]]+\\*?${SDK_PATTERN}$" |
+              head -n 1
+          )"
+
+          if [ -z "${sdk_line}" ]; then
+            echo "::error::Unable to find SDK matching '${SDK_PATTERN}' at ${SDK_BASE_URL}."
+            exit 1
+          fi
+
+          sdk_sha256="$(printf '%s\n' "${sdk_line}" | awk '{print $1}')"
+          sdk_file="$(printf '%s\n' "${sdk_line}" | awk '{print $2}' | sed 's/^\*//')"
+
+          echo "sdk_file=${sdk_file}" >> "${GITHUB_OUTPUT}"
+          echo "sdk_sha256=${sdk_sha256}" >> "${GITHUB_OUTPUT}"
+          echo "sdk_cache_key=openwrt-sdk-${{ matrix.package_format }}-${sdk_sha256}" >> "${GITHUB_OUTPUT}"
+
+      - name: Cache OpenWrt SDK archive
+        id: cache-sdk
+        uses: actions/cache@v4
+        with:
+          path: .cache/openwrt-sdk/${{ steps.sdk.outputs.sdk_file }}
+          key: ${{ steps.sdk.outputs.sdk_cache_key }}
+
+      - name: Download OpenWrt SDK
+        env:
+          SDK_BASE_URL: ${{ matrix.sdk_base_url }}
+          SDK_FILE: ${{ steps.sdk.outputs.sdk_file }}
+          SDK_SHA256: ${{ steps.sdk.outputs.sdk_sha256 }}
+        run: |
+          mkdir -p .cache/openwrt-sdk
+
+          if [ ! -f ".cache/openwrt-sdk/${SDK_FILE}" ]; then
+            curl -fL "${SDK_BASE_URL}/${SDK_FILE}" -o ".cache/openwrt-sdk/${SDK_FILE}"
+          fi
+
+          printf '%s  %s\n' "${SDK_SHA256}" ".cache/openwrt-sdk/${SDK_FILE}" | sha256sum -c -
+
+          mkdir -p sdk
+          case "${SDK_FILE}" in
+            *.tar.zst)
+              tar --zstd -xf ".cache/openwrt-sdk/${SDK_FILE}" -C sdk --strip-components=1
+              ;;
+            *.tar.xz)
+              tar -xJf ".cache/openwrt-sdk/${SDK_FILE}" -C sdk --strip-components=1
+              ;;
+            *)
+              echo "::error::Unsupported SDK archive: ${SDK_FILE}"
+              exit 1
+              ;;
+          esac
+
+      - name: Prepare OpenWrt feeds
+        working-directory: sdk
+        run: |
+          cp feeds.conf.default feeds.conf
+          ./scripts/feeds update -a
+          ./scripts/feeds install -a
+
+      - name: Prepare local packages
+        run: |
+          mkdir -p sdk/package
+
+          rsync -a --delete \
+            --exclude='.git' \
+            --exclude='sdk' \
+            --exclude='dist' \
+            --exclude='artifacts' \
+            --exclude='.cache' \
+            "${GITHUB_WORKSPACE}/" \
+            sdk/package/luci-app-openclaw/
+
+          sed -i -E "s/^(PKG_VERSION):=.*/\1:=${{ steps.version.outputs.version }}/" sdk/package/luci-app-openclaw/Makefile
+          sed -i -E "s/^(PKG_RELEASE):=.*/\1:=1/" sdk/package/luci-app-openclaw/Makefile
+
+      - name: Configure packages
+        working-directory: sdk
+        run: |
+          cat > .config <<'EOF'
+          CONFIG_ALL_NONSHARED=n
+          CONFIG_ALL_KMODS=n
+          CONFIG_ALL=n
+          CONFIG_AUTOREMOVE=n
+          CONFIG_LUCI_LANG_zh_Hans=y
+          CONFIG_PACKAGE_luci-app-openclaw=m
+          CONFIG_PACKAGE_luci-i18n-openclaw-zh-cn=m
+          EOF
+
+          sed -i 's/^[[:space:]]*//' .config
+          make defconfig
+
+      - name: Compile packages
+        working-directory: sdk
+        run: |
+          make package/luci-app-openclaw/clean package/luci-i18n-openclaw-zh-cn/clean
+          make package/luci-app-openclaw/compile -j"$(nproc)" V=s
+          make package/luci-i18n-openclaw-zh-cn/compile -j"$(nproc)" V=s
+
+      - name: Collect packages
+        env:
+          PACKAGE_FORMAT: ${{ matrix.package_format }}
+        run: |
+          mkdir -p "artifacts/${PACKAGE_FORMAT}"
+
+          # ipk: luci-app-openclaw_<ver>-r1_all.ipk (下划线+arch)
+          # apk: luci-app-openclaw-<ver>-r1.apk      (连字符, apk-tools v3)
+          find sdk/bin/packages -type f \
+            \( -name "luci-app-openclaw_*.ipk" \
+            -o -name "luci-i18n-openclaw-zh-cn_*.ipk" \
+            -o -name "luci-app-openclaw-*.apk" \
+            -o -name "luci-i18n-openclaw-zh-cn-*.apk" \) \
+            -exec cp -v {} "artifacts/${PACKAGE_FORMAT}/" \;
+
+          count="$(find "artifacts/${PACKAGE_FORMAT}" -maxdepth 1 -type f -name "luci-app-openclaw*.${PACKAGE_FORMAT}" | wc -l)"
+
+          if [ "${count}" -lt 1 ]; then
+            echo "::error::Missing expected packages for ${PACKAGE_FORMAT}."
+            find sdk/bin/packages -maxdepth 3 -type f | sort
+            find "artifacts/${PACKAGE_FORMAT}" -maxdepth 1 -type f -print
+            exit 1
+          fi
+
+          rm -rf sdk
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: packages-${{ matrix.package_format }}
+          path: artifacts/${{ matrix.package_format }}/*
+          if-no-files-found: error
+
+  run:
+    name: Build .run installers
+    runs-on: ubuntu-24.04
+    needs: build
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Determine version
+      - name: Resolve release version
         id: version
         run: |
-          INPUT_VER="${{ github.event.inputs.version }}"
           if [ "${{ github.event_name }}" = "push" ] && [ -n "${GITHUB_REF_NAME}" ]; then
-            VER="${GITHUB_REF_NAME#v}"
-          elif [ -n "$INPUT_VER" ]; then
-            VER="$INPUT_VER"
+            version="${GITHUB_REF_NAME#v}"
+          elif [ -n "${{ github.event.inputs.version }}" ]; then
+            version="${{ github.event.inputs.version }}"
           elif [ -f VERSION ]; then
-            VER="$(cat VERSION | tr -d '[:space:]')"
+            version="$(cat VERSION | tr -d '[:space:]')"
           else
-            VER="$(date -u +%Y.%m.%d)"
+            version="$(date -u +%Y.%m.%d)"
           fi
-          echo "version=$VER" >> "$GITHUB_OUTPUT"
-          echo "tag=v$VER" >> "$GITHUB_OUTPUT"
-          echo "Version: $VER"
+          echo "version=${version}" >> "${GITHUB_OUTPUT}"
+          echo "tag=v${version}" >> "${GITHUB_OUTPUT}"
 
-      - name: Extract build versions from source
+      - name: Inject version
+        run: echo "${{ steps.version.outputs.version }}" > VERSION
+
+      - name: Download package artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          pattern: packages-*
+          merge-multiple: true
+
+      - name: Build .run installer (opkg 固件)
+        run: |
+          chmod +x scripts/build_run.sh
+          sh scripts/build_run.sh dist
+
+      - name: Build .apk .run installer (apk 固件)
+        run: |
+          chmod +x scripts/build_run_apk.sh
+          ls -lh dist/*.apk
+          sh scripts/build_run_apk.sh dist
+
+      - name: Upload .run artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: packages-run
+          path: dist/*.run
+          if-no-files-found: error
+
+  node:
+    name: Build ARM64 musl Node.js
+    runs-on: ubuntu-24.04
+    needs: run
+
+    outputs:
+      node_version: ${{ steps.build_versions.outputs.node_version }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extract Node.js version from source
         id: build_versions
         run: |
           # 从 openclaw-env 中提取版本号 (唯一的版本真相源)
@@ -56,42 +321,7 @@ jobs:
           echo "Node.js: v${NODE_VER}"
           echo "OpenClaw: v${OC_VER}"
 
-      - name: Inject version
-        run: |
-          VER="${{ steps.version.outputs.version }}"
-          echo "$VER" > VERSION
-          # 同步到 Makefile
-          sed -i "s/^PKG_VERSION:=.*/PKG_VERSION:=$VER/" Makefile
-
-      - name: Run contract tests
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq lua5.1
-          # 用 runner 统一执行 tests/ 下全部测试。
-          sh tests/run_all.sh
-
-      - name: Build .run installer (opkg 固件)
-        run: |
-          chmod +x scripts/build_run.sh
-          sh scripts/build_run.sh dist
-
-      - name: Build .ipk package
-        run: |
-          chmod +x scripts/build_ipk.sh
-          sh scripts/build_ipk.sh dist
-
-      - name: Build .apk package (OpenWrt 25.x)
-        run: |
-          chmod +x scripts/build_apk.sh
-          sh scripts/build_apk.sh dist
-
-      - name: Build .apk .run installer (apk 固件)
-        run: |
-          chmod +x scripts/build_run_apk.sh
-          ls -lh dist/*.apk
-          sh scripts/build_run_apk.sh dist
-
-      - name: Set up QEMU for ARM64 Node.js
+      - name: Set up QEMU for ARM64
         uses: docker/setup-qemu-action@v3
         with:
           platforms: linux/arm64
@@ -109,13 +339,46 @@ jobs:
             -e "PKG_TYPE=lts" \
             alpine:3.21 sh /build-node-musl.sh
 
-      - name: List outputs
+      - name: Upload Node.js artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: packages-node
+          path: dist/*.tar.xz
+          if-no-files-found: error
+
+  release:
+    name: Publish GitHub Release
+    runs-on: ubuntu-latest
+    needs: [build, run, node]
+    if: github.event_name == 'push' || github.event.inputs.create_release == 'true'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve release version
+        id: version
         run: |
-          echo "=== Build artifacts ==="
-          ls -lh dist/
-          echo ""
-          echo "=== SHA256 checksums ==="
-          sha256sum dist/*.run dist/*.ipk dist/*.apk dist/*.tar.xz 2>/dev/null || true
+          if [ "${{ github.event_name }}" = "push" ] && [ -n "${GITHUB_REF_NAME}" ]; then
+            version="${GITHUB_REF_NAME#v}"
+          elif [ -n "${{ github.event.inputs.version }}" ]; then
+            version="${{ github.event.inputs.version }}"
+          elif [ -f VERSION ]; then
+            version="$(cat VERSION | tr -d '[:space:]')"
+          else
+            version="$(date -u +%Y.%m.%d)"
+          fi
+          echo "version=${version}" >> "${GITHUB_OUTPUT}"
+          echo "tag=v${version}" >> "${GITHUB_OUTPUT}"
+          echo "Release version: ${version}"
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: release-assets
+          pattern: packages-*
+          merge-multiple: true
 
       - name: Extract changelog
         id: changelog
@@ -131,29 +394,13 @@ jobs:
             echo "CHANGELOG_EOF"
           } >> "$GITHUB_OUTPUT"
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: luci-app-openclaw-${{ steps.version.outputs.version }}
-          path: |
-            dist/*.run
-            dist/*.ipk
-            dist/*.apk
-            dist/*.tar.xz
-          retention-days: 30
-          compression-level: 0
-
-      - name: Create Release
-        if: github.event_name == 'push' || github.event.inputs.create_release == 'true'
+      - name: Publish release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.version.outputs.tag }}
           name: ${{ steps.version.outputs.version }}
-          files: |
-            dist/*.run
-            dist/*.ipk
-            dist/*.apk
-            dist/*.tar.xz
+          files: release-assets/*
+          fail_on_unmatched_files: true
           draft: false
           prerelease: false
           body: |
@@ -163,7 +410,7 @@ jobs:
 
             ### 安装方式
 
-            Release 同时支持 **opkg 固件**（OpenWrt ≤24.x / iStoreOS）与 **apk 固件**（OpenWrt 25.x / ZeroWrt 25.x，apk-only 无 opkg），在线安装会自动下载 Node.js 与 OpenClaw。
+            Release 同时支持 **opkg 固件**（OpenWrt ≤24.x / iStoreOS）与 **apk 固件**（OpenWrt 25.x / ZeroWrt 25.x，apk-only 无 opkg），在线安装会自动下载 Node.js 与 OpenClaw。包均由官方 OpenWrt SDK（luci.mk）编译。
 
             **一、opkg 固件（iStoreOS / OpenWrt ≤24.x）**
 
@@ -173,8 +420,9 @@ jobs:
             # 方式 1: 一键自解压包
             sh luci-app-openclaw_${VER}.run
 
-            # 方式 2: opkg 安装 .ipk
+            # 方式 2: opkg 安装 (主包 + 可选中文翻译)
             opkg install luci-app-openclaw_${VER}-1_all.ipk
+            opkg install luci-i18n-openclaw-zh-cn_${VER}-1_all.ipk
             ```
 
             **二、apk 固件（OpenWrt 25.x / ZeroWrt 25.x，无 opkg）**
@@ -185,12 +433,12 @@ jobs:
             # 方式 1: 一键自解压包 (内嵌 .apk)
             sh luci-app-openclaw_${VER}_apk.run
 
-            # 方式 2: 直接安装 SDK 编译的 .apk
-            apk add --allow-untrusted luci-app-openclaw_${VER}-r1_all.apk
+            # 方式 2: 直接安装 .apk (主包 + 可选中文翻译)
+            apk add --allow-untrusted luci-app-openclaw_${VER}-r1_all.apk luci-i18n-openclaw-zh-cn_${VER}-r1_all.apk
             ```
 
             **三、Node.js ARM64 musl 运行时**（自托管兜底源）
 
-            - `node-v${{ steps.build_versions.outputs.node_version }}-linux-arm64-musl.tar.xz`：OpenClaw 环境安装时 Node.js 的备用下载源（aarch64 设备）。
+            - 对应 tar.xz 由 `node` job 产出（版本取自 `root/usr/bin/openclaw-env` 的 `NODE_VERSION_V2`），供 aarch64 设备 OpenClaw 环境安装兜底。
 
             [使用文档](https://github.com/10000ge10000/luci-app-openclaw#readme) · [问题反馈](https://github.com/10000ge10000/luci-app-openclaw/issues) · [B站](https://space.bilibili.com/59438380) · [博客](https://blog.910501.xyz/)
