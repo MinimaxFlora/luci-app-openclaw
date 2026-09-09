@@ -95,8 +95,9 @@
       "label": "DeepSeek",
       "catalogSource": "builtin",
       "models": [
-        { "model": "deepseek-chat", "tier": "recommended", "desc": "DeepSeek Chat (推荐)" },
-        { "model": "deepseek-reasoner", "tier": "strongest", "desc": "DeepSeek Reasoner 推理" }
+        { "model": "deepseek-v4-flash", "tier": "recommended", "desc": "DeepSeek V4 Flash (推荐)" },
+        { "model": "deepseek-v4-pro", "tier": "strongest", "desc": "DeepSeek V4 Pro 最强推理" },
+        { "model": "deepseek-v4-flash-vision-exp", "tier": "balanced", "desc": "DeepSeek V4 Flash Vision (视觉实验版)" }
       ]
     },
     "moonshot": {
