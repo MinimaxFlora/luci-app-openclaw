@@ -42,7 +42,9 @@ PYBIN=$(command -v python 2>/dev/null || printf '')
 export PATH="$SANDBOX/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # ---- list output is valid JSON with all methods ----
-LIST_OUT=$(env -u OPENCLAW_RPCD_SOURCED "$PLUGIN" list)
+# exec via sh: the file may lack the +x bit in a fresh checkout (mode is
+# restored by chmod steps on package build), so don't depend on exec here.
+LIST_OUT=$(env -u OPENCLAW_RPCD_SOURCED sh "$PLUGIN" list)
 printf '%s' "$LIST_OUT" | "$PYBIN" -c 'import json,sys; d=json.load(sys.stdin); assert "status" in d and "service_ctl" in d and "backup" in d and "devices_approve" in d and "wechat_login" in d, list(d)' \
 	|| fail "list output not valid JSON / methods missing"
 ok "list prints valid JSON method signatures"
