@@ -199,6 +199,8 @@ jobs:
           CONFIG_ALL=n
           CONFIG_AUTOREMOVE=n
           CONFIG_LUCI_LANG_zh_Hans=y
+          # luci-app-openclaw 依赖 luci-base (luci 前端运行时), 必须先选入并编译
+          CONFIG_PACKAGE_luci-base=m
           CONFIG_PACKAGE_luci-app-openclaw=m
           EOF
 
@@ -208,9 +210,11 @@ jobs:
       - name: Compile packages
         working-directory: sdk
         run: |
-          # 只编译主包即可: po/zh_Hans + CONFIG_LUCI_LANG_zh_Hans=y 时,
-          # luci.mk 会自动随主包产出 luci-i18n-openclaw-zh-cn (po2lmo)
+          # 依赖树: luci-base → luci-app-openclaw; 语言包 luci-i18n-openclaw-zh-cn
+          # 由 luci.mk 随主包自动产出 (po/zh_Hans + CONFIG_LUCI_LANG_zh_Hans=y, po2lmo)
+          make package/luci-base/clean
           make package/luci-app-openclaw/clean
+          make package/luci-base/compile -j"$(nproc)" V=s
           make package/luci-app-openclaw/compile -j"$(nproc)" V=s
 
       - name: Collect packages
