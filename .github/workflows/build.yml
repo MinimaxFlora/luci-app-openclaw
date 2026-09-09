@@ -200,7 +200,6 @@ jobs:
           CONFIG_AUTOREMOVE=n
           CONFIG_LUCI_LANG_zh_Hans=y
           CONFIG_PACKAGE_luci-app-openclaw=m
-          CONFIG_PACKAGE_luci-i18n-openclaw-zh-cn=m
           EOF
 
           sed -i 's/^[[:space:]]*//' .config
@@ -209,9 +208,10 @@ jobs:
       - name: Compile packages
         working-directory: sdk
         run: |
-          make package/luci-app-openclaw/clean package/luci-i18n-openclaw-zh-cn/clean
+          # 只编译主包即可: po/zh_Hans + CONFIG_LUCI_LANG_zh_Hans=y 时,
+          # luci.mk 会自动随主包产出 luci-i18n-openclaw-zh-cn (po2lmo)
+          make package/luci-app-openclaw/clean
           make package/luci-app-openclaw/compile -j"$(nproc)" V=s
-          make package/luci-i18n-openclaw-zh-cn/compile -j"$(nproc)" V=s
 
       - name: Collect packages
         env:
