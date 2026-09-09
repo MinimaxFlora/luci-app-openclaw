@@ -5,9 +5,9 @@
 #
 # 与 build_run.sh (.ipk/.opkg 版) 对应 —— 本脚本面向 apk 包管理的固件
 # (OpenWrt 25.x / ZeroWrt 25.x 等, 无 opkg)。前置产物:
-#   <dir>/luci-app-openclaw_<ver>-r1_all.apk
-#   <dir>/luci-i18n-openclaw-zh-cn_<ver>-r1_all.apk
-# 由 OpenWrt SDK (luci.mk) 构建; 安装器通过 `apk add --allow-untrusted`
+#   <dir>/luci-app-openclaw-<ver>-r1.apk
+#   <dir>/luci-i18n-openclaw-zh-cn-<luci版本>.apk
+# 由 OpenWrt SDK (luci.mk) 构建 (apk-tools v3, 连字符命名, 无 _all); 安装器通过 `apk add --allow-untrusted`
 # 安装内嵌的 .apk, 依赖由 apk 从固件仓库自动解析。
 # ============================================================================
 set -e
@@ -27,13 +27,13 @@ PKG_VERSION=$(cat "$PKG_DIR/VERSION" 2>/dev/null | tr -d '[:space:]' || echo "1.
 echo "=== 构建 OpenWrt 25.x (apk) .run 安装包 ==="
 echo "输出到: $OUT_DIR"
 
-# 前置检查: 需要 SDK 构建出的 .apk 产物
-APP_APK=$(ls "$OUT_DIR"/${PKG_NAME}_*.apk 2>/dev/null | head -1 || true)
-I18N_APK=$(ls "$OUT_DIR"/luci-i18n-${PKG_NAME}-zh-cn_*.apk 2>/dev/null | head -1 || true)
+# 前置检查: 需要 SDK 构建出的 .apk 产物 (apk-tools v3: <name>-<ver>-r1.apk, 连字符)
+APP_APK=$(ls "$OUT_DIR"/${PKG_NAME}-*.apk 2>/dev/null | head -1 || true)
+I18N_APK=$(ls "$OUT_DIR"/luci-i18n-${PKG_NAME}-zh-cn-*.apk 2>/dev/null | head -1 || true)
 if [ -z "$APP_APK" ]; then
-	echo "错误: 未找到 ${PKG_NAME}_*.apk, 请先用 OpenWrt 25.x SDK (luci.mk) 构建, 例如:"
+	echo "错误: 未找到 ${PKG_NAME}-*.apk, 请先用 OpenWrt 25.x SDK (luci.mk) 构建, 例如:"
 	echo "  make package/luci-app-openclaw/compile V=s"
-	echo "  cp bin/packages/*/luci-app-openclaw_*.apk bin/packages/*/luci-i18n-*.apk \"$OUT_DIR/\""
+	echo "  cp bin/packages/*/luci-app-openclaw-*.apk bin/packages/*/luci-i18n-openclaw-zh-cn-*.apk \"$OUT_DIR/\""
 	exit 1
 fi
 echo "内嵌 .apk 产物:"
