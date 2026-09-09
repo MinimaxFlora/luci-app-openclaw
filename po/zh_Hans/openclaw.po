@@ -11,7 +11,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-
 #: htdocs/luci-static/resources/openclaw/common.js:43
 msgid "Copied"
 msgstr "已复制"
@@ -87,10 +86,6 @@ msgstr "💡 解决: 尝试手动安装 "
 #: htdocs/luci-static/resources/openclaw/common.js:173
 msgid " manually or check the network connection."
 msgstr " 或检查网络连接。"
-
-#: htdocs/luci-static/resources/openclaw/common.js:176
-msgid "Permission denied"
-msgstr "权限不足"
 
 #: htdocs/luci-static/resources/openclaw/common.js:176
 msgid " — file or directory permission problem."
@@ -326,10 +321,6 @@ msgstr "进程 PID"
 msgid "Memory Usage"
 msgstr "内存占用"
 
-#: htdocs/luci-static/resources/view/openclaw/basic.js:57
-msgid "Uptime"
-msgstr "运行时间"
-
 #: htdocs/luci-static/resources/view/openclaw/basic.js:60
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:85
 msgid "Plugin Version"
@@ -464,10 +455,6 @@ msgstr "检测空间"
 msgid "💡 An openclaw folder will be created under this path. At least 2GB of free space is required. If installing on a second disk, make sure it is mounted."
 msgstr "💡 程序将在此路径下创建 openclaw 目录进行安装。最小需要 2GB 可用空间。如安装在第二块硬盘，请确保硬盘已挂载。"
 
-#: htdocs/luci-static/resources/view/openclaw/basic.js:125
-msgid "Cancel"
-msgstr "取消"
-
 #: htdocs/luci-static/resources/view/openclaw/basic.js:126
 msgid "Start Install"
 msgstr "开始安装"
@@ -497,17 +484,9 @@ msgstr "仅配置文件 (~2KB) 包含模型、渠道、插件设置；完整备�
 msgid "📥 Existing Backups"
 msgstr "📥 现有备份"
 
-#: htdocs/luci-static/resources/view/openclaw/basic.js:150
-msgid "Close"
-msgstr "关闭"
-
 #: htdocs/luci-static/resources/view/openclaw/basic.js:193
 msgid "Query Failed"
 msgstr "查询失败"
-
-#: htdocs/luci-static/resources/view/openclaw/basic.js:218
-msgid "Disabled"
-msgstr "已禁用"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:220
 msgid "Running"
@@ -660,10 +639,6 @@ msgstr "⏳ 安装中..."
 #: htdocs/luci-static/resources/view/openclaw/basic.js:423
 msgid "📦 Install Runtime ("
 msgstr "📦 安装运行环境 ("
-
-#: htdocs/luci-static/resources/view/openclaw/basic.js:423
-msgid "Stable"
-msgstr "稳定版"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:423
 msgid "Latest"
@@ -913,33 +888,13 @@ msgstr "❌ 请求失败"
 msgid "⏳ Loading backup list..."
 msgstr "⏳ 加载备份列表..."
 
-#: htdocs/luci-static/resources/view/openclaw/basic.js:830
-msgid "Type"
-msgstr "类型"
-
 #: htdocs/luci-static/resources/view/openclaw/basic.js:831
 msgid "Backup Time"
 msgstr "备份时间"
 
-#: htdocs/luci-static/resources/view/openclaw/basic.js:832
-msgid "Size"
-msgstr "大小"
-
-#: htdocs/luci-static/resources/view/openclaw/basic.js:833
-msgid "Action"
-msgstr "操作"
-
 #: htdocs/luci-static/resources/view/openclaw/basic.js:839
 msgid "📦 Full Backup"
 msgstr "📦 完整备份"
-
-#: htdocs/luci-static/resources/view/openclaw/basic.js:846
-msgid "Restore"
-msgstr "恢复"
-
-#: htdocs/luci-static/resources/view/openclaw/basic.js:847
-msgid "Delete"
-msgstr "删除"
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:866
 msgid "No backups yet — create one first"
@@ -1160,7 +1115,7 @@ msgstr " — 页面会自动检查 Node、python3、目录权限和微信接口�
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:77
 msgid "Click “Log in”"
-msgstr "点击“登录账号”"
+msgstr "点击“登录”"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:77
 msgid " — open the link that appears, then scan it with the WeChat scanner"
@@ -1268,10 +1223,6 @@ msgstr "✅ 已登录 ("
 msgid " accounts)"
 msgstr " 个账号)"
 
-#: htdocs/luci-static/resources/view/openclaw/wechat.js:234
-msgid "Log out"
-msgstr "退出账号"
-
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:237
 msgid "➕ Add New Account"
 msgstr "➕ 添加新账号"
@@ -1279,10 +1230,6 @@ msgstr "➕ 添加新账号"
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:243
 msgid "⚠️ Not logged in"
 msgstr "⚠️ 未登录"
-
-#: htdocs/luci-static/resources/view/openclaw/wechat.js:245
-msgid "Log in"
-msgstr "登录账号"
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:256
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:257

@@ -1,7 +1,6 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
-
 #: htdocs/luci-static/resources/openclaw/common.js:43
 msgid "Copied"
 msgstr ""
@@ -76,10 +75,6 @@ msgstr ""
 
 #: htdocs/luci-static/resources/openclaw/common.js:173
 msgid " manually or check the network connection."
-msgstr ""
-
-#: htdocs/luci-static/resources/openclaw/common.js:176
-msgid "Permission denied"
 msgstr ""
 
 #: htdocs/luci-static/resources/openclaw/common.js:176
@@ -316,10 +311,6 @@ msgstr ""
 msgid "Memory Usage"
 msgstr ""
 
-#: htdocs/luci-static/resources/view/openclaw/basic.js:57
-msgid "Uptime"
-msgstr ""
-
 #: htdocs/luci-static/resources/view/openclaw/basic.js:60
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:85
 msgid "Plugin Version"
@@ -454,10 +445,6 @@ msgstr ""
 msgid "💡 An openclaw folder will be created under this path. At least 2GB of free space is required. If installing on a second disk, make sure it is mounted."
 msgstr ""
 
-#: htdocs/luci-static/resources/view/openclaw/basic.js:125
-msgid "Cancel"
-msgstr ""
-
 #: htdocs/luci-static/resources/view/openclaw/basic.js:126
 msgid "Start Install"
 msgstr ""
@@ -487,16 +474,8 @@ msgstr ""
 msgid "📥 Existing Backups"
 msgstr ""
 
-#: htdocs/luci-static/resources/view/openclaw/basic.js:150
-msgid "Close"
-msgstr ""
-
 #: htdocs/luci-static/resources/view/openclaw/basic.js:193
 msgid "Query Failed"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/openclaw/basic.js:218
-msgid "Disabled"
 msgstr ""
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:220
@@ -649,10 +628,6 @@ msgstr ""
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:423
 msgid "📦 Install Runtime ("
-msgstr ""
-
-#: htdocs/luci-static/resources/view/openclaw/basic.js:423
-msgid "Stable"
 msgstr ""
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:423
@@ -903,32 +878,12 @@ msgstr ""
 msgid "⏳ Loading backup list..."
 msgstr ""
 
-#: htdocs/luci-static/resources/view/openclaw/basic.js:830
-msgid "Type"
-msgstr ""
-
 #: htdocs/luci-static/resources/view/openclaw/basic.js:831
 msgid "Backup Time"
 msgstr ""
 
-#: htdocs/luci-static/resources/view/openclaw/basic.js:832
-msgid "Size"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/openclaw/basic.js:833
-msgid "Action"
-msgstr ""
-
 #: htdocs/luci-static/resources/view/openclaw/basic.js:839
 msgid "📦 Full Backup"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/openclaw/basic.js:846
-msgid "Restore"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/openclaw/basic.js:847
-msgid "Delete"
 msgstr ""
 
 #: htdocs/luci-static/resources/view/openclaw/basic.js:866
@@ -1258,20 +1213,12 @@ msgstr ""
 msgid " accounts)"
 msgstr ""
 
-#: htdocs/luci-static/resources/view/openclaw/wechat.js:234
-msgid "Log out"
-msgstr ""
-
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:237
 msgid "➕ Add New Account"
 msgstr ""
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:243
 msgid "⚠️ Not logged in"
-msgstr ""
-
-#: htdocs/luci-static/resources/view/openclaw/wechat.js:245
-msgid "Log in"
 msgstr ""
 
 #: htdocs/luci-static/resources/view/openclaw/wechat.js:256
