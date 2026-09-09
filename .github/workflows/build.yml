@@ -216,6 +216,14 @@ jobs:
           make package/luci-app-openclaw/clean
           make package/luci-base/compile -j"$(nproc)" V=s
           make package/luci-app-openclaw/compile -j"$(nproc)" V=s
+          echo "=== openclaw outputs under bin ==="
+          find bin/packages -maxdepth 6 -type f -name '*openclaw*' 2>/dev/null | sort || true
+
+      - name: Verify package registration
+        working-directory: sdk
+        run: |
+          echo "=== is luci-app-openclaw registered? (make info) ==="
+          make package/luci-app-openclaw/info 2>&1 | head -25 || echo "(info target failed - package NOT registered)"
 
       - name: Collect packages
         env:
@@ -225,19 +233,20 @@ jobs:
 
           # ipk: luci-app-openclaw_<ver>-r1_all.ipk (下划线+arch)
           # apk: luci-app-openclaw-<ver>-r1.apk      (连字符, apk-tools v3)
+          # 命名以 SDK 实产为准, 按前缀收并放宽层级
           find sdk/bin/packages -type f \
-            \( -name "luci-app-openclaw_*.ipk" \
-            -o -name "luci-i18n-openclaw-zh-cn_*.ipk" \
-            -o -name "luci-app-openclaw-*.apk" \
-            -o -name "luci-i18n-openclaw-zh-cn-*.apk" \) \
+            \( -name "luci-app-openclaw*" \
+            -o -name "luci-i18n-openclaw-zh-cn*" \) \
             -exec cp -v {} "artifacts/${PACKAGE_FORMAT}/" \;
 
-          count="$(find "artifacts/${PACKAGE_FORMAT}" -maxdepth 1 -type f -name "luci-app-openclaw*.${PACKAGE_FORMAT}" | wc -l)"
+          echo "=== collected ${{ matrix.package_format }} ==="
+          ls -lh "artifacts/${PACKAGE_FORMAT}/" || true
+          count="$(find "artifacts/${PACKAGE_FORMAT}" -maxdepth 1 -type f -name "luci-app-openclaw*" | wc -l)"
 
           if [ "${count}" -lt 1 ]; then
             echo "::error::Missing expected packages for ${PACKAGE_FORMAT}."
-            find sdk/bin/packages -maxdepth 3 -type f | sort
-            find "artifacts/${PACKAGE_FORMAT}" -maxdepth 1 -type f -print
+            echo "=== everything under sdk/bin/packages ==="
+            find sdk/bin/packages -maxdepth 6 -type f | sort
             exit 1
           fi
 
