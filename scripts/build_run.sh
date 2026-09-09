@@ -173,7 +173,7 @@ mkdir -p "$INFO_DIR"
 cat > "$INFO_DIR/$PKG.control" << CTLEOF
 Package: $PKG
 Version: $PKG_VER
-Depends: luci-base, curl, openssl-util, script-utils, tar, libstdcpp6, libubox, jshn
+Depends: luci-base, curl, openssl-util, script-utils, coreutils-stty, tar, libstdcpp6, libubox, jshn
 Section: luci
 Architecture: all
 Installed-Size: 0
@@ -209,7 +209,7 @@ cat >> "$STATUS_FILE" << STEOF
 
 Package: $PKG
 Version: $PKG_VER
-Depends: luci-base, curl, openssl-util, script-utils, tar, libstdcpp6, libubox, jshn
+Depends: luci-base, curl, openssl-util, script-utils, coreutils-stty, tar, libstdcpp6, libubox, jshn
 Status: install user installed
 Architecture: all
 Conffiles:

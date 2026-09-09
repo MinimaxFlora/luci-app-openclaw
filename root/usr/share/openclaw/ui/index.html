@@ -116,34 +116,10 @@
 
   function doFit() {
     try { fitAddon.fit(); } catch(e) { /* ignore */ }
-    // 字体未就绪 / 容器尚未布局时 fit 会得到错误的极小列宽,
-    // 导致终端把每行文本折成逐字竖排 —— 自愈重试直到尺寸合理。
-    if (term.cols < 20 || term.rows < 4) {
-      setTimeout(doFit, 200);
-      return;
-    }
     try { term.scrollToBottom(); } catch(e) { /* ignore */ }
-    try {
-      if (ws && ws.readyState === 1)
-        ws.send(JSON.stringify({ type: 'resize', cols: term.cols, rows: term.rows }));
-    } catch(e) {}
   }
   doFit();
-  if (document.fonts && document.fonts.ready)
-    document.fonts.ready.then(function() { setTimeout(doFit, 30); });
   window.addEventListener('resize', () => { setTimeout(doFit, 100); });
-  // 绝对兜底: 若 fit 反复失败导致列宽异常(竖排), 强制回退 80x24。
-  // 每秒检查一次, 异常即强制 resize 并上报服务端。
-  setInterval(function() {
-    try {
-      if (term.cols < 20 || term.rows < 4) {
-        term.resize(80, 24);
-        if (ws && ws.readyState === 1)
-          ws.send(JSON.stringify({ type: 'resize', cols: 80, rows: 24 }));
-        console.log('[oc-config] forced terminal size to 80x24 (fit anomaly)');
-      }
-    } catch(e) {}
-  }, 1000);
 
   // 监听 iframe 容器大小变化 (FnOS 桌面可能调整窗口大小)
   if (typeof ResizeObserver !== 'undefined') {
@@ -362,9 +338,12 @@
         term.clear();
         term.write('\x1b[33m⚡ 已重新连接，配置脚本已重新启动\x1b[0m\r\n\r\n');
       }
-      // 连接后重新 fit 并同步真实尺寸 (doFit 内含 resize 上报)
+      // 连接后重新 fit，确保尺寸正确
       setTimeout(doFit, 50);
       term.focus();
+      try {
+        ws.send(JSON.stringify({ type: 'resize', cols: term.cols, rows: term.rows }));
+      } catch(e) {}
       // 客户端心跳: 每 20 秒发送一次，防止连接被浏览器/代理超时关闭
       if (pingTimer) clearInterval(pingTimer);
       pingTimer = setInterval(function() {
