@@ -1996,41 +1996,39 @@ oc_devices_node() {
 	local helper="/tmp/oc-devices-helper-$$.js"
 	cat > "$helper" <<'NJS'
 const fs = require('fs');
-const raw = fs.readFileSync(0, 'utf8');
-const mode = process.argv[1];
+const mode = process.argv[2];
+const rawfile = process.argv[3];
 function hasArrays(j) {
   return (j && typeof j === 'object' &&
     (Array.isArray(j.pending) || Array.isArray(j.paired)));
 }
+function load() {
+  try { return JSON.parse(fs.readFileSync(rawfile, 'utf8')); }
+  catch (e) { return null; }
+}
 if (mode === 'list') {
-  try {
-    const j = JSON.parse(raw);
-    if (hasArrays(j))
-      console.log(JSON.stringify({ status: 'ok', pending: j.pending || [], paired: j.paired || [] }));
-    else
-      console.log(JSON.stringify({ status: 'ok', pending: [], paired: [], raw: String(raw).slice(0, 300) }));
-  } catch (e) {
-    console.log(JSON.stringify({ status: 'ok', pending: [], paired: [], raw: String(raw).slice(0, 300) }));
-  }
+  const j = load();
+  if (j && hasArrays(j))
+    console.log(JSON.stringify({ status: 'ok', pending: j.pending || [], paired: j.paired || [] }));
+  else
+    console.log(JSON.stringify({ status: 'ok', pending: [], paired: [], raw: String(rawfile).slice(0, 300) }));
   process.exit(0);
 }
 if (mode === 'listids') {
-  try {
-    const j = JSON.parse(raw);
-    const p = (j && Array.isArray(j.pending)) ? j.pending : [];
-    for (const it of p)
-      if (it && it.requestId && /^[a-zA-Z0-9\-_]+$/.test(it.requestId))
-        console.log(it.requestId);
-  } catch (e) { /* no ids */ }
+  const j = load();
+  const p = (j && Array.isArray(j.pending)) ? j.pending : [];
+  for (const it of p)
+    if (it && it.requestId && /^[a-zA-Z0-9\-_]+$/.test(it.requestId))
+      console.log(it.requestId);
   process.exit(0);
 }
 NJS
-	"$oc_node_bin" "$helper" "$1" 2>/dev/null
+	"$oc_node_bin" "$helper" "$1" "$2" 2>/dev/null
 	rm -f "$helper"
 }
 
 m_devices_list() {
-	local out="" rc=0
+	local out="" rc=0 raw=""
 	out=$(oc_devices_cli_capture devices list --json)
 	rc=$?
 	if [ $rc -ne 0 ] || [ -z "$out" ]; then
@@ -2044,7 +2042,10 @@ m_devices_list() {
 		json_dump
 		return 0
 	fi
-	printf '%s' "$out" | oc_devices_node "list"
+	raw="/tmp/oc-devices-raw-$$.json"
+	printf '%s' "$out" > "$raw"
+	oc_devices_node "list" "$raw"
+	rm -f "$raw"
 }
 
 m_devices_approve() {
@@ -2073,9 +2074,12 @@ m_devices_approve() {
 	if [ -n "$request_id" ]; then
 		ids="$request_id"
 	else
-		local list_out=""
+		local list_out="" raw2=""
 		list_out=$(oc_devices_cli_capture devices list --json)
-		ids=$(printf '%s' "$list_out" | oc_devices_node "listids")
+		raw2="/tmp/oc-devices-raw-$$.json"
+		printf '%s' "$list_out" > "$raw2"
+		ids=$(oc_devices_node "listids" "$raw2")
+		rm -f "$raw2"
 	fi
 
 	json_init
