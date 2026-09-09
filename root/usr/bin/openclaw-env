@@ -760,6 +760,25 @@ install_openclaw() {
 		fi
 	fi
 
+	# 检查 stty 是否可用 (web 终端 PTY 需用 stty 设置窗口尺寸;
+	# 缺失时 script 起的 pty winsize 为 0x0, 交互向导渲染错乱/竖排)
+	if ! command -v stty >/dev/null 2>&1; then
+		log_warn "未检测到 stty，正在尝试安装 coreutils-stty..."
+		if command -v apk >/dev/null 2>&1; then
+			# OpenWrt 25.x (apk) has no opkg
+			apk update >/dev/null 2>&1 || true
+			apk add coreutils-stty >/dev/null 2>&1 || apk add coreutils-stty 2>&1 | tail -3 || true
+		else
+			opkg update >/dev/null 2>&1
+			opkg install coreutils-stty 2>&1 | tail -3 || true
+		fi
+		if command -v stty >/dev/null 2>&1; then
+			log_info "coreutils-stty 安装成功"
+		else
+			log_warn "coreutils-stty 安装失败，请手动安装: apk add coreutils-stty / opkg install coreutils-stty"
+		fi
+	fi
+
 	# 必须要求 helper 和 npm 可用
 	if [ ! -x "$NPM_BIN" ]; then
 		log_error "npm 可执行文件不可用 ($NPM_BIN)，无法安装 OpenClaw"
