@@ -1367,17 +1367,17 @@ async function configureDeepSeek() {
   resetRenderCount();
   console.log(`\n${C.bold}DeepSeek 配置${C.reset}`);
   console.log(`${C.yellow}获取 API Key: https://platform.deepseek.com/api_keys${C.reset}`);
-  console.log(`${C.dim}DeepSeek 官方 API，OpenAI 兼容，支持 deepseek-chat / deepseek-reasoner${C.reset}\n`);
+  console.log(`${C.dim}DeepSeek 官方 API，OpenAI 兼容，支持 deepseek-v4-flash / deepseek-v4-pro / deepseek-v4-flash-vision-exp${C.reset}\n`);
 
   const apiKey = await input({ prompt: '请输入 DeepSeek API Key (sk-...)', placeholder: 'sk-...' });
   if (!apiKey) { console.log(`${C.yellow}已取消${C.reset}`); return false; }
 
-  const modelName = await selectProviderModel('deepseek', 'DeepSeek 模型选择', 'deepseek-chat');
+  const modelName = await selectProviderModel('deepseek', 'DeepSeek 模型选择', 'deepseek-v4-flash');
   if (!modelName) { console.log(`${C.yellow}已取消${C.reset}`); return false; }
 
   // DeepSeek 为 OpenAI 兼容 API, 显式注册 baseUrl + 所选模型, 保证离线可用
   authSetApikey('deepseek', apiKey);
-  registerCustomProvider('deepseek', 'https://api.deepseek.com/v1', apiKey, modelName, modelName);
+  registerCustomProvider('deepseek', 'https://api.deepseek.com', apiKey, modelName, modelName);
   registerAndSetModel(`deepseek/${modelName}`);
   console.log(`\n${C.green}✅ DeepSeek 已配置，活跃模型: deepseek/${modelName}${C.reset}\n`);
   return true;

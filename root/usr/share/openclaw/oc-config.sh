@@ -1259,10 +1259,10 @@ configure_model() {
 				echo ""
 				# 模型清单来自 model-presets.json (与 JS 侧共读同一数据源)，
 				# 并支持 d 动态发现 / m 手动输入。
-				oc_pick_model deepseek "deepseek-chat"
+				oc_pick_model deepseek "deepseek-v4-flash"
 				model_name="$OC_PICKED_MODEL"
 				auth_set_apikey deepseek "$api_key"
-				register_custom_provider deepseek "https://api.deepseek.com/v1" "$api_key" "$model_name" "$model_name"
+				register_custom_provider deepseek "https://api.deepseek.com" "$api_key" "$model_name" "$model_name"
 				register_and_set_model "deepseek/${model_name}"
 				echo -e "  ${GREEN}✅ DeepSeek 已配置，活跃模型: deepseek/${model_name}${NC}"
 				configured=1
