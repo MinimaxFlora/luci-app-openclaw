@@ -119,7 +119,7 @@ esac
 # 检查依赖
 # .run 不经过 opkg 依赖解析，需要主动补齐运行时依赖。
 # 特别是精简固件常见 /bin/tar 为 BusyBox 版本，无法解压 Node.js 的 .tar.xz。
-for dep in luci-base curl openssl-util script-utils tar libstdcpp6 libubox jshn; do
+for dep in luci-base curl openssl-util script-utils coreutils-stty tar libstdcpp6; do
 	if ! opkg list-installed 2>/dev/null | grep -q "^${dep} "; then
 		echo "警告: 缺少依赖 $dep，尝试安装..."
 		opkg update >/dev/null 2>&1 || true
@@ -173,7 +173,7 @@ mkdir -p "$INFO_DIR"
 cat > "$INFO_DIR/$PKG.control" << CTLEOF
 Package: $PKG
 Version: $PKG_VER
-Depends: luci-base, curl, openssl-util, script-utils, coreutils-stty, tar, libstdcpp6, libubox, jshn
+Depends: luci-base, curl, openssl-util, script-utils, coreutils-stty, tar, libstdcpp6
 Section: luci
 Architecture: all
 Installed-Size: 0
@@ -209,7 +209,7 @@ cat >> "$STATUS_FILE" << STEOF
 
 Package: $PKG
 Version: $PKG_VER
-Depends: luci-base, curl, openssl-util, script-utils, coreutils-stty, tar, libstdcpp6, libubox, jshn
+Depends: luci-base, curl, openssl-util, script-utils, coreutils-stty, tar, libstdcpp6
 Status: install user installed
 Architecture: all
 Conffiles:

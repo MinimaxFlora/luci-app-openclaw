@@ -31,8 +31,15 @@ fi
 
 # Makefile 走 luci.mk 自动打包 (同 mosdns/ota): htdocs/* → /www, root/* → / (cp -pR 保留权限)
 grep -Fq 'include $(TOPDIR)/feeds/luci/luci.mk' Makefile || fail "Makefile must use luci.mk auto-install"
-grep -q "libubox" Makefile || fail "Makefile must depend on libubox (jshn.sh)"
-grep -q "jshn" Makefile || fail "Makefile must depend on jshn"
+# 运行时依赖集合 (luci-base/curl/openssl-util/script-utils/tar/libstdcpp6/coreutils-stty)
+grep -q '+luci-base' Makefile || fail "Makefile must depend on luci-base"
+grep -q '+libstdcpp6' Makefile || fail "Makefile must depend on libstdcpp6 (node runtime)"
+grep -q '+coreutils-stty' Makefile || fail "Makefile must depend on coreutils-stty (web-pty)"
+# 禁止声明 +libubox: master(snapshot) 把它改名成 libubox2026xxxx (按快照日期),
+# 直接声明会把具体日期包名写进 Depends, 跨快照固件仓库安装报 no such package。
+if grep -q '^LUCI_DEPENDS:=.*+libubox' Makefile; then
+	fail "do not declare +libubox (snapshot renames it to dated libubox2026xxxx)"
+fi
 for f in \
 	htdocs/luci-static/resources/view/openclaw/wechat.js \
 	root/usr/libexec/rpcd/openclaw \
@@ -195,7 +202,7 @@ grep -q "Open in new window" htdocs/luci-static/resources/view/openclaw/console.
 grep -q "document.createElement('iframe')" htdocs/luci-static/resources/view/openclaw/console.js || fail "console must embed OpenClaw in an iframe"
 
 grep -q "root/usr/libexec" scripts/build_run.sh || fail "run script must package shell helpers"
-grep -q "for dep in luci-base curl openssl-util script-utils tar libstdcpp6 libubox jshn" scripts/build_run.sh || fail ".run installer must install runtime dependencies"
+grep -q "for dep in luci-base curl openssl-util script-utils coreutils-stty tar libstdcpp6" scripts/build_run.sh || fail ".run installer must install runtime dependencies"
 grep -q -- "--owner=0 --group=0 --numeric-owner" scripts/build_run.sh || fail ".run payload must normalize file ownership to root"
 grep -q "chown -R root:root" scripts/build_run.sh || fail ".run installer must repair root-owned system files after extraction"
 grep -q "先解压到临时目录并确认完整，再替换 NODE_BASE" root/usr/bin/openclaw-env || fail "Node install must not delete existing runtime before extraction succeeds"

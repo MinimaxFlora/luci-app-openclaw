@@ -26,10 +26,14 @@ LUCI_MAINTAINER:=10000ge10000 <10000ge10000@users.noreply.github.com>
 
 LUCI_TITLE:=OpenClaw AI 网关 LuCI 管理插件
 LUCI_PKGARCH:=all
-# 现代 JS UI 不再需要 luci-compat; libubox/jshn 供 rpcd exec 插件 (backend)
-# 注意: 不声明 C++ 运行时依赖 — 23.05 系符号是 libstdcpp6、master 是
-# libstdcpp, 一个 Makefile 无法兼容两边 kconfig select, 且插件无 C++ 组件。
-LUCI_DEPENDS:=+luci-base +curl +openssl-util +script-utils +coreutils-stty +tar +libubox +jshn
+# 运行时依赖 (真实需求, 与 .run 安装器一致):
+#   luci-base(curl 等由 LuCI/固件链保证) + node/工具链: curl openssl-util
+#   script-utils tar libstdcpp6 coreutils-stty
+# 注意: 不再声明 libubox(+libubox 会被 master 快照解析成 libubox2026xxxx
+# 日期包名, 跨快照固件仓库安装报 no such package); jshn.sh 由 luci-base
+# 链自带。libstdcpp6 仅为运行时依赖名, kconfig 符号缺失只产生 warning,
+# 不隐藏本包符号 (隐藏只由 tar-xz / coreutils 守卫造成, 已在 workflow 补)。
+LUCI_DEPENDS:=+luci-base +curl +openssl-util +script-utils +tar +libstdcpp6 +coreutils-stty
 
 define Package/$(PKG_NAME)/conffiles
 /etc/config/openclaw
