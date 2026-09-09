@@ -434,7 +434,7 @@ jobs:
             sh luci-app-openclaw_${VER}_apk.run
 
             # 方式 2: 直接安装 .apk (主包 + 可选中文翻译)
-            apk add --allow-untrusted luci-app-openclaw_${VER}-r1_all.apk luci-i18n-openclaw-zh-cn_${VER}-r1_all.apk
+            apk add --allow-untrusted luci-app-openclaw-${VER}-r1.apk luci-i18n-openclaw-zh-cn-${VER}-r1.apk
             ```
 
             **三、Node.js ARM64 musl 运行时**（自托管兜底源）

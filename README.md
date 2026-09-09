@@ -62,9 +62,9 @@ VER=$(curl -sI "https://github.com/10000ge10000/luci-app-openclaw/releases/lates
 wget "https://github.com/10000ge10000/luci-app-openclaw/releases/download/v${VER}/luci-app-openclaw_${VER}_apk.run"
 sh "luci-app-openclaw_${VER}_apk.run"
 
-# 或直接安装 .apk（本地脚本 scripts/build_apk.sh 经官方 SDK 编译）
-wget "https://github.com/10000ge10000/luci-app-openclaw/releases/download/v${VER}/luci-app-openclaw_${VER}-r1_all.apk"
-apk add --allow-untrusted luci-app-openclaw_${VER}-r1_all.apk
+# 或直接安装 .apk（官方 OpenWrt SDK 编译产物）
+wget "https://github.com/10000ge10000/luci-app-openclaw/releases/download/v${VER}/luci-app-openclaw-${VER}-r1.apk"
+apk add --allow-untrusted luci-app-openclaw-${VER}-r1.apk
 ```
 
 ### 方式三：.ipk 安装（opkg 固件）
@@ -214,8 +214,6 @@ luci-app-openclaw/
 │           ├── web-pty.js            # Web PTY 服务
 │           └── ui/                   # 配置终端前端资源
 ├── scripts/
-│   ├── build_ipk.sh                  # 本地 IPK 构建 (opkg)
-│   ├── build_apk.sh                  # 本地 .apk 构建 (官方 OpenWrt main SDK 镜像, luci.mk)
 │   ├── build_run.sh                  # .run 安装包构建 (opkg 固件)
 │   ├── build_run_apk.sh              # .run 安装包构建 (apk 固件, 内嵌 .apk)
 │   ├── gen-release-body.sh           # Release 说明生成

@@ -43,8 +43,6 @@ for f in \
 done
 grep -q 'openclaw-permissions.sh fix-state "$${OC_DATA}/.openclaw"' Makefile || fail "postinst must repair existing OpenClaw state permissions after reinstall"
 grep -q '/etc/init.d/openclaw start >/dev/null 2>&1' Makefile || fail "postinst must restart enabled OpenClaw service after reinstall"
-grep -q 'openclaw-permissions.sh fix-state "${OC_DATA}/.openclaw"' scripts/build_ipk.sh || fail "release ipk postinst must repair existing OpenClaw state permissions after reinstall"
-grep -q '/etc/init.d/openclaw start >/dev/null 2>&1' scripts/build_ipk.sh || fail "release ipk postinst must restart enabled OpenClaw service after reinstall"
 if grep -q "openclaw.zh-cn.lmo" Makefile; then
 	fail "main package must not install openclaw.zh-cn.lmo"
 fi
@@ -196,13 +194,10 @@ grep -q "var url = 'http://'" htdocs/luci-static/resources/view/openclaw/console
 grep -q "Open in new window" htdocs/luci-static/resources/view/openclaw/console.js || fail "console must expose a new-window entry"
 grep -q "document.createElement('iframe')" htdocs/luci-static/resources/view/openclaw/console.js || fail "console must embed OpenClaw in an iframe"
 
-grep -q "root/usr/libexec" scripts/build_ipk.sh || fail "ipk script must package shell helpers"
 grep -q "root/usr/libexec" scripts/build_run.sh || fail "run script must package shell helpers"
 grep -q "for dep in luci-base curl openssl-util script-utils tar libstdcpp6 libubox jshn" scripts/build_run.sh || fail ".run installer must install runtime dependencies"
 grep -q -- "--owner=0 --group=0 --numeric-owner" scripts/build_run.sh || fail ".run payload must normalize file ownership to root"
-grep -q -- "--owner=0 --group=0 --numeric-owner" scripts/build_ipk.sh || fail ".ipk payload must normalize file ownership to root"
 grep -q "chown -R root:root" scripts/build_run.sh || fail ".run installer must repair root-owned system files after extraction"
-grep -q "chown -R root:root" scripts/build_ipk.sh || fail ".ipk postinst must repair root-owned system files after extraction"
 grep -q "先解压到临时目录并确认完整，再替换 NODE_BASE" root/usr/bin/openclaw-env || fail "Node install must not delete existing runtime before extraction succeeds"
 grep -q "OC_SETUP_FRESH_ROOT" root/usr/bin/openclaw-env || fail "setup cleanup must preserve existing runtime roots"
 
