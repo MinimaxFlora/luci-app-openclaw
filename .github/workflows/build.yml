@@ -214,10 +214,17 @@ jobs:
           # 由 luci.mk 随主包自动产出 (po/zh_Hans + CONFIG_LUCI_LANG_zh_Hans=y, po2lmo)
           make package/luci-base/clean
           make package/luci-app-openclaw/clean
-          make package/luci-base/compile -j"$(nproc)" V=s
-          make package/luci-app-openclaw/compile -j"$(nproc)" V=s
+          make package/luci-base/compile -j"$(nproc)" V=s 2>&1 | tail -80
+          test "${PIPESTATUS[0]}" -eq 0 || { echo "::error::luci-base compile failed"; exit 1; }
+          make package/luci-app-openclaw/compile -j"$(nproc)" V=s 2>&1 | tail -120
+          test "${PIPESTATUS[0]}" -eq 0 || { echo "::error::luci-app-openclaw compile failed"; exit 1; }
           echo "=== openclaw outputs under bin ==="
-          find bin/packages -maxdepth 6 -type f -name '*openclaw*' 2>/dev/null | sort || true
+          find bin/packages -type f -name '*openclaw*' 2>/dev/null | sort || true
+          FOUND="$(find bin/packages -type f -name '*openclaw*' | wc -l)"
+          if [ "${FOUND}" -lt 1 ]; then
+            echo "::error::compile succeeded but no luci-app-openclaw artifact was produced"
+            exit 1
+          fi
 
       - name: Verify package registration
         working-directory: sdk
