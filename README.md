@@ -53,7 +53,7 @@ sh "luci-app-openclaw_${VER}.run"
 ### 方式二：.apk 安装（OpenWrt 25.x / ZeroWrt 25.x，apk 包管理）
 
 OpenWrt 25.x 起改用 apk 包管理（ZeroWrt 25.x 等为 apk-only，无 opkg），
-Release 附 SDK 编译的 `.apk` 与内嵌 .apk 的一键包：
+Release 附 `.apk`（经 OpenWrt main SDK / luci.mk 编译）与内嵌 .apk 的一键包：
 
 ```bash
 VER=$(curl -sI "https://github.com/10000ge10000/luci-app-openclaw/releases/latest" 2>/dev/null | grep -i "location:" | sed 's/.*tag\/v\{0,1\}//' | tr -d '\r\n')
@@ -62,10 +62,9 @@ VER=$(curl -sI "https://github.com/10000ge10000/luci-app-openclaw/releases/lates
 wget "https://github.com/10000ge10000/luci-app-openclaw/releases/download/v${VER}/luci-app-openclaw_${VER}_apk.run"
 sh "luci-app-openclaw_${VER}_apk.run"
 
-# 或手动安装（主包 + 中文翻译，二者均为 luci.mk 产物）
-wget "https://github.com/10000ge10000/luci-app-openclaw/releases/download/v${VER}/luci-app-openclaw_${VER}-r1_all.apk"
-wget "https://github.com/10000ge10000/luci-app-openclaw/releases/download/v${VER}/luci-i18n-openclaw-zh-cn_${VER}-r1_all.apk"
-apk add --allow-untrusted luci-app-openclaw_${VER}-r1_all.apk luci-i18n-openclaw-zh-cn_${VER}-r1_all.apk
+# 或直接安装 .apk（官方 OpenWrt SDK 编译产物）
+wget "https://github.com/10000ge10000/luci-app-openclaw/releases/download/v${VER}/luci-app-openclaw-${VER}-r1.apk"
+apk add --allow-untrusted luci-app-openclaw-${VER}-r1.apk
 ```
 
 ### 方式三：.ipk 安装（opkg 固件）
@@ -215,7 +214,6 @@ luci-app-openclaw/
 │           ├── web-pty.js            # Web PTY 服务
 │           └── ui/                   # 配置终端前端资源
 ├── scripts/
-│   ├── build_ipk.sh                  # 本地 IPK 构建 (opkg)
 │   ├── build_run.sh                  # .run 安装包构建 (opkg 固件)
 │   ├── build_run_apk.sh              # .run 安装包构建 (apk 固件, 内嵌 .apk)
 │   ├── gen-release-body.sh           # Release 说明生成

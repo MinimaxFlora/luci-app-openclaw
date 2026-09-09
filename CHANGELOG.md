@@ -8,13 +8,13 @@
 
 ### 新增：OpenWrt 25.x (apk) 构建产物
 
-- **CI 新增 .apk 构建步骤**：`.github/workflows/build.yml` 在原有 `.ipk` / opkg `.run` 产物之外，使用 OpenWrt main SDK（`openwrt/gh-action-sdk`，ghcr `x86_64-main` 镜像）经 `luci.mk` 编译 `luci-app-openclaw` 与 `luci-i18n-openclaw-zh-cn` 的 `.apk`，并随 Release 发布。
+- **CI 发布流程改为官方 OpenWrt SDK 矩阵（参考 luci-app-argon 官方模板）**：`.github/workflows/build.yml` 由 `build`（matrix）→ `run`（ubuntu-24.04）→ `node` → `release` 四个 job 组成。`build` 并行编译两生态：`.ipk`（OpenWrt 23.05.5 SDK）与 `.apk`（OpenWrt main snapshots SDK，apk-tools v3 格式，面向 OpenWrt 25.x / ZeroWrt 25.x）——SDK 经 sha256sums 解析 + actions/cache + 校验后使用，仓库 rsync 进 SDK 包目录，`luci.mk` 编译主包 `luci-app-openclaw` 与翻译包 `luci-i18n-openclaw-zh-cn`（po2lmo 生成 .lmo）。`run` 打两个一键 `.run` 安装包，`node` 用 QEMU + alpine 交叉编译 ARM64 musl Node.js（版本取自 `NODE_VERSION_V2`），`release` 汇总发布。版本统一由 tag（去 `v`）→ 手动输入 → `VERSION` 文件解析。原先的本机打包脚本 `build_ipk.sh` / `build_apk.sh` 已随本次重构移除——打包行为统一收敛到 `Makefile` + `luci.mk`（postinst / conffiles 已在 Makefile 声明，与旧脚本行为等价）。
 - **新增 `scripts/build_run_apk.sh`**：生成内嵌 `.apk` 的一键安装包 `luci-app-openclaw_<版本>_apk.run`，面向 OpenWrt 25.x / ZeroWrt 25.x 等 apk 包管理固件（无 opkg），通过 `apk add --allow-untrusted` 安装并自动解析依赖；安装后自动执行 uci-defaults、权限修复与 rpcd 注册。
-- README 安装章节新增 apk 方式（一键包 + 手动 `apk add`），系统要求补充 apk 包管理行。
+- Release 正文与 README 安装章节按 opkg / apk 两套命令重写，系统要求补充 apk 包管理行。
 
 ### 修复
 
-- **web 配置终端向导竖排/错乱（根因：缺 `coreutils-stty`）**：路由器缺少 stty 时，web-pty 内 `stty rows/cols` 静默失败导致 PTY winsize 为 0×0，向导全屏重绘逐字错乱。`Makefile` / `build_ipk.sh` / `build_run.sh` 依赖声明补 `coreutils-stty`，`openclaw-env` 自动安装；撤销此前基于误诊的 xterm 加固补丁，终端页面与上游保持一致。
+- **web 配置终端向导竖排/错乱（根因：缺 `coreutils-stty`）**：路由器缺少 stty 时，web-pty 内 `stty rows/cols` 静默失败导致 PTY winsize 为 0×0，向导全屏重绘逐字错乱。`Makefile` 依赖（`LUCI_DEPENDS`，luci.mk 同步进 ipk/apk）与 `.run` 安装器依赖声明补 `coreutils-stty`，`openclaw-env` 自动安装；撤销此前基于误诊的 xterm 加固补丁，终端页面与上游保持一致。
 - **模型提供商菜单新增 DeepSeek（V4）**：配置菜单（交互式 + 传统）新增 `[l] DeepSeek`，模型目录更新为 `deepseek-v4-flash`（默认）/ `deepseek-v4-pro` / `deepseek-v4-flash-vision-exp`，API 地址 `https://api.deepseek.com`；Ollama 顺延为 `[m]`。
 - **LuCI RPC 参数透传修复**：`rpc.declare` 的 object 风格 params 要求首参为对象字面量，此前 `api.js` 全部方法按位置传参导致带参调用参数丢失（设备配对“一键批准”报 `缺少 request_id 或 all 参数`）。改为 array 风格 params，`devices_approve` / `service_ctl` / `backup` / `plugin_upgrade` / `check_system` / `wechat_logout` 一并修复。
 - **OpenClaw 2026.9.1 凭证库迁移**：网关启动失败 `AuthProfileMigrationRequiredError`（旧格式凭证需迁移到 sqlite）——按官方指引执行 `openclaw doctor --fix` 后网关恢复。
