@@ -199,9 +199,11 @@ jobs:
           CONFIG_ALL=n
           CONFIG_AUTOREMOVE=n
           CONFIG_LUCI_LANG_zh_Hans=y
-          # 依赖 luci-base(前端运行时); luci.mk 对 +tar 依赖自动加
-          # 'depends on !(PACKAGE_TAR_XZ) || PACKAGE_xz-utils', 缺 xz-utils
-          # 会隐藏本包符号, defconfig 静默丢弃 -> compile "Nothing to be done"
+          # 依赖 luci-base(前端运行时); 两个 SDK 时代的 kconfig 守卫:
+          # - master(snapshot): luci.mk 对 +tar 加 'depends on !(TAR_XZ)||xz-utils'
+          # - 23.05: coreutils-stty 是 coreutils 大包子包, 符号 depends on PACKAGE_coreutils
+          # 缺其一都会隐藏本包符号, defconfig 静默丢弃 -> compile "Nothing to be done"
+          CONFIG_PACKAGE_coreutils=y
           CONFIG_PACKAGE_xz-utils=y
           CONFIG_PACKAGE_luci-base=m
           CONFIG_PACKAGE_luci-app-openclaw=m
