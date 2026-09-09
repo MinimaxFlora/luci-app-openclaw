@@ -982,12 +982,13 @@ configure_model() {
 		echo -e "  ${CYAN}i)${NC} 腾讯云 Coding Plan"
 		echo -e "  ${CYAN}j)${NC} 百度千帆"
 		echo -e "  ${CYAN}k)${NC} 智谱 GLM / Z.AI"
+		echo -e "  ${CYAN}l)${NC} DeepSeek"
 		echo ""
 		echo -e "  ${BOLD}🏠 ── 本地模型 / 自定义 API ──${NC}"
-		echo -e "  ${CYAN}l)${NC} Ollama (本地模型，无需 API Key)"
-		echo -e "  ${CYAN}m)${NC} 自定义 OpenAI 兼容 API"
-		echo -e "  ${CYAN}n)${NC} 自定义 Anthropic 兼容 API"
-		echo -e "  ${CYAN}o)${NC} 一万AI分享 粉丝专享 API"
+		echo -e "  ${CYAN}m)${NC} Ollama (本地模型，无需 API Key)"
+		echo -e "  ${CYAN}n)${NC} 自定义 OpenAI 兼容 API"
+		echo -e "  ${CYAN}o)${NC} 自定义 Anthropic 兼容 API"
+		echo -e "  ${CYAN}p)${NC} 一万AI分享 粉丝专享 API"
 		echo ""
 		echo -e "  ${CYAN}q)${NC} 返回"
 		echo ""
@@ -1250,6 +1251,25 @@ configure_model() {
 			;;
 		l)
 			echo ""
+			echo -e "  ${BOLD}DeepSeek 配置${NC}"
+			echo -e "  ${YELLOW}获取 API Key: https://platform.deepseek.com/api_keys${NC}"
+			echo ""
+			prompt_with_default "请输入 DeepSeek API Key (sk-...)" "" api_key
+			if [ -n "$api_key" ]; then
+				echo ""
+				# 模型清单来自 model-presets.json (与 JS 侧共读同一数据源)，
+				# 并支持 d 动态发现 / m 手动输入。
+				oc_pick_model deepseek "deepseek-chat"
+				model_name="$OC_PICKED_MODEL"
+				auth_set_apikey deepseek "$api_key"
+				register_custom_provider deepseek "https://api.deepseek.com/v1" "$api_key" "$model_name" "$model_name"
+				register_and_set_model "deepseek/${model_name}"
+				echo -e "  ${GREEN}✅ DeepSeek 已配置，活跃模型: deepseek/${model_name}${NC}"
+				configured=1
+			fi
+			;;
+		m)
+			echo ""
 			echo -e "  ${BOLD}🦙 Ollama 本地模型配置${NC}"
 			echo -e "  ${YELLOW}Ollama 在本地或局域网运行大模型，无需 API Key${NC}"
 			echo -e "  ${YELLOW}安装 Ollama: https://ollama.com${NC}"
@@ -1465,7 +1485,7 @@ configure_model() {
 				configured=1
 			fi
 			;;
-		m)
+		n)
 			echo ""
 			echo -e "  ${BOLD}自定义 OpenAI 兼容 API${NC}"
 			echo -e "  ${YELLOW}支持任何兼容 OpenAI API 格式的服务商${NC}"
@@ -1481,7 +1501,7 @@ configure_model() {
 				configured=1
 			fi
 			;;
-		n)
+		o)
 			echo ""
 			echo -e "  ${BOLD}自定义 Anthropic 兼容 API${NC}"
 			echo -e "  ${YELLOW}支持任何兼容 Anthropic Messages API 格式的服务商${NC}"
@@ -1520,7 +1540,7 @@ configure_model() {
 				configured=1
 			fi
 			;;
-		o)
+		p)
 			echo ""
 			echo -e "  ${BOLD}一万AI分享 粉丝专享 API${NC}"
 			echo -e "  ${YELLOW}OpenAI 兼容模式；Base URL 和模型已内置，只需要填写 API Key。${NC}"

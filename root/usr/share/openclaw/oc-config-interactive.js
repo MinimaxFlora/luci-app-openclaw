@@ -876,12 +876,13 @@ async function showModelMenu() {
       { key: 'i', label: '腾讯云 Coding Plan', desc: '', value: 'tencent' },
       { key: 'j', label: '百度千帆', desc: '', value: 'baidu' },
       { key: 'k', label: '智谱 GLM / Z.AI', desc: '', value: 'zhipu' },
+      { key: 'l', label: 'DeepSeek', desc: '', value: 'deepseek' },
 
       { label: `${C.bold}── 本地模型 / 自定义 API ──${C.reset}`, disabled: true },
-      { key: 'l', label: 'Ollama', desc: '本地模型，无需 API Key', value: 'ollama' },
-      { key: 'm', label: '自定义 OpenAI 兼容 API', desc: '', value: 'custom' },
-      { key: 'n', label: '自定义 Anthropic 兼容 API', desc: '', value: 'custom-anthropic' },
-      { key: 'o', label: '一万AI分享 粉丝专享 API', desc: '', value: 'yiwanai-fan' },
+      { key: 'm', label: 'Ollama', desc: '本地模型，无需 API Key', value: 'ollama' },
+      { key: 'n', label: '自定义 OpenAI 兼容 API', desc: '', value: 'custom' },
+      { key: 'o', label: '自定义 Anthropic 兼容 API', desc: '', value: 'custom-anthropic' },
+      { key: 'p', label: '一万AI分享 粉丝专享 API', desc: '', value: 'yiwanai-fan' },
 
       { label: '', disabled: true },
       { key: '0', label: '返回', desc: '', value: 'back' },
@@ -1362,6 +1363,26 @@ async function configureZhipu() {
   return true;
 }
 
+async function configureDeepSeek() {
+  resetRenderCount();
+  console.log(`\n${C.bold}DeepSeek 配置${C.reset}`);
+  console.log(`${C.yellow}获取 API Key: https://platform.deepseek.com/api_keys${C.reset}`);
+  console.log(`${C.dim}DeepSeek 官方 API，OpenAI 兼容，支持 deepseek-chat / deepseek-reasoner${C.reset}\n`);
+
+  const apiKey = await input({ prompt: '请输入 DeepSeek API Key (sk-...)', placeholder: 'sk-...' });
+  if (!apiKey) { console.log(`${C.yellow}已取消${C.reset}`); return false; }
+
+  const modelName = await selectProviderModel('deepseek', 'DeepSeek 模型选择', 'deepseek-chat');
+  if (!modelName) { console.log(`${C.yellow}已取消${C.reset}`); return false; }
+
+  // DeepSeek 为 OpenAI 兼容 API, 显式注册 baseUrl + 所选模型, 保证离线可用
+  authSetApikey('deepseek', apiKey);
+  registerCustomProvider('deepseek', 'https://api.deepseek.com/v1', apiKey, modelName, modelName);
+  registerAndSetModel(`deepseek/${modelName}`);
+  console.log(`\n${C.green}✅ DeepSeek 已配置，活跃模型: deepseek/${modelName}${C.reset}\n`);
+  return true;
+}
+
 async function configureOllama() {
   resetRenderCount();
   console.log(`\n${C.bold}Ollama 本地模型配置${C.reset}`);
@@ -1587,6 +1608,7 @@ async function handleModelConfig() {
       case 'tencent': configured = await configureTencent(); break;
       case 'baidu': configured = await configureBaidu(); break;
       case 'zhipu': configured = await configureZhipu(); break;
+      case 'deepseek': configured = await configureDeepSeek(); break;
       case 'ollama': configured = await configureOllama(); break;
       case 'custom': configured = await configureCustomAPI(); break;
       case 'custom-anthropic': configured = await configureCustomAnthropic(); break;
