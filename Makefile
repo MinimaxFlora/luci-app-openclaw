@@ -27,7 +27,7 @@ LUCI_MAINTAINER:=10000ge10000 <10000ge10000@users.noreply.github.com>
 LUCI_TITLE:=OpenClaw AI 网关 LuCI 管理插件
 LUCI_PKGARCH:=all
 # 现代 JS UI 不再需要 luci-compat; libubox/jshn 供 rpcd exec 插件 (backend)
-LUCI_DEPENDS:=+luci-base +curl +openssl-util +script-utils +coreutils-stty +tar +libstdcpp6 +libubox +jshn
+LUCI_DEPENDS:=+luci-base +curl +openssl-util +script-utils +coreutils-stty +tar +libstdcpp +libubox +jshn
 
 define Package/$(PKG_NAME)/conffiles
 /etc/config/openclaw

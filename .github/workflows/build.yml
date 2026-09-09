@@ -199,7 +199,10 @@ jobs:
           CONFIG_ALL=n
           CONFIG_AUTOREMOVE=n
           CONFIG_LUCI_LANG_zh_Hans=y
-          # luci-app-openclaw 依赖 luci-base (luci 前端运行时), 必须先选入并编译
+          # 依赖 luci-base(前端运行时); luci.mk 对 +tar 依赖自动加
+          # 'depends on !(PACKAGE_TAR_XZ) || PACKAGE_xz-utils', 缺 xz-utils
+          # 会隐藏本包符号, defconfig 静默丢弃 -> compile "Nothing to be done"
+          CONFIG_PACKAGE_xz-utils=y
           CONFIG_PACKAGE_luci-base=m
           CONFIG_PACKAGE_luci-app-openclaw=m
           EOF
@@ -440,9 +443,8 @@ jobs:
             # 方式 1: 一键自解压包
             sh luci-app-openclaw_${VER}.run
 
-            # 方式 2: opkg 安装 (主包 + 可选中文翻译)
+            # 方式 2: opkg 安装 (主包 + 可选中文翻译, 翻译包名见附件实际文件)
             opkg install luci-app-openclaw_${VER}-1_all.ipk
-            opkg install luci-i18n-openclaw-zh-cn_${VER}-1_all.ipk
             ```
 
             **二、apk 固件（OpenWrt 25.x / ZeroWrt 25.x，无 opkg）**
@@ -454,7 +456,8 @@ jobs:
             sh luci-app-openclaw_${VER}_apk.run
 
             # 方式 2: 直接安装 .apk (主包 + 可选中文翻译)
-            apk add --allow-untrusted luci-app-openclaw-${VER}-r1.apk luci-i18n-openclaw-zh-cn-${VER}-r1.apk
+            # 主包名固定; 翻译包名带 luci 快照版本, 见 release 附件实际文件名
+            apk add --allow-untrusted luci-app-openclaw-${VER}-r1.apk
             ```
 
             **三、Node.js ARM64 musl 运行时**（自托管兜底源）
