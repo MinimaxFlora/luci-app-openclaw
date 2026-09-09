@@ -745,8 +745,14 @@ install_openclaw() {
 	# 检查 git 是否可用 (openclaw 部分依赖可能使用 git:// 协议)
 	if ! command -v git >/dev/null 2>&1; then
 		log_warn "未检测到 git，正在尝试安装..."
-		opkg update >/dev/null 2>&1
-		opkg install git git-http 2>&1 | tail -3 || true
+		if command -v apk >/dev/null 2>&1; then
+			# OpenWrt 25.x (apk) has no opkg
+			apk update >/dev/null 2>&1 || true
+			apk add git >/dev/null 2>&1 || apk add git 2>&1 | tail -3 || true
+		else
+			opkg update >/dev/null 2>&1
+			opkg install git git-http 2>&1 | tail -3 || true
+		fi
 		if command -v git >/dev/null 2>&1; then
 			log_info "git 安装成功"
 		else
