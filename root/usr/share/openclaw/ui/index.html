@@ -132,6 +132,18 @@
   if (document.fonts && document.fonts.ready)
     document.fonts.ready.then(function() { setTimeout(doFit, 30); });
   window.addEventListener('resize', () => { setTimeout(doFit, 100); });
+  // 绝对兜底: 若 fit 反复失败导致列宽异常(竖排), 强制回退 80x24。
+  // 每秒检查一次, 异常即强制 resize 并上报服务端。
+  setInterval(function() {
+    try {
+      if (term.cols < 20 || term.rows < 4) {
+        term.resize(80, 24);
+        if (ws && ws.readyState === 1)
+          ws.send(JSON.stringify({ type: 'resize', cols: 80, rows: 24 }));
+        console.log('[oc-config] forced terminal size to 80x24 (fit anomaly)');
+      }
+    } catch(e) {}
+  }, 1000);
 
   // 监听 iframe 容器大小变化 (FnOS 桌面可能调整窗口大小)
   if (typeof ResizeObserver !== 'undefined') {
