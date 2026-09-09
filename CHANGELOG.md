@@ -8,9 +8,9 @@
 
 ### 新增：OpenWrt 25.x (apk) 构建产物
 
-- **CI 统一走 OpenWrt SDK 编译（`.ipk` + `.apk`）**：`.github/workflows/build.yml` 不再使用手写 `build_ipk.sh`。`.ipk` 改用 OpenWrt 24.10 SDK（opkg 时代，ghcr `x86_64-24.10.1`）、`.apk` 用 main SDK（ghcr `x86_64-main`），均经 `openwrt/gh-action-sdk` + `luci.mk` 编译 `luci-app-openclaw` 与 `luci-i18n-openclaw-zh-cn`（独立翻译包、含 lmo），并随 Release 发布。
+- **CI 同时发布 opkg / apk 两生态产物**：`.github/workflows/build.yml` 保留 `build_ipk.sh` 产出 `.ipk`（opkg 固件），新增 `scripts/build_apk.sh` 产出 `.apk`（OpenWrt 25.x / ZeroWrt 25.x）——.apk 为 apk-tools v3 格式，脚本经官方 OpenWrt main SDK 镜像（luci.mk，与固件集成编译同一路径）编译，CI 与本地均可一键执行。
 - **新增 `scripts/build_run_apk.sh`**：生成内嵌 `.apk` 的一键安装包 `luci-app-openclaw_<版本>_apk.run`，面向 OpenWrt 25.x / ZeroWrt 25.x 等 apk 包管理固件（无 opkg），通过 `apk add --allow-untrusted` 安装并自动解析依赖；安装后自动执行 uci-defaults、权限修复与 rpcd 注册。
-- README 安装章节新增 apk 方式（一键包 + 手动 `apk add`），系统要求补充 apk 包管理行。
+- Release 正文与 README 安装章节按 opkg / apk 两套命令重写，系统要求补充 apk 包管理行。
 
 ### 修复
 
